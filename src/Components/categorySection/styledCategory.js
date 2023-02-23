@@ -81,12 +81,7 @@ export const CategoryCardStyled = styled.div`
     color: rgba(56, 59, 88, 0.6);
   }
 
-  @media (min-width: 768px) {
-    max-width: 340px;
-  }
   @media (min-width: 1320px) {
-    max-width: none;
-    width: 100%;
     p{
       margin-top: 0;
     }
