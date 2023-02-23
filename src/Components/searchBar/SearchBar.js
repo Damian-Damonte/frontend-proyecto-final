@@ -13,7 +13,7 @@ import {
   SelectCityOptionContainer,
 } from "./styledSearchBar";
 
-const citysHardCode = [
+const citysHardcoded = [
   {
     id: 1,
     country: "Argentina",
@@ -102,7 +102,7 @@ export default function SearchBar({
               : "¿A dónde vamos?"}
           </p>
           <SelectCityOptionContainer $show={showCitys}>
-            {citysHardCode.map((city) => (
+            {citysHardcoded.map((city) => (
               <SelectCityOption
                 key={city.id}
                 city={city}

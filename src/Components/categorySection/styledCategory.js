@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const CategoryContainerStyled = styled.section`
-  padding: 10px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
 
@@ -14,9 +14,10 @@ export const CategoryContainerStyled = styled.section`
     font-weight: 700;
     color: ${PURPLE2};
     margin-bottom: 10px;
+    /* margin-left: 10px; */
   }
   @media (min-width: 1320px) {
-    padding: 25px;
+    padding: 20px;
   }
 `;
 
@@ -25,14 +26,14 @@ export const CardContainer = styled.div`
   display: grid;
   justify-content: center;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
 
   div {
     align-self: center;
     justify-self: center;
   }
 
-  @media (min-width: 768px) and (max-width: 1320px) {
+  @media (min-width: 670px) and (max-width: 1319px) {
     grid-template-columns: 1fr 1fr;
     div:nth-child(odd) {
       justify-self: end;
@@ -43,15 +44,15 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 1320px) {
-    grid-template-columns: repeat(4, minmax(310px, 1fr));
+    gap:10px;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   }
 `;
 
 export const CategoryCardStyled = styled.div`
-
   padding-bottom: 15px;
-  max-width: 390px;
-
+  max-width: 420px;
+  width: 100%;
   overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -63,6 +64,8 @@ export const CategoryCardStyled = styled.div`
   img {
     width: 100%;
     object-fit: cover;
+    max-height: 170px;
+    object-position: center;
   }
 
   h3 {
@@ -82,7 +85,8 @@ export const CategoryCardStyled = styled.div`
     max-width: 340px;
   }
   @media (min-width: 1320px) {
-    max-width: 310px;
+    max-width: none;
+    width: 100%;
     p{
       margin-top: 0;
     }
