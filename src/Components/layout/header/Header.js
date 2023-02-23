@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
-import UserContext from "../context/user.context";
+import UserContext from "../../../context/user.context";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Logo } from "../img/logo-desk.svg";
-import { ReactComponent as BtnMenu } from "../img/menu.svg";
+import { ReactComponent as Logo } from "../../../img/logo-desk.svg";
+import { ReactComponent as BtnMenu } from "../../../img/menu.svg";
 import Drawer from "./Drawer";
-import { routes } from "../Routes";
+import { routes } from "../../../Routes";
 import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
 
 
-export default function NewHeader() {
+export default function Header() {
   const [showDrawer, setShowDrawer] = useState(false);
 
   const { user, setUser } = useContext(UserContext);

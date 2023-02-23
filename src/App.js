@@ -3,7 +3,7 @@ import { routes } from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
 import NotFound from "./Routes/NotFound";
-import Layout from "./Components/Layout";
+import Layout from "./Components/layout/Layout";
 import FormSingIn from "./Routes/FormSingIn";
 import FormLogin from "./Routes/FormLogin";
 

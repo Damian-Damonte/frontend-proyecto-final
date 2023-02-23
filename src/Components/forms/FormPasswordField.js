@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as ShowPassword } from "../img/show-password.svg";
+import { ReactComponent as ShowPassword } from "../../img/show-password.svg";
 
 export default function FormPasswordField({
   fieldName,

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SearchBar from '../Components/home/searchBar/SearchBar'
+import SearchBar from '../Components/searchBar/SearchBar';
 
 const citysHardCode = [
   {

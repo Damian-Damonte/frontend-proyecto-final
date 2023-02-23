@@ -1,8 +1,8 @@
-import { ReactComponent as BtnCloseMenu } from "../img/cross-white.svg";
-import { ReactComponent as Facebook } from "../img/icon-facebook.svg";
-import { ReactComponent as Linkedin } from "../img/icon-linkedin.svg";
-import { ReactComponent as Twitter } from "../img/icon-twitter.svg";
-import { ReactComponent as Instagram } from "../img/icon-instagram.svg";
+import { ReactComponent as BtnCloseMenu } from "../../../img/cross-white.svg";
+import { ReactComponent as Facebook } from "../../../img/icon-facebook.svg";
+import { ReactComponent as Linkedin } from "../../../img/icon-linkedin.svg";
+import { ReactComponent as Twitter } from "../../../img/icon-twitter.svg";
+import { ReactComponent as Instagram } from "../../../img/icon-instagram.svg";
 import UserProfile from "./UserProfile";
 
 export default function Drawer({

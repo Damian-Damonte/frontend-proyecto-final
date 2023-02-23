@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReactComponent as BtnCloseSesion } from "../img/cross-black.svg";
+import { ReactComponent as BtnCloseSesion } from "../../../img/cross-black.svg";
 
 export default function UserProfile({user, handleCerrarSesion}) {
 

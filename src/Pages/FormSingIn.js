@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import FormField from "../Components/FormField";
-import FormPasswordField from "../Components/FormPasswordField";
+import FormField from "../Components/forms/FormField";
+import FormPasswordField from "../Components/forms/FormPasswordField";
 import { singinValidations } from "../utils/singinValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
