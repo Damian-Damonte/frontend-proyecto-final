@@ -16,7 +16,7 @@ export const CategoryContainerStyled = styled.section`
     margin-bottom: 10px;
     /* margin-left: 10px; */
   }
-  @media (min-width: 1320px) {
+  @media (min-width: 1325px) {
     padding: 20px;
   }
 `;
@@ -33,7 +33,7 @@ export const CardContainer = styled.div`
     justify-self: center;
   }
 
-  @media (min-width: 670px) and (max-width: 1319px) {
+  @media (min-width: 670px) and (max-width: 1324px) {
     grid-template-columns: 1fr 1fr;
     div:nth-child(odd) {
       justify-self: end;
@@ -43,8 +43,8 @@ export const CardContainer = styled.div`
     }
   }
 
-  @media (min-width: 1320px) {
-    gap:10px;
+  @media (min-width: 1325px) {
+    gap:15px;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   }
 `;
@@ -81,7 +81,7 @@ export const CategoryCardStyled = styled.div`
     color: rgba(56, 59, 88, 0.6);
   }
 
-  @media (min-width: 1320px) {
+  @media (min-width: 1325px) {
     p{
       margin-top: 0;
     }

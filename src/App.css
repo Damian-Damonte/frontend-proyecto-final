@@ -212,16 +212,16 @@
 }
 
 /* footer */
-.footer {
-  height: 50px;
+/* .footer { */
+  /* height: 50px;
   background-color: var(--primary-color);
   width: 100%;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 0; */
   /* BORRAR */
-  display: none;
-}
+  /* display: none; */
+/* } */
 
 /* new form LOGIN*/
 .form-container {
