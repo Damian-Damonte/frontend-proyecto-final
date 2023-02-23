@@ -1,11 +1,11 @@
 import "./App.css";
 import { routes } from "./Routes";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Routes/Home";
-import NotFound from "./Routes/NotFound";
+import Home from "./Pages/Home";
+import NotFound from "./Pages/NotFound";
 import Layout from "./Components/layout/Layout";
-import FormSingIn from "./Routes/FormSingIn";
-import FormLogin from "./Routes/FormLogin";
+import FormSingIn from "./Pages/FormSingIn";
+import FormLogin from "./Pages/FormLogin";
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CategoryContainer from '../Components/categorySection/CategoryContainer';
 import SearchBar from '../Components/searchBar/SearchBar';
 
 const citysHardCode = [
@@ -81,6 +82,7 @@ function Home() {
           onChangeDate={onChangeDate}
           handleSearchProducts={handleSearchProducts}
         />
+        <CategoryContainer />
     </main>
   )
 }
