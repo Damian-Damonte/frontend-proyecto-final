@@ -5,12 +5,13 @@ import FormPasswordField from "../Components/forms/FormPasswordField";
 import { loginValidations } from "../utils/loginValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
+import { FormContainer, FormUser } from "../Components/forms/styledForms";
 
-const userHardcodeado = {
-  firstName:"Bruno",
+const userHardcoded = {
+  firstName: "Bruno",
   lastName: "Rodríguez",
-  email:"mateofernandez@gmail.com",
-}
+  email: "mateofernandez@gmail.com",
+};
 
 const initialForm = {
   email: "",
@@ -18,9 +19,9 @@ const initialForm = {
 };
 
 const initialErrors = {
-  email: "",
-  password: "",
-  credentials: "",
+  email: null,
+  password: null,
+  credentials: null,
 };
 
 export default function NewForm() {
@@ -28,7 +29,7 @@ export default function NewForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
 
-  const { user, setUser } = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -43,9 +44,9 @@ export default function NewForm() {
   const successfulLogin = () => {
     setErrors(initialErrors);
     console.log("LOGIN CORRECTO");
-    setUser(userHardcodeado);
+    setUser(userHardcoded);
     navigate(routes.home);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -59,44 +60,51 @@ export default function NewForm() {
 
   const handleChangeForm = () => {
     navigate(routes.singin);
-  }
+  };
 
   return (
-    <div className="form-container">
-      <form className="form-user" onSubmit={handleSubmit}>
-        <h1 className="form-user-title">Iniciar sesión</h1>
-        <FormField
-          fieldName="Correo electrónico"
-          id="email"
-          handleChange={handleChange}
-          errors={errors}
-          form={form}
-          inputType="email"
-        />
-        <FormPasswordField
-          fieldName="Contraseña"
-          id="password"
-          handleChange={handleChange}
-          errors={errors}
-          form={form}
-          showPassword={showPassword}
-          handleShowPassword={handleShowPassword}
-        />
+    <FormContainer>
+      {/* <div className="form-container"> */}
+        <FormUser className="form-user" onSubmit={handleSubmit}>
+          <h1>Iniciar sesión</h1>
+          <FormField
+            fieldName="Correo electrónico"
+            id="email"
+            handleChange={handleChange}
+            errors={errors}
+            form={form}
+            inputType="email"
+          />
+          <FormPasswordField
+            fieldName="Contraseña"
+            id="password"
+            handleChange={handleChange}
+            errors={errors}
+            form={form}
+            showPassword={showPassword}
+            handleShowPassword={handleShowPassword}
+          />
 
-        <div className="form-user-submit-section">
-          <p className="form-user-credential-validations">
-            {errors.credentials}
-          </p>
-          <button type="submit" className="form-user-btn-login">
-            Ingresar
-          </button>
-          <p className="form-user-change-form ">
-            ¿Aún no tenes cuenta?
-            <span onClick={handleChangeForm} className="form-user-change-form-link"> Registrate</span>
-          </p>
-        </div>
-				
-      </form>
-    </div>
+          <div className="form-user-submit-section">
+            <p className="form-user-credential-validations">
+              {errors.credentials}
+            </p>
+            <button type="submit" className="form-user-btn-login">
+              Ingresar
+            </button>
+            <p className="form-user-change-form ">
+              ¿Aún no tenes cuenta?
+              <span
+                onClick={handleChangeForm}
+                className="form-user-change-form-link"
+              >
+                {" "}
+                Registrate
+              </span>
+            </p>
+          </div>
+        </FormUser>
+      {/* </div> */}
+    </FormContainer>
   );
 }
