@@ -7,6 +7,7 @@ import Drawer from "./Drawer";
 import { routes } from "../../../Routes";
 import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
+import { HeaderStyled, LogoContainer } from "./styledHeader";
 
 
 export default function Header() {
@@ -43,12 +44,12 @@ export default function Header() {
   }
 
   return (
-    <header className="header">
-    <div className="logo-container" onClick={navigateHome}>
-      <Logo className="logo" />
-      <span className="logo-eslogan">Sentite como en tu hogar</span>
-    </div>
-      <BtnMenu className="btn-open-drawer" onClick={handleBtnDrawer} />
+    <HeaderStyled>
+    <LogoContainer onClick={navigateHome}>
+      <Logo/>
+      <span>Sentite como en tu hogar</span>
+    </LogoContainer>
+      <BtnMenu onClick={handleBtnDrawer} />
       <Drawer
         showDrawer={showDrawer}
         handleBtnDrawer={handleBtnDrawer}
@@ -66,6 +67,6 @@ export default function Header() {
         urlPath={urlPath}
         handleCerrarSesion={handleCerrarSesion}
       />
-    </header>
+    </HeaderStyled>
   );
 }

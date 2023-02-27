@@ -4,6 +4,8 @@ import { ReactComponent as Linkedin } from "../../../img/icon-linkedin.svg";
 import { ReactComponent as Twitter } from "../../../img/icon-twitter.svg";
 import { ReactComponent as Instagram } from "../../../img/icon-instagram.svg";
 import UserProfile from "./UserProfile";
+import { BottomSectionDrawer, BottomSectionDrawerOptions, CloseSessionContainer, CloseSissionAndSocial, DrawerContainer, DrawerStyled, PMenu, SocialContainer, TopSectionDrawer } from "./styledHeader"
+
 
 export default function Drawer({
   showDrawer,
@@ -15,74 +17,59 @@ export default function Drawer({
   handleCerrarSesion,
 }) {
   const handleActions = (urlPath) => {
-    if (urlPath === "/registro")
-      return (
-        <p className="drawer-option" onClick={navigateLogin}>
-          Iniciar sesión
-        </p>
-      );
+    const login = <p onClick={navigateLogin}>Iniciar sesión</p>;
+    const singin = <p onClick={navigateSingin}>Crear cuenta</p>
 
-    if (urlPath === "/iniciar-sesion")
-      return (
-        <p className="drawer-option" onClick={navigateSingin}>
-          Crear cuenta
-        </p>
-      );
+    if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
+      return urlPath === "/registro" ? login : singin;
 
     if (user === null) {
       return (
         <>
-          <p className="drawer-option" onClick={navigateSingin}>
-            Crear cuenta
-          </p>
-          <div className="drawer-options-hr"></div>
-          <p className="drawer-option" onClick={navigateLogin}>
-            Iniciar sesión
-          </p>
+          {singin}
+          <div></div>
+          {login}
         </>
       );
     }
   };
 
-  const handleClicOut = () => {
-    handleBtnDrawer();
-  }
-
   return (
-    <div className={showDrawer ? "drawer-container show-drawer-container" : "drawer-container"}>
-      <div className="out-of-drawer" onClick={handleClicOut}></div>
-      <div className={showDrawer ? "drawer show-drawer" : "drawer"}>
-        <div className="topSectionDrawer">
-          <BtnCloseMenu className="btn-close-menu" onClick={handleBtnDrawer} />
+    <DrawerContainer $showDrawer={showDrawer}>
+      <div onClick={handleBtnDrawer}></div>
+      <DrawerStyled $showDrawer={showDrawer}>
+        <TopSectionDrawer>
+          <BtnCloseMenu onClick={handleBtnDrawer} />
           {user === null ? (
-            <div className="drawer-menu">MENÚ</div>
+            <PMenu >MENÚ</PMenu>
           ) : (
             <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>
           )}
-        </div>
-        <div className="bottomSectionDrawer">
-          <div className="drawer-options-container">
+        </TopSectionDrawer>
+
+        <BottomSectionDrawer>
+          <BottomSectionDrawerOptions>
             {handleActions(urlPath)}
-          </div>
-          <div className="drawer-redes">
+          </BottomSectionDrawerOptions>
+          <CloseSissionAndSocial >
             {user !== null && (
-              <div className="container-cerrar-sesion">
+              <CloseSessionContainer>
                 ¿Deseas{" "}
-                <span className="cerrar-sesion" onClick={handleCerrarSesion}>
+                <span onClick={handleCerrarSesion}>
                   cerrar sesión
                 </span>
                 ?
-              </div>
+              </CloseSessionContainer>
             )}
-            <div className="redes-continer">
-              <Facebook className="redes-icon" />
-              <Linkedin className="redes-icon" />
-              <Twitter className="redes-icon" />
-              <Instagram className="redes-icon" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <SocialContainer>
+              <Facebook />
+              <Linkedin />
+              <Twitter />
+              <Instagram />
+            </SocialContainer>
+          </CloseSissionAndSocial>
+        </BottomSectionDrawer>
+      </DrawerStyled>
+    </DrawerContainer>
   );
 }

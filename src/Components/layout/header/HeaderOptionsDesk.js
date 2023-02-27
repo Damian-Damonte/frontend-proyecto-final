@@ -1,32 +1,25 @@
 import React from 'react'
+import { HeaderOptionsDesktop } from './styledHeader';
 import UserProfile from './UserProfile';
 
 export default function HeaderOptionsDesk({navigateSingin, navigateLogin, user, urlPath,handleCerrarSesion}) {
 
   const headerOptions = (urlPath, user) => {
-    if (urlPath === "/registro")
-      return <button className='btn-login' onClick={navigateLogin}>Iniciar sesión</button>;
-    if(urlPath === "/iniciar-sesion")
-      return <button className='btn-login' onClick={navigateSingin}>Crear Cuenta</button>
-    
-    if(user === null){
-      return (
-        <>
-        <button className='btn-login' onClick={navigateSingin}>Crear Cuenta</button>
-        <button className='btn-login' onClick={navigateLogin}>Iniciar sesión</button>
-        </>
-      )
-    } else {
-      return <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>
-    }
+    const login = <button onClick={navigateLogin}>Iniciar sesión</button>;
+    const singin = <button onClick={navigateSingin}>Crear Cuenta</button>;
 
+    if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
+      return urlPath === "/registro" ? login : singin;
+    
+    if(user === null)
+      return <> {singin} {login} </>;
+    else 
+      return <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>;
   }
 
   return (
-    <div className='header-options-desk'>
+    <HeaderOptionsDesktop>
         {headerOptions(urlPath, user)}
-      {/* <button className='btn-login' onClick={navigateSingin}>Crear Cuenta</button>
-      <button className='btn-login' onClick={navigateLogin}>Iniciar sesión</button> */}
-    </div>
+    </HeaderOptionsDesktop>
   )
 }

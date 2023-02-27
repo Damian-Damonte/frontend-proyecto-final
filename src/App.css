@@ -10,7 +10,7 @@
 }
 
 /* header */
-.header {
+/* .header {
   height: 70px;
   position: fixed;
   width: 100%;
@@ -39,10 +39,10 @@
 
 .logo-eslogan {
   display: none;
-}
+} */
 
 /* para version desktop */
-.header-options-desk {
+/* .header-options-desk {
   display: none;
 }
 
@@ -209,10 +209,10 @@
 
 .redes-icon {
   cursor: pointer;
-}
+} */
 
 /* new form LOGIN*/
-.form-container {
+/* .form-container {
   min-height: calc(100vh - 120px);
   padding: 0 10px;
   display: flex;
@@ -339,10 +339,10 @@
 
 .form-user-change-form-link:hover {
   color: #072cfc;
-}
+} */
 
 /* new form SINGIN */
-.form-singin {
+/* .form-singin {
   margin-top: 10px;
 }
 
@@ -360,17 +360,15 @@
 
 .form-singin-btn-submit {
   margin-top: 10px;
-}
+} */
 
 @media (min-width: 768px) {
   /* header */
-  .header {
+  /* .header {
     padding: 0 30px;
     box-shadow: none;
   }
-  .logo-eslogan {
-    display: none;
-  }
+  
   .drawer-container {
     display: none;
   }
@@ -431,10 +429,10 @@
 
   .profile-name {
     color: var(--primary-color);
-  }
+  } */
 
   /* form user */
-  .form-container {
+  /* .form-container {
     align-items: center;
   }
 
@@ -445,21 +443,21 @@
 
   .form-user-title {
     margin-bottom: 40px;
-  }
+  } */
 
   /* form singin */
-  .form-singin-names-field {
+  /* .form-singin-names-field {
     max-width: 346px;
   }
 
   .form-singin-title {
     margin-top: 5px;
     margin-bottom: 10px;
-  }
+  } */
 }
 
 @media (min-width: 1024px) {
-  .logo-eslogan {
+  /* .logo-eslogan {
     display: inline-block;
     margin: 0 0 5px 8px;
     font-size: 20px;
@@ -475,10 +473,10 @@
   .form-user-btn-login {
     width: 206px;
     margin-top: 10px;
-  }
+  } */
 
   /* form singin */
-  .form-singin {
+  /* .form-singin {
     margin-top: 0px;
   }
 
@@ -486,5 +484,5 @@
     max-width: 448px;
     flex-direction: row;
     gap: 15px;
-  }
+  } */
 }
