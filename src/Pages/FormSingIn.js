@@ -4,6 +4,12 @@ import FormPasswordField from "../Components/forms/FormPasswordField";
 import { singinValidations } from "../utils/singinValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
+import {
+  FormContainer,
+  FormSinginNamesFileds,
+  FormUser,
+  SubmitSection,
+} from "../Components/forms/styledForms";
 
 const initialForm = {
   firstName: "",
@@ -36,6 +42,10 @@ export default function FormSingIn() {
     setShowPassword(!showPassword);
   };
 
+  const toLogin = () => {
+    navigate(routes.login);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = singinValidations(form);
@@ -43,21 +53,18 @@ export default function FormSingIn() {
     if (Object.keys(errors).length === 0) {
       setErrors(initialErrors);
       console.log("LOGIN CORRECTO");
+      toLogin();
     } else {
       setErrors(errors);
     }
   };
 
-  const handleChangeForm = () => {
-    navigate(routes.login);
-  };
-
   return (
-    <div className="form-container">
-      <form className="form-user form-singin" onSubmit={handleSubmit}>
-        <h1 className="form-user-title form-singin-title">Crear cuenta</h1>
+    <FormContainer>
+      <FormUser singin onSubmit={handleSubmit}>
+        <h1>Crear cuenta</h1>
 
-        <div className="form-singin-names-field">
+        <FormSinginNamesFileds>
           <FormField
             fieldName="Nombre"
             id="firstName"
@@ -74,7 +81,7 @@ export default function FormSingIn() {
             form={form}
             inputType="text"
           />
-        </div>
+        </FormSinginNamesFileds>
 
         <FormField
           fieldName="Correo electrónico"
@@ -103,16 +110,14 @@ export default function FormSingIn() {
           handleShowPassword={handleShowPassword}
         />
 
-        <div className="form-user-submit-section">
-          <button type="submit" className="form-user-btn-login form-singin-btn-submit">
-            Crear cuenta
-          </button>
-          <p className="form-user-change-form ">
+        <SubmitSection singin>
+          <button type="submit">Crear cuenta</button>
+          <p>
             ¿Ya tiene una cuenta?
-            <span onClick={handleChangeForm} className="form-user-change-form-link"> Iniciar sesión</span>
+            <span onClick={toLogin}> Iniciar sesión</span>
           </p>
-        </div>
-      </form>
-    </div>
+        </SubmitSection>
+      </FormUser>
+    </FormContainer>
   );
 }

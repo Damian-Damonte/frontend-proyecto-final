@@ -5,7 +5,11 @@ import FormPasswordField from "../Components/forms/FormPasswordField";
 import { loginValidations } from "../utils/loginValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
-import { FormContainer, FormUser } from "../Components/forms/styledForms";
+import {
+  FormContainer,
+  FormUser,
+  SubmitSection,
+} from "../Components/forms/styledForms";
 
 const userHardcoded = {
   firstName: "Bruno",
@@ -41,6 +45,10 @@ export default function NewForm() {
     setShowPassword(!showPassword);
   };
 
+  const toSingin = () => {
+    navigate(routes.singin);
+  };
+
   const successfulLogin = () => {
     setErrors(initialErrors);
     console.log("LOGIN CORRECTO");
@@ -58,53 +66,37 @@ export default function NewForm() {
     }
   };
 
-  const handleChangeForm = () => {
-    navigate(routes.singin);
-  };
-
   return (
     <FormContainer>
-      {/* <div className="form-container"> */}
-        <FormUser className="form-user" onSubmit={handleSubmit}>
-          <h1>Iniciar sesión</h1>
-          <FormField
-            fieldName="Correo electrónico"
-            id="email"
-            handleChange={handleChange}
-            errors={errors}
-            form={form}
-            inputType="email"
-          />
-          <FormPasswordField
-            fieldName="Contraseña"
-            id="password"
-            handleChange={handleChange}
-            errors={errors}
-            form={form}
-            showPassword={showPassword}
-            handleShowPassword={handleShowPassword}
-          />
+      <FormUser className="form-user" onSubmit={handleSubmit}>
+        <h1>Iniciar sesión</h1>
+        <FormField
+          fieldName="Correo electrónico"
+          id="email"
+          handleChange={handleChange}
+          errors={errors}
+          form={form}
+          inputType="email"
+        />
+        <FormPasswordField
+          fieldName="Contraseña"
+          id="password"
+          handleChange={handleChange}
+          errors={errors}
+          form={form}
+          showPassword={showPassword}
+          handleShowPassword={handleShowPassword}
+        />
 
-          <div className="form-user-submit-section">
-            <p className="form-user-credential-validations">
-              {errors.credentials}
-            </p>
-            <button type="submit" className="form-user-btn-login">
-              Ingresar
-            </button>
-            <p className="form-user-change-form ">
-              ¿Aún no tenes cuenta?
-              <span
-                onClick={handleChangeForm}
-                className="form-user-change-form-link"
-              >
-                {" "}
-                Registrate
-              </span>
-            </p>
-          </div>
-        </FormUser>
-      {/* </div> */}
+        <SubmitSection>
+          <p>{errors.credentials}</p>
+          <button type="submit">Ingresar</button>
+          <p>
+            ¿Aún no tenes cuenta?
+            <span onClick={toSingin}> Registrate</span>
+          </p>
+        </SubmitSection>
+      </FormUser>
     </FormContainer>
   );
 }
