@@ -34,7 +34,7 @@ export default function CategoryContainer() {
     <CategoryContainerStyled>
       <h2>Busca por tipo de alojamiento</h2>
       <CardContainer>
-        {categoriasHardcoded.map((cat) => (
+        {categoriasHardcoded.map(cat => (
           <CategoryCard key={cat.id} categoria={cat} />
         ))}
       </CardContainer>

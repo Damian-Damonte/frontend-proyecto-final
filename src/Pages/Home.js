@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CategoryContainer from '../Components/categorySection/CategoryContainer';
 import SearchBar from '../Components/searchBar/SearchBar';
 
-const citysHardCode = [
+const citysHardCoded = [
   {
     id: 1,
     country: "Argentina",
@@ -57,7 +57,7 @@ function Home() {
   const [endDate, setEndDate] = useState(null);
 
   const handleSelectCity = id => {
-    const citySelected = citysHardCode.find(city => city.id === id);
+    const citySelected = citysHardCoded.find(city => city.id === id);
     setCitySelected(citySelected);
   }
 
