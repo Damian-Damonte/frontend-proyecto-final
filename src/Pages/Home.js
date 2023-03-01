@@ -56,9 +56,8 @@ function Home() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleSelectCity = id => {
-    const citySelected = citysHardCoded.find(city => city.id === id);
-    setCitySelected(citySelected);
+  const handleSelectCity = city => {
+    setCitySelected(city);
   }
 
   const onChangeDate = (dates) => {
@@ -76,7 +75,7 @@ function Home() {
     <main>
         <SearchBar
           citySelected={citySelected}
-          handleSelectCity={handleSelectCity}
+          setCitySelected={setCitySelected}
           startDate={startDate}
           endDate={endDate}
           onChangeDate={onChangeDate}

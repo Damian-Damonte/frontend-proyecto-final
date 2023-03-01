@@ -8,9 +8,8 @@ import { ReactComponent as IconOptionCity } from "../../img/icon-option-city.svg
 export default function SelectCityOption({ city, handleSelectCity }) {
   const {id, country, name} = city;
   return (
-    <SelectCityOptionStyled onClick={() => handleSelectCity(id)}>
+    <SelectCityOptionStyled onClick={() => handleSelectCity(city)}>
       <IconOptionCity />
-
       <SelectCityOptionNames>
         <p>{name}</p>
         <p>{country}</p>
