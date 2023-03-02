@@ -51,9 +51,9 @@ export const FormSearch = styled.form`
 export const SelectCityContainer = styled.div`
   position: relative;
 
-  >svg {
+  > svg {
     position: absolute;
-    fill: ${({ $empty }) => $empty ? PURPLE3 : "#7f7f7f"};
+    fill: ${({ $empty }) => ($empty ? PURPLE3 : "#7f7f7f")};
     top: 8px;
     left: 14px;
   }
@@ -69,46 +69,33 @@ export const SelectCity = styled.input`
   font-size: 14px;
   font-weight: 500;
   color: ${PURPLE3};
-
   height: 38px;
+  padding-left: 38px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   border: none;
-  padding-left: 38px;
   background-color: #fff;
   cursor: pointer;
 `;
 
 export const SearchDateInput = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
   height: 38px;
+  padding-left: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   border: none;
   text-align: left;
-  padding-left: 10px;
-  cursor: pointer;
   color: #7f7f7f;
   font-size: 14px;
   font-weight: 500;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   background-color: #fff;
-  position: relative;
-
-  ${({ $empty }) => {
-    if ($empty === null) {
-      return css`
-        fill: #7f7f7f;
-        color: #7f7f7f;
-      `;
-    } else {
-      return css`
-        fill: ${PURPLE3};
-        color: ${PURPLE3};
-      `;
-    }
-  }};
+  cursor: pointer;
+  fill: ${({ $empty }) => $empty ? PURPLE3 : "#7f7f7f"};
+  color: ${({ $empty }) => $empty ? PURPLE3 : "#7f7f7f"};
 
   @media (min-width: 768px) {
     width: 40%;
@@ -159,19 +146,20 @@ export const SelectCityOptionContainer = styled.div`
   left: 0;
   top: 48px;
   border-radius: 0px 0px 5px 5px;
+  > div:last-child {
+    border-bottom: none;
+  }
+
   ${({ $show }) => {
     if ($show) {
       return css`
-        height: ${({ $citysCount }) => (65 * $citysCount) + "px"};
+        height: ${({ $citysCount }) => 65 * $citysCount + "px"};
         min-height: 65px;
         padding: 0px 15px;
         opacity: 1;
       `;
     }
   }};
-  > div:last-child {
-    border-bottom: none;
-  }
 `;
 
 export const SelectCityOptionStyled = styled.div`

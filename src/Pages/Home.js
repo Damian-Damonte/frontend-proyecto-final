@@ -56,10 +56,6 @@ function Home() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleSelectCity = city => {
-    setCitySelected(city);
-  }
-
   const onChangeDate = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -72,7 +68,7 @@ function Home() {
 
 
   return (
-    <main>
+    <div>
         <SearchBar
           citySelected={citySelected}
           setCitySelected={setCitySelected}
@@ -82,7 +78,7 @@ function Home() {
           handleSearchProducts={handleSearchProducts}
         />
         <CategoryContainer />
-    </main>
+    </div>
   )
 }
 

@@ -126,7 +126,7 @@ export default function SearchBar({
     let citysToShow = [];
     for (let i = 0; i < citysHardcoded.length && citysToShow.length < 4; i++) {
       matchCity(citysHardcoded[i]) && citysToShow.push(citysHardcoded[i]);
-    }
+    };
     setCitysFilter(citysToShow);
   }, [citySearchText]);
 
@@ -135,9 +135,8 @@ export default function SearchBar({
     setCitySearchText(`${city.name}, ${city.country}`);
   };
 
-  const handleChangeCityText = (e) => {
-    console.log(e.target.value);
-    if (e.target.value === "") setCitySelected(null);
+  const handleChangeCityText = e => {
+    e.target.value === "" && setCitySelected(null);
     setCitySearchText(e.target.value);
   };
 

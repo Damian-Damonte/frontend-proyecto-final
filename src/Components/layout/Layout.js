@@ -5,10 +5,10 @@ import Header from './header/Header'
 
 export default function Layout() {
   return (
-    <div className='main-container'>
+    <main className='main-container'>
         <Header />
         <Outlet />
         <Footer />
-    </div>
+    </main>
   )
 }
