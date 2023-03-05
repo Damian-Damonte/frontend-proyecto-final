@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  HeaderContainer,
+  IconContainer,
   LocationContainer,
   OpinionStarsContainer,
   ProductLocationRatingHeader,
@@ -8,6 +8,7 @@ import {
   ProductTitleContainer,
   RatingContainer,
   StarsContainer,
+  TextLocationContainer,
 } from "./styledProduct";
 import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
 import { ReactComponent as Location } from "../../../img/icon-location.svg";
@@ -26,10 +27,14 @@ export default function ProductHeader() {
 
       <ProductLocationRatingHeader>
         <LocationContainer>
-          <Location />
-          <p>Buenos Aires, Ciudad Autonoma de Beuenos Aires, Argentina</p>
+          <IconContainer>
+            <Location />
+          </IconContainer>
+          <TextLocationContainer>
+            <p>Buenos Aires, Ciudad Autonoma de Buenos Aires, Argentina</p>
+            <p>A 940 m del centro</p>
+          </TextLocationContainer>
         </LocationContainer>
-
         <RatingContainer>
           <OpinionStarsContainer>
             <p>Muy bueno</p>

@@ -1,10 +1,8 @@
-/* BORRAR - nuevos estilos en el styledDatePickerSearchBar */
-
-.customDatePickerWidth {
-  width: 505px;
-  position: absolute;
-  top: 50px;
-  left: 0px;
+.datePickerBooking {
+  width: 515px;
+  /* position: absolute; */
+  /* top: 50px;
+  left: 0px; */
   overflow: hidden;
   height: 0px;
   opacity: 0;
@@ -22,7 +20,7 @@
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 5px 5px;
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
 }
 
 .react-datepicker__current-month {
@@ -116,7 +114,7 @@
   border-radius: 50px;
 }
 
-/* color sueva mientras elijo rango */
+/* color suave mientras elijo rango */
 .react-datepicker__day--in-selecting-range:not(
     .react-datepicker__day--in-range,
     .react-datepicker__month-text--in-range,
@@ -132,29 +130,6 @@
   background-color: rgb(160, 160, 160);
 }
 
-.btnAplicar {
-  background-color: #1dbeb4;
-  color: #fff;
-  width: 95%;
-  height: 40px;
-  font-size: 16px;
-  font-weight: 700;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  border: none;
-  position: absolute;
-  bottom: 10px;
-
-  right: 20px;
-  max-width: 200px;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btnAplicar:hover {
-  background-color: #15a39a;
-}
 
 .linea-divisoria {
   height: 65%;
@@ -170,17 +145,11 @@
     display: none;
   }
 
-  .customDatePickerWidth {
-    width: 100%;
-    top: 45px;
+  .datePickerBooking {
+    width: 95%;
+    /* top: 45px;
     left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .btnAplicar {
-    left: 50%;
-    max-width: 260px;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
   }
 
   .react-datepicker-wrapper {
@@ -211,17 +180,10 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .customDatePickerWidth {
+  .datePickerBooking {
     top: 52px;
     left: auto;
     right: -5px;
     transform: none;
-  }
-
-  .btnAplicar {
-    max-width: none;
-    width: 95%;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }

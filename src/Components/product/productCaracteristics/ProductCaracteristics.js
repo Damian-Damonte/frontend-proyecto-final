@@ -29,9 +29,9 @@ export default function ProductCaracteristics({ caracteristics }) {
       <CaracteristicsContainer>
       {/* agregar el id al map */}
         {caracteristics.map(caract => (
-          <Caracteristic>
-            {caracteristicsIconMapper[caract]}
-            <p>{caract}</p>
+          <Caracteristic key={caract.id}>
+            {caracteristicsIconMapper[caract.nombre]}
+            <p>{caract.nombre}</p>
           </Caracteristic>
         ))}
       </CaracteristicsContainer>

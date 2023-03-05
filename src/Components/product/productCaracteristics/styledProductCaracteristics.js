@@ -19,17 +19,21 @@ export const CaracteristicsContainer = styled.div`
   padding: 10px;
   margin-top: 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  column-gap: 10px;
 
   svg {
     fill: ${PRIMARY_COLOR};
     font-size: 20px;
   }
 
-  @media (min-width: 1024px){
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (min-width: 400px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
 
@@ -40,4 +44,4 @@ export const Caracteristic = styled.div`
   gap: 5px;
   font-size: 13px;
   font-weight: 500;
-`
+`;
