@@ -13,6 +13,13 @@ export const ProductDescriptionContainer = styled.div`
     font-weight: 700;
     font-size: 24px;
   }
+
+  @media (min-width: 768px) {
+    padding: 30px 20px 10px 20px;
+  }
+  @media (min-width: 1024px) {
+    padding: 30px 30px 10px 30px;
+  }
 `;
 
 export const ParagraphsContainer = styled.div`

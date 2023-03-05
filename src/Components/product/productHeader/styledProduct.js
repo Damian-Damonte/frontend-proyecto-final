@@ -35,6 +35,9 @@ export const ProductNameHeader = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding: 10px 20px;
+  }
+  @media (min-width: 1024px) {
     padding: 10px 30px;
   }
 `;
@@ -52,6 +55,9 @@ export const ProductLocationRatingHeader = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding: 10px 20px;
+  }
+  @media (min-width: 1024px) {
     padding: 10px 30px;
   }
 `;

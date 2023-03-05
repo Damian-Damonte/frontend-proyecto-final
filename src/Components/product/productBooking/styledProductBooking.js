@@ -14,6 +14,9 @@ export const ProductBookingContainer = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding: 15px 20px 10px 20px;
+  }
+  @media (min-width: 1024px) {
     padding: 15px 30px 10px 30px;
   }
 `;
@@ -22,6 +25,12 @@ export const BookingSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+  }
 `;
 
 export const BtnBookingContainer = styled.div`
@@ -57,10 +66,20 @@ export const BtnBookingContainer = styled.div`
   @media (min-width: 768px) {
     width: 100%;
     flex-direction: row;
-    gap: 10px;
+    gap: 30px;
 
     button {
       max-width: 350px;
+    }
+
+    @media (min-width: 1200px) {
+      gap: 10px;
+      flex-direction: column;
+      max-width: 30%;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 `;

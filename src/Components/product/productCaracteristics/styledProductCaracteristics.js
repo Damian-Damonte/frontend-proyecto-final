@@ -14,6 +14,17 @@ export const ProductCaracteristicsStyled = styled.div`
     border-bottom: 1px solid ${PRIMARY_COLOR};
     padding: 10px 0 10px 10px;
   }
+
+  @media (min-width: 768px) {
+    h3 {
+      padding: 10px 20px 10px 20px;
+    }
+  }
+  @media (min-width: 1024px) {
+    h3 {
+      padding: 10px 30px 10px 30px;
+    }
+  }
 `;
 
 export const CaracteristicsContainer = styled.div`
@@ -33,8 +44,13 @@ export const CaracteristicsContainer = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+  }
+
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px 30px;
   }
 `;
 
