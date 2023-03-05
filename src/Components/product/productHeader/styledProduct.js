@@ -33,6 +33,10 @@ export const ProductNameHeader = styled.div`
     height: 25px;
     cursor: pointer;
   }
+
+  @media (min-width: 768px) {
+    padding: 10px 30px;
+  }
 `;
 
 export const ProductLocationRatingHeader = styled.div`
@@ -45,6 +49,10 @@ export const ProductLocationRatingHeader = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 10px 30px;
   }
 `;
 

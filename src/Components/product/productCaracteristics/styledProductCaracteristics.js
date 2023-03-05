@@ -6,6 +6,7 @@ const PURPLE3 = "#545776";
 
 export const ProductCaracteristicsStyled = styled.div`
   background-color: #fff;
+  padding-bottom: 15px;
   h3 {
     color: ${PURPLE2};
     font-weight: 700;

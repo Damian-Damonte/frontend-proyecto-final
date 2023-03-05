@@ -1,10 +1,10 @@
 import React from "react";
 import DatepickerBooking from "./datePicker/DatePickerBooking";
-import { BookingSection, BtnBookingContainer } from "./styledProductBooking";
+import { BookingSection, BtnBookingContainer, ProductBookingContainer } from "./styledProductBooking";
 
 export default function ProductBooking() {
   return (
-    <div>
+    <ProductBookingContainer>
       <h3>Fechas disponibles</h3>
       <BookingSection>
         <DatepickerBooking />
@@ -14,6 +14,6 @@ export default function ProductBooking() {
           <button>Iniciar reserva</button>
         </BtnBookingContainer>
       </BookingSection>
-    </div>
+    </ProductBookingContainer>
   );
 }

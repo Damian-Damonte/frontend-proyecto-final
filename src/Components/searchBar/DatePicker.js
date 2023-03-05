@@ -1,7 +1,6 @@
 import ReactDatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es";
-// import "./datePicker.css";
 import { DatePickerSearchBarContainer } from "./styledDatePickerSearchBar";
 
 registerLocale("es", es);

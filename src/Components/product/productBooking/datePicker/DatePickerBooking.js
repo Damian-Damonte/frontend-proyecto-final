@@ -5,13 +5,8 @@ import { DatePickerBookingContainer } from "./styledDatePickerBooking";
 
 registerLocale("es", es);
 
-export default function DatepickerBooking({
-  showCalendar,
-  startDate,
-  endDate,
-  onChangeDate,
-  handleShowCalendar,
-}) {
+export default function DatepickerBooking() {
+  const today = new Date();
   return (
       <DatePickerBookingContainer>
         <ReactDatePicker
@@ -19,7 +14,11 @@ export default function DatepickerBooking({
           inline
           monthsShown={window.innerWidth > 768 ? 2 : 1}
           locale="es"
-          minDate={new Date()}
+          minDate={today}
+          readOnly={true}
+          onChange={() => null}
+          selected={today}
+          excludeDateIntervals={[{ start: new Date(2023, 2, 14), end: new Date(2023, 2, 19) }]}
         >
           <div className="linea-divisoria"></div>
         </ReactDatePicker>
