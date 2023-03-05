@@ -9,13 +9,13 @@ import {
   RatingContainer,
   StarsContainer,
 } from "./styledProduct";
-import { ReactComponent as Back } from "../../img/icon-product-back.svg";
-import { ReactComponent as Location } from "../../img/icon-location.svg";
-import { ReactComponent as StarFull } from "../../img/icon-star-full.svg";
+import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
+import { ReactComponent as Location } from "../../../img/icon-location.svg";
+import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 
 export default function ProductHeader() {
   return (
-    <HeaderContainer>
+    <div>
       <ProductNameHeader>
         <div>
           <p>HOTEL</p>
@@ -44,6 +44,6 @@ export default function ProductHeader() {
           <p>8</p>
         </RatingContainer>
       </ProductLocationRatingHeader>
-    </HeaderContainer>
+    </div>
   );
 }

@@ -1,11 +1,20 @@
 import React from "react";
-import ProductHeader from "../Components/product/ProductHeader";
-import { ProductContainer } from "../Components/product/styledProduct";
+import ProductHeader from "../Components/product/productHeader/ProductHeader";
+import ProductoGalleryMobile from "../Components/product/productoGallery/ProductGalleryMobile";
 
 export default function Product() {
+  const handleFav = () => {
+    console.log("FAV");
+  };
+
+  const handleShare = () => {
+    console.log("SHARE");
+  };
+
   return (
-    <ProductContainer>
+    <div>
       <ProductHeader />
-    </ProductContainer>
+      <ProductoGalleryMobile handleFav={handleFav} handleShare={handleShare} />
+    </div>
   );
 }

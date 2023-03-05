@@ -4,9 +4,9 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
-export const ProductContainer = styled.div``;
+// export const ProductContainer = styled.div``;
 
-export const HeaderContainer = styled.div``;
+// export const HeaderContainer = styled.div``;
 
 export const ProductNameHeader = styled.div`
   padding: 10px;
