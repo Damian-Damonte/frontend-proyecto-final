@@ -7,8 +7,8 @@ export default function ProductGalleryDesktop({ images }) {
 
   const handleShowGallery = () => {
     showGallery
-    ? (document.body.classList.remove("disableScroll"))
-    : (document.body.classList.add("disableScroll"));
+      ? document.body.classList.remove("disableScroll")
+      : document.body.classList.add("disableScroll");
     setShowGallery(!showGallery);
   };
 
@@ -19,16 +19,16 @@ export default function ProductGalleryDesktop({ images }) {
   }));
 
   return (
-    <GalleryDesktopContainer $countImg={imgGrid.length} >
+    <GalleryDesktopContainer $countImg={imgGrid.length}>
       {imgGrid.map((img) => (
         <img src={img.url} key={img.id} />
       ))}
       <p onClick={handleShowGallery}>Ver más</p>
-        <GalleryDesktop
-          galleryItems={galleryItems}
-          handleShowGallery={handleShowGallery}
-          showGallery={showGallery}
-        />
+      <GalleryDesktop
+        galleryItems={galleryItems}
+        handleShowGallery={handleShowGallery}
+        showGallery={showGallery}
+      />
     </GalleryDesktopContainer>
   );
 }

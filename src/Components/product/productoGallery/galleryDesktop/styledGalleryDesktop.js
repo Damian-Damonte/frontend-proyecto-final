@@ -4,17 +4,12 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
-const bodyStyles = css`
-  body {
-    background-color: red;
-  }
-`
-
 export const GalleryDesktopContainer = styled.div`
   display: none;
   padding: 10px 30px;
   background-color: #fff;
   gap: 10px;
+  position: relative;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 180px 180px;
@@ -155,16 +150,16 @@ export const GalleryDesktopStyled = styled.div`
   top: 70px;
   left: 0;
   background-color: rgba(84, 87, 118, 0.95);
-  padding: 20px;
+  padding: 0 30px;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 
-  /* transform: scale(0); */
-
-  /* height: ${({ $showGallery }) =>
-    $showGallery ? "calc(100vh - 70px - 50px)" : "0px"}; */
-  /* padding: ${({ $showGallery }) => ($showGallery ? "20px" : "0px")}; */
   transform: ${({ $showGallery }) => ($showGallery ? "scale(1)" : "scale(0)")};
 
   > svg {
@@ -179,6 +174,11 @@ export const GalleryDesktopStyled = styled.div`
 
   > svg:hover {
     fill: ${PRIMARY_COLOR};
+  }
+
+  /* borrar */
+  && .image-gallery {
+    width: 100%;
   }
 
   && .image-gallery-slide img {

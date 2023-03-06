@@ -144,7 +144,6 @@ export const DatePickerBookingContainer = styled.div`
       position: absolute;
       top: 5%;
       left: 343px;
-      z-index: 1000;
     }
   }
 
