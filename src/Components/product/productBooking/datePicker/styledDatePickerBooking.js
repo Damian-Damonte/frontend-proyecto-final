@@ -8,7 +8,7 @@ export const DatePickerBookingContainer = styled.div`
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,6 +162,11 @@ export const DatePickerBookingContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .react-datepicker__navigation:hover {
+      background-color: #15a39a;
     }
 
     .react-datepicker__navigation--next {

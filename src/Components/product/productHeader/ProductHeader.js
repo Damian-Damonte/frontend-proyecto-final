@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  BtnShareFavContainer,
   IconContainer,
   LocationContainer,
   OpinionStarsContainer,
@@ -13,8 +14,10 @@ import {
 import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
 import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
+import { ReactComponent as Share } from "../../../img/icon-share.svg";
+import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 
-export default function ProductHeader() {
+export default function ProductHeader({ handleFav, handleShare }) {
   return (
     <div>
       <ProductNameHeader>
@@ -49,6 +52,11 @@ export default function ProductHeader() {
           <p>8</p>
         </RatingContainer>
       </ProductLocationRatingHeader>
+
+      <BtnShareFavContainer>
+        <Share onClick={handleShare} />
+        <Fav onClick={handleFav}/>
+      </BtnShareFavContainer>
     </div>
   );
 }

@@ -5,12 +5,12 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const ProductBookingContainer = styled.div`
-  padding: 15px 10px 10px 10px;
+  padding: 25px 10px 10px 10px;
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   @media (min-width: 768px) {

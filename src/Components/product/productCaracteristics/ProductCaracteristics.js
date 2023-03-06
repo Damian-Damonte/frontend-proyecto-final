@@ -27,7 +27,6 @@ export default function ProductCaracteristics({ caracteristics }) {
     <ProductCaracteristicsStyled>
       <h3>¿Qué ofrece este lugar?</h3>
       <CaracteristicsContainer>
-      {/* agregar el id al map */}
         {caracteristics.map(caract => (
           <Caracteristic key={caract.id}>
             {caracteristicsIconMapper[caract.nombre]}

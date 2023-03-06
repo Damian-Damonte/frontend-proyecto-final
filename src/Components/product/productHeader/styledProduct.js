@@ -36,6 +36,7 @@ export const ProductNameHeader = styled.div`
 
   @media (min-width: 768px) {
     padding: 10px 20px;
+    box-shadow: none;
   }
   @media (min-width: 1024px) {
     padding: 10px 30px;
@@ -136,3 +137,24 @@ export const OpinionStarsContainer = styled.div`
 `;
 
 export const StarsContainer = styled.div``;
+
+export const BtnShareFavContainer = styled.div`
+  background-color: #fff;
+  padding: 10px 20px;
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  svg {
+    fill: ${PURPLE3};
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 15px 30px;
+  }
+`

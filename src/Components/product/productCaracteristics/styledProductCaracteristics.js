@@ -6,7 +6,7 @@ const PURPLE3 = "#545776";
 
 export const ProductCaracteristicsStyled = styled.div`
   background-color: #fff;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
@@ -22,7 +22,7 @@ export const ProductCaracteristicsStyled = styled.div`
   }
   @media (min-width: 1024px) {
     h3 {
-      padding: 10px 30px 10px 30px;
+      padding: 30px 30px 10px 30px;
     }
   }
 `;
@@ -50,7 +50,9 @@ export const CaracteristicsContainer = styled.div`
 
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 10px 30px;
+    padding: 10px 30px 30px;
+    margin-top: 20px;
+    row-gap: 40px;
   }
 `;
 
