@@ -152,11 +152,9 @@ export const GalleryDesktopStyled = styled.div`
   background-color: rgba(84, 87, 118, 0.95);
   padding: 0 30px;
   z-index: 1;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 

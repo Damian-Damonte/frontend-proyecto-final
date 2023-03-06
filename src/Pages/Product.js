@@ -1,12 +1,12 @@
 import React from "react";
-import ProductBooking from "../Components/product/productBooking/ProductBooking";
-import ProductCaracteristics from "../Components/product/productCaracteristics/ProductCaracteristics";
-import ProductDescription from "../Components/product/productDescription/ProductDescription";
-import ProductHeader from "../Components/product/productHeader/ProductHeader";
-import ProductLocation from "../Components/product/productLocation/ProductLocation";
-import ProductGalleryDesktop from "../Components/product/productoGallery/galleryDesktop/ProductGalleryDesktop";
-import ProductoGalleryMobile from "../Components/product/productoGallery/galleryMobile/ProductGalleryMobile";
-import ProductPolicies from "../Components/product/productPolicies/ProductPolicies"
+import ProductBooking from "../Components/productPage/productBooking/ProductBooking";
+import ProductCaracteristics from "../Components/productPage/productCaracteristics/ProductCaracteristics";
+import ProductDescription from "../Components/productPage/productDescription/ProductDescription";
+import ProductHeader from "../Components/productPage/productHeader/ProductHeader";
+import ProductLocation from "../Components/productPage/productLocation/ProductLocation";
+import ProductGalleryDesktop from "../Components/productPage/productoGallery/galleryDesktop/ProductGalleryDesktop";
+import ProductoGalleryMobile from "../Components/productPage/productoGallery/galleryMobile/ProductGalleryMobile";
+import ProductPolicies from "../Components/productPage/productPolicies/ProductPolicies"
 
 const caracteristicsHarcoded = [
   {
