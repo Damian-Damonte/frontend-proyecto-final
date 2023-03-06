@@ -6,6 +6,7 @@ import ProductHeader from "../Components/product/productHeader/ProductHeader";
 import ProductLocation from "../Components/product/productLocation/ProductLocation";
 import ProductGalleryDesktop from "../Components/product/productoGallery/galleryDesktop/ProductGalleryDesktop";
 import ProductoGalleryMobile from "../Components/product/productoGallery/galleryMobile/ProductGalleryMobile";
+import ProductPolicies from "../Components/product/productPolicies/ProductPolicies"
 
 const caracteristicsHarcoded = [
   {
@@ -64,7 +65,50 @@ const imagesHardcoded = [
     id:5,
     url:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80"
   }
-]
+];
+
+const policiesHardcoded = [
+  {
+      id: 1,
+      descripcion: "Detector de humo",
+      tipoPolitica: {
+          id: 2,
+          nombre: "Salud y seguridad"
+      }
+  },
+  {
+      id: 5,
+      descripcion: "Deposito de seguridad",
+      tipoPolitica: {
+          id: 2,
+          nombre: "Salud y seguridad"
+      }
+  },
+  {
+      id: 3,
+      descripcion: "No se permiten fiestas",
+      tipoPolitica: {
+          id: 1,
+          nombre: "Normas de la casa"
+      }
+  },
+  {
+      id: 4,
+      descripcion: "Check-out: 10:00",
+      tipoPolitica: {
+          id: 1,
+          nombre: "Normas de la casa"
+      }
+  },
+  {
+      id: 2,
+      descripcion: "Agregá las fechas de tu viaje para obtener los detalles de cancelación de esta estadía",
+      tipoPolitica: {
+          id: 3,
+          nombre: "Politicas de cancelacion"
+      }
+  }
+];
 
 export default function Product() {
   const handleFav = () => {
@@ -88,6 +132,7 @@ export default function Product() {
       <ProductCaracteristics caracteristics={caracteristicsHarcoded} />
       <ProductBooking />
       <ProductLocation coordinates={coordinates} />
+      <ProductPolicies policiesHardcoded={policiesHardcoded} />
     </div>
   );
 }

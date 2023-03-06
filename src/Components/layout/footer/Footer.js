@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <FooterStyled>
       <FooterTextContainer>
-      <p>@2023 Digital Booking</p>
+      <p>&copy; 2023 Digital Booking</p>
       </FooterTextContainer>
       <FooterIconContainer>
         <Facebook />

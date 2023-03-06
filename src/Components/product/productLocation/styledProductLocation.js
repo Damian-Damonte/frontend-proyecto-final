@@ -12,10 +12,30 @@ export const ProductLocationStyled = styled.div`
     font-weight: 700;
     font-size: 24px;
     border-bottom: 1px solid ${PRIMARY_COLOR};
-    padding: 20px 0 10px 10px;
+    padding: 20px 10px 10px;
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      padding: 20px 20px 10px ;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      padding: 20px 30px 10px ;
+    }
   }
 `;
 
 export const MapContainer = styled.div`
-  padding: 10px;
+  padding: 10px 10px;
+
+  @media (min-width: 768px) {
+    padding: 10px 20px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 10px 30px;
+  }
 `;
