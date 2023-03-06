@@ -104,6 +104,7 @@ export const TopSectionDrawer = styled.div`
     height: 20px;
     cursor: pointer;
     align-self: flex-start;
+    fill: #fff;
   }
 `;
 
@@ -127,6 +128,7 @@ export const UserProfileContainer = styled.div`
     top: 0;
     right: 0;
     cursor: pointer;
+    fill: #000;
   }
 
   @media (min-width: 768px) {

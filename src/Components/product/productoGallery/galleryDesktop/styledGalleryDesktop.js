@@ -1,18 +1,20 @@
 import styled, { css } from "styled-components";
 
+const PRIMARY_COLOR = "#1DBEB4";
+const PURPLE2 = "#383B58";
+const PURPLE3 = "#545776";
+
 export const GalleryDesktopContainer = styled.div`
   display: none;
   padding: 10px 30px;
   background-color: #fff;
   gap: 10px;
-  position: relative;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 180px 180px;
   grid-template-areas:
     "area1 area1 area2 area3"
     "area1 area1 area4 area5";
-
 
   ${({ $countImg }) => {
     switch ($countImg) {
@@ -107,6 +109,10 @@ export const GalleryDesktopContainer = styled.div`
     }
   }}
 
+.main-container {
+    background-color: red;
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -118,15 +124,63 @@ export const GalleryDesktopContainer = styled.div`
     position: absolute;
     bottom: 20px;
     right: 40px;
-    font-weight:700;
+    font-weight: 700;
     color: #fff;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
     text-decoration: underline;
     cursor: pointer;
   }
 
   @media (min-width: 1000px) {
-    display:grid;
+    display: grid;
   }
 `;
+
+export const GalleryDesktopStyled = styled.div`
+  position: fixed;
+  height: calc(100vh - 70px - 50px);
+  width: 100%;
+  top: 70px;
+  left: 0;
+  background-color: rgba(84, 87, 118, 0.95);
+  padding: 20px;
+
+  > svg {
+    position: absolute;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    fill: #fff;
+    transition: all 0.3s ease;
+  }
+
+  > svg:hover {
+    fill: ${PRIMARY_COLOR};
+  }
+
+  && .image-gallery-slide img {
+    height: 380px ;
+    width: 900px ;
+    object-fit: cover ;
+  }
+
+  && .image-gallery-thumbnails .image-gallery-thumbnails-container {
+    cursor: auto;
+  }
+
+  && .image-gallery-thumbnail .image-gallery-thumbnail-image {
+    cursor: pointer;
+  }
+
+  && .image-gallery-icon:hover {
+    color: ${PRIMARY_COLOR}
+  }
+
+  && .image-gallery-thumbnail.active {
+    border: 4px solid ${PRIMARY_COLOR};
+  }
+
+`;
+
