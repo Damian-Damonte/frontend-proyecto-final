@@ -32,6 +32,11 @@ export const ProductNameHeader = styled.div`
     fill: #fff;
     height: 25px;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  svg:hover {
+    fill: ${PRIMARY_COLOR};
   }
 
   @media (min-width: 768px) {
@@ -145,9 +150,15 @@ export const BtnShareFavContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
+
   svg {
     fill: ${PURPLE3};
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  svg:hover {
+    fill: ${PRIMARY_COLOR};
   }
 
   @media (min-width: 768px) {
@@ -157,4 +168,4 @@ export const BtnShareFavContainer = styled.div`
   @media (min-width: 1024px) {
     padding: 15px 30px;
   }
-`
+`;

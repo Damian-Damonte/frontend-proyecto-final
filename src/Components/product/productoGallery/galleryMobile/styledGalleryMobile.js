@@ -35,6 +35,11 @@ export const BtnsContainer = styled.div`
   svg {
     cursor: pointer;
     fill: #fff;
+    transition: all 0.3s ease;
+  }
+
+  svg:hover {
+    fill: ${PRIMARY_COLOR};
   }
 
   @media (min-width: 768px) {

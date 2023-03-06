@@ -9,3 +9,12 @@
   min-height: 100vh;
 }
 
+.disableScroll {
+  overflow: hidden;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow: unset !important;
+  }
+}

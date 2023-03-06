@@ -4,6 +4,12 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+const bodyStyles = css`
+  body {
+    background-color: red;
+  }
+`
+
 export const GalleryDesktopContainer = styled.div`
   display: none;
   padding: 10px 30px;
@@ -109,7 +115,7 @@ export const GalleryDesktopContainer = styled.div`
     }
   }}
 
-.main-container {
+  .main-container {
     background-color: red;
   }
 
@@ -126,10 +132,15 @@ export const GalleryDesktopContainer = styled.div`
     right: 40px;
     font-weight: 700;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 5px 10px;
     text-decoration: underline;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  p:hover {
+    color: ${PRIMARY_COLOR};
   }
 
   @media (min-width: 1000px) {
@@ -146,6 +157,16 @@ export const GalleryDesktopStyled = styled.div`
   background-color: rgba(84, 87, 118, 0.95);
   padding: 20px;
 
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+
+  /* transform: scale(0); */
+
+  /* height: ${({ $showGallery }) =>
+    $showGallery ? "calc(100vh - 70px - 50px)" : "0px"}; */
+  /* padding: ${({ $showGallery }) => ($showGallery ? "20px" : "0px")}; */
+  transform: ${({ $showGallery }) => ($showGallery ? "scale(1)" : "scale(0)")};
+
   > svg {
     position: absolute;
     height: 35px;
@@ -161,9 +182,9 @@ export const GalleryDesktopStyled = styled.div`
   }
 
   && .image-gallery-slide img {
-    height: 380px ;
-    width: 900px ;
-    object-fit: cover ;
+    height: 380px;
+    width: 900px;
+    object-fit: cover;
   }
 
   && .image-gallery-thumbnails .image-gallery-thumbnails-container {
@@ -175,12 +196,11 @@ export const GalleryDesktopStyled = styled.div`
   }
 
   && .image-gallery-icon:hover {
-    color: ${PRIMARY_COLOR}
+    color: ${PRIMARY_COLOR};
   }
 
   && .image-gallery-thumbnail.active {
     border: 4px solid ${PRIMARY_COLOR};
   }
-
 `;
 
