@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductBooking from "../Components/productPage/productBooking/ProductBooking";
 import ProductCaracteristics from "../Components/productPage/productCaracteristics/ProductCaracteristics";
 import ProductDescription from "../Components/productPage/productDescription/ProductDescription";
@@ -111,6 +111,11 @@ const policiesHardcoded = [
 ];
 
 export default function Product() {
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, []);
+
   const handleFav = () => {
     console.log("FAV");
   };

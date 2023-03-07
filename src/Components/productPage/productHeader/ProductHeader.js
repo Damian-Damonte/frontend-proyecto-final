@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   BtnShareFavContainer,
   IconContainer,
@@ -18,6 +19,13 @@ import { ReactComponent as Share } from "../../../img/icon-share.svg";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 
 export default function ProductHeader({ handleFav, handleShare }) {
+
+  const navigate = useNavigate()
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
       <ProductNameHeader>
@@ -25,7 +33,7 @@ export default function ProductHeader({ handleFav, handleShare }) {
           <p>HOTEL</p>
           <h3>Hermitage Hotel</h3>
         </div>
-        <Back />
+        <Back onClick={goBack}/>
       </ProductNameHeader>
 
       <ProductLocationRatingHeader>
