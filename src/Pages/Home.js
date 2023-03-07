@@ -1,58 +1,11 @@
-import React, { useState } from 'react'
-import CategoryContainer from '../Components/homePage/categorySection/CategoryContainer';
-import ProductContainer from '../Components/homePage/productSection/ProductContainer';
-import SearchBar from '../Components/homePage/searchBar/SearchBar';
-
-const citysHardCoded = [
-  {
-    id: 1,
-    country: "Argentina",
-    name: "Buenos Aires",
-  },
-  {
-    id: 2,
-    country: "Colombia",
-    name: "Bogotá",
-  },
-  {
-    id: 3,
-    country: "México",
-    name: "Ciudad de México",
-  },
-  {
-    id: 4,
-    country: "Perú",
-    name: "Lima",
-  },
-  // {
-  //   id: 5,
-  //   country: "Brasil",
-  //   name: "São Paulo",
-  // },
-  // {
-  //   id: 6,
-  //   country: "Estados Unidos",
-  //   name: "Nueva York",
-  // },
-  // {
-  //   id: 7,
-  //   country: "Francia",
-  //   name: "París",
-  // },
-  // {
-  //   id: 8,
-  //   country: "Japón",
-  //   name: "Tokio",
-  // },
-  // {
-  //   id: 9,
-  //   country: "España",
-  //   name: "Madrid",
-  // },
-];
+import React, { useState } from "react";
+import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
+import ProductContainer from "../Components/homePage/productSection/ProductContainer";
+import SearchBar from "../Components/homePage/searchBar/SearchBar";
 
 function Home() {
   const [citySelected, setCitySelected] = useState(null);
+  const [categorySelected, setCategorySelected] = useState(null);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -63,25 +16,29 @@ function Home() {
     setEndDate(end);
   };
 
-  const handleSearchProducts = e => {
+  const handleSearchProducts = (e) => {
     e.preventDefault();
-  }
+  };
 
+  console.log("render");
 
   return (
     <div>
-        <SearchBar
-          citySelected={citySelected}
-          setCitySelected={setCitySelected}
-          startDate={startDate}
-          endDate={endDate}
-          onChangeDate={onChangeDate}
-          handleSearchProducts={handleSearchProducts}
-        />
-        <CategoryContainer />
-        <ProductContainer />
+      <SearchBar
+        citySelected={citySelected}
+        setCitySelected={setCitySelected}
+        startDate={startDate}
+        endDate={endDate}
+        onChangeDate={onChangeDate}
+        handleSearchProducts={handleSearchProducts}
+      />
+      <CategoryContainer
+        categorySelected={categorySelected}
+        setCategorySelected={setCategorySelected}
+      />
+      <ProductContainer />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

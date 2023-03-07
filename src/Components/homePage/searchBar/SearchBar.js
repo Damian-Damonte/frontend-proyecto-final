@@ -16,74 +16,7 @@ import {
   SelectCityOptionNames,
 } from "./styledSearchBar";
 import { ciudadesHarcoded } from "../../../utils/ciudadesHarcoded";
-
-// const citysHardcoded = [
-//   {
-//     id: 1,
-//     country: "Argentina",
-//     name: "Buenos Aires",
-//   },
-//   {
-//     id: 2,
-//     country: "Colombia",
-//     name: "Bogotá",
-//   },
-//   {
-//     id:3,
-//     country: "México",
-//     name: "Ciudad de México",
-//   },
-//   {
-//     id: 4,
-//     country: "Perú",
-//     name: "Lima",
-//   },
-//   {
-//     id: 2,
-//     country: "Argentina",
-//     name: "San Salvador de Jujuy",
-//   },
-//   {
-//     id: 3,
-//     country: "Argentina",
-//     name: "Córdoba",
-//   },
-//   {
-//     id: 4,
-//     country: "Argentina",
-//     name: "Rosario",
-//   },
-//   {
-//     id: 5,
-//     country: "Argentina",
-//     name: "Mendoza",
-//   },
-//   {
-//     id: 6,
-//     country: "Argentina",
-//     name: "La Plata",
-//   },
-//   {
-//     id: 7,
-//     country: "Argentina",
-//     name: "Mar del Plata",
-//   },
-//   {
-//     id: 8,
-//     country: "Argentina",
-//     name: "San Miguel de Tucumán",
-//   },
-//   {
-//     id: 9,
-//     country: "Argentina",
-//     name: "Salta",
-//   },
-//   {
-//     id: 10,
-//     country: "Argentina",
-//     name: "Santa Fe",
-//   }
-// ];
+import { useFetch } from "../../../hooks/useFetch";
 
 const citysHardcoded = ciudadesHarcoded;
 
@@ -99,6 +32,8 @@ export default function SearchBar({
   const [showCalendar, setShowCalendar] = useState(false);
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
+
+  const { data: categorias, loading, error} = useFetch("/categorias");
 
   const handleShowCity = () => {
     showCalendar && setShowCalendar(false);
