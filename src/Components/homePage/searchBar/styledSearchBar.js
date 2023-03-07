@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { ReactComponent as Icon_Location } from "../../img/icon-location.svg";
-import { ReactComponent as Icon_Calendar } from "../../img/icon-calendar.svg";
+import { ReactComponent as Icon_Location } from "../../../img/icon-location.svg";
+import { ReactComponent as Icon_Calendar } from "../../../img/icon-calendar.svg";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Datepicker from "./DatePicker";
+import Datepicker from "./datePicker/DatePicker";
 import SelectCityOption from "./SelectCityOption";
 import {
   BtnSearch,
@@ -15,7 +15,7 @@ import {
   SelectCityOptionStyled,
   SelectCityOptionNames,
 } from "./styledSearchBar";
-import { ciudadesHarcoded } from "../../utils/ciudadesHarcoded";
+import { ciudadesHarcoded } from "../../../utils/ciudadesHarcoded";
 
 // const citysHardcoded = [
 //   {

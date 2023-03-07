@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import CategoryContainer from '../Components/categorySection/CategoryContainer';
-import SearchBar from '../Components/searchBar/SearchBar';
+import CategoryContainer from '../Components/homePage/categorySection/CategoryContainer';
+import ProductContainer from '../Components/homePage/productSection/ProductContainer';
+import SearchBar from '../Components/homePage/searchBar/SearchBar';
 
 const citysHardCoded = [
   {
@@ -78,6 +79,7 @@ function Home() {
           handleSearchProducts={handleSearchProducts}
         />
         <CategoryContainer />
+        <ProductContainer />
     </div>
   )
 }
