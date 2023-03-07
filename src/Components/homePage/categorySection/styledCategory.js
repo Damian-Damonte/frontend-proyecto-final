@@ -5,19 +5,24 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const CategoryContainerStyled = styled.section`
-  padding: 10px 20px;
+  padding: 20px 10px 30px;
   display: flex;
   flex-direction: column;
+  background-color: #fff;
 
   h2 {
     font-size: 24px;
     font-weight: 700;
     color: ${PURPLE2};
     margin-bottom: 10px;
-    /* margin-left: 10px; */
   }
-  @media (min-width: 1325px) {
-    padding: 20px;
+  
+  @media (min-width: 670px) {
+    padding: 20px 20px 30px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 10px 30px;
   }
 `;
 
@@ -33,7 +38,7 @@ export const CardContainer = styled.div`
     justify-self: center;
   }
 
-  @media (min-width: 670px) and (max-width: 1324px) {
+  @media (min-width: 670px) and (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
     div:nth-child(odd) {
       justify-self: end;
@@ -43,9 +48,9 @@ export const CardContainer = styled.div`
     }
   }
 
-  @media (min-width: 1325px) {
-    gap:15px;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  @media (min-width: 1200px) {
+    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 `;
 
@@ -81,8 +86,8 @@ export const CategoryCardStyled = styled.div`
     color: rgba(56, 59, 88, 0.6);
   }
 
-  @media (min-width: 1325px) {
-    p{
+  @media (min-width: 1200px) {
+    p {
       margin-top: 0;
     }
   }
