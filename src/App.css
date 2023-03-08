@@ -1,6 +1,6 @@
 :root {
   --primary-color: #1dbeb4;
-  --secondo-color: #545776;
+  --secondo-color: rgb(87, 92, 160);
 }
 
 .main-container {

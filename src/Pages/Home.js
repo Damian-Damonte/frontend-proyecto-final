@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
-import { allCategorys, allProducts, allCitys, getProductFilters } from "../service/getRequests";
+import {
+  allCategorys,
+  allProducts,
+  allCitys,
+  getProductFilters,
+} from "../service/getRequests";
 
 function Home() {
   const [citySelected, setCitySelected] = useState(null);
@@ -21,7 +26,6 @@ function Home() {
     allCitys(setCitys);
   }, []);
 
-
   const onChangeDate = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -31,6 +35,16 @@ function Home() {
   const handleSearchProducts = (e) => {
     e.preventDefault();
     getProductFilters(citySelected?.id, categorySelected?.id, setProducts);
+  };
+
+  const hadleSelectCategory = (category) => {
+    if (category.id === categorySelected?.id) {
+      setCategorySelected(null);
+      getProductFilters(citySelected?.id, null, setProducts);
+    } else {
+      setCategorySelected(category);
+      getProductFilters(citySelected?.id, category.id, setProducts);
+    }
   };
 
   return (
@@ -46,10 +60,10 @@ function Home() {
       />
       <CategoryContainer
         categorySelected={categorySelected}
-        setCategorySelected={setCategorySelected}
+        hadleSelectCategory={hadleSelectCategory}
         categorys={categorys}
       />
-      <ProductContainer products={products}/>
+      <ProductContainer products={products} />
     </div>
   );
 }

@@ -63,8 +63,26 @@ export const CategoryCardStyled = styled.div`
   border-radius: 10px;
   font-weight: 700;
   color: ${PURPLE2};
-
   cursor: pointer;
+
+  /* primary rgba(29, 190, 180, 0.15) */
+  /* secondary rgba(84, 87, 118, 0.5) */
+
+  outline: ${({ $selected }) => $selected ? `3px rgb(87, 92, 160) solid` : "none"};
+  /* background-color: ${({ $selected }) => $selected ? "rgba(29, 190, 180, 0.1)" : "none"}; */
+  /* color: ${({ $selected }) => $selected ? "#fff" : PURPLE2}; */
+
+  /* background-color: ${PURPLE2}; */
+  /* outline: 3px solid ${PRIMARY_COLOR}; */
+
+  position: relative;
+
+  div {
+    position:absolute;
+    height:100%;
+    width:100%;
+    background-color: ${({ $selected }) => $selected ? "rgba(155, 161, 235, 0.3)" : "none"};
+  }
 
   img {
     width: 100%;
