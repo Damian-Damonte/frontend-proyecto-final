@@ -31,6 +31,7 @@ export default function SearchBar({
   const [showCitys, setShowCitys] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [citySearchText, setCitySearchText] = useState("");
+
   const [citysFilter, setCitysFilter] = useState([]);
 
 
@@ -52,23 +53,24 @@ export default function SearchBar({
 
   const matchCity = (city) => {
     const cityAndContry =
-      city.name.toLocaleLowerCase() + ", " + city.country.toLocaleLowerCase();
+      city.nombre.toLocaleLowerCase() + ", " + city.pais.nombre.toLocaleLowerCase();
     return cityAndContry.includes(citySearchText.toLocaleLowerCase());
   };
 
   useEffect(() => {
     let citysToShow = [];
-    console.log(citys);
-    
-    for (let i = 0; i < citys?.length && citys?.length < 4; i++) {
-      matchCity(citys[i]) && citysToShow.push(citys[i]);
-    };
-    setCitysFilter(citysToShow);
+    if(citys !== null) {
+      for (let i = 0; i < citys.length && citysToShow.length < 4; i++) {
+        matchCity(citys[i]) && citysToShow.push(citys[i]);
+      };
+  
+      setCitysFilter(citysToShow);
+    }
   }, [citySearchText, citys]);
 
   const handleSelectCity = (city) => {
     setCitySelected(city);
-    setCitySearchText(`${city.name}, ${city.country}`);
+    setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
   };
 
   const handleChangeCityText = e => {
@@ -95,10 +97,10 @@ export default function SearchBar({
           />
           <SelectCityOptionContainer
             $show={showCitys}
-            $citysCount={citys?.length || 1}
+            $citysCount={citysFilter.length || 1}
           >
-            {citys?.length > 0 ? (
-              citys.map((city) => (
+            {citysFilter.length > 0 ? (
+              citysFilter.map((city) => (
                 <SelectCityOption
                   key={city.id}
                   city={city}
