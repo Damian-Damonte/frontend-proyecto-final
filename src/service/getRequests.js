@@ -18,8 +18,15 @@ const allCitys = async (setState) => {
   setState(data);
 };
 
+const getProductById = async (id, setState) => {
+  const response = await fetch(`${URL}/productos/${id}`);
+  const data = await response.json();
+  setState(data);
+}
+
 export {
   allCategorys,
   allProducts,
-  allCitys
+  allCitys,
+  getProductById
 };

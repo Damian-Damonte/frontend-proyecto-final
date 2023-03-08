@@ -10,20 +10,22 @@ export default function ProductoGalleryMobile({
   handleFav,
   handleShare,
 }) {
-  const galleryItems = images.map((img) => ({ original: img.url, thumbnail: img.url }));
+  const galleryItems = images?.map((img) => ({ original: img.url, thumbnail: img.url }));
 
   return (
     <GalleryMobileContainer>
-      <ImageGallery
-        items={galleryItems}
-        showFullscreenButton={false}
-        showPlayButton={false}
-        autoPlay={true}
-        showThumbnails={false}
-        showNav={false}
-        slideInterval={3000} //por defecto es 3000, lo podemos sacar
-        showIndex={true}
-      />
+      {galleryItems && (
+        <ImageGallery
+          items={galleryItems}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          autoPlay={true}
+          showThumbnails={false}
+          showNav={false}
+          slideInterval={3000} //por defecto es 3000
+          showIndex={true}
+        />
+      )}
       <BtnsContainer>
         <Share onClick={handleShare} />
         <Fav onClick={handleFav} />

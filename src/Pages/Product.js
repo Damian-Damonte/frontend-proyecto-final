@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductBooking from "../Components/productPage/productBooking/ProductBooking";
 import ProductCaracteristics from "../Components/productPage/productCaracteristics/ProductCaracteristics";
 import ProductDescription from "../Components/productPage/productDescription/ProductDescription";
@@ -6,7 +6,9 @@ import ProductHeader from "../Components/productPage/productHeader/ProductHeader
 import ProductLocation from "../Components/productPage/productLocation/ProductLocation";
 import ProductGalleryDesktop from "../Components/productPage/productoGallery/galleryDesktop/ProductGalleryDesktop";
 import ProductoGalleryMobile from "../Components/productPage/productoGallery/galleryMobile/ProductGalleryMobile";
-import ProductPolicies from "../Components/productPage/productPolicies/ProductPolicies"
+import ProductPolicies from "../Components/productPage/productPolicies/ProductPolicies";
+import { getProductById } from "../service/getRequests";
+import { useParams } from "react-router-dom";
 
 const caracteristicsHarcoded = [
   {
@@ -111,10 +113,14 @@ const policiesHardcoded = [
 ];
 
 export default function Product() {
+  const [product, setProduct] = useState(null);
+
+  const { id } = useParams();
 
   useEffect(() => {
     window.scrollTo(0,0);
-  }, []);
+    getProductById(id, setProduct);
+  }, [id]);
 
   const handleFav = () => {
     console.log("FAV");
@@ -128,11 +134,11 @@ export default function Product() {
     <div>
       <ProductHeader handleFav={handleFav} handleShare={handleShare} />
       <ProductoGalleryMobile
-        images={imagesHardcoded}
+        images={product?.imagenes}
         handleFav={handleFav}
         handleShare={handleShare}
       />
-      <ProductGalleryDesktop images={imagesHardcoded} />
+      <ProductGalleryDesktop images={product?.imagenes} />
       <ProductDescription />
       <ProductCaracteristics caracteristics={caracteristicsHarcoded} />
       <ProductBooking />
