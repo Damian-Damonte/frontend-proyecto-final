@@ -17,20 +17,14 @@ import {
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../img/icon-location.svg";
-import { MdOutlineKitchen as Kitchen } from "react-icons/md";
-import { IoCar as Car } from "react-icons/io5";
-import { FaTv as Tv } from "react-icons/fa";
-import { FaSwimmer as Pool } from "react-icons/fa";
-import { IoSnow as AirConditioning } from "react-icons/io5";
-import { IoIosWifi as  Wifi} from "react-icons/io";
-import { IoPawSharp as  PawPrint} from "react-icons/io5";
+import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
 
 export default function ProductCard({ product }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
 
   const navigate = useNavigate();
 
-  const {id, titulo, descripcion, imagenes, categoria:{titulo: tituloCat}} = product;
+  const {id, titulo, descripcion, imagenes, categoria:{titulo: tituloCat}, caracteristicas} = product;
 
   const navigateProduct = () => {
     navigate(`/producto/${id}`)
@@ -94,13 +88,11 @@ export default function ProductCard({ product }) {
         </ProductCardLocationContainer>
 
         <ProductCardCaracteristics>
-          <Kitchen />
-          <Pool />
-          <Wifi />
-          <Tv />
-          <Car />
-          <PawPrint />
-          <AirConditioning />
+          {caracteristicas.map(caract => (
+            <div key={caract.id}>
+              {caracteristicIconMapper(caract.nombre)}
+            </div>
+          ))}
         </ProductCardCaracteristics>
 
         <ProductCardDescription>

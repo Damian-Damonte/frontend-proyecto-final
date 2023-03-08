@@ -14,8 +14,6 @@ export default function ProductPolicies({ policies }) {
     return acc;
   }, {});
 
-  console.log(policies);
-
   return (
     <ProductPoliciesStyled>
       <h3>Qué tenés que saber</h3>
