@@ -142,7 +142,7 @@ export const SelectCityOptionContainer = styled.div`
   opacity: 0;
   transition: all 0.4s ease;
   position: absolute;
-  background-color: #fff;
+  background-color: #f5f5f5;
   left: 0;
   top: 48px;
   border-radius: 0px 0px 5px 5px;
@@ -174,16 +174,14 @@ export const SelectCityOptionStyled = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
   }
 `;
 
 export const SelectCityOptionNames = styled.div`
+  color: #000;
   p {
     font-weight: 700;
-  }
-  p:nth-child(1) {
-    color: #000;
   }
   p:nth-child(2) {
     color: ${PURPLE3};

@@ -54,6 +54,26 @@ export const ProductCardContainer = styled.div`
   }
 `;
 
+export const EmptyProductsContainer = styled.div`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 10px 10px;
+  border-radius: 5px;
+  
+  img {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+  }
+
+  @media (min-width: 768px) {
+    background-color: rgba(155, 161, 235, 0.3);
+  }
+`
+
 export const ProductCardStyled = styled.div`
   display: flex;
   flex-direction: column;

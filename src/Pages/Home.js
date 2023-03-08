@@ -9,9 +9,17 @@ import {
   getProductFilters,
 } from "../service/getRequests";
 
+const initialSearchParams = {
+  citySelected: null,
+  categorySelected: null,
+  startDate: null,
+  endDate: null
+};
+
 function Home() {
   const [citySelected, setCitySelected] = useState(null);
   const [categorySelected, setCategorySelected] = useState(null);
+  const [searchParams, setSearchParams] = useState(initialSearchParams);
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -34,15 +42,18 @@ function Home() {
 
   const handleSearchProducts = (e) => {
     e.preventDefault();
+    setSearchParams({ citySelected, categorySelected, startDate, endDate})
     getProductFilters(citySelected?.id, categorySelected?.id, setProducts);
   };
 
   const hadleSelectCategory = (category) => {
     if (category.id === categorySelected?.id) {
       setCategorySelected(null);
+      setSearchParams({ citySelected, categorySelected: null, startDate, endDate})
       getProductFilters(citySelected?.id, null, setProducts);
     } else {
       setCategorySelected(category);
+      setSearchParams({ citySelected, categorySelected: category, startDate, endDate})
       getProductFilters(citySelected?.id, category.id, setProducts);
     }
   };
@@ -63,7 +74,10 @@ function Home() {
         hadleSelectCategory={hadleSelectCategory}
         categorys={categorys}
       />
-      <ProductContainer products={products} />
+      <ProductContainer
+        products={products}
+        searchParams={searchParams}
+      />
     </div>
   );
 }

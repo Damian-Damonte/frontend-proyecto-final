@@ -64,18 +64,9 @@ export const CategoryCardStyled = styled.div`
   font-weight: 700;
   color: ${PURPLE2};
   cursor: pointer;
-
-  /* primary rgba(29, 190, 180, 0.15) */
-  /* secondary rgba(84, 87, 118, 0.5) */
+  position: relative;
 
   outline: ${({ $selected }) => $selected ? `3px rgb(87, 92, 160) solid` : "none"};
-  /* background-color: ${({ $selected }) => $selected ? "rgba(29, 190, 180, 0.1)" : "none"}; */
-  /* color: ${({ $selected }) => $selected ? "#fff" : PURPLE2}; */
-
-  /* background-color: ${PURPLE2}; */
-  /* outline: 3px solid ${PRIMARY_COLOR}; */
-
-  position: relative;
 
   div {
     position:absolute;
@@ -110,3 +101,19 @@ export const CategoryCardStyled = styled.div`
     }
   }
 `;
+
+export const ErrorCategory = styled.div`
+margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(155, 161, 235, 0.3);
+  padding: 10px 10px;
+  border-radius: 5px;
+  
+  img {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+  }
+`

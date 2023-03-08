@@ -6,6 +6,7 @@ export const DatePickerSearchBarContainer = styled.div`
   top: 50px;
   left: 0px;
   overflow: hidden;
+  z-index: 1;
   height: ${({ $showCalendar }) => ($showCalendar ? "350px" : "0px")};
   opacity: ${({ $showCalendar }) => ($showCalendar ? 1 : 0)};;
   visibility: ${({ $showCalendar }) => ($showCalendar ? "visible" : "hidden")};;

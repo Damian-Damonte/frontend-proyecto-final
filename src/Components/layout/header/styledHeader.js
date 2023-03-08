@@ -89,6 +89,7 @@ export const DrawerStyled = styled.div`
   max-width: 300px;
   background-color: #bdbdbd;
   transition: 0.6s all ease;
+  z-index: 1000;
 `;
 
 export const TopSectionDrawer = styled.div`

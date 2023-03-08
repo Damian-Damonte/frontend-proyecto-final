@@ -12,7 +12,7 @@ export const FooterStyled = styled.footer`
   padding: 1rem;
   position: fixed;
   bottom: 0;
-  z-index: 100;
+  z-index: 10;
   height: 50px;
   width: 100%;
   size: 14px;
