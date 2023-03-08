@@ -18,7 +18,7 @@ import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Share } from "../../../img/icon-share.svg";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 
-export default function ProductHeader({ handleFav, handleShare }) {
+export default function ProductHeader({ handleFav, handleShare, category, title, city, nearby }) {
 
   const navigate = useNavigate()
 
@@ -30,8 +30,8 @@ export default function ProductHeader({ handleFav, handleShare }) {
     <div>
       <ProductNameHeader>
         <div>
-          <p>HOTEL</p>
-          <h3>Hermitage Hotel</h3>
+          <p>{category.toUpperCase()}</p>
+          <h3>{title}</h3>
         </div>
         <Back onClick={goBack}/>
       </ProductNameHeader>
@@ -42,7 +42,9 @@ export default function ProductHeader({ handleFav, handleShare }) {
             <Location />
           </IconContainer>
           <TextLocationContainer>
-            <p>Buenos Aires, Ciudad Autonoma de Buenos Aires, Argentina</p>
+            <p>{`${city.nombre}, ${city.pais.nombre}`}</p>
+            {/* {nearby && <p>A 940 m del centro</p>} */}
+            {/* actualizar API con cercanias */}
             <p>A 940 m del centro</p>
           </TextLocationContainer>
         </LocationContainer>

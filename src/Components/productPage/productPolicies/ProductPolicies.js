@@ -4,48 +4,35 @@ import {
   ProductPoliciesStyled,
 } from "./styledProductPolicies";
 
-export default function ProductPolicies({ policiesHardcoded }) {
-  // const policiesByType =policiesHardcoded.reduce((acc, politica) => {
-  //   if (!acc[politica.tipoPolitica.nombre]) {
-  //     acc[politica.tipoPolitica.nombre] = [];
-  //   }
-  //   acc[politica.tipoPolitica.nombre].push(politica);
-  //   return acc;
-  // }, {});
 
-  // console.log(policiesByType);
+export default function ProductPolicies({ policies }) {
+  const policiesByType =policies.reduce((acc, politica) => {
+    if (!acc[politica.tipoPolitica.nombre]) {
+      acc[politica.tipoPolitica.nombre] = [];
+    }
+    acc[politica.tipoPolitica.nombre].push(politica);
+    return acc;
+  }, {});
+
+  console.log(policies);
 
   return (
     <ProductPoliciesStyled>
       <h3>Qué tenés que saber</h3>
 
       <PoliciesContainer>
-        <div>
-          <h4>Normas de la casa</h4>
-          <div>
-            <p>Check-out 10:00</p>
-            <p>look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-            <p>No fumar</p>
-          </div>
-        </div>
 
-        <div>
-          <h4>Normas de la casa</h4>
-          <div>
-            <p>Check-out 10:00</p>
-            <p>look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-            <p>No fumar</p>
-          </div>
-        </div>
-
-        <div>
-          <h4>Normas de la casa</h4>
-          <div>
-            <p>Check-out 10:00</p>
-            <p>look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
-            <p>No fumar</p>
-          </div>
-        </div>
+        {
+          Object.keys(policiesByType).map(type => (
+            <div key={type}>
+              <h4>{type}</h4>
+              <div>
+                {policiesByType[type].map(policie => (<p key={policie.id}>{policie.descripcion}</p>))}
+              </div>
+            </div>
+          ))
+        }
+        
       </PoliciesContainer>
     </ProductPoliciesStyled>
   );

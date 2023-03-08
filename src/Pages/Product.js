@@ -48,68 +48,69 @@ const coordinates = {
 
 const imagesHardcoded = [
   {
-    id:1,
-    url:"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    id: 1,
+    url: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
   },
   {
-    id:2,
-    url:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80"
+    id: 2,
+    url: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80",
   },
   {
-    id:3,
-    url:"https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80"
+    id: 3,
+    url: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80",
   },
   {
-    id:4,
-    url:"https://images.unsplash.com/photo-1463620910506-d0458143143e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    id: 4,
+    url: "https://images.unsplash.com/photo-1463620910506-d0458143143e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
   },
   {
-    id:5,
-    url:"https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80"
-  }
+    id: 5,
+    url: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80",
+  },
 ];
 
 const policiesHardcoded = [
   {
-      id: 1,
-      descripcion: "Detector de humo",
-      tipoPolitica: {
-          id: 2,
-          nombre: "Salud y seguridad"
-      }
-  },
-  {
-      id: 5,
-      descripcion: "Deposito de seguridad",
-      tipoPolitica: {
-          id: 2,
-          nombre: "Salud y seguridad"
-      }
-  },
-  {
-      id: 3,
-      descripcion: "No se permiten fiestas",
-      tipoPolitica: {
-          id: 1,
-          nombre: "Normas de la casa"
-      }
-  },
-  {
-      id: 4,
-      descripcion: "Check-out: 10:00",
-      tipoPolitica: {
-          id: 1,
-          nombre: "Normas de la casa"
-      }
-  },
-  {
+    id: 1,
+    descripcion: "Detector de humo",
+    tipoPolitica: {
       id: 2,
-      descripcion: "Agregá las fechas de tu viaje para obtener los detalles de cancelación de esta estadía",
-      tipoPolitica: {
-          id: 3,
-          nombre: "Politicas de cancelacion"
-      }
-  }
+      nombre: "Salud y seguridad",
+    },
+  },
+  {
+    id: 5,
+    descripcion: "Deposito de seguridad",
+    tipoPolitica: {
+      id: 2,
+      nombre: "Salud y seguridad",
+    },
+  },
+  {
+    id: 3,
+    descripcion: "No se permiten fiestas",
+    tipoPolitica: {
+      id: 1,
+      nombre: "Normas de la casa",
+    },
+  },
+  {
+    id: 4,
+    descripcion: "Check-out: 10:00",
+    tipoPolitica: {
+      id: 1,
+      nombre: "Normas de la casa",
+    },
+  },
+  {
+    id: 2,
+    descripcion:
+      "Agregá las fechas de tu viaje para obtener los detalles de cancelación de esta estadía",
+    tipoPolitica: {
+      id: 3,
+      nombre: "Politicas de cancelacion",
+    },
+  },
 ];
 
 export default function Product() {
@@ -118,7 +119,7 @@ export default function Product() {
   const { id } = useParams();
 
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     getProductById(id, setProduct);
   }, [id]);
 
@@ -132,18 +133,39 @@ export default function Product() {
 
   return (
     <div>
-      <ProductHeader handleFav={handleFav} handleShare={handleShare} />
-      <ProductoGalleryMobile
-        images={product?.imagenes}
-        handleFav={handleFav}
-        handleShare={handleShare}
-      />
-      <ProductGalleryDesktop images={product?.imagenes} />
-      <ProductDescription />
-      <ProductCaracteristics caracteristics={caracteristicsHarcoded} />
-      <ProductBooking />
-      <ProductLocation coordinates={coordinates} />
-      <ProductPolicies policiesHardcoded={policiesHardcoded} />
+      {/* agregar loader */}
+      {product && (
+        <>
+          <ProductHeader
+            handleFav={handleFav}
+            handleShare={handleShare}
+            category={product?.categoria.titulo}
+            title={product?.titulo}
+            city={product?.ciudad}
+            nearby={product?.cercanias}
+          />
+          <ProductoGalleryMobile
+            images={product?.imagenes}
+            handleFav={handleFav}
+            handleShare={handleShare}
+          />
+          <ProductGalleryDesktop images={product?.imagenes} />
+          <ProductDescription
+            titleDescription={product?.tituloDescripcion}
+            description={product?.descripcion}
+          />
+          <ProductCaracteristics caracteristics={product?.caracteristicas} />
+          <ProductBooking />
+          <ProductLocation
+            city={product.ciudad}
+            coordinates={product?.coordinadas}
+          />
+
+          {product.politicas.length !== 0 && (
+            <ProductPolicies policies={product.politicas} />
+          )}
+        </>
+      )}
     </div>
   );
 }

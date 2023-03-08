@@ -20,7 +20,6 @@ export default function ProductGalleryDesktop({ images }) {
 
   return (
     <>
-    {/* agregar loader */}
       {images && (
         <GalleryDesktopContainer $countImg={imgGrid.length}>
               {imgGrid.map((img) => (
