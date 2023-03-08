@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
-import { allCategorys, allProducts, allCitys } from "../service/getRequests";
+import { allCategorys, allProducts, allCitys, getProductFilters } from "../service/getRequests";
 
 function Home() {
   const [citySelected, setCitySelected] = useState(null);
@@ -30,6 +30,7 @@ function Home() {
 
   const handleSearchProducts = (e) => {
     e.preventDefault();
+    getProductFilters(citySelected?.id, categorySelected?.id, setProducts);
   };
 
   return (
