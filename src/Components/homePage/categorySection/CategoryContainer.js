@@ -1,7 +1,6 @@
 import React from "react";
 import CategoryCard from "./CategoryCard";
 import { CardContainer, CategoryContainerStyled } from "./styledCategory";
-import { useFetch } from "../../../hooks/useFetch";
 
 // const categoriasHardcoded = [
 //   {
@@ -33,14 +32,14 @@ import { useFetch } from "../../../hooks/useFetch";
 export default function CategoryContainer({
   categorySelected,
   setCategorySelected,
+  categorys
 }) {
-  const { data, loading, error } = useFetch("/categorias");
 
   return (
     <CategoryContainerStyled>
       <h2>Busca por tipo de alojamiento</h2>
       <CardContainer>
-        {data?.map((cat) => (
+        {categorys?.map((cat) => (
           <CategoryCard
             key={cat.id}
             categoria={cat}

@@ -16,7 +16,6 @@ import {
   SelectCityOptionNames,
 } from "./styledSearchBar";
 import { ciudadesHarcoded } from "../../../utils/ciudadesHarcoded";
-import { useFetch } from "../../../hooks/useFetch";
 
 const citysHardcoded = ciudadesHarcoded;
 
@@ -27,13 +26,13 @@ export default function SearchBar({
   endDate,
   onChangeDate,
   handleSearchProducts,
+  citys
 }) {
   const [showCitys, setShowCitys] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
 
-  const { data: categorias, loading, error} = useFetch("/categorias");
 
   const handleShowCity = () => {
     showCalendar && setShowCalendar(false);
@@ -59,11 +58,13 @@ export default function SearchBar({
 
   useEffect(() => {
     let citysToShow = [];
-    for (let i = 0; i < citysHardcoded.length && citysToShow.length < 4; i++) {
-      matchCity(citysHardcoded[i]) && citysToShow.push(citysHardcoded[i]);
+    console.log(citys);
+    
+    for (let i = 0; i < citys?.length && citys?.length < 4; i++) {
+      matchCity(citys[i]) && citysToShow.push(citys[i]);
     };
     setCitysFilter(citysToShow);
-  }, [citySearchText]);
+  }, [citySearchText, citys]);
 
   const handleSelectCity = (city) => {
     setCitySelected(city);
@@ -94,10 +95,10 @@ export default function SearchBar({
           />
           <SelectCityOptionContainer
             $show={showCitys}
-            $citysCount={citysFilter.length}
+            $citysCount={citys?.length || 1}
           >
-            {citysFilter.length > 0 ? (
-              citysFilter.map((city) => (
+            {citys?.length > 0 ? (
+              citys.map((city) => (
                 <SelectCityOption
                   key={city.id}
                   city={city}

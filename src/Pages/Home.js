@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
+import { allCategorys, allProducts, allCitys } from "../service/getRequests";
 
 function Home() {
   const [citySelected, setCitySelected] = useState(null);
@@ -9,6 +10,17 @@ function Home() {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  const [categorys, setCategorys] = useState(null);
+  const [products, setProducts] = useState(null);
+  const [citys, setCitys] = useState(null);
+
+  useEffect(() => {
+    allCategorys(setCategorys);
+    allProducts(setProducts);
+    allCitys(setCitys);
+  }, []);
+
 
   const onChangeDate = (dates) => {
     const [start, end] = dates;
@@ -20,8 +32,6 @@ function Home() {
     e.preventDefault();
   };
 
-  console.log("render");
-
   return (
     <div>
       <SearchBar
@@ -31,12 +41,14 @@ function Home() {
         endDate={endDate}
         onChangeDate={onChangeDate}
         handleSearchProducts={handleSearchProducts}
+        citys={citys}
       />
       <CategoryContainer
         categorySelected={categorySelected}
         setCategorySelected={setCategorySelected}
+        categorys={categorys}
       />
-      <ProductContainer />
+      <ProductContainer products={products}/>
     </div>
   );
 }

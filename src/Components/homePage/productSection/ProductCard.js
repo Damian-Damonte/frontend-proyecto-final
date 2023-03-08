@@ -25,27 +25,26 @@ import { IoSnow as AirConditioning } from "react-icons/io5";
 import { IoIosWifi as  Wifi} from "react-icons/io";
 import { IoPawSharp as  PawPrint} from "react-icons/io5";
 
-const descriptionHardcoded =
-  "s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book";
-
-export default function ProductCard({ text }) {
+export default function ProductCard({ product }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
 
   const navigate = useNavigate();
 
+  const {id, titulo, descripcion, imagenes, categoria:{titulo: tituloCat}} = product;
+
   const navigateProduct = () => {
-    navigate("/producto/1")
+    navigate(`/producto/${id}`)
   }
 
   const descriptionReducer = () => {
     if(window.innerWidth < 768) {
-      text.length > 200 
-        ? setDescriptionReduced(<p> {text.substring(0, 200)}... <span>más...</span> </p>)
-        : setDescriptionReduced(<p>{text}</p>);
+      descripcion?.length > 200 
+        ? setDescriptionReduced(<p> {descripcion.substring(0, 200)}... <span onClick={navigateProduct}>más...</span> </p>)
+        : setDescriptionReduced(<p>{descripcion}</p>);
     } else {
-      text.length > 120 
-        ? setDescriptionReduced(<p> {text.substring(0, 120)}... <span>más...</span> </p>)
-        : setDescriptionReduced(<p>{text}</p>);
+      descripcion?.length > 120 
+        ? setDescriptionReduced(<p> {descripcion.substring(0, 120)}... <span onClick={navigateProduct}>más...</span> </p>)
+        : setDescriptionReduced(<p>{descripcion}</p>);
     }
   }
 
@@ -55,12 +54,12 @@ export default function ProductCard({ text }) {
     return () => {
       window.removeEventListener("resize", descriptionReducer);
     };
-  }, [text]);
+  }, [descripcion]);
 
   return (
     <ProductCardStyled>
       <ProductImgContainer>
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" />
+        <img src={imagenes[0].url} alt={imagenes[0].titulo}/>
         <Fav />
       </ProductImgContainer>
 
@@ -68,7 +67,7 @@ export default function ProductCard({ text }) {
         <ProductCardTitleRatingContainer>
           <CardTitleStars>
             <CategoryStarsContainer>
-              <p>Bed and breakfast</p>
+              <p>{tituloCat}</p>
               <StarsContainer>
                 <StarFull />
                 <StarFull />
@@ -77,7 +76,7 @@ export default function ProductCard({ text }) {
                 <StarFull />
               </StarsContainer>
             </CategoryStarsContainer>
-            <h3>Hermitage Hotel Sheraton</h3>
+            <h3>{titulo}</h3>
           </CardTitleStars>
 
           <CardRating>
