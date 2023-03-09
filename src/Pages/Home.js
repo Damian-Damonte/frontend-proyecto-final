@@ -29,7 +29,7 @@ function Home() {
   const [citys, setCitys] = useState(null);
 
   useEffect(() => {
-    allCategorys(setCategorys);
+    // allCategorys(setCategorys);
     allProducts(setProducts);
     allCitys(setCitys);
   }, []);
