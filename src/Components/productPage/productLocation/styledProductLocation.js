@@ -7,6 +7,7 @@ const PURPLE3 = "#545776";
 export const ProductLocationStyled = styled.div`
   background-color: #fff;
   margin-top: 30px;
+  padding-bottom: 20px;
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
@@ -28,8 +29,22 @@ export const ProductLocationStyled = styled.div`
   }
 `;
 
-export const MapContainer = styled.div`
+export const MapSection = styled.div`
   padding: 10px 10px;
+
+  p {
+    font-weight: 500;
+
+  }
+
+  img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: grab;
+  }
 
   @media (min-width: 768px) {
     padding: 10px 20px;
@@ -37,5 +52,10 @@ export const MapContainer = styled.div`
 
   @media (min-width: 1024px) {
     padding: 10px 30px;
+
+    img {
+      height: 400px;
+    }
   }
 `;
+
