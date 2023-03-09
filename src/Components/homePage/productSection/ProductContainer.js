@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "./ProductCard";
 import {
   EmptyProductsContainer,
@@ -7,9 +7,6 @@ import {
 } from "./styledProductSection";
 
 export default function ProductContainer({ products, searchParams }) {
-
-  const [productsDB, setProductsDB] = useState(null);
-
   const { citySelected, categorySelected } = searchParams;
 
   const SearchParmsMsj = (defaultText, customText) => {

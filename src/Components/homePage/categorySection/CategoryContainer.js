@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CategoryCard from "./CategoryCard";
 import {
   CardContainer,
   CategoryContainerStyled,
   ErrorCategory,
 } from "./styledCategory";
-import { allCategorys } from "../../../service/getRequests";
 import { useFetch } from "../../../hooks/useFetch";
 import Loader from "../../common/loader/Loader";
 

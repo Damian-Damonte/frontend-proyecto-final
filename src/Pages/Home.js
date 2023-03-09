@@ -24,14 +24,14 @@ function Home() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [categorys, setCategorys] = useState(null);
+  // const [categorys, setCategorys] = useState(null);
   const [products, setProducts] = useState(null);
   const [citys, setCitys] = useState(null);
 
   useEffect(() => {
     // allCategorys(setCategorys);
     allProducts(setProducts);
-    allCitys(setCitys);
+    // allCitys(setCitys);
   }, []);
 
   const onChangeDate = (dates) => {
@@ -67,12 +67,12 @@ function Home() {
         endDate={endDate}
         onChangeDate={onChangeDate}
         handleSearchProducts={handleSearchProducts}
-        citys={citys}
+        // citys={citys}
       />
       <CategoryContainer
         categorySelected={categorySelected}
         hadleSelectCategory={hadleSelectCategory}
-        categorys={categorys}
+        // categorys={categorys}
       />
       <ProductContainer
         products={products}
