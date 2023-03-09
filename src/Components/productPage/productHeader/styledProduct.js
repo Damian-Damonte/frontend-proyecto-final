@@ -8,6 +8,25 @@ const PURPLE3 = "#545776";
 
 // export const ProductHeaderContainer = styled.div``;
 
+export const ErrorMessageContainer = styled.div`
+  margin: 100px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(155, 161, 235, 0.3);
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 700px;
+  align-self: center;
+
+  img {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+  }
+`;
+
 export const ProductNameHeader = styled.div`
   padding: 10px;
   display: flex;

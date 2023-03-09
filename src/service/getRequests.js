@@ -1,28 +1,4 @@
-const URL = "http://localhost:8080/api";
-
-const allCategorys = async (setState) => {
-  const response = await fetch(`${URL}/categorias`);
-  const data = await response.json();
-  setState(data);
-};
-
-const allProducts = async (setState) => {
-  const response = await fetch(`${URL}/productos`);
-  const data = await response.json();
-  setState(data);
-};
-
-const allCitys = async (setState) => {
-  const response = await fetch(`${URL}/ciudades`);
-  const data = await response.json();
-  setState(data);
-};
-
-const getProductById = async (id, setState) => {
-  const response = await fetch(`${URL}/productos/${id}`);
-  const data = await response.json();
-  setState(data);
-};
+import { customFetch } from "../utils/customFetch";
 
 const getProductFilters = async (
   cityId = null,
@@ -44,34 +20,6 @@ const getProductFilters = async (
   customFetch( pathFilters, setState, setLoading, setError)
 };
 
-const getRandomProducts = async (setState) => {
-  const response = await fetch(`${URL}/productos/random`);
-  const data = await response.json();
-  console.log(data);
-  setState(data);
-};
-
-const customFetch = async (path, setState, setLoading, setError) => {
-  setLoading(true);
-  try {
-    const response = await fetch(`${URL}${path}`);
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    const data = await response.json();
-    setState(data);
-  } catch (error) {
-    setError(error);
-  }
-  setLoading(false);
-};
-
 export {
-  allCategorys,
-  allProducts,
-  allCitys,
-  getProductById,
-  getProductFilters,
-  getRandomProducts,
-  customFetch
+  getProductFilters
 };

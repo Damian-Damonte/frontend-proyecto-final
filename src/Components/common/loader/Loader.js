@@ -1,8 +1,14 @@
-import React from 'react'
-import { LoaderStyled } from './styledLoader'
+import React from "react";
+import { LoaderContainer, LoaderStyled } from "./styledLoader";
 
-export default function Loader() {
+export default function Loader({ height }) {
   return (
-    <LoaderStyled></LoaderStyled>
-  )
+    <LoaderContainer $containerheight={height}>
+      <LoaderStyled></LoaderStyled>
+    </LoaderContainer>
+  );
+};
+
+Loader.defaultProps = {
+  height: "auto"
 }

@@ -4,6 +4,13 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+export const LoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: ${({ $containerheight }) =>  $containerheight };
+`
+
 export const LoaderStyled = styled.span`
   width: 48px;
   height: 48px;
