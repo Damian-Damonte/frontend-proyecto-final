@@ -5,8 +5,14 @@ import {
   ProductCardContainer,
   ProductContainerStyled,
 } from "./styledProductSection";
+import Loader from "../../common/loader/Loader";
 
-export default function ProductContainer({ products, searchParams }) {
+export default function ProductContainer({
+  products,
+  searchParams,
+  loading,
+  error,
+}) {
   const { citySelected, categorySelected } = searchParams;
 
   const SearchParmsMsj = (defaultText, customText) => {
@@ -23,21 +29,38 @@ export default function ProductContainer({ products, searchParams }) {
 
   return (
     <ProductContainerStyled>
-      {products?.length > 0 ? (
-        <>
-          <h4>{SearchParmsMsj("Recomendaciones", "Alojamientos")}</h4>
-          <ProductCardContainer>
-            {products?.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </ProductCardContainer>
-        </>
-      ) : (
-        <EmptyProductsContainer>
-          <img src="/assets/icon-warning.svg" alt="question icon" />
-          <p>{SearchParmsMsj("No se encontraron alojamientos", "No se encontraron alojamientos disponibles")}</p>
-        </EmptyProductsContainer>
-      )}
+      {loading && <Loader />}
+
+      {products &&
+        (products?.length > 0 ? (
+          <>
+            <h4>{SearchParmsMsj("Recomendaciones", "Alojamientos")}</h4>
+            <ProductCardContainer>
+              {products?.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </ProductCardContainer>
+          </>
+        ) : (
+          <EmptyProductsContainer>
+            <img src="/assets/icon-warning.svg" alt="question icon" />
+            <p>
+              {SearchParmsMsj(
+                "No se encontraron alojamientos",
+                "No se encontraron alojamientos disponibles"
+              )}
+            </p>
+          </EmptyProductsContainer>
+        ))}
+
+        {error && 
+          <EmptyProductsContainer>
+            <img src="/assets/icon-warning.svg" alt="question icon" />
+            <p>
+              Ha ocurrido un error, por favor vuelva a intetar más tarde
+            </p>
+          </EmptyProductsContainer>
+        }
     </ProductContainerStyled>
   );
 }
