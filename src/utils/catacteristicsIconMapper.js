@@ -5,7 +5,6 @@ import { FaSwimmer as Pool } from "react-icons/fa";
 import { IoSnow as AirConditioning } from "react-icons/io5";
 import { IoIosWifi as  Wifi} from "react-icons/io";
 import { IoPawSharp as  PawPrint} from "react-icons/io5";
-import { Caracteristic } from "../Components/productPage/productCaracteristics/styledProductCaracteristics";
 
 const iconDictionary = {
   "Cocina": <Kitchen />,

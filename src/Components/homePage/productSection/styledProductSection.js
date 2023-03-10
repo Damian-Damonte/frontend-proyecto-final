@@ -82,6 +82,7 @@ export const ProductCardStyled = styled.div`
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 450px;
+  width: 100%;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -117,16 +118,20 @@ export const ProductImgContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: 45%;
+    width: 50%;
     height: 100%;
   }
 `;
 
 export const ProductCardDescriptionContainer = styled.div`
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 
   @media (min-width: 768px) {
-    width: 55%;
+    width: 50%;
   }
 `;
 
