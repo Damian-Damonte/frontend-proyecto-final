@@ -18,13 +18,24 @@ import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
+import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 
 export default function ProductCard({ product }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
 
   const navigate = useNavigate();
 
-  const {id, titulo, descripcion, imagenes, categoria:{titulo: tituloCat}, caracteristicas} = product;
+  const {
+    id,
+    titulo,
+    descripcion,
+    imagenes,
+    categoria:{titulo: tituloCat},
+    caracteristicas,
+    promedioPuntuacion,
+    direccion,
+    coordenadas:{latitud, longitud}
+  } = product;
 
   const navigateProduct = () => {
     navigate(`/producto/${id}`)
@@ -50,6 +61,9 @@ export default function ProductCard({ product }) {
     };
   }, [descripcion]);
 
+  const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
+
+
   return (
     <ProductCardStyled>
       <ProductImgContainer>
@@ -74,17 +88,16 @@ export default function ProductCard({ product }) {
           </CardTitleStars>
 
           <CardRating>
-            <p>8</p>
-            <p>Muy bueno</p>
+            <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
+            <p>{promedioPuntuacion ? getRaitingScale(promedioPuntuacion) : "-"}</p>
           </CardRating>
         </ProductCardTitleRatingContainer>
 
         <ProductCardLocationContainer>
           <p>
-            {" "}
-            <Location /> A 940m del centro -
+            <Location /> {direccion} -
           </p>
-          <p>&nbsp; MOSTRAR EN EL MAPA</p>
+          <a target="_blank" href={urlMap} rel="noopener noreferrer">&nbsp; MOSTRAR EN EL MAPA</a>
         </ProductCardLocationContainer>
 
         <ProductCardCaracteristics>
@@ -105,3 +118,4 @@ export default function ProductCard({ product }) {
     </ProductCardStyled>
   );
 }
+

@@ -11,6 +11,7 @@ export const ProductContainerStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 400px;
 
   h4 {
     font-size: 22px;
@@ -55,14 +56,13 @@ export const ProductCardContainer = styled.div`
 `;
 
 export const EmptyProductsContainer = styled.div`
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
   padding: 10px 10px;
   border-radius: 5px;
-  
+
   img {
     height: 50px;
     width: 50px;
@@ -72,7 +72,7 @@ export const EmptyProductsContainer = styled.div`
   @media (min-width: 768px) {
     background-color: rgba(155, 161, 235, 0.3);
   }
-`
+`;
 
 export const ProductCardStyled = styled.div`
   display: flex;
@@ -219,11 +219,12 @@ export const ProductCardLocationContainer = styled.div`
     }
   }
 
-  p:last-child {
+  a {
     color: ${PRIMARY_COLOR};
     font-size: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 
     &:hover {
       color: #15a39a;
