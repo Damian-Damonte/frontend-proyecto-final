@@ -1,4 +1,7 @@
 export const getRaitingScale = (rating) => {
+  if (!rating)
+    return "-";
+    
   rating = Math.floor(rating);
   if (rating >= 1 && rating <= 3) {
     return "Malo";

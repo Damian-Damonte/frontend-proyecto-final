@@ -7,7 +7,6 @@ import {
   OpinionStarsContainer,
   ProductLocationRatingHeader,
   ProductNameHeader,
-  ProductTitleContainer,
   RatingContainer,
   StarsContainer,
   TextLocationContainer,

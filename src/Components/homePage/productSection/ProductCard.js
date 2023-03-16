@@ -89,7 +89,7 @@ export default function ProductCard({ product }) {
 
           <CardRating>
             <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
-            <p>{promedioPuntuacion ? getRaitingScale(promedioPuntuacion) : "-"}</p>
+            <p>{getRaitingScale(promedioPuntuacion)}</p>
           </CardRating>
         </ProductCardTitleRatingContainer>
 

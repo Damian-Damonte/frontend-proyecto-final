@@ -32,13 +32,9 @@ function Home() {
   };
 
   const selectCategory = (category) => {
-    if (searchParams.category?.id === category.id) {
-      changeSearchParams("category", null);
-      searchProducts({ ...searchParams, category: null });
-    } else {
-      changeSearchParams("category", category);
-      searchProducts({ ...searchParams, category: category });
-    }
+    searchParams.category?.id === category.id 
+      ? searchProducts({ ...searchParams, category: null })
+      : searchProducts({ ...searchParams, category: category });
   };
 
   const handleSearchProducts = (e) => {
@@ -47,6 +43,7 @@ function Home() {
   };
 
   const searchProducts = (object) => {
+    setSearchParams(object);
     setLastSearchParams(object);
     const allSearchParamsNull = Object.values(object).every((e) => e === null);
     allSearchParamsNull
