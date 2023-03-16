@@ -1,5 +1,5 @@
 import { get } from "./api";
-import { apiDateFormarter } from "../utils/apiDateFormater";
+import { apiDateFormarter } from "../utils/dateFormater";
 
 const getFilterQueryParams = (searchParams) => {
   let finalPath = `/productos/filters`;
@@ -26,7 +26,7 @@ const getFilteredProducts = (searchParams, setState, setLoading, setError) => {
 };
 
 const getRandomProducts = (setState, setLoading, setError) => {
-  get("productos/random", setState, setLoading, setError)
+  get("/productos/random", setState, setLoading, setError)
 };
 
 

@@ -6,6 +6,8 @@ import {
   ProductContainerStyled,
 } from "./styledProductSection";
 import Loader from "../../common/loader/Loader";
+import { userDateFormater } from "../../../utils/dateFormater";
+
 
 export default function ProductContainer({
   products,
@@ -13,17 +15,21 @@ export default function ProductContainer({
   loading,
   error,
 }) {
-  const { city, category } = lastSearchParams;
+  const { city, category, startDate, endDate } = lastSearchParams;
 
   const searchParmsMsj = (defaultText, customText) => {
     let title = defaultText;
-    if (city && category) {
-      title = `${customText} en ${city.nombre}, ${city.pais.nombre} de tipo ${category.titulo}`;
-    } else if (category || city) {
-      title = category
-        ? `${customText} de tipo ${category.titulo}`
-        : `${customText} en ${city.nombre}, ${city.pais.nombre}`;
-    }
+    const allSearchParamsNull = Object.values(lastSearchParams).every((e) => e === null);
+    if(allSearchParamsNull) return title;
+    else title = customText;
+
+    if (city) 
+      title += ` en ${city.nombre}, ${city.pais.nombre}`
+    if (category)
+      title += ` de tipo ${category.titulo}`
+    if (startDate && endDate)
+      title += ` entre ${userDateFormater(startDate)} y ${userDateFormater(endDate)}`
+      
     return title;
   };
 

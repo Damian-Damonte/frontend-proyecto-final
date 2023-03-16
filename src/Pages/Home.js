@@ -3,8 +3,7 @@ import CategoryContainer from "../Components/homePage/categorySection/CategoryCo
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
 import { useFetch } from "../hooks/useFetch";
-import { getFilteredProducts } from "../service/products";
-import { getRandomProducts } from "../service/products";
+import { getFilteredProducts, getRandomProducts } from "../service/products";
 
 const initialSearchParams = {
   citySelected: null,
