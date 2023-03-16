@@ -3,14 +3,15 @@ import { CategoryCardStyled } from "./styledCategory";
 
 export default function CategoryCard({
   categoria,
-  categorySelected,
-  hadleSelectCategory,
+  searchParams,
+  selectCategory
 }) {
   const { id, titulo, urlImagen } = categoria;
+
   return (
     <CategoryCardStyled
-      $selected={categorySelected?.id === id}
-      onClick={() => hadleSelectCategory(categoria)}
+      $selected={searchParams.category?.id === id}
+      onClick={() => selectCategory(categoria)}
     >
       <div></div>
       <img src={urlImagen} alt={titulo} />

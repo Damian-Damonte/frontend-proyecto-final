@@ -9,20 +9,20 @@ import Loader from "../../common/loader/Loader";
 
 export default function ProductContainer({
   products,
-  searchParams,
+  lastSearchParams,
   loading,
   error,
 }) {
-  const { citySelected, categorySelected } = searchParams;
+  const { city, category } = lastSearchParams;
 
-  const SearchParmsMsj = (defaultText, customText) => {
+  const searchParmsMsj = (defaultText, customText) => {
     let title = defaultText;
-    if (citySelected && categorySelected) {
-      title = `${customText} en ${citySelected.nombre}, ${citySelected.pais.nombre} de tipo ${categorySelected.titulo}`;
-    } else if (categorySelected || citySelected) {
-      title = categorySelected
-        ? `${customText} de tipo ${categorySelected.titulo}`
-        : `${customText} en ${citySelected.nombre}, ${citySelected.pais.nombre}`;
+    if (city && category) {
+      title = `${customText} en ${city.nombre}, ${city.pais.nombre} de tipo ${category.titulo}`;
+    } else if (category || city) {
+      title = category
+        ? `${customText} de tipo ${category.titulo}`
+        : `${customText} en ${city.nombre}, ${city.pais.nombre}`;
     }
     return title;
   };
@@ -34,7 +34,7 @@ export default function ProductContainer({
       {products &&
         (products?.length > 0 ? (
           <>
-            <h4>{SearchParmsMsj("Recomendaciones", "Alojamientos")}</h4>
+            <h4>{searchParmsMsj("Recomendaciones", "Alojamientos")}</h4>
             <ProductCardContainer>
               {products?.map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -45,7 +45,7 @@ export default function ProductContainer({
           <EmptyProductsContainer>
             <img src="/assets/icon-warning.svg" alt="question icon" />
             <p>
-              {SearchParmsMsj(
+              {searchParmsMsj(
                 "No se encontraron alojamientos",
                 "No se encontraron alojamientos disponibles"
               )}
@@ -57,7 +57,7 @@ export default function ProductContainer({
           <EmptyProductsContainer>
             <img src="/assets/icon-warning.svg" alt="question icon" />
             <p>
-              Ha ocurrido un error, por favor vuelva a intetar más tarde
+              Ha ocurrido un error. Por favor, vuelva a intetar más tarde
             </p>
           </EmptyProductsContainer>
         }

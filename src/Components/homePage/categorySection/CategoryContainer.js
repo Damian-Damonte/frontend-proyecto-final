@@ -10,8 +10,8 @@ import Loader from "../../common/loader/Loader";
 
 
 export default function CategoryContainer({
-  categorySelected,
-  hadleSelectCategory
+  searchParams,
+  selectCategory
 }) {
   const [categorys, setCategorys] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -30,8 +30,8 @@ export default function CategoryContainer({
             <CategoryCard
               key={cat.id}
               categoria={cat}
-              categorySelected={categorySelected}
-              hadleSelectCategory={hadleSelectCategory}
+              searchParams={searchParams}
+              selectCategory={selectCategory}
             />
           ))}
         </CardContainer>
@@ -39,7 +39,7 @@ export default function CategoryContainer({
       {error && 
         <ErrorCategory>
           <img src="/assets/icon-warning.svg" alt="question icon" />
-          <p>Ha ocurrido un error, por favor vuelva a intetar más tarde</p>
+          <p>Ha ocurrido un error. Por favor, vuelva a intetar más tarde</p>
         </ErrorCategory>
       }
     </CategoryContainerStyled>

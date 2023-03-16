@@ -11,15 +11,14 @@ import {
 import SelectCityContainer from "./selectCity/SelectCityContainer";
 
 export default function SearchBar({
-  citySelected,
-  setCitySelected,
-  startDate,
-  endDate,
   onChangeDate,
   handleSearchProducts,
+  searchParams,
+  changeSearchParams
 }) {
   const [showCitys, setShowCitys] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
+  const {startDate, endDate} = searchParams;
 
   const handleShowCity = () => {
     showCalendar && setShowCalendar(false);
@@ -45,10 +44,10 @@ export default function SearchBar({
       <FormSearch onSubmit={handleSearchProducts}>
       
         <SelectCityContainer
-          setCitySelected={setCitySelected}
           handleShowCity={handleShowCity}
-          citySelected={citySelected}
           showCitys={showCitys}
+          searchParams={searchParams}
+          changeSearchParams={changeSearchParams}
         />
 
         <SearchDateInput onClick={handleShowCalendar} $empty={startDate}>
@@ -61,6 +60,7 @@ export default function SearchBar({
             startDate={startDate}
             endDate={endDate}
             onChangeDate={onChangeDate}
+            searchParams={searchParams}
             handleShowCalendar={handleShowCalendar}
           />
         </SearchDateInput>

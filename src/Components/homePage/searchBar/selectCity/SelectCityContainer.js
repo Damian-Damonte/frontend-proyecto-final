@@ -11,10 +11,10 @@ import SelectCityOption from "./SelectCityOption";
 import { useFetch } from "../../../../hooks/useFetch";
 
 export default function SelectCityContainer({
-  setCitySelected,
   handleShowCity,
-  citySelected,
   showCitys,
+  searchParams,
+  changeSearchParams
 }) {
   const [citys, setCitys] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,12 +34,12 @@ export default function SelectCityContainer({
   };
 
   const handleSelectCity = (city) => {
-    setCitySelected(city);
+    changeSearchParams("city", city);
     setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
   };
 
   const handleChangeCityText = (e) => {
-    e.target.value === "" && setCitySelected(null);
+    e.target.value === "" && changeSearchParams("city", null);
     setCitySearchText(e.target.value);
   };
 
@@ -49,7 +49,6 @@ export default function SelectCityContainer({
       for (let i = 0; i < citys.length && citysToShow.length < 4; i++) {
         matchCity(citys[i]) && citysToShow.push(citys[i]);
       }
-
       setCitysFilter(citysToShow);
     }
   }, [citySearchText, citys]);
@@ -58,7 +57,7 @@ export default function SelectCityContainer({
     <SelectCityContainerStyled
       onFocus={handleShowCity}
       onBlur={handleShowCity}
-      $empty={citySelected}
+      $empty={searchParams.city}
     >
       <IconLocation />
       <SelectCity
@@ -84,6 +83,7 @@ export default function SelectCityContainer({
                 key={city.id}
                 city={city}
                 handleSelectCity={handleSelectCity}
+                changeSearchParams={changeSearchParams}
               />
             ))
           ) : (
