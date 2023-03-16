@@ -3,11 +3,19 @@ import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es";
 import { DatePickerBookingContainer } from "./styledDatePickerBooking";
 import { useWindowSize } from "../../../../hooks/useWindowSize";
+import { apiDateToDate } from "../../../../utils/dateFormater";
 
 registerLocale("es", es);
 
-export default function DatepickerBooking() {
+export default function DatepickerBooking({ reservas }) {
   const { width } = useWindowSize(300);
+
+  const excludeDates = reservas.map((rev) => {
+    return {
+      start: apiDateToDate(rev.checkIn),
+      end: apiDateToDate(rev.checkOut),
+    };
+  });
 
   const today = new Date();
   return (
@@ -21,9 +29,7 @@ export default function DatepickerBooking() {
         readOnly={true}
         onChange={() => null}
         selected={today}
-        excludeDateIntervals={[
-          { start: new Date(2023, 2, 14), end: new Date(2023, 2, 19) },
-        ]}
+        excludeDateIntervals={excludeDates}
       >
         <div className="linea-divisoria"></div>
       </ReactDatePicker>

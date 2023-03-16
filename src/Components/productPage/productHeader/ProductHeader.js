@@ -17,10 +17,18 @@ import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Share } from "../../../img/icon-share.svg";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
+import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 
-export default function ProductHeader({ handleFav, handleShare, category, title, city, nearby }) {
+export default function ProductHeader({ handleFav, handleShare, product }) {
+  const {
+    categoria,
+    ciudad,
+    titulo,
+    direccion,
+    promedioPuntuacion
+  } = product;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
@@ -30,10 +38,10 @@ export default function ProductHeader({ handleFav, handleShare, category, title,
     <div>
       <ProductNameHeader>
         <div>
-          <p>{category.toUpperCase()}</p>
-          <h3>{title}</h3>
+          <p>{categoria.titulo.toUpperCase()}</p>
+          <h3>{titulo}</h3>
         </div>
-        <Back onClick={goBack}/>
+        <Back onClick={goBack} />
       </ProductNameHeader>
 
       <ProductLocationRatingHeader>
@@ -42,15 +50,13 @@ export default function ProductHeader({ handleFav, handleShare, category, title,
             <Location />
           </IconContainer>
           <TextLocationContainer>
-            <p>{`${city.nombre}, ${city.pais.nombre}`}</p>
-            {/* {nearby && <p>A 940 m del centro</p>} */}
-            {/* actualizar API con cercanias */}
-            <p>A 940 m del centro</p>
+            <p>{`${ciudad.nombre}, ${ciudad.pais.nombre}`}</p>
+            <p>{direccion}</p>
           </TextLocationContainer>
         </LocationContainer>
         <RatingContainer>
           <OpinionStarsContainer>
-            <p>Muy bueno</p>
+            <p>{getRaitingScale(promedioPuntuacion)}</p>
             <StarsContainer>
               <StarFull />
               <StarFull />
@@ -59,13 +65,13 @@ export default function ProductHeader({ handleFav, handleShare, category, title,
               <StarFull />
             </StarsContainer>
           </OpinionStarsContainer>
-          <p>8</p>
+          <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
         </RatingContainer>
       </ProductLocationRatingHeader>
 
       <BtnShareFavContainer>
         <Share onClick={handleShare} />
-        <Fav onClick={handleFav}/>
+        <Fav onClick={handleFav} />
       </BtnShareFavContainer>
     </div>
   );

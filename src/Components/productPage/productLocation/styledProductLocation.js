@@ -43,7 +43,7 @@ export const MapSection = styled.div`
     object-fit: cover;
     border-radius: 10px;
     margin-top: 20px;
-    cursor: grab;
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {

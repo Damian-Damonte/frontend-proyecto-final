@@ -1,5 +1,5 @@
 import { get } from "./api";
-import { apiDateFormarter } from "../utils/dateFormater";
+import { dateToApiDate } from "../utils/dateFormater";
 
 const getFilterQueryParams = (searchParams) => {
   let finalPath = `/productos/filters`;
@@ -7,8 +7,8 @@ const getFilterQueryParams = (searchParams) => {
   const objectParams = {
     ciudadId: searchParams.city?.id,
     categoriaId: searchParams.category?.id,
-    checkIn: searchParams?.startDate && apiDateFormarter(searchParams?.startDate),
-    checkOut: searchParams?.endDate && apiDateFormarter(searchParams?.endDate),
+    checkIn: searchParams?.startDate && dateToApiDate(searchParams?.startDate),
+    checkOut: searchParams?.endDate && dateToApiDate(searchParams?.endDate),
   };
 
   for (let param in objectParams) {

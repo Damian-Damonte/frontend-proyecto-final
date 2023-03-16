@@ -6,7 +6,7 @@ import {
   ProductContainerStyled,
 } from "./styledProductSection";
 import Loader from "../../common/loader/Loader";
-import { userDateFormater } from "../../../utils/dateFormater";
+import { dateToUserDate } from "../../../utils/dateFormater";
 
 
 export default function ProductContainer({
@@ -28,8 +28,7 @@ export default function ProductContainer({
     if (category)
       title += ` de tipo ${category.titulo}`
     if (startDate && endDate)
-      title += ` entre ${userDateFormater(startDate)} y ${userDateFormater(endDate)}`
-      
+      title += ` entre ${dateToUserDate(startDate)} y ${dateToUserDate(endDate)}`
     return title;
   };
 

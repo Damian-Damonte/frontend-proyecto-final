@@ -42,10 +42,7 @@ export default function Product() {
           <ProductHeader
             handleFav={handleFav}
             handleShare={handleShare}
-            category={product?.categoria.titulo}
-            title={product?.titulo}
-            city={product?.ciudad}
-            nearby={product?.cercanias}
+            product={product}
           />
           <ProductoGalleryMobile
             images={product?.imagenes}
@@ -53,17 +50,10 @@ export default function Product() {
             handleShare={handleShare}
           />
           <ProductGalleryDesktop images={product?.imagenes} />
-          <ProductDescription
-            titleDescription={product?.tituloDescripcion}
-            description={product?.descripcion}
-          />
+          <ProductDescription product={product} />
           <ProductCaracteristics caracteristics={product?.caracteristicas} />
-          <ProductBooking />
-          <ProductLocation
-            city={product.ciudad}
-            coordinates={product?.coordinadas}
-          />
-
+          <ProductBooking reservas={product?.reservas}/>
+          <ProductLocation product={product} />
           {product.politicas.length !== 0 && (
             <ProductPolicies policies={product.politicas} />
           )}
