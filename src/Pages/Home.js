@@ -3,9 +3,8 @@ import CategoryContainer from "../Components/homePage/categorySection/CategoryCo
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
 import { useFetch } from "../hooks/useFetch";
-import { getProductFilters } from "../service/getRequests";
-import { customFetch } from "../utils/customFetch";
-import { productsFilter } from "../utils/customFetch";
+import { getFilteredProducts } from "../service/products";
+import { getRandomProducts } from "../service/products";
 
 const initialSearchParams = {
   citySelected: null,
@@ -52,8 +51,8 @@ function Home() {
     setLastSearchParams(object);
     const allSearchParamsNull = Object.values(object).every((e) => e === null);
     allSearchParamsNull
-      ? customFetch("/productos/random", setProducts, setLoading, setError)
-      : productsFilter(object, setProducts, setLoading, setError);
+      ? getRandomProducts(setProducts, setLoading, setError)
+      : getFilteredProducts(object, setProducts, setLoading, setError);
   };
 
   return (
