@@ -9,6 +9,7 @@ export const CategoryContainerStyled = styled.section`
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  min-height: 300px;
 
   h2 {
     font-size: 24px;
@@ -103,7 +104,7 @@ export const CategoryCardStyled = styled.div`
 `;
 
 export const ErrorCategory = styled.div`
-  margin-top: 20px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
