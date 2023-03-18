@@ -25,16 +25,16 @@ const getFilteredProducts = async (
   searchParams,
   setProductState,
   setPageData,
-  setNextPage
+  setShowPager
 ) => {
   setProductState({ products: null, loading: true, error: null });
   const response = await get(getFilterQueryParams(page, searchParams));
   if (response.error) {
     setProductState({ products: null, loading: false, error: response.error });
-    setNextPage(false);
+    setShowPager(false);
   } else {
     setProductState({ products: response.data.content, loading: false, error: null});
-    setNextPage(response.data.content.length > 0);
+    setShowPager(response.data.content.length > 0);
     setPageData({
       currentPage: response.data.currentPage,
       totalPages: response.data.totalPages,
@@ -42,7 +42,7 @@ const getFilteredProducts = async (
   }
 };
 
-const getRandomProducts = async (setProductState, setNextPage) => {
+const getRandomProducts = async (setProductState, setShowPager) => {
   setProductState({ products: null, loading: true, error: null });
 
   const response = await get("/productos/random");
@@ -50,7 +50,7 @@ const getRandomProducts = async (setProductState, setNextPage) => {
     setProductState({ products: null, loading: false, error: response.error });
   } else {
     setProductState({ products: response.data, loading: false, error: null });
-    setNextPage(response.data.length > 0);
+    setShowPager(response.data.length > 0);
   }
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
@@ -16,24 +16,23 @@ function Home() {
   const [pageData, setPageData] = useState({});
   const [searchParams, setSearchParams] = useState({});
   const [lastSearchParams, setLastSearchParams] = useState({});
-  const [nextPage, setNextPage] = useState(false);
+  const [showPager, setShowPager] = useState(false);
 
-  // user useFetch, actualizarlo
   useEffect(() => {
-    getRandomProducts(setProductState, setNextPage);
+    getRandomProducts(setProductState, setShowPager);
   }, []);
 
   const searchProducts = (searchParams, page=0) => {
     if (!productState.loading) {
       areEqualsObjects(searchParams, lastSearchParams)
-        ? setNextPage(true)
-        : setNextPage(false);
+        ? setShowPager(true)
+        : setShowPager(false);
       setSearchParams(searchParams);
       setLastSearchParams(searchParams);
       const allSearchParamsNull = Object.values(searchParams).every((e) => e === null);
       allSearchParamsNull
-        ? getRandomProducts(setProductState, setNextPage)
-        : getFilteredProducts(page, searchParams, setProductState, setPageData, setNextPage);
+        ? getRandomProducts(setProductState, setShowPager)
+        : getFilteredProducts(page, searchParams, setProductState, setPageData, setShowPager);
     }
   };
 
@@ -53,7 +52,7 @@ function Home() {
         pageData={pageData}
         searchProducts={searchProducts}
         setPageData={setPageData}
-        nextPage={nextPage}
+        showPager={showPager}
         productState={productState}
       />
     </div>

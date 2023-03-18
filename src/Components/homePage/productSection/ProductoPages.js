@@ -13,7 +13,7 @@ export default function ProductoPages({
   setPageData,
   searchProducts,
   lastSearchParams,
-  loading,
+  loading
 }) {
   const { totalPages, currentPage } = pageData;
 
@@ -39,7 +39,9 @@ export default function ProductoPages({
   };
 
   const refreshRandoms = () => {
-    if (!loading) searchProducts(lastSearchParams);
+    if (!loading){
+      searchProducts(lastSearchParams)
+    };
   };
 
   function getPageNumbers() {
@@ -83,12 +85,12 @@ export default function ProductoPages({
           <BtnRefreshRandom onClick={refreshRandoms}>Actualizar recomendaciones</BtnRefreshRandom>
         ) : (
           <>
-            <BtnNextPrev onClick={prevPage} disabled={currentPage <= 0}>Anterior</BtnNextPrev>
+            <BtnNextPrev onClick={prevPage} $disabled={currentPage <= 0}>Anterior</BtnNextPrev>
             <PageNumberContainer>{getPageNumbers()}</PageNumberContainer>
-            <BtnNextPrev onClick={nextPage} disabled={currentPage >= totalPages - 1}>Siguiente</BtnNextPrev>
+            <BtnNextPrev onClick={nextPage} $disabled={currentPage >= totalPages - 1}>Siguiente</BtnNextPrev>
             <BtnPrevNextMobile>
-              <BtnNextPrev onClick={prevPage} disabled={currentPage <= 0}>Anterior</BtnNextPrev>
-              <BtnNextPrev onClick={nextPage} disabled={currentPage >= totalPages - 1}>Siguiente</BtnNextPrev>
+              <BtnNextPrev onClick={prevPage} $disabled={currentPage <= 0}>Anterior</BtnNextPrev>
+              <BtnNextPrev onClick={nextPage} $disabled={currentPage >= totalPages - 1}>Siguiente</BtnNextPrev>
             </BtnPrevNextMobile>
           </>
         )}

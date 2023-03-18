@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
@@ -354,12 +354,24 @@ export const BtnNextPrev = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 
-  &:not(:disabled):hover {
+  &:hover {
     background-color: #e7e7e7;
   }
   &:disabled {
     cursor: auto;
   }
+
+  ${({ $disabled }) => {
+    if($disabled) {
+      return css`
+        color: #ccc;
+        cursor: auto;
+        &:hover {
+          background-color: #fff
+        }
+      `
+    }
+  }};
 
   @media (max-width: 370px) {
     display: none;
@@ -398,5 +410,4 @@ export const BtnRefreshRandom = styled.button`
   &:hover {
     background-color: #e7e7e7;
   }
-
 `;

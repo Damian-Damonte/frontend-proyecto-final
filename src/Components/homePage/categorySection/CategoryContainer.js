@@ -10,7 +10,7 @@ import Loader from "../../common/loader/Loader";
 
 export default function CategoryContainer({
   searchParams,
-  searchProducts
+  searchProducts,
 }) {
   const [categorys, setCategorys] = useState(null);
   const [loading, setLoading] = useState(false);
