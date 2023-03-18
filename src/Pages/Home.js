@@ -1,74 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
-import { useFetch } from "../hooks/useFetch";
 import { getFilteredProducts, getRandomProducts } from "../service/products";
+import { areEqualsObjects } from "../utils/areEqualsObjects";
 
-const initialSearchParams = {
-  citySelected: null,
-  categorySelected: null,
-  startDate: null,
-  endDate: null,
+const initialProductState = {
+  products: null,
+  loading: false,
+  error: null
 };
 
 function Home() {
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [productState, setProductState] = useState(initialProductState);
+  const [pageData, setPageData] = useState({});
+  const [searchParams, setSearchParams] = useState({});
+  const [lastSearchParams, setLastSearchParams] = useState({});
+  const [nextPage, setNextPage] = useState(false);
 
-  const [searchParams, setSearchParams] = useState(initialSearchParams);
-  const [lastSearchParams, setLastSearchParams] = useState(initialSearchParams);
+  // user useFetch, actualizarlo
+  useEffect(() => {
+    getRandomProducts(setProductState, setNextPage);
+  }, []);
 
-  useFetch("/productos/random", setProducts, setLoading, setError);
-
-  const changeSearchParams = (param, value) => {
-    setSearchParams({ ...searchParams, [param]: value });
-  };
-
-  const onChangeDate = (dates) => {
-    const [start, end] = dates;
-    setSearchParams({ ...searchParams, startDate: start, endDate: end });
-  };
-
-  const selectCategory = (category) => {
-    searchParams.category?.id === category.id 
-      ? searchProducts({ ...searchParams, category: null })
-      : searchProducts({ ...searchParams, category: category });
-  };
-
-  const handleSearchProducts = (e) => {
-    e.preventDefault();
-    searchProducts(searchParams);
-  };
-
-  const searchProducts = (object) => {
-    setSearchParams(object);
-    setLastSearchParams(object);
-    const allSearchParamsNull = Object.values(object).every((e) => e === null);
-    allSearchParamsNull
-      ? getRandomProducts(setProducts, setLoading, setError)
-      : getFilteredProducts(object, setProducts, setLoading, setError);
+  const searchProducts = (searchParams, page=0) => {
+    if (!productState.loading) {
+      areEqualsObjects(searchParams, lastSearchParams)
+        ? setNextPage(true)
+        : setNextPage(false);
+      setSearchParams(searchParams);
+      setLastSearchParams(searchParams);
+      const allSearchParamsNull = Object.values(searchParams).every((e) => e === null);
+      allSearchParamsNull
+        ? getRandomProducts(setProductState, setNextPage)
+        : getFilteredProducts(page, searchParams, setProductState, setPageData, setNextPage);
+    }
   };
 
   return (
     <div>
       <SearchBar
-        onChangeDate={onChangeDate}
-        handleSearchProducts={handleSearchProducts}
         searchParams={searchParams}
-        changeSearchParams={changeSearchParams}
+        setSearchParams={setSearchParams}
+        searchProducts={searchProducts}
       />
       <CategoryContainer
-        selectCategory={selectCategory}
         searchParams={searchParams}
-        changeSearchParams={changeSearchParams}
+        searchProducts={searchProducts}
       />
       <ProductContainer
-        products={products}
         lastSearchParams={lastSearchParams}
-        loading={loading}
-        error={error}
+        pageData={pageData}
+        searchProducts={searchProducts}
+        setPageData={setPageData}
+        nextPage={nextPage}
+        productState={productState}
       />
     </div>
   );

@@ -11,10 +11,9 @@ import {
 import SelectCityContainer from "./selectCity/SelectCityContainer";
 
 export default function SearchBar({
-  onChangeDate,
-  handleSearchProducts,
   searchParams,
-  changeSearchParams
+  setSearchParams,
+  searchProducts
 }) {
   const [showCitys, setShowCitys] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -36,6 +35,16 @@ export default function SearchBar({
     return formattedDate.replace(/ /, " de ");
   };
 
+  const onChangeDate = (dates) => {
+    const [start, end] = dates;
+    setSearchParams({ ...searchParams, startDate: start, endDate: end });
+  };
+
+  const handleSearchProducts = (e) => {
+    e.preventDefault();
+    searchProducts(searchParams);
+  };
+
   return (
     <SearchBarContainer>
       <SearchBarTitle>
@@ -47,7 +56,7 @@ export default function SearchBar({
           handleShowCity={handleShowCity}
           showCitys={showCitys}
           searchParams={searchParams}
-          changeSearchParams={changeSearchParams}
+          setSearchParams={setSearchParams}
         />
 
         <SearchDateInput onClick={handleShowCalendar} $empty={startDate}>

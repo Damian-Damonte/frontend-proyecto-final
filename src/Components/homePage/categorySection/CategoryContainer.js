@@ -8,14 +8,19 @@ import {
 import { useFetch } from "../../../hooks/useFetch";
 import Loader from "../../common/loader/Loader";
 
-
 export default function CategoryContainer({
   searchParams,
-  selectCategory
+  searchProducts
 }) {
   const [categorys, setCategorys] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const selectCategory = (category) => {
+    searchParams.category?.id === category.id 
+      ? searchProducts({ ...searchParams, category: null })
+      : searchProducts({ ...searchParams, category: category });
+  };
 
   useFetch("/categorias", setCategorys, setLoading, setError);
 

@@ -14,9 +14,9 @@ export default function SelectCityContainer({
   handleShowCity,
   showCitys,
   searchParams,
-  changeSearchParams
+  setSearchParams
 }) {
-  const [citys, setCitys] = useState(null);
+  const [citys, setCitys] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -34,12 +34,12 @@ export default function SelectCityContainer({
   };
 
   const handleSelectCity = (city) => {
-    changeSearchParams("city", city);
+    setSearchParams({...searchParams, city: city});
     setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
   };
 
   const handleChangeCityText = (e) => {
-    e.target.value === "" && changeSearchParams("city", null);
+    e.target.value === "" && setSearchParams({...searchParams, city: null});
     setCitySearchText(e.target.value);
   };
 
@@ -83,7 +83,6 @@ export default function SelectCityContainer({
                 key={city.id}
                 city={city}
                 handleSelectCity={handleSelectCity}
-                changeSearchParams={changeSearchParams}
               />
             ))
           ) : (

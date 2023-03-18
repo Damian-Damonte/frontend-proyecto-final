@@ -286,3 +286,117 @@ export const BtnDetails = styled.button`
     background-color: #15a39a;
   }
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 500px;
+`;
+
+// pager
+
+export const Pager = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: ${({ $random }) => ($random ? "center" : "space-between")};
+  max-width: 450px;
+  @media (max-width: 370px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (min-width: 768px) {
+    max-width: 650px;
+  }
+  @media (min-width: 768px) {
+    margin-top: 20px;
+  }
+`;
+
+export const PageNumberContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  @media (min-width: 768px) {
+    gap: 10px;
+  }
+`;
+
+export const BtnPageNumber = styled.button`
+  border: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  cursor: ${({ $selected }) => ($selected ? "auto" : "pointer")};
+  background-color: ${({ $selected }) => ($selected ? PRIMARY_COLOR : "#fff")};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 700;
+
+  &:hover {
+    background-color: ${({ $selected }) =>
+      $selected ? PRIMARY_COLOR : "#e7e7e7"};
+  }
+
+  @media (min-width: 768px) {
+    height: 50px;
+    width: 50px;
+    font-size: 16px;
+  }
+`;
+
+export const BtnNextPrev = styled.button`
+  background-color: #fff;
+  border: none;
+  height: 30px;
+  padding: 0 5px;
+  border-radius: 5px;
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+
+  &:not(:disabled):hover {
+    background-color: #e7e7e7;
+  }
+  &:disabled {
+    cursor: auto;
+  }
+
+  @media (max-width: 370px) {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    height: 50px;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+`;
+
+export const BtnPrevNextMobile = styled.div`
+  display: none;
+
+  button {
+    display: inline-block;
+  }
+  @media (max-width: 370px) {
+    display: flex;
+    gap: 10px;
+  }
+`;
+
+export const BtnRefreshRandom = styled.button`
+  background-color: #fff;
+  border: none;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
+
+`;
