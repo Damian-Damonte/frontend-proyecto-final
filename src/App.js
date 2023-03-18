@@ -7,6 +7,7 @@ import Layout from "./Components/layout/Layout";
 import FormSingIn from "./Pages/FormSingIn";
 import FormLogin from "./Pages/FormLogin";
 import Product from "./Pages/Product";
+import Booking from "./Pages/Booking";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path={routes.login} element={<FormLogin />} />
           <Route path={routes.singin} element={<FormSingIn />} />
           <Route path={routes.product} element={<Product />} />
+          <Route path={routes.booking} element={<Booking />} />
         </Route>
           <Route path="*" element={<NotFound />} />
       </Routes>
