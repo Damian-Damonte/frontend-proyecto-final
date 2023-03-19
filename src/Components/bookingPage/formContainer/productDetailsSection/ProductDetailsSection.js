@@ -17,8 +17,8 @@ import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
 import { dateToUserDate } from "../../../../utils/dateFormater";
 
-export default function ProductDetailsSection({ product, dates }) {
-  const { checkIn, checkOut } = dates;
+export default function ProductDetailsSection({ product, formData}) {
+  const { checkIn, checkOut } = formData;
   const {
     imagenes,
     categoria: { titulo: categoryTitle },

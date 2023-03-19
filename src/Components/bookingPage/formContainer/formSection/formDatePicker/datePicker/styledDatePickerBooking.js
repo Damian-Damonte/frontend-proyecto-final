@@ -211,10 +211,6 @@ export const DatePickerBookingContainer = styled.div`
   @media (min-width: 1120px) {
     min-height: 329px;
 
-    /* .linea-divisoria {
-      display: none;
-    } */
-
     .react-datepicker__month-container {
       margin: 10px 17px 0 17px;
     }
@@ -273,10 +269,6 @@ export const DatePickerBookingContainer = styled.div`
     .react-datepicker__month-container {
       margin: 10px 20px 0 20px;
     }
-
-    /* .linea-divisoria {
-      display: none;
-    } */
 
     .react-datepicker__navigation--next {
       right: -45px;

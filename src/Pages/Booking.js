@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
 import FormBookingContainer from "../Components/bookingPage/formContainer/FormBookingContainer";
 import { useFetch2 } from "../hooks/useFetch";
-import { dateToUserDate } from "../utils/dateFormater";
 
 const initialProductState = {
   product: null,
@@ -11,22 +10,19 @@ const initialProductState = {
   error: null,
 };
 
-const initialDates = {
-  checkIn: null,
-  checkOut: null,
-};
 
 const initialFormData = {
-  city:"",
+  city: "",
   checkIn: null,
   checkOut: null,
-  
-}
+  arribalTime: "",
+  additionalInfo: "",
+  covidVaccine: false,
+};
 
 export default function Booking() {
   const [productState, setProductState] = useState(initialProductState);
-  const [dates, setDates] = useState(initialDates);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(initialFormData);
 
   const { id } = useParams();
 
@@ -37,7 +33,11 @@ export default function Booking() {
       {productState.product && (
         <>
           <BookingHeader product={productState.product} />
-          <FormBookingContainer product={productState.product} dates={dates} setDates={setDates}/>
+          <FormBookingContainer
+            product={productState.product}
+            formData={formData}
+            setFormData={setFormData}
+          />
         </>
       )}
     </div>

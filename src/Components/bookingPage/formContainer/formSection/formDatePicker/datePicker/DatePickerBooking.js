@@ -7,9 +7,9 @@ import { apiDateToDate } from "../../../../../../utils/dateFormater";
 
 registerLocale("es", es);
 
-export default function DatepickerBooking({ reservas, dates, setDates }) {
+export default function DatepickerBooking({ reservas, formData, setFormData }) {
   const { width } = useWindowSize(300);
-  const { checkIn, checkOut } = dates;
+  const { checkIn, checkOut } = formData;
 
   const today = new Date();
 
@@ -23,7 +23,7 @@ export default function DatepickerBooking({ reservas, dates, setDates }) {
   const onChangeDate = (dates) => {
     const [start, end] = dates;
     if (!start || !end) {
-      setDates({ checkIn: start, checkOut: end });
+      setFormData({ ...formData, checkIn: start, checkOut: end });
       return;
     }
 
@@ -37,8 +37,8 @@ export default function DatepickerBooking({ reservas, dates, setDates }) {
     });
 
     isExcluded
-      ? setDates({ checkIn: null, checkOut: null })
-      : setDates({ checkIn: start, checkOut: end });
+      ? setFormData({ ...formData, checkIn: null, checkOut: null })
+      : setFormData({ ...formData, checkIn: start, checkOut: end });
   };
 
   return (
