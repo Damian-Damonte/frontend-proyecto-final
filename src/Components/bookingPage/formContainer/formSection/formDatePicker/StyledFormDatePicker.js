@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const FormDatePickerContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 25px;
   width: 100%;
   /* background-color: green; */
   h3 {
@@ -13,5 +13,15 @@ export const FormDatePickerContainer = styled.div`
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 35px;
+  }
+
+  @media (min-width: 1024px) {
+    h3 {
+      margin-bottom: 10px;
+    }
   }
 `;

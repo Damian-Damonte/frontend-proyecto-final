@@ -17,9 +17,9 @@ export const FormUserDataContainer = styled.div`
 export const InputsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 15px;
   margin-top: 10px;
-  padding: 15px 10px;
+  padding: 15px 10px 20px;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;

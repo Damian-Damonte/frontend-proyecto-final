@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FormBookingContainerStyled = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   /* background-color: cadetblue; */
   justify-content: center;
   align-items: center;
@@ -18,5 +18,7 @@ export const FormBookingContainerStyled = styled.form`
     flex-direction: row;
     align-items: stretch;
     padding: 10px 30px;
+    gap: 25px;
+    margin-top: 20px;
   }
 `;

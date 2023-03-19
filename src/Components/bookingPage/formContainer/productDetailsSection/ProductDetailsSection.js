@@ -10,6 +10,8 @@ import {
   CheckInCheckOut,
   BtnSubmit,
   ImgContainer,
+  ProductDetailsContainer,
+  StarsContainer,
 } from "./styledProductDetailsSection";
 import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
@@ -34,21 +36,23 @@ export default function ProductDetailsSection({ product, dates }) {
         <DetailsImgContainer>
           <ImgContainer $imgUrl={imagenes[0].url} />
           <DetailsContainer>
-            <p>{categoryTitle.toUpperCase()}</p>
-            <h4>{productTitle} damian damonte damian </h4>
-            <div>
-              <StarFull />
-              <StarFull />
-              <StarFull />
-              <StarFull />
-              <StarFull />
-            </div>
-            <LocationContainer>
-              <IconContainer>
-                <Location />
-              </IconContainer>
-              <p>{`${direccion}, ${cityName}, ${countryName}`}</p>
-            </LocationContainer>
+            <ProductDetailsContainer>
+              <p>{categoryTitle.toUpperCase()}</p>
+              <h4>{productTitle} damian damonte </h4>
+              <StarsContainer>
+                <StarFull />
+                <StarFull />
+                <StarFull />
+                <StarFull />
+                <StarFull />
+              </StarsContainer>
+              <LocationContainer>
+                <IconContainer>
+                  <Location />
+                </IconContainer>
+                <p>{`${direccion}, ${cityName}, ${countryName}`}</p>
+              </LocationContainer>
+            </ProductDetailsContainer>
 
             <CheckInCheckOutContainer>
               <CheckInCheckOut>

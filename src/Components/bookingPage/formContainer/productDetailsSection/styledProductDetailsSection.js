@@ -5,7 +5,6 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const ProductDetailsSectionStyled = styled.div`
-  /* background-color: blue; */
   width: 100%;
 
   @media (min-width: 1024px) {
@@ -22,17 +21,20 @@ export const DetailSectionTitleCardContainer = styled.div`
   border-radius: 8px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  /* background-color: orange; */
 
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
     margin-left: 10px;
+    margin-top: 5px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     padding: 20px;
+    h3 {
+      margin-left: 0;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -41,12 +43,13 @@ export const DetailSectionTitleCardContainer = styled.div`
 
     h3 {
       margin-left: 20px;
+      margin-top: 10px;
+      margin-bottom: 5px;
     }
   }
 `;
 
 export const DetailsImgContainer = styled.div`
-  /* background-color: purple; */
   width: 100%;
   height: 100%;
   margin-top: 10px;
@@ -55,7 +58,7 @@ export const DetailsImgContainer = styled.div`
 
   @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: row;
-    gap: 10px;
+    gap: 15px;
   }
 
   @media (min-width: 1024px) {
@@ -65,8 +68,8 @@ export const DetailsImgContainer = styled.div`
 
 export const ImgContainer = styled.div`
   width: 100%;
-  height: 200px;
-  background-image: url(${({$imgUrl}) => $imgUrl});
+  height: 260px;
+  background-image: url(${({ $imgUrl }) => $imgUrl});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -76,16 +79,32 @@ export const ImgContainer = styled.div`
     height: auto;
     border-radius: 8px;
   }
+
+  @media (min-width: 1024px) {
+    height: 300px;
+  }
 `;
 
 export const DetailsContainer = styled.div`
-  /* background-color: #ccc; */
   padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  margin-top: 5px;
 
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 50%;
+    padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 25px;
+    height: calc(100% - 325px);
+  }
+`;
+
+export const ProductDetailsContainer = styled.div`
   > p {
     font-style: normal;
     font-weight: 700;
@@ -99,17 +118,13 @@ export const DetailsContainer = styled.div`
     font-size: 24px;
     color: ${PURPLE2};
   }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 50%;
-    padding: 0;
-  }
-
-  @media (min-width: 1024px) {
-    margin-top: 20px;
-    height: calc(100% - 200px);
-  }
 `;
+
+export const StarsContainer = styled.div`
+  @media (min-width: 1024px) {
+    margin-top: 5px;
+  }
+`
 
 export const LocationContainer = styled.div`
   display: flex;
@@ -119,7 +134,7 @@ export const LocationContainer = styled.div`
   gap: 5px;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 8px;
+  margin-top: 15px;
 `;
 
 export const IconContainer = styled.div`
@@ -148,7 +163,7 @@ export const CheckInCheckOut = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 13px 0;
 
   p:first-child {
     font-weight: 700;
@@ -160,6 +175,10 @@ export const CheckInCheckOut = styled.div`
     color: ${PURPLE3};
     font-size: 14px;
     font-weight: 500;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px 10px;
   }
 `;
 
@@ -179,5 +198,10 @@ export const BtnSubmit = styled.button`
 
   &:hover {
     background-color: #15a39a;
+  }
+
+  @media (min-width: 1024px) {
+  padding: 15px;
+
   }
 `;
