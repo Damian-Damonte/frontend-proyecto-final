@@ -19,7 +19,7 @@ export const InputsContainer = styled.div`
   grid-template-columns: 1fr;
   gap: 10px;
   margin-top: 10px;
-  padding: 10px 10px 25px;
+  padding: 15px 10px;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
@@ -27,7 +27,8 @@ export const InputsContainer = styled.div`
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
+    padding: 20px 20px;
+    gap: 20px;
   }
 `;
 

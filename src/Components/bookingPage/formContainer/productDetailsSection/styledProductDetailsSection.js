@@ -10,7 +10,6 @@ export const ProductDetailsSectionStyled = styled.div`
 
   @media (min-width: 1024px) {
     width: 33%;
-    /* height: 100%; */
   }
 `;
 

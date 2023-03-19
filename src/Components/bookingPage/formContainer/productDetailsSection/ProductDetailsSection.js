@@ -13,8 +13,10 @@ import {
 } from "./styledProductDetailsSection";
 import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
+import { dateToUserDate } from "../../../../utils/dateFormater";
 
-export default function ProductDetailsSection({ product }) {
+export default function ProductDetailsSection({ product, dates }) {
+  const { checkIn, checkOut } = dates;
   const {
     imagenes,
     categoria: { titulo: categoryTitle },
@@ -30,9 +32,8 @@ export default function ProductDetailsSection({ product }) {
       <DetailSectionTitleCardContainer>
         <h3>Detalle de la reserva</h3>
         <DetailsImgContainer>
-          {/* <img src={imagenes[0].url} /> */}
-          <ImgContainer $imgUrl={imagenes[0].url}/>
-          <DetailsContainer >
+          <ImgContainer $imgUrl={imagenes[0].url} />
+          <DetailsContainer>
             <p>{categoryTitle.toUpperCase()}</p>
             <h4>{productTitle} damian damonte damian </h4>
             <div>
@@ -52,16 +53,15 @@ export default function ProductDetailsSection({ product }) {
             <CheckInCheckOutContainer>
               <CheckInCheckOut>
                 <p>Check in</p>
-                <p>23/11/2021</p>
+                <p>{checkIn ? dateToUserDate(checkIn) : "___ /___ /___"}</p>
               </CheckInCheckOut>
               <CheckInCheckOut>
                 <p>Check in</p>
-                <p>23/11/2021</p>
+                <p>{checkOut ? dateToUserDate(checkOut) : "___ /___ /___"}</p>
               </CheckInCheckOut>
             </CheckInCheckOutContainer>
 
             <BtnSubmit>Confirmar reserva</BtnSubmit>
-
           </DetailsContainer>
         </DetailsImgContainer>
       </DetailSectionTitleCardContainer>

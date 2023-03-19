@@ -21,7 +21,6 @@ export default function Datepicker({
         onChange={onChangeDate}
         startDate={searchParams.startDate}
         endDate={searchParams.endDate}
-        selectsRange
         inline
         monthsShown={window.innerWidth > 768 ? 2 : 1}
         locale="es"
