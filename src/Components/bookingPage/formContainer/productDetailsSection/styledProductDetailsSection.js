@@ -178,12 +178,12 @@ export const CheckInCheckOut = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 20px 10px;
+    padding: 22px 10px;
   }
 `;
 
 export const BtnSubmit = styled.button`
-  margin-top: 40px;
+  margin-top: 30px;
   width: 100%;
   border: none;
   background-color: ${PRIMARY_COLOR};

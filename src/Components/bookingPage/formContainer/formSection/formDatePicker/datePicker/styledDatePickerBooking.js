@@ -237,19 +237,19 @@ export const DatePickerBookingContainer = styled.div`
   }
 
   @media (min-width: 1120px) {
-    min-height: 342px;
+    min-height: 329px;
 
     .linea-divisoria {
-      left: 302px;
+      left: 287px;
     }
 
     .react-datepicker__day {
-      margin: 7px;
+      margin: 6px;
       font-size: 14px;
     }
 
     .react-datepicker__day-name {
-      margin: 7px;
+      margin: 6px;
     }
 
     .react-datepicker__current-month {
@@ -269,7 +269,7 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 1250px) {
+  @media (min-width: 1200px) {
     .react-datepicker__navigation--next {
       right: -50px;
     }
@@ -279,7 +279,7 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 1300px) {
+  @media (min-width: 1250px) {
     .react-datepicker__navigation--next {
       right: -60px;
     }
@@ -289,13 +289,23 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 1350px) {
+  @media (min-width: 1300px) {
     .react-datepicker__navigation--next {
       right: -70px;
     }
 
     .react-datepicker__navigation--previous {
       left: -70px;
+    }
+  }
+
+  @media (min-width: 1350px) {
+    .react-datepicker__navigation--next {
+      right: -80px;
+    }
+
+    .react-datepicker__navigation--previous {
+      left: -80px;
     }
   }
 `;

@@ -25,6 +25,7 @@ export default function Datepicker({
         monthsShown={window.innerWidth > 768 ? 2 : 1}
         locale="es"
         minDate={new Date()}
+        selectsRange
       >
         <button
           className="btnAplicar"
