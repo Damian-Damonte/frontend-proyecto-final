@@ -10,6 +10,7 @@ export const ProductDetailsSectionStyled = styled.div`
 
   @media (min-width: 1024px) {
     width: 33%;
+    /* height: 100%; */
   }
 `;
 
@@ -53,24 +54,28 @@ export const DetailsImgContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
   @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: row;
     gap: 10px;
-
-    img {
-      width: 50%;
-      border-radius: 8px;
-    }
   }
 
   @media (min-width: 1024px) {
     height: calc(100% - 10px);
+  }
+`;
+
+export const ImgContainer = styled.div`
+  width: 100%;
+  height: 200px;
+  background-image: url(${({$imgUrl}) => $imgUrl});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
   }
 `;
 
@@ -103,7 +108,7 @@ export const DetailsContainer = styled.div`
 
   @media (min-width: 1024px) {
     margin-top: 20px;
-    height: calc(100% - 20px);
+    height: calc(100% - 200px);
   }
 `;
 

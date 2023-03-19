@@ -9,6 +9,7 @@ import {
   CheckInCheckOutContainer,
   CheckInCheckOut,
   BtnSubmit,
+  ImgContainer,
 } from "./styledProductDetailsSection";
 import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
@@ -29,10 +30,11 @@ export default function ProductDetailsSection({ product }) {
       <DetailSectionTitleCardContainer>
         <h3>Detalle de la reserva</h3>
         <DetailsImgContainer>
-          <img src={imagenes[0].url} />
-          <DetailsContainer>
+          {/* <img src={imagenes[0].url} /> */}
+          <ImgContainer $imgUrl={imagenes[0].url}/>
+          <DetailsContainer >
             <p>{categoryTitle.toUpperCase()}</p>
-            <h4>{productTitle}</h4>
+            <h4>{productTitle} damian damonte damian </h4>
             <div>
               <StarFull />
               <StarFull />
