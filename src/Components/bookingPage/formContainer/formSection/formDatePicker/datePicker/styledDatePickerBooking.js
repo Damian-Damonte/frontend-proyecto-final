@@ -92,7 +92,6 @@ export const DatePickerBookingContainer = styled.div`
     color: #ccc;
   }
 
-
   .react-datepicker__day:hover {
     border-radius: 50px;
   }
@@ -133,9 +132,6 @@ export const DatePickerBookingContainer = styled.div`
     border-radius: 50px;
     color: white;
   }
-
-
-
 
   /* baja las flechas para pasar de mes */
   .react-datepicker__navigation {
@@ -180,14 +176,26 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) and (max-width: 1024px){
     .linea-divisoria {
       height: 90%;
       width: 1px;
       background-color: #a8a8a8a9;
       position: absolute;
       top: 5%;
-      left: 343px;
+      left: 50%;
+    }
+  }
+
+  @media (min-width: 850px) {
+    .react-datepicker__month-container {
+      margin: 10px 25px 0 25px;
+    }
+  }
+
+  @media (min-width: 950px) {
+    .react-datepicker__month-container {
+      margin: 10px 45px 0 45px;
     }
   }
 
@@ -195,52 +203,20 @@ export const DatePickerBookingContainer = styled.div`
     min-height: 317px;
     align-items: flex-start;
 
-    .linea-divisoria {
-      height: 90%;
-      width: 1px;
-      background-color: #a8a8a8a9;
-      position: absolute;
-      top: 5%;
-      left: 273px;
-    }
-
-    /* cambiamos la posicion y color de las flechas para pasar de mes */
-    .react-datepicker__navigation {
-      top: 140px;
-      background-color: ${PRIMARY_COLOR};
-      border-radius: 50px;
-      height: 40px;
-      width: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .react-datepicker__navigation:hover {
-      background-color: #15a39a;
-    }
-
-    .react-datepicker__navigation--next {
-      right: -35px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -35px;
-    }
-
-    .react-datepicker__navigation-icon::before {
-      border-color: #fff;
-      left: -5px;
-      top: 8px;
+    .react-datepicker__month-container {
+      margin: 10px 5px 0 5px;
     }
   }
 
   @media (min-width: 1120px) {
     min-height: 329px;
 
-    .linea-divisoria {
-      left: 287px;
+    /* .linea-divisoria {
+      display: none;
+    } */
+
+    .react-datepicker__month-container {
+      margin: 10px 17px 0 17px;
     }
 
     .react-datepicker__day {
@@ -260,16 +236,58 @@ export const DatePickerBookingContainer = styled.div`
       font-size: 14px;
     }
 
+     /* cambiamos la posicion y color de las flechas para pasar de mes */
+    .react-datepicker__navigation {
+      top: 140px;
+      background-color: ${PRIMARY_COLOR};
+      border-radius: 50px;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .react-datepicker__navigation:hover {
+      background-color: #15a39a;
+    }
+
     .react-datepicker__navigation--next {
-      right: -40px;
+      right: -20px;
     }
 
     .react-datepicker__navigation--previous {
-      left: -40px;
+      left: -20px;
+    }
+
+    .react-datepicker__navigation-icon::before {
+      border-color: #fff;
+      left: -5px;
+      top: 8px;
     }
   }
 
   @media (min-width: 1200px) {
+    /* separar los calendarios entre sí */
+    .react-datepicker__month-container {
+      margin: 10px 20px 0 20px;
+    }
+
+    /* .linea-divisoria {
+      display: none;
+    } */
+
+    .react-datepicker__navigation--next {
+      right: -45px;
+    }
+
+    .react-datepicker__navigation--previous {
+      left: -45px;
+    }
+  }
+
+  @media (min-width: 1250px) {
     .react-datepicker__navigation--next {
       right: -50px;
     }
@@ -279,33 +297,16 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 1250px) {
-    .react-datepicker__navigation--next {
-      right: -60px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -60px;
-    }
-  }
-
   @media (min-width: 1300px) {
+    .react-datepicker__month-container {
+      margin: 10px 30px 0 30px;
+    }
     .react-datepicker__navigation--next {
-      right: -70px;
+      right: -50px;
     }
 
     .react-datepicker__navigation--previous {
-      left: -70px;
-    }
-  }
-
-  @media (min-width: 1350px) {
-    .react-datepicker__navigation--next {
-      right: -80px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -80px;
+      left: -50px;
     }
   }
 `;

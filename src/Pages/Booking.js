@@ -16,9 +16,17 @@ const initialDates = {
   checkOut: null,
 };
 
+const initialFormData = {
+  city:"",
+  checkIn: null,
+  checkOut: null,
+  
+}
+
 export default function Booking() {
   const [productState, setProductState] = useState(initialProductState);
   const [dates, setDates] = useState(initialDates);
+  const [formData, setFormData] = useState({});
 
   const { id } = useParams();
 

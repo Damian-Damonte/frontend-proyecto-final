@@ -60,7 +60,7 @@ export default function ProductDetailsSection({ product, dates }) {
                 <p>{checkIn ? dateToUserDate(checkIn) : "___ /___ /___"}</p>
               </CheckInCheckOut>
               <CheckInCheckOut>
-                <p>Check in</p>
+                <p>Check out</p>
                 <p>{checkOut ? dateToUserDate(checkOut) : "___ /___ /___"}</p>
               </CheckInCheckOut>
             </CheckInCheckOutContainer>
