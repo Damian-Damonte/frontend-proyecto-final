@@ -155,8 +155,6 @@ export const OpinionStarsContainer = styled.div`
   align-items: center;
 `;
 
-export const StarsContainer = styled.div``;
-
 export const BtnShareFavContainer = styled.div`
   background-color: #fff;
   padding: 10px 20px;

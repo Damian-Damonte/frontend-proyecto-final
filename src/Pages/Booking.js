@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
+import FormBookingContainer from "../Components/bookingPage/formContainer/FormBookingContainer";
+import { useFetch2 } from "../hooks/useFetch";
 
+const initialProductState = {
+  product: null,
+  loading: false,
+  error: null,
+};
 
 export default function Booking() {
+  const [productState, setProductState] = useState(initialProductState);
+
   const { id } = useParams();
 
+  useFetch2(`/productos/${id}`, setProductState);
+
   return (
-    <div>Booking</div>
-  )
+    <div>
+      {productState.product && (
+        <>
+          <BookingHeader product={productState.product} />
+          <FormBookingContainer product={productState.product} />
+        </>
+      )}
+    </div>
+  );
 }

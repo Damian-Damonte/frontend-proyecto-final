@@ -8,7 +8,6 @@ import {
   ProductLocationRatingHeader,
   ProductNameHeader,
   RatingContainer,
-  StarsContainer,
   TextLocationContainer,
 } from "./styledProduct";
 import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
@@ -56,13 +55,13 @@ export default function ProductHeader({ handleFav, handleShare, product }) {
         <RatingContainer>
           <OpinionStarsContainer>
             <p>{getRaitingScale(promedioPuntuacion)}</p>
-            <StarsContainer>
+            <div>
               <StarFull />
               <StarFull />
               <StarFull />
               <StarFull />
               <StarFull />
-            </StarsContainer>
+            </div>
           </OpinionStarsContainer>
           <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
         </RatingContainer>
