@@ -13,18 +13,18 @@ export const ProductPoliciesStyled = styled.div`
     font-weight: 700;
     font-size: 24px;
     border-bottom: 1px solid ${PRIMARY_COLOR};
-    padding: 10px;
+    padding: 25px 10px 10px 10px;
   }
 
   @media (min-width: 768px) {
-  padding-bottom: 50px;
+    padding-bottom: 50px;
     h3 {
-      padding: 10px 20px 10px 20px;
+      padding: 25px 20px 10px 20px;
     }
   }
   @media (min-width: 1024px) {
     h3 {
-      padding: 10px 30px 10px 30px;
+      padding: 25px 30px 10px 30px;
     }
   }
 `;
@@ -33,7 +33,7 @@ export const PoliciesContainer = styled.div`
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 40px;
 
   h4 {
     color: ${PURPLE3};
@@ -61,7 +61,8 @@ export const PoliciesContainer = styled.div`
   @media (min-width: 600px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    row-gap: 30px;
+    column-gap: 70px;
 
     div {
       div {
@@ -76,9 +77,9 @@ export const PoliciesContainer = styled.div`
 
   @media (min-width: 1024px) {
     padding: 20px 30px;
-    column-gap: 30px;
+    column-gap: 50px;
 
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: repeat(3, 280px);
     div {
       div {
         max-width: none;

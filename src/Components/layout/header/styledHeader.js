@@ -13,7 +13,7 @@ export const HeaderStyled = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 10px;
   z-index: 100;
   background-color: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14), 0px 4px 5px rgba(0, 0, 0, 0.12),
@@ -24,11 +24,15 @@ export const HeaderStyled = styled.header`
   }
 
   @media (min-width: 768px) {
-    padding: 0 30px;
+    padding: 0 20px;
     box-shadow: none;
     > svg {
       display: none;
     }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 30px;
   }
 `;
 

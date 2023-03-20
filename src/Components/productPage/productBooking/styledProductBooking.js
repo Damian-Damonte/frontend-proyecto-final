@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const ProductBookingContainer = styled.div`
   padding: 25px 10px 10px 10px;
@@ -45,7 +44,7 @@ export const BtnBookingContainer = styled.div`
   }
 
   button {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
     border: none;
     background-color: ${PRIMARY_COLOR};
@@ -67,9 +66,11 @@ export const BtnBookingContainer = styled.div`
     width: 100%;
     flex-direction: row;
     gap: 30px;
+    margin-top: 35px;
 
     button {
       max-width: 350px;
+      margin-top: 0;
     }
 
     @media (min-width: 1200px) {
