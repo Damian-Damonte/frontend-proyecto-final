@@ -5,12 +5,17 @@ import {
   CovidDescription,
 } from "./styledCovidCheckBox";
 
-export default function CovidCheckBox() {
+export default function CovidCheckBox({ formData, setFormData }) {
+
+  const handleChangeCovidVaccine = (e) => {
+    setFormData({ ...formData, covidVaccine: e.target.checked });
+  };
+
   return (
     <CovidCheckBoxContainer>
       <h3>Covid-19</h3>
       <CheckBoxContainer>
-        <input type="checkbox" />
+        <input type="checkbox" onChange={handleChangeCovidVaccine}/>
         <p>¿Estás vacunado contra el covid-19?</p>
       </CheckBoxContainer>
       <CovidDescription>

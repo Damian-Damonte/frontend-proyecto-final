@@ -17,7 +17,7 @@ import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
 import { dateToUserDate } from "../../../../utils/dateFormater";
 
-export default function ProductDetailsSection({ product, formData}) {
+export default function ProductDetailsSection({ product, formData, handleSubmit}) {
   const { checkIn, checkOut } = formData;
   const {
     imagenes,
@@ -65,7 +65,7 @@ export default function ProductDetailsSection({ product, formData}) {
               </CheckInCheckOut>
             </CheckInCheckOutContainer>
 
-            <BtnSubmit>Confirmar reserva</BtnSubmit>
+            <BtnSubmit onClick={handleSubmit}>Confirmar reserva</BtnSubmit>
           </DetailsContainer>
         </DetailsImgContainer>
       </DetailSectionTitleCardContainer>

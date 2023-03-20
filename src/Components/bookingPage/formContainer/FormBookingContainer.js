@@ -6,7 +6,8 @@ import { FormBookingContainerStyled } from "./styledFormContainer";
 export default function FormBookingContainer({
   product,
   formData,
-  setFormData
+  setFormData,
+  handleSubmit
 }) {
   return (
     <FormBookingContainerStyled>
@@ -18,6 +19,7 @@ export default function FormBookingContainer({
       <ProductDetailsSection
         product={product}
         formData={formData}
+        handleSubmit={handleSubmit}
       />
     </FormBookingContainerStyled>
   );

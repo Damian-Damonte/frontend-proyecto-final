@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-export const FormBookingContainerStyled = styled.form`
+export const FormBookingContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  /* background-color: cadetblue; */
   justify-content: center;
   align-items: center;
   padding: 10px;

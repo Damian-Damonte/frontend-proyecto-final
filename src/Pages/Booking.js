@@ -12,13 +12,12 @@ const initialProductState = {
   error: null,
 };
 
-
 const initialFormData = {
   city: "",
   checkIn: null,
   checkOut: null,
   arribalTime: "",
-  additionalInfo: "",
+  addInfo: "",
   covidVaccine: false,
 };
 
@@ -30,6 +29,10 @@ export default function Booking() {
 
   useFetch2(`/productos/${id}`, setProductState);
 
+  const handleSubmit = () => {
+    console.log(formData);
+  };
+
   return (
     <div>
       {productState.product && (
@@ -39,9 +42,10 @@ export default function Booking() {
             product={productState.product}
             formData={formData}
             setFormData={setFormData}
+            handleSubmit={handleSubmit}
           />
-          <AddInfoCovid />
-          <BookingProductPolicies policies={productState.product.politicas}/>
+          <AddInfoCovid formData={formData} setFormData={setFormData} />
+          <BookingProductPolicies policies={productState.product.politicas} />
         </>
       )}
     </div>

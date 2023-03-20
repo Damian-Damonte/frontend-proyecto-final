@@ -17,7 +17,7 @@ export default function FormUserData({ formData, setFormData }) {
   const handleChangeCity = (e) => {
     setFormData({ ...formData, city: e.target.value });
   };
-  console.log("render");
+  
   return (
     <FormUserDataContainer>
       <h3>Completá tus datos</h3>
