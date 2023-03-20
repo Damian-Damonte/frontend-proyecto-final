@@ -34,7 +34,7 @@ const selectOptions = [
   { value: "24:00", text: "12:00 PM" },
 ];
 
-export default function FormArribalTime({ formData, setFormData }) {
+export default function FormArribalTime({ formData, setFormData, formErrors }) {
   const { arribalTime } = formData;
   const handleChangeSelect = (e) => {
     setFormData({ ...formData, arribalTime: e.target.value });
@@ -68,7 +68,7 @@ export default function FormArribalTime({ formData, setFormData }) {
           </p>
         </SubtitleContainer>
 
-        <SelectContainer>
+        <SelectContainer $error={formErrors.arribalTime}>
           <label htmlFor="selectTime">
             Indicá tu horario estimado de llegada
           </label>

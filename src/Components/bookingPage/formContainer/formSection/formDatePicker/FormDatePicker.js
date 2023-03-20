@@ -6,6 +6,7 @@ export default function FormDatePicker({
   reservas,
   formData,
   setFormData,
+  formErrors
 }) {
   return (
     <FormDatePickerContainer>
@@ -14,6 +15,7 @@ export default function FormDatePicker({
         reservas={reservas}
         formData={formData}
         setFormData={setFormData}
+        formErrors={formErrors}
       />
     </FormDatePickerContainer>
   );

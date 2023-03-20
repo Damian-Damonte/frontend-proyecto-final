@@ -11,8 +11,8 @@ export default function AddInfo({ formData, setFormData }) {
     <AddInfoStyled>
     <h3>Información adicional</h3>
       <AddInfoContainer>
-        <p>Ingresá cualquier información adicional que desees compartir con el anfitrión o vendedor</p>
-        <textarea placeholder="Opcional" value={formData.addInfo} onChange={handleChangeAddInfo} />
+        <p>Ingresá cualquier información adicional que desees compartir con el propietario o anfitrión</p>
+        <textarea placeholder="(Opcional)" value={formData.addInfo} onChange={handleChangeAddInfo} />
       </AddInfoContainer>
     </AddInfoStyled>
   );

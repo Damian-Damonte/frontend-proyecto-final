@@ -182,8 +182,22 @@ export const CheckInCheckOut = styled.div`
   }
 `;
 
-export const BtnSubmit = styled.button`
+export const BtnValidationContainer = styled.div`
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: ${({ $error }) => $error ? "#ff0000" : "transparent"};
+    text-align: center;
+    cursor: default;
+  }
+`
+
+export const BtnSubmit = styled.button`
+  margin-top: 10px;
   width: 100%;
   border: none;
   background-color: ${PRIMARY_COLOR};

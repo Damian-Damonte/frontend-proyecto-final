@@ -4,16 +4,26 @@ import FormDatePicker from "./formDatePicker/FormDatePicker";
 import FormUserData from "./formUserData/FormUserData";
 import { FormSectionStyled } from "./styledFormSection";
 
-export default function FormSection({ reservas, formData, setFormData }) {
+export default function FormSection({
+  reservas,
+  formData,
+  setFormData,
+  formErrors,
+}) {
   return (
     <FormSectionStyled>
-      <FormUserData formData={formData} setFormData={setFormData} />
+      <FormUserData
+        formData={formData}
+        setFormData={setFormData}
+        formErrors={formErrors}
+      />
       <FormDatePicker
         reservas={reservas}
         formData={formData}
         setFormData={setFormData}
+        formErrors={formErrors}
       />
-      <FormArribalTime formData={formData} setFormData={setFormData}/>
+      <FormArribalTime formData={formData} setFormData={setFormData} formErrors={formErrors}/>
     </FormSectionStyled>
   );
 }

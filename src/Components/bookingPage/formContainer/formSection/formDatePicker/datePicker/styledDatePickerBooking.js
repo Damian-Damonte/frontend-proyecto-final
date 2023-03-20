@@ -11,7 +11,9 @@ export const DatePickerBookingContainer = styled.div`
   border-radius: 8px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: 282px;
+  outline: ${({ $error }) => $error ? "solid 1px #ff0000" : "none"};
+
 
   .react-datepicker__day--today {
     color: red;
@@ -139,6 +141,8 @@ export const DatePickerBookingContainer = styled.div`
   }
 
   @media (min-width: 350px) {
+    height: 317px;
+
     .react-datepicker__day {
       margin: 5px;
     }
@@ -158,6 +162,7 @@ export const DatePickerBookingContainer = styled.div`
 
   /* agrandar el calendario */
   @media (min-width: 400px) and (max-width: 1023px) {
+    height: 387px;
     .react-datepicker__day {
       margin: 10px;
       font-size: 16px;
@@ -176,7 +181,8 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1024px){
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 387px;
     .linea-divisoria {
       height: 90%;
       width: 1px;
@@ -232,7 +238,7 @@ export const DatePickerBookingContainer = styled.div`
       font-size: 14px;
     }
 
-     /* cambiamos la posicion y color de las flechas para pasar de mes */
+    /* cambiamos la posicion y color de las flechas para pasar de mes */
     .react-datepicker__navigation {
       top: 140px;
       background-color: ${PRIMARY_COLOR};

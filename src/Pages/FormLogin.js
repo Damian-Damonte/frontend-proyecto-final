@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import UserContext from "../context/user.context";
 import FormField from "../Components/forms/FormField";
 import FormPasswordField from "../Components/forms/FormPasswordField";
-import { loginValidations } from "../utils/loginValidations";
+import { loginValidations } from "./validations/loginValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import {

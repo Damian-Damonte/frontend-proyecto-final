@@ -7,7 +7,7 @@ import { apiDateToDate } from "../../../../../../utils/dateFormater";
 
 registerLocale("es", es);
 
-export default function DatepickerBooking({ reservas, formData, setFormData }) {
+export default function DatepickerBooking({ reservas, formData, setFormData, formErrors }) {
   const { width } = useWindowSize(300);
   const { checkIn, checkOut } = formData;
 
@@ -42,7 +42,7 @@ export default function DatepickerBooking({ reservas, formData, setFormData }) {
   };
 
   return (
-    <DatePickerBookingContainer>
+    <DatePickerBookingContainer $error={formErrors.dates}>
       <ReactDatePicker
         wrapperClassName="customDate"
         inline

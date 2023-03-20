@@ -12,12 +12,18 @@ import {
   ImgContainer,
   ProductDetailsContainer,
   StarsContainer,
+  BtnValidationContainer,
 } from "./styledProductDetailsSection";
 import { ReactComponent as StarFull } from "../../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../../img/icon-location.svg";
 import { dateToUserDate } from "../../../../utils/dateFormater";
 
-export default function ProductDetailsSection({ product, formData, handleSubmit}) {
+export default function ProductDetailsSection({
+  product,
+  formData,
+  handleSubmit,
+  formErrors
+}) {
   const { checkIn, checkOut } = formData;
   const {
     imagenes,
@@ -65,7 +71,10 @@ export default function ProductDetailsSection({ product, formData, handleSubmit}
               </CheckInCheckOut>
             </CheckInCheckOutContainer>
 
-            <BtnSubmit onClick={handleSubmit}>Confirmar reserva</BtnSubmit>
+            <BtnValidationContainer $error={Object.keys(formErrors).length}>
+              <p>Por favor complete los campos obligatorios</p>
+              <BtnSubmit onClick={handleSubmit}>Confirmar reserva</BtnSubmit>
+            </BtnValidationContainer>
           </DetailsContainer>
         </DetailsImgContainer>
       </DetailSectionTitleCardContainer>

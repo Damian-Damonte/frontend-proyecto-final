@@ -57,12 +57,14 @@ export const UserDataInput = styled.input`
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
+  outline: ${({ $error }) => $error ? "solid 1px #ff0000" : "none"};
+
   :disabled {
     background-color: #f2f4f7;
     cursor: not-allowed;
   }
 
   :focus {
-    outline: 1px solid ${PRIMARY_COLOR};
+    outline: ${({ $error }) => $error ? "solid 1px #ff0000" : `1px solid ${PRIMARY_COLOR}`};
   }
 `;

@@ -27,7 +27,7 @@ export const FormArribalTimeContainer = styled.div`
   @media (min-width: 768px) {
     padding: 20px;
   }
-`
+`;
 
 export const SubtitleContainer = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ export const SubtitleContainer = styled.div`
     font-weight: 500;
     color: ${PURPLE2};
   }
-`
+`;
 
 export const SelectContainer = styled.div`
   display: flex;
@@ -63,6 +63,7 @@ export const SelectContainer = styled.div`
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
     padding: 10px;
     border-radius: 5px;
+    outline: ${({ $error }) => $error ? "solid 1px #ff0000" : "none"};
   }
 
   select option {
@@ -87,4 +88,4 @@ export const SelectContainer = styled.div`
       max-width: 390px;
     }
   }
-`
+`;

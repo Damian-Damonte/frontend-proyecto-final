@@ -7,7 +7,7 @@ import {
   UserDataLabel,
 } from "./styledFormUserData";
 
-export default function FormUserData({ formData, setFormData }) {
+export default function FormUserData({ formData, setFormData, formErrors }) {
   const user = {
     email: "damontedamian@gmail.com",
     nombre: "Damian",
@@ -44,6 +44,7 @@ export default function FormUserData({ formData, setFormData }) {
             type="text"
             value={formData.city}
             onChange={handleChangeCity}
+            $error={formErrors.city}
           />
         </InputLabelContainer>
       </InputsContainer>
