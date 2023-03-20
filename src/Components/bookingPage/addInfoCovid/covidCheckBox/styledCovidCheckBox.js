@@ -45,6 +45,7 @@ export const CheckBoxContainer = styled.div`
     color: red;
     fill: red;
     background-color: red;
+    cursor: pointer;
   }
 
   p {

@@ -33,7 +33,11 @@ const getFilteredProducts = async (
     setProductState({ products: null, loading: false, error: response.error });
     setShowPager(false);
   } else {
-    setProductState({ products: response.data.content, loading: false, error: null});
+    setProductState({
+      products: response.data.content,
+      loading: false,
+      error: null,
+    });
     setShowPager(response.data.content.length > 0);
     setPageData({
       currentPage: response.data.currentPage,

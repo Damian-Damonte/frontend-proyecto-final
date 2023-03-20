@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import CategoryContainer from "../Components/homePage/categorySection/CategoryContainer";
 import ProductContainer from "../Components/homePage/productSection/ProductContainer";
 import SearchBar from "../Components/homePage/searchBar/SearchBar";
-import { getFilteredProducts, getRandomProducts } from "../service/products";
+import { getFilteredProducts, getRandomProducts } from "../service/productos";
 import { areEqualsObjects } from "../utils/areEqualsObjects";
 
 const initialProductState = {

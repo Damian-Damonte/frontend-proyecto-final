@@ -63,6 +63,7 @@ export const SelectContainer = styled.div`
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
     padding: 10px;
     border-radius: 5px;
+    cursor: pointer;
     outline: ${({ $error }) => $error ? "solid 1px #ff0000" : "none"};
   }
 
