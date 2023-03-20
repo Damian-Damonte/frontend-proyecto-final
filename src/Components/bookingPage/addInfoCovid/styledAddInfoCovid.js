@@ -6,8 +6,6 @@ export const AddInfoCovidContainer = styled.div`
   padding: 0 10px;
   gap: 35px;
   margin-top: 25px;
-  margin-bottom: 30px;
-
 
   @media (min-width: 768px) {
     padding: 0px 20px;

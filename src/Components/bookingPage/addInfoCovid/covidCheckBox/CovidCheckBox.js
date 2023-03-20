@@ -2,7 +2,6 @@ import React from "react";
 import {
   CheckBoxContainer,
   CovidCheckBoxContainer,
-  CovidCheckBoxStyled,
   CovidDescription,
 } from "./styledCovidCheckBox";
 

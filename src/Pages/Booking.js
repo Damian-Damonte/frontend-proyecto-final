@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import AddInfoCovid from "../Components/bookingPage/addInfoCovid/AddInfoCovid";
 import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
+import BookingProductPolicies from "../Components/bookingPage/bookingProductPolicies/ProductPolicies";
 import FormBookingContainer from "../Components/bookingPage/formContainer/FormBookingContainer";
 import { useFetch2 } from "../hooks/useFetch";
 
@@ -40,6 +41,7 @@ export default function Booking() {
             setFormData={setFormData}
           />
           <AddInfoCovid />
+          <BookingProductPolicies policies={productState.product.politicas}/>
         </>
       )}
     </div>
