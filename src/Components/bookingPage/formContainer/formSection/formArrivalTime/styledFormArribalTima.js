@@ -21,7 +21,7 @@ export const FormArribalTimeContainer = styled.div`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 10px;
+  padding: 20px 10px;
   margin-top: 10px;
 
   @media (min-width: 768px) {
