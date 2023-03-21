@@ -6,16 +6,19 @@ import { loginValidations } from "./validations/loginValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import {
+  ErrorContainer,
   FormContainer,
   FormUser,
   SubmitSection,
 } from "../Components/forms/styledForms";
+import { ReactComponent as IconWarn } from "../img/warn-login.svg";
+
 
 const userHardcoded = {
   firstName: "Bruno",
   lastName: "Rodríguez",
   email: "mateofernandez@gmail.com",
-  token: "asdfasdfasdfasdf.asdfadfasdf.gfdgsdfgsdf"
+  token: "jwt.token.hardcoded",
 };
 
 const initialForm = {
@@ -53,8 +56,13 @@ export default function NewForm() {
   const successfulLogin = () => {
     setErrors(initialErrors);
     console.log("LOGIN CORRECTO");
-    setUser(userHardcoded);
-    navigate(routes.home);
+
+    if (user.toBooking) {
+      navigate(user.toBooking);
+      setUser({ ...userHardcoded, toBooking: null });
+    } else {
+      navigate(routes.home);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -69,8 +77,13 @@ export default function NewForm() {
 
   return (
     <FormContainer>
+      {user.toBooking && (
+        <ErrorContainer>
+          <IconWarn />
+          <p>Para realizar una reserva necesitas estar logueado</p>
+        </ErrorContainer>
+      )}
       <FormUser className="form-user" onSubmit={handleSubmit}>
-      {/* {user.toBooking && <p>Debe loguearte antes de crear una reserva</p>} */}
         <h1>Iniciar sesión</h1>
         <FormField
           fieldName="Correo electrónico"

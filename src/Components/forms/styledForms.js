@@ -6,16 +6,55 @@ export const FormContainer = styled.div`
   min-height: calc(100vh - 120px);
   padding: 0 10px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  background-color: #f9f9f9;
+  flex-direction: column;
+  gap: 20px;
 
   @media (min-width: 768px) {
     align-items: center;
   }
 `;
 
+export const ErrorContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fae0e0;
+  border-radius: 8px;
+  max-width: 300px;
+
+  p {
+    color: #b00020;
+    width: calc(100% - 30px);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  svg {
+    fill: #b00020;
+    font-size: 30px;
+    width: 30px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 346px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: none;
+    width: 448px; 
+    p {
+      width: auto;
+    }
+  }
+`;
+
 export const FormUser = styled.form`
-  margin-top: ${({ singin }) => (singin ? "10px" : "20px")};
+  margin-top: ${({ singin }) => (singin ? "10px" : "0px")};
   height: 100%;
   max-width: 300px;
   width: 100%;
@@ -24,7 +63,7 @@ export const FormUser = styled.form`
   align-items: center;
 
   h1 {
-    margin-bottom: ${({ singin }) => (singin ? "5px" : "60px")};
+    margin-bottom: ${({ singin }) => (singin ? "5px" : "10px")};
     font-size: 24px;
     color: ${PRIMARY_COLOR};
   }
@@ -34,7 +73,7 @@ export const FormUser = styled.form`
     max-width: 346px;
 
     h1 {
-      margin-bottom: ${({ singin }) => (singin ? "10px" : "40px")};
+      margin-bottom: ${({ singin }) => (singin ? "10px" : "20px")};
       margin-top: ${({ singin }) => (singin ? "5px" : "auto")};
     }
   }

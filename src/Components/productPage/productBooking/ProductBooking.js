@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../../../context/user.context";
 import DatepickerBooking from "./datePicker/DatePickerBooking";
 import {
   BookingSection,
@@ -6,16 +7,25 @@ import {
   ProductBookingContainer,
 } from "./styledProductBooking";
 import { useNavigate, useParams } from "react-router-dom";
+import { routes } from "../../../Routes";
 
 export default function ProductBooking({ reservas }) {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const { user, setUser } = useContext(UserContext);
+
   const toProductBooking = () => {
-    navigate(`/producto/${id}/reserva`);
+    if (user.token) {
+      navigate(`/producto/${id}/reserva`);
+    } else {
+      setUser({ ...user, toBooking: `/producto/${id}/reserva` });
+      navigate(routes.login);
+    }
   };
   return (
     <ProductBookingContainer>
-      <h3>Fechas disponibles</h3>
+      <h3>Fechas disponibles {user.token}</h3>
       <BookingSection>
         <DatepickerBooking reservas={reservas} />
 
