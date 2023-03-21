@@ -11,7 +11,7 @@ export default function HeaderOptionsDesk({navigateSingin, navigateLogin, user, 
     if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
       return urlPath === "/registro" ? login : singin;
     
-    if(user === null)
+    if( !user.token )
       return <> {singin} {login} </>;
     else 
       return <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>;

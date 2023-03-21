@@ -40,7 +40,7 @@ export default function Header() {
 
   const handleCerrarSesion = () => {
     setShowDrawer(!showDrawer);
-    setUser(null);
+    setUser({});
   }
 
   return (

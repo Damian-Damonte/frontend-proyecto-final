@@ -15,6 +15,7 @@ const userHardcoded = {
   firstName: "Bruno",
   lastName: "Rodríguez",
   email: "mateofernandez@gmail.com",
+  token: "asdfasdfasdfasdf.asdfadfasdf.gfdgsdfgsdf"
 };
 
 const initialForm = {
@@ -33,7 +34,7 @@ export default function NewForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
 
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -69,6 +70,7 @@ export default function NewForm() {
   return (
     <FormContainer>
       <FormUser className="form-user" onSubmit={handleSubmit}>
+      {/* {user.toBooking && <p>Debe loguearte antes de crear una reserva</p>} */}
         <h1>Iniciar sesión</h1>
         <FormField
           fieldName="Correo electrónico"

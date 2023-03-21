@@ -23,7 +23,7 @@ export default function Drawer({
     if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
       return urlPath === "/registro" ? login : singin;
 
-    if (user === null) {
+    if (!user.token) {
       return (
         <>
           {singin}
@@ -40,7 +40,7 @@ export default function Drawer({
       <DrawerStyled $showDrawer={showDrawer}>
         <TopSectionDrawer>
           <BtnCloseMenu onClick={handleBtnDrawer} />
-          {user === null ? (
+          {!user.token ? (
             <PMenu >MENÚ</PMenu>
           ) : (
             <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>
@@ -52,7 +52,7 @@ export default function Drawer({
             {handleActions(urlPath)}
           </BottomSectionDrawerOptions>
           <CloseSissionAndSocial >
-            {user !== null && (
+            {user.token && (
               <CloseSessionContainer>
                 ¿Deseas{" "}
                 <span onClick={handleCerrarSesion}>
