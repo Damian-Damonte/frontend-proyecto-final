@@ -9,6 +9,7 @@ export default function FormBookingContainer({
   setFormData,
   handleSubmit,
   formErrors,
+  bookingState
 }) {
   return (
     <FormBookingContainerStyled>
@@ -23,6 +24,7 @@ export default function FormBookingContainer({
         formData={formData}
         handleSubmit={handleSubmit}
         formErrors={formErrors}
+        bookingState={bookingState}
       />
     </FormBookingContainerStyled>
   );

@@ -181,7 +181,7 @@ export const DatePickerBookingContainer = styled.div`
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     height: 387px;
     .linea-divisoria {
       height: 90%;

@@ -14,7 +14,7 @@ export const ProductDetailsSectionStyled = styled.div`
 
 export const DetailSectionTitleCardContainer = styled.div`
   width: 100%;
-  padding: 10px 0;
+  padding: 20px 0;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,6 @@ export const DetailSectionTitleCardContainer = styled.div`
     font-weight: 700;
     font-size: 24px;
     margin-left: 10px;
-    margin-top: 5px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -43,7 +42,7 @@ export const DetailSectionTitleCardContainer = styled.div`
 
     h3 {
       margin-left: 20px;
-      margin-top: 10px;
+      /* margin-top: 10px; */
       margin-bottom: 5px;
     }
   }
@@ -86,16 +85,17 @@ export const ImgContainer = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  padding: 10px;
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  margin-top: 5px;
+  margin-top: 15px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
     padding: 0;
+    margin-top: 0;
   }
 
   @media (min-width: 1024px) {
@@ -183,7 +183,7 @@ export const CheckInCheckOut = styled.div`
 `;
 
 export const BtnValidationContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,6 +193,12 @@ export const BtnValidationContainer = styled.div`
     color: ${({ $error }) => $error ? "#ff0000" : "transparent"};
     text-align: center;
     cursor: default;
+    font-size: 14px;
+    font-weight: 500;
+    height: 38px;
+    min-width: 10px;
+    display: flex;
+    align-items: center;
   }
 `
 
@@ -204,18 +210,16 @@ export const BtnSubmit = styled.button`
   color: #fff;
   font-weight: 700;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   transition: all 0.3s ease;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: #15a39a;
-  }
-
-  @media (min-width: 1024px) {
-  padding: 15px;
-
   }
 `;

@@ -33,7 +33,7 @@ export default function Booking() {
   const { id } = useParams();
 
   const userIdHardocoded = 2;
-  const tokenHardcoded = "eyJhbGciOiJIUzI1NiJ9.eyJhcGVsbGlkbyI6ImRhbW9udGUiLCJub21icmUiOiJkYW1pYW4iLCJzdWIiOiJkYW1pYW5AZ21haWwuY29tIiwiaWF0IjoxNjc5MzQzOTQxLCJleHAiOjE2Nzk0MzAzNDF9.CDQI84uQbG1yihQPpkVy5iM_qM5PEm1L2p7rALjpIto";
+  const tokenHardcoded = "eyJhbGciOiJIUzI1NiJ9.eyJhcGVsbGlkbyI6ImRhbW9udGUiLCJub21icmUiOiJkYW1pYW4iLCJzdWIiOiJkYW1pYW5AZ21haWwuY29tIiwiaWF0IjoxNjc5NDEyODE4LCJleHAiOjE2Nzk0OTkyMTh9.6MxzveotCeyCWzQMfdG0g95N5C19P_3Yjw9H_pRPE90";
   useFetch2(`/productos/${id}`, setProductState);
 
   const getRequestPayload = () => {
@@ -74,7 +74,9 @@ export default function Booking() {
             setFormData={setFormData}
             handleSubmit={handleSubmit}
             formErrors={formErrors}
+            bookingState={bookingState}
           />
+
           <AddInfoCovid formData={formData} setFormData={setFormData} />
           <BookingProductPolicies policies={productState.product.politicas} />
         </>
