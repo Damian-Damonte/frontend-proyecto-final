@@ -9,7 +9,8 @@ export default function FormBookingContainer({
   setFormData,
   handleSubmit,
   formErrors,
-  bookingState
+  bookingState,
+  user
 }) {
   return (
     <FormBookingContainerStyled>
@@ -18,6 +19,7 @@ export default function FormBookingContainer({
         formData={formData}
         setFormData={setFormData}
         formErrors={formErrors}
+        user={user}
       />
       <ProductDetailsSection
         product={product}

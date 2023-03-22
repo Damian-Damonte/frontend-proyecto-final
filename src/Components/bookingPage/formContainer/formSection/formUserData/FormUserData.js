@@ -7,34 +7,35 @@ import {
   UserDataLabel,
 } from "./styledFormUserData";
 
-export default function FormUserData({ formData, setFormData, formErrors }) {
-  const user = {
-    email: "damontedamian@gmail.com",
-    nombre: "Damian",
-    apellido: "Damonte",
-  };
+export default function FormUserData({
+  formData,
+  setFormData,
+  formErrors,
+  user,
+}) {
+  const { firstName, lastName, email } = user;
 
   const handleChangeCity = (e) => {
     setFormData({ ...formData, city: e.target.value });
   };
-  
+
   return (
     <FormUserDataContainer>
       <h3>Completá tus datos</h3>
       <InputsContainer>
         <InputLabelContainer>
           <UserDataLabel>Nombre</UserDataLabel>
-          <UserDataInput value={user.nombre} disabled />
+          <UserDataInput value={firstName} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Apellido</UserDataLabel>
-          <UserDataInput value={user.apellido} disabled />
+          <UserDataInput value={lastName} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Correo electrónico</UserDataLabel>
-          <UserDataInput value={user.email} disabled />
+          <UserDataInput value={email} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>

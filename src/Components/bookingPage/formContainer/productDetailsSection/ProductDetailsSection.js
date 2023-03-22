@@ -46,7 +46,7 @@ export default function ProductDetailsSection({
           <DetailsContainer>
             <ProductDetailsContainer>
               <p>{categoryTitle.toUpperCase()}</p>
-              <h4>{productTitle} damian damonte </h4>
+              <h4>{productTitle}</h4>
               <StarsContainer>
                 <StarFull />
                 <StarFull />

@@ -62,7 +62,7 @@ export default function Booking() {
         id: id,
       },
       usuario: {
-        id: userIdHardocoded,
+        id: user.id,
       },
     };
   };
@@ -72,7 +72,7 @@ export default function Booking() {
       const errors = bookingValidations(formData);
       if (Object.keys(errors).length === 0) {
         setFormErrors({});
-        postReserva(getRequestPayload(), tokenHardcoded, setBookingState);
+        postReserva(getRequestPayload(), user.token, setBookingState);
       } else {
         setFormErrors(errors);
       }
@@ -94,6 +94,7 @@ export default function Booking() {
               handleSubmit={handleSubmit}
               formErrors={formErrors}
               bookingState={bookingState}
+              user={user}
             />
             <AddInfoCovid formData={formData} setFormData={setFormData} />
             <BookingProductPolicies policies={productState.product.politicas} />

@@ -9,6 +9,7 @@ export default function FormSection({
   formData,
   setFormData,
   formErrors,
+  user
 }) {
   return (
     <FormSectionStyled>
@@ -16,6 +17,7 @@ export default function FormSection({
         formData={formData}
         setFormData={setFormData}
         formErrors={formErrors}
+        user={user}
       />
       <FormDatePicker
         reservas={reservas}
