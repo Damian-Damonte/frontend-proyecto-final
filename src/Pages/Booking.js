@@ -8,6 +8,7 @@ import { useFetch2 } from "../hooks/useFetch";
 import { bookingValidations } from "./validations/bookingValidations";
 import { postReserva } from "../service/reservas";
 import { dateToApiDate } from "../utils/dateFormater";
+import BookingSuccess from "../Components/bookingPage/successBooking/BookingSuccess";
 
 const initialProductState = {
   product: null,
@@ -33,11 +34,12 @@ export default function Booking() {
   const { id } = useParams();
 
   const userIdHardocoded = 2;
-  const tokenHardcoded = "eyJhbGciOiJIUzI1NiJ9.eyJhcGVsbGlkbyI6ImRhbW9udGUiLCJub21icmUiOiJkYW1pYW4iLCJzdWIiOiJkYW1pYW5AZ21haWwuY29tIiwiaWF0IjoxNjc5NDEyODE4LCJleHAiOjE2Nzk0OTkyMTh9.6MxzveotCeyCWzQMfdG0g95N5C19P_3Yjw9H_pRPE90";
+  const tokenHardcoded =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhcGVsbGlkbyI6ImRhbW9udGUiLCJub21icmUiOiJkYW1pYW4iLCJzdWIiOiJkYW1pYW5AZ21haWwuY29tIiwiaWF0IjoxNjc5NDUwOTc4LCJleHAiOjE2Nzk1MzczNzh9.zSAXczyufGrBjfSjx3kU11kXQoUUjMVfZHm4QqTELLI";
   useFetch2(`/productos/${id}`, setProductState);
 
   const getRequestPayload = () => {
-    return{
+    return {
       checkIn: dateToApiDate(formData.checkIn),
       checkOut: dateToApiDate(formData.checkOut),
       horaLlegada: formData.arribalTime,
@@ -51,36 +53,40 @@ export default function Booking() {
         id: userIdHardocoded,
       },
     };
-  }
+  };
 
   const handleSubmit = () => {
-    const errors = bookingValidations(formData);
-    if (Object.keys(errors).length === 0) {
-      setFormErrors({});
-      postReserva(getRequestPayload(), tokenHardcoded, setBookingState);
-    } else {
-      setFormErrors(errors);
+    if (!bookingState.loading) {
+      const errors = bookingValidations(formData);
+      if (Object.keys(errors).length === 0) {
+        setFormErrors({});
+        postReserva(getRequestPayload(), tokenHardcoded, setBookingState);
+      } else {
+        setFormErrors(errors);
+      }
     }
   };
 
   return (
-    <div>
-      {productState.product && (
-        <>
-          <BookingHeader product={productState.product} />
-          <FormBookingContainer
-            product={productState.product}
-            formData={formData}
-            setFormData={setFormData}
-            handleSubmit={handleSubmit}
-            formErrors={formErrors}
-            bookingState={bookingState}
-          />
-
-          <AddInfoCovid formData={formData} setFormData={setFormData} />
-          <BookingProductPolicies policies={productState.product.politicas} />
-        </>
-      )}
-    </div>
+    <>
+      {/* {bookingState.booking && <BookingSuccess />} */}
+      <div>
+        {productState.product  && (
+          <>
+            <BookingHeader product={productState.product} />
+            <FormBookingContainer
+              product={productState.product}
+              formData={formData}
+              setFormData={setFormData}
+              handleSubmit={handleSubmit}
+              formErrors={formErrors}
+              bookingState={bookingState}
+            />
+            <AddInfoCovid formData={formData} setFormData={setFormData} />
+            <BookingProductPolicies policies={productState.product.politicas} />
+          </>
+        )}
+      </div>
+    </>
   );
 }

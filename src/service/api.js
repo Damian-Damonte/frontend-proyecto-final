@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:8080/api";
-// const API_URL = "http://3.144.86.214:8080/api";
+// const API_URL = "http://localhost:8080/api";
+const API_URL = "http://3.144.86.214:8080/api";
 
 const get = async (path) => {
   const getResponse = {};
@@ -22,8 +22,9 @@ const post = async (path, payload, token) => {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload)
   };
+
 
   try {
     const response = await fetch(`${API_URL}${path}`, options);
