@@ -16,36 +16,16 @@ import { authLogin } from "../service/auth";
 import userDataFromJwt from "../utils/userDataFromJwt";
 import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
 
-const userHardcoded = {
-  firstName: "Bruno",
-  lastName: "Rodríguez",
-  email: "mateofernandez@gmail.com",
-  token: "jwt.token.hardcoded",
-};
-
 const initialForm = {
   email: "",
   password: "",
 };
 
-const initialErrors = {
-  email: null,
-  password: null,
-  credentials: null,
-};
-
-const initialUserState = {
-  token: null,
-  loading: false,
-  error: null,
-};
-
 export default function NewForm() {
   const [formData, setFormData] = useState(initialForm);
   const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState(initialErrors);
+  const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -66,8 +46,8 @@ export default function NewForm() {
     const response = await authLogin(formData);
 
     if (response.data?.token) {
-      const userData = userDataFromJwt(response.data.token);
       setLoading(false);
+      const userData = userDataFromJwt(response.data.token);
       setUser(userData);
       user.toBooking
         ? navigate(user.toBooking, { replace: true })
