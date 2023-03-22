@@ -58,7 +58,7 @@ export default function NewForm() {
     console.log("LOGIN CORRECTO");
 
     if (user.toBooking) {
-      navigate(user.toBooking);
+      navigate(user.toBooking, {replace: true});
       setUser({ ...userHardcoded, toBooking: null });
     } else {
       navigate(routes.home);
