@@ -9,16 +9,13 @@ import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
 import { HeaderStyled, LogoContainer } from "./styledHeader";
 
-
 export default function Header() {
   const [showDrawer, setShowDrawer] = useState(false);
-
   const { user, setUser } = useContext(UserContext);
-
   const location = useLocation();
-  const urlPath = location.pathname;
-
   const navigate = useNavigate();
+
+  const urlPath = location.pathname;
 
   const handleBtnDrawer = () => {
     setShowDrawer(!showDrawer);
@@ -41,14 +38,14 @@ export default function Header() {
   const handleCerrarSesion = () => {
     setShowDrawer(!showDrawer);
     setUser({});
-  }
+  };
 
   return (
     <HeaderStyled>
-    <LogoContainer onClick={navigateHome}>
-      <Logo/>
-      <span>Sentite como en tu hogar</span>
-    </LogoContainer>
+      <LogoContainer onClick={navigateHome}>
+        <Logo />
+        <span>Sentite como en tu hogar</span>
+      </LogoContainer>
       <BtnMenu onClick={handleBtnDrawer} />
       <Drawer
         showDrawer={showDrawer}
@@ -60,7 +57,7 @@ export default function Header() {
         setUser={setUser}
         handleCerrarSesion={handleCerrarSesion}
       />
-      <HeaderOptionsDesk 
+      <HeaderOptionsDesk
         navigateSingin={navigateSingin}
         navigateLogin={navigateLogin}
         user={user}

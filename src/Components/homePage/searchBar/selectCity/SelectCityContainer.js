@@ -10,20 +10,24 @@ import {
 import SelectCityOption from "./SelectCityOption";
 import { useFetch } from "../../../../hooks/useFetch";
 
+const intialCityState = {
+  data: [],
+  loading: false,
+  errro: null,
+};
+
 export default function SelectCityContainer({
   handleShowCity,
   showCitys,
   searchParams,
-  setSearchParams
+  setSearchParams,
 }) {
-  const [citys, setCitys] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
+  const [citysState, setCitysState] = useState(intialCityState);
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
+  const { data: citys, loading, error } = citysState;
 
-  useFetch("/ciudades", setCitys, setLoading, setError);
+  useFetch("/ciudades", setCitysState);
 
   const matchCity = (city) => {
     const cityAndContry =
@@ -34,16 +38,17 @@ export default function SelectCityContainer({
   };
 
   const handleSelectCity = (city) => {
-    setSearchParams({...searchParams, city: city});
+    setSearchParams({ ...searchParams, city: city });
     setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
   };
 
   const handleChangeCityText = (e) => {
-    e.target.value === "" && setSearchParams({...searchParams, city: null});
+    e.target.value === "" && setSearchParams({ ...searchParams, city: null });
     setCitySearchText(e.target.value);
   };
 
   useEffect(() => {
+    console.log(citys);
     let citysToShow = [];
     if (citys !== null) {
       for (let i = 0; i < citys.length && citysToShow.length < 4; i++) {
@@ -100,7 +105,6 @@ export default function SelectCityContainer({
             <SelectCityOptionNames>Ha ocurrido un error</SelectCityOptionNames>
           </SelectCityOptionStyled>
         )}
-        
       </SelectCityOptionContainer>
     </SelectCityContainerStyled>
   );

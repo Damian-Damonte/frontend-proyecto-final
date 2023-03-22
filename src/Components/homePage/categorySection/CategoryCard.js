@@ -4,7 +4,7 @@ import { CategoryCardStyled } from "./styledCategory";
 export default function CategoryCard({
   categoria,
   searchParams,
-  selectCategory
+  selectCategory,
 }) {
   const { id, titulo, urlImagen } = categoria;
 

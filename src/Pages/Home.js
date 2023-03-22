@@ -5,14 +5,8 @@ import SearchBar from "../Components/homePage/searchBar/SearchBar";
 import { getFilteredProducts, getRandomProducts } from "../service/productos";
 import { areEqualsObjects } from "../utils/areEqualsObjects";
 
-const initialProductState = {
-  products: null,
-  loading: false,
-  error: null
-};
-
 function Home() {
-  const [productState, setProductState] = useState(initialProductState);
+  const [productState, setProductState] = useState({});
   const [pageData, setPageData] = useState({});
   const [searchParams, setSearchParams] = useState({});
   const [lastSearchParams, setLastSearchParams] = useState({});

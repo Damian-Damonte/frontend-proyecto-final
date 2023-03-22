@@ -6,7 +6,7 @@ import {
   ProductCardContainer,
   ProductContainerStyled,
 } from "./styledProductSection";
-import Loader from "../../common/loader/Loader";
+import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 import { dateToUserDate } from "../../../utils/dateFormater";
 import ProductoPages from "./ProductoPages";
 
@@ -42,7 +42,7 @@ export default function ProductContainer({
     <ProductContainerStyled>
       {loading && (
         <LoaderContainer>
-          <Loader />
+          <LoaderCircles />
         </LoaderContainer>
       )}
 

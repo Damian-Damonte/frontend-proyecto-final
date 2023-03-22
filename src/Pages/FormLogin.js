@@ -37,7 +37,7 @@ export default function NewForm() {
     setShowPassword(!showPassword);
   };
 
-  const toSingin = () => {
+  const toSingUp = () => {
     navigate(routes.singin);
   };
 
@@ -107,7 +107,7 @@ export default function NewForm() {
           </button>
           <p>
             ¿Aún no tenes cuenta?
-            <span onClick={toSingin}> Registrate</span>
+            <span onClick={toSingUp}> Registrate</span>
           </p>
         </SubmitSection>
       </FormUser>

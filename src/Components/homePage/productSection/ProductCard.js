@@ -63,7 +63,6 @@ export default function ProductCard({ product }) {
 
   const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
 
-
   return (
     <ProductCardStyled>
       <ProductImgContainer>

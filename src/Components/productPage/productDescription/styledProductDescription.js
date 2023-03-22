@@ -26,7 +26,7 @@ export const ParagraphsContainer = styled.div`
   margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 7px;
   font-weight: 500;
   font-size: 14px;
   color: #4F4F50;

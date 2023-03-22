@@ -1,7 +1,7 @@
 import React from "react";
-import { LoaderContainer, LoaderStyled } from "./styledLoader";
+import { LoaderContainer, LoaderStyled } from "./styledLoaderCircles";
 
-export default function Loader({ height }) {
+export default function LoaderCircles({ height }) {
   return (
     <LoaderContainer $containerheight={height}>
       <LoaderStyled></LoaderStyled>
@@ -9,6 +9,6 @@ export default function Loader({ height }) {
   );
 };
 
-Loader.defaultProps = {
+LoaderCircles.defaultProps = {
   height: "auto"
 }

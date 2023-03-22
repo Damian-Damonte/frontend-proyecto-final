@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductBooking from "../Components/productPage/productBooking/ProductBooking";
 import ProductCaracteristics from "../Components/productPage/productCaracteristics/ProductCaracteristics";
 import ProductDescription from "../Components/productPage/productDescription/ProductDescription";
@@ -9,21 +9,15 @@ import ProductoGalleryMobile from "../Components/productPage/productoGallery/gal
 import ProductPolicies from "../Components/productPage/productPolicies/ProductPolicies";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-import Loader from "../Components/common/loader/Loader";
+import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ErrorMessageContainer } from "../Components/productPage/productHeader/styledProduct";
 
 export default function Product() {
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
+  const [productState, setProductState] = useState({});
+  const { data: product, loading, error } = productState;
   const { id } = useParams();
 
-  useFetch(`/productos/${id}`, setProduct, setLoading, setError);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
+  useFetch(`/productos/${id}`, setProductState);
 
   const handleFav = () => {
     console.log("FAV");
@@ -35,7 +29,7 @@ export default function Product() {
 
   return (
     <div>
-      {loading && <Loader height="400px" />}
+      {loading && <LoaderCircles height="400px" />}
 
       {product && (
         <>
@@ -49,10 +43,10 @@ export default function Product() {
             handleFav={handleFav}
             handleShare={handleShare}
           />
-          <ProductGalleryDesktop images={product?.imagenes} />
+          <ProductGalleryDesktop images={product.imagenes} />
           <ProductDescription product={product} />
-          <ProductCaracteristics caracteristics={product?.caracteristicas} />
-          <ProductBooking reservas={product?.reservas}/>
+          <ProductCaracteristics caracteristics={product.caracteristicas} />
+          <ProductBooking reservas={product.reservas} />
           <ProductLocation product={product} />
           {product.politicas.length !== 0 && (
             <ProductPolicies policies={product.politicas} />

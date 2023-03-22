@@ -4,8 +4,17 @@ import { ReactComponent as Linkedin } from "../../../img/icon-linkedin.svg";
 import { ReactComponent as Twitter } from "../../../img/icon-twitter.svg";
 import { ReactComponent as Instagram } from "../../../img/icon-instagram.svg";
 import UserProfile from "./UserProfile";
-import { BottomSectionDrawer, BottomSectionDrawerOptions, CloseSessionContainer, CloseSissionAndSocial, DrawerContainer, DrawerStyled, PMenu, SocialContainer, TopSectionDrawer } from "./styledHeader"
-
+import {
+  BottomSectionDrawer,
+  BottomSectionDrawerOptions,
+  CloseSessionContainer,
+  CloseSissionAndSocial,
+  DrawerContainer,
+  DrawerStyled,
+  PMenu,
+  SocialContainer,
+  TopSectionDrawer,
+} from "./styledHeader";
 
 export default function Drawer({
   showDrawer,
@@ -18,7 +27,7 @@ export default function Drawer({
 }) {
   const handleActions = (urlPath) => {
     const login = <p onClick={navigateLogin}>Iniciar sesión</p>;
-    const singin = <p onClick={navigateSingin}>Crear cuenta</p>
+    const singin = <p onClick={navigateSingin}>Crear cuenta</p>;
 
     if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
       return urlPath === "/registro" ? login : singin;
@@ -41,9 +50,9 @@ export default function Drawer({
         <TopSectionDrawer>
           <BtnCloseMenu onClick={handleBtnDrawer} />
           {!user.token ? (
-            <PMenu >MENÚ</PMenu>
+            <PMenu>MENÚ</PMenu>
           ) : (
-            <UserProfile user={user} handleCerrarSesion={handleCerrarSesion}/>
+            <UserProfile user={user} handleCerrarSesion={handleCerrarSesion} />
           )}
         </TopSectionDrawer>
 
@@ -51,14 +60,10 @@ export default function Drawer({
           <BottomSectionDrawerOptions>
             {handleActions(urlPath)}
           </BottomSectionDrawerOptions>
-          <CloseSissionAndSocial >
+          <CloseSissionAndSocial>
             {user.token && (
               <CloseSessionContainer>
-                ¿Deseas{" "}
-                <span onClick={handleCerrarSesion}>
-                  cerrar sesión
-                </span>
-                ?
+                ¿Deseas <span onClick={handleCerrarSesion}>cerrar sesión</span>?
               </CloseSessionContainer>
             )}
             <SocialContainer>

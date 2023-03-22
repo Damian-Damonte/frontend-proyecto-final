@@ -6,29 +6,27 @@ import {
   ErrorCategory,
 } from "./styledCategory";
 import { useFetch } from "../../../hooks/useFetch";
-import Loader from "../../common/loader/Loader";
+import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 
 export default function CategoryContainer({
   searchParams,
   searchProducts,
 }) {
-  const [categorys, setCategorys] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
+  const [catetoryState, setCatetoryState] = useState({});
+  useFetch("/categorias", setCatetoryState);
+  const{ data: categorys, loading, error} = catetoryState;
+  
   const selectCategory = (category) => {
     searchParams.category?.id === category.id 
       ? searchProducts({ ...searchParams, category: null })
       : searchProducts({ ...searchParams, category: category });
   };
 
-  useFetch("/categorias", setCategorys, setLoading, setError);
-
   return (
     <CategoryContainerStyled>
     
       <h2>Busca por tipo de alojamiento</h2>
-      {loading && <Loader />}
+      {loading && <LoaderCircles />}
       {categorys && 
         <CardContainer>
           {categorys?.map((cat) => (

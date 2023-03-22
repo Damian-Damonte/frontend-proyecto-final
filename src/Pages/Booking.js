@@ -4,21 +4,15 @@ import AddInfoCovid from "../Components/bookingPage/addInfoCovid/AddInfoCovid";
 import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
 import BookingProductPolicies from "../Components/bookingPage/bookingProductPolicies/ProductPolicies";
 import FormBookingContainer from "../Components/bookingPage/formContainer/FormBookingContainer";
-import { useFetch2 } from "../hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 import { bookingValidations } from "./validations/bookingValidations";
 import { postReserva } from "../service/reservas";
 import { dateToApiDate } from "../utils/dateFormater";
 import SuccessBooking from "../Components/bookingPage/successBoking/SuccessBooking";
-import Loader from "../Components/common/loader/Loader";
+import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ErrorMessageContainer } from "../Components/bookingPage/formContainer/styledFormContainer";
 import UserContext from "../context/user.context";
 import { routes } from "../Routes";
-
-const initialProductState = {
-  product: null,
-  loading: false,
-  error: null,
-};
 
 const initialFormData = {
   city: "",
@@ -30,23 +24,27 @@ const initialFormData = {
 };
 
 export default function Booking() {
-  const [productState, setProductState] = useState(initialProductState);
+  const [productState, setProductState] = useState({});
+  const [bookingState, setBookingState] = useState({});
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState({});
-  const [bookingState, setBookingState] = useState({});
+
   const { user, setUser } = useContext(UserContext);
   const { id } = useParams();
   const navigate = useNavigate();
+  const {
+    data: product,
+    loading: loadingProducto,
+    error: errorProducto,
+  } = productState;
+  const { booking, loading: loadingBooking } = bookingState;
 
-  const userIdHardocoded = 2;
-  const tokenHardcoded =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhcGVsbGlkbyI6ImRhbW9udGUiLCJub21icmUiOiJkYW1pYW4iLCJzdWIiOiJkYW1pYW5AZ21haWwuY29tIiwiaWF0IjoxNjc5NDUwOTc4LCJleHAiOjE2Nzk1MzczNzh9.zSAXczyufGrBjfSjx3kU11kXQoUUjMVfZHm4QqTELLI";
-  useFetch2(`/productos/${id}`, setProductState);
+  useFetch(`/productos/${id}`, setProductState);
 
   useEffect(() => {
     if (!user.token) {
       setUser({ ...user, toBooking: `/producto/${id}/reserva` });
-      navigate(routes.login, {replace: true});
+      navigate(routes.login, { replace: true });
     }
   }, [id, user]);
 
@@ -68,7 +66,7 @@ export default function Booking() {
   };
 
   const handleSubmit = () => {
-    if (!bookingState.loading) {
+    if (!loadingBooking) {
       const errors = bookingValidations(formData);
       if (Object.keys(errors).length === 0) {
         setFormErrors({});
@@ -81,14 +79,14 @@ export default function Booking() {
 
   return (
     <>
-      {bookingState.booking && <SuccessBooking />}
+      {booking && <SuccessBooking />}
       <div>
-        {productState.loading && <Loader height="400px" />}
-        {productState.product && !bookingState.booking && (
+        {loadingProducto && <LoaderCircles height="400px" />}
+        {product && !booking && (
           <>
-            <BookingHeader product={productState.product} />
+            <BookingHeader product={product} />
             <FormBookingContainer
-              product={productState.product}
+              product={product}
               formData={formData}
               setFormData={setFormData}
               handleSubmit={handleSubmit}
@@ -97,10 +95,10 @@ export default function Booking() {
               user={user}
             />
             <AddInfoCovid formData={formData} setFormData={setFormData} />
-            <BookingProductPolicies policies={productState.product.politicas} />
+            <BookingProductPolicies policies={product.politicas} />
           </>
         )}
-        {productState.error && (
+        {errorProducto && (
           <ErrorMessageContainer>
             <img src="/assets/icon-warning.svg" alt="question icon" />
             <p>Ha ocurrido un error. Por favor, vuelva a intetar más tarde</p>
