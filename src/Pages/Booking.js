@@ -8,7 +8,7 @@ import { useFetch2 } from "../hooks/useFetch";
 import { bookingValidations } from "./validations/bookingValidations";
 import { postReserva } from "../service/reservas";
 import { dateToApiDate } from "../utils/dateFormater";
-import BookingSuccess from "../Components/bookingPage/successBooking/BookingSuccess";
+import SuccessBooking from "../Components/bookingPage/successBoking/SuccessBooking";
 
 const initialProductState = {
   product: null,
@@ -69,9 +69,9 @@ export default function Booking() {
 
   return (
     <>
-      {/* {bookingState.booking && <BookingSuccess />} */}
+      {bookingState.booking && <SuccessBooking />}
       <div>
-        {productState.product  && (
+        {(productState.product && !bookingState.booking) && (
           <>
             <BookingHeader product={productState.product} />
             <FormBookingContainer

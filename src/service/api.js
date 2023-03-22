@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost:8080/api";
-const API_URL = "http://3.144.86.214:8080/api";
+const API_URL = "http://localhost:8080/api";
+// const API_URL = "http://3.144.86.214:8080/api";
 
 const get = async (path) => {
   const getResponse = {};
