@@ -63,7 +63,7 @@ export default function Product() {
       {error && (
         <ErrorMessageContainer>
           <img src="/assets/icon-warning.svg" alt="question icon" />
-          <p>Ha ocurrido un error, por favor vuelva a intetar más tarde</p>
+          <p>Ha ocurrido un error. Por favor, vuelva a intetar más tarde</p>
         </ErrorMessageContainer>
       )}
     </div>

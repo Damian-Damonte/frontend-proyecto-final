@@ -9,6 +9,8 @@ import { bookingValidations } from "./validations/bookingValidations";
 import { postReserva } from "../service/reservas";
 import { dateToApiDate } from "../utils/dateFormater";
 import SuccessBooking from "../Components/bookingPage/successBoking/SuccessBooking";
+import Loader from "../Components/common/loader/Loader";
+import { ErrorMessageContainer } from "../Components/bookingPage/formContainer/styledFormContainer";
 
 const initialProductState = {
   product: null,
@@ -71,7 +73,8 @@ export default function Booking() {
     <>
       {bookingState.booking && <SuccessBooking />}
       <div>
-        {(productState.product && !bookingState.booking) && (
+        {productState.loading && <Loader height="400px" />}
+        {productState.product && !bookingState.booking && (
           <>
             <BookingHeader product={productState.product} />
             <FormBookingContainer
@@ -85,6 +88,12 @@ export default function Booking() {
             <AddInfoCovid formData={formData} setFormData={setFormData} />
             <BookingProductPolicies policies={productState.product.politicas} />
           </>
+        )}
+        {productState.error && (
+          <ErrorMessageContainer>
+            <img src="/assets/icon-warning.svg" alt="question icon" />
+            <p>Ha ocurrido un error. Por favor, vuelva a intetar más tarde</p>
+          </ErrorMessageContainer>
         )}
       </div>
     </>
