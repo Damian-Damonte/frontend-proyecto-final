@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormField from "../Components/forms/FormField";
 import FormPasswordField from "../Components/forms/FormPasswordField";
-import { singinValidations } from "./validations/singinValidations";
+import { singUpValidations } from "./validations/singUpValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import {
@@ -48,7 +48,7 @@ export default function FormSingIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errors = singinValidations(form);
+    const errors = singUpValidations(form);
     console.log(errors);
     if (Object.keys(errors).length === 0) {
       setErrors(initialErrors);

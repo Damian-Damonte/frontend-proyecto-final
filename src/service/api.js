@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost:8080/api";
-const API_URL = "http://3.144.86.214:8080/api";
+const API_URL = "http://localhost:8080/api";
+// const API_URL = "http://3.144.86.214:8080/api";
 
 const get = async (path) => {
   const getResponse = {};
@@ -14,21 +14,23 @@ const get = async (path) => {
   return getResponse;
 };
 
-const post = async (path, payload, token) => {
+const post = async (path, payload, token=null) => {
   const getResponse = {};
   const options = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(payload)
   };
 
+  if(token) {
+    options.headers.Authorization = `Bearer ${token}`;
+  }
 
   try {
     const response = await fetch(`${API_URL}${path}`, options);
-    if (!response.ok) throw new Error(response.statusText);
+    if (!response.ok) throw new Error(response.status);
     const data = await response.json();
     getResponse.data = data;
   } catch (error) {

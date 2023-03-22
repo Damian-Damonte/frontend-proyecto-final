@@ -12,7 +12,9 @@ import {
   SubmitSection,
 } from "../Components/forms/styledForms";
 import { ReactComponent as IconWarn } from "../img/warn-login.svg";
-
+import { authLogin } from "../service/auth";
+import userDataFromJwt from "../utils/userDataFromJwt";
+import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
 
 const userHardcoded = {
   firstName: "Bruno",
@@ -32,17 +34,23 @@ const initialErrors = {
   credentials: null,
 };
 
+const initialUserState = {
+  token: null,
+  loading: false,
+  error: null,
+};
+
 export default function NewForm() {
-  const [form, setForm] = useState(initialForm);
+  const [formData, setFormData] = useState(initialForm);
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState(initialErrors);
+  const [loading, setLoading] = useState(false);
 
   const { user, setUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleShowPassword = () => {
@@ -53,23 +61,33 @@ export default function NewForm() {
     navigate(routes.singin);
   };
 
-  const successfulLogin = () => {
-    setErrors(initialErrors);
-    console.log("LOGIN CORRECTO");
+  const validateCredentials = async () => {
+    setLoading(true);
+    const response = await authLogin(formData);
 
-    if (user.toBooking) {
-      navigate(user.toBooking, {replace: true});
-      setUser({ ...userHardcoded, toBooking: null });
+    if (response.data?.token) {
+      const userData = userDataFromJwt(response.data.token);
+      setLoading(false);
+      setUser(userData);
+      user.toBooking
+        ? navigate(user.toBooking, { replace: true })
+        : navigate(routes.home);
     } else {
-      navigate(routes.home);
+      setLoading(false);
+      const errorMessage =
+        response.error.message === "403"
+          ? "Credenciales incorrectas. Por favor, vuelva a intentar"
+          : "Lamentablemente no ha podido iniciar sesión. Por favor, intente más tarde";
+      setErrors({ login: errorMessage });
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errors = loginValidations(form);
+    const errors = loginValidations(formData);
     if (Object.keys(errors).length === 0) {
-      successfulLogin();
+      setErrors({});
+      validateCredentials();
     } else {
       setErrors(errors);
     }
@@ -90,7 +108,7 @@ export default function NewForm() {
           id="email"
           handleChange={handleChange}
           errors={errors}
-          form={form}
+          form={formData}
           inputType="email"
         />
         <FormPasswordField
@@ -98,14 +116,15 @@ export default function NewForm() {
           id="password"
           handleChange={handleChange}
           errors={errors}
-          form={form}
+          form={formData}
           showPassword={showPassword}
           handleShowPassword={handleShowPassword}
         />
-
         <SubmitSection>
-          <p>{errors.credentials}</p>
-          <button type="submit">Ingresar</button>
+          <p>{errors.credentials || errors.login}</p>
+          <button type="submit">
+            {loading ? <LoaderClassic /> : "Ingresar"}
+          </button>
           <p>
             ¿Aún no tenes cuenta?
             <span onClick={toSingin}> Registrate</span>

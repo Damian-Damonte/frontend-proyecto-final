@@ -1,4 +1,4 @@
-export const singinValidations = (form) => {
+export const singUpValidations = (form) => {
   let errors = {};
   let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
 

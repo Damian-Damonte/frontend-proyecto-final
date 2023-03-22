@@ -48,7 +48,7 @@ export default function Booking() {
       setUser({ ...user, toBooking: `/producto/${id}/reserva` });
       navigate(routes.login, {replace: true});
     }
-  }, [user]);
+  }, [id, user]);
 
   const getRequestPayload = () => {
     return {

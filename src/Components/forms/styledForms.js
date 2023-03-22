@@ -154,6 +154,9 @@ export const SubmitSection = styled.section`
 
   button[type="submit"] {
     margin-top: ${({ singin }) => (singin ? "10px" : "20px")};
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 40px;
     background-color: ${PRIMARY_COLOR};
