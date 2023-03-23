@@ -48,7 +48,6 @@ export default function SelectCityContainer({
   };
 
   useEffect(() => {
-    console.log(citys);
     let citysToShow = [];
     if (citys !== null) {
       for (let i = 0; i < citys.length && citysToShow.length < 4; i++) {
