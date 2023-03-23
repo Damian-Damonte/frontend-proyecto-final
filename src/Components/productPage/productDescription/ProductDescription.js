@@ -5,7 +5,7 @@ import {
 } from "./styledProductDescription";
 
 export default function ProductDescription({ product }) {
-  const {tituloDescripcion, descripcion} = product;
+  const { tituloDescripcion, descripcion } = product;
   const descriptionParagraphs = descripcion && descripcion.split("\n");
   return (
     <ProductDescriptionContainer>
@@ -13,7 +13,9 @@ export default function ProductDescription({ product }) {
 
       <ParagraphsContainer>
         {descripcion &&
-          descriptionParagraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+          descriptionParagraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
       </ParagraphsContainer>
     </ProductDescriptionContainer>
   );

@@ -26,6 +26,9 @@ export default function SearchBar({
 
   const handleShowCalendar = () => {
     showCitys && setShowCitys(false);
+    if(showCalendar && startDate && !endDate) {
+      setSearchParams({ ...searchParams, startDate: null, endDate: null });
+    }
     setShowCalendar(!showCalendar);
   };
 

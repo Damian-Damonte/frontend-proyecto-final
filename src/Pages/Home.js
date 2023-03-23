@@ -18,6 +18,9 @@ function Home() {
 
   const searchProducts = (searchParams, page=0) => {
     if (!productState.loading) {
+      if(searchParams.startDate && !searchParams.endDate) {
+        searchParams = {...searchParams, startDate: null, endDate: null}
+      }
       areEqualsObjects(searchParams, lastSearchParams)
         ? setShowPager(true)
         : setShowPager(false);
