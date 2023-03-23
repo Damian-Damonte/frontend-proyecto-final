@@ -5,6 +5,7 @@ import {
   CardRating,
   CardTitleStars,
   CategoryStarsContainer,
+  IconContainer,
   ProductCardCaracteristics,
   ProductCardDescription,
   ProductCardDescriptionContainer,
@@ -104,12 +105,15 @@ export default function ProductCard({ product }) {
         </ProductCardTitleRatingContainer>
 
         <ProductCardLocationContainer>
+          <IconContainer>
+            <Location />
+          </IconContainer>
           <p>
-            <Location /> {direccion} -
+            {direccion}&nbsp;&nbsp;
+            <a target="_blank" href={urlMap} rel="noopener noreferrer">
+              MOSTRAR EN EL MAPA
+            </a>
           </p>
-          <a target="_blank" href={urlMap} rel="noopener noreferrer">
-            &nbsp; MOSTRAR EN EL MAPA
-          </a>
         </ProductCardLocationContainer>
 
         <ProductCardCaracteristics>

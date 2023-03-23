@@ -193,36 +193,34 @@ export const CardRating = styled.div`
 export const ProductCardLocationContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-top: 15px;
   font-weight: 500;
+  margin-top: 15px;
+  gap: 5px;
 
-  p:first-child {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
+  p {
     color: ${PURPLE2};
     font-size: 14px;
 
-    svg {
-      fill: ${PURPLE2};
-      width: 10px;
-      height: 15px;
+    a {
+      color: ${PRIMARY_COLOR};
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+      &:hover {
+        color: #15a39a;
+      }
     }
   }
+`;
 
-  a {
-    color: ${PRIMARY_COLOR};
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-
-    &:hover {
-      color: #15a39a;
-    }
+export const IconContainer = styled.div`
+  width: 10px;
+  svg {
+    width: 100%;
+    fill: ${PURPLE2};
+    width: 10px;
   }
 `;
 
@@ -356,14 +354,14 @@ export const BtnNextPrev = styled.button`
   }
 
   ${({ $disabled }) => {
-    if($disabled) {
+    if ($disabled) {
       return css`
         color: #ccc;
         cursor: auto;
         &:hover {
-          background-color: #fff
+          background-color: #fff;
         }
-      `
+      `;
     }
   }};
 
