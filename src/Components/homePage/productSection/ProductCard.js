@@ -30,28 +30,40 @@ export default function ProductCard({ product }) {
     titulo,
     descripcion,
     imagenes,
-    categoria:{titulo: tituloCat},
+    categoria: { titulo: tituloCat },
     caracteristicas,
     promedioPuntuacion,
     direccion,
-    coordenadas:{latitud, longitud}
+    coordenadas: { latitud, longitud },
   } = product;
 
   const navigateProduct = () => {
-    navigate(`/producto/${id}`)
-  }
+    navigate(`/producto/${id}`);
+  };
 
   const descriptionReducer = () => {
-    if(window.innerWidth < 768) {
-      descripcion?.length > 200 
-        ? setDescriptionReduced(<p> {descripcion.substring(0, 200)}... <span onClick={navigateProduct}>más...</span> </p>)
+    if (window.innerWidth < 768) {
+      descripcion?.length > 200
+        ? setDescriptionReduced(
+            <p>
+              {" "}
+              {descripcion.substring(0, 200)}...{" "}
+              <span onClick={navigateProduct}>más...</span>{" "}
+            </p>
+          )
         : setDescriptionReduced(<p>{descripcion}</p>);
     } else {
-      descripcion?.length > 120 
-        ? setDescriptionReduced(<p> {descripcion.substring(0, 120)}... <span onClick={navigateProduct}>más...</span> </p>)
+      descripcion?.length > 120
+        ? setDescriptionReduced(
+            <p>
+              {" "}
+              {descripcion.substring(0, 120)}...{" "}
+              <span onClick={navigateProduct}>más...</span>{" "}
+            </p>
+          )
         : setDescriptionReduced(<p>{descripcion}</p>);
     }
-  }
+  };
 
   useEffect(() => {
     descriptionReducer();
@@ -66,7 +78,6 @@ export default function ProductCard({ product }) {
   return (
     <ProductCardStyled>
       <ProductImgContainer $imgUrl={imagenes[0].url}>
-        {/* <img src={imagenes[0].url} alt={imagenes[0].titulo}/> */}
         <Fav />
       </ProductImgContainer>
 
@@ -96,25 +107,21 @@ export default function ProductCard({ product }) {
           <p>
             <Location /> {direccion} -
           </p>
-          <a target="_blank" href={urlMap} rel="noopener noreferrer">&nbsp; MOSTRAR EN EL MAPA</a>
+          <a target="_blank" href={urlMap} rel="noopener noreferrer">
+            &nbsp; MOSTRAR EN EL MAPA
+          </a>
         </ProductCardLocationContainer>
 
         <ProductCardCaracteristics>
-          {caracteristicas.map(caract => (
-            <div key={caract.id}>
-              {caracteristicIconMapper(caract.nombre)}
-            </div>
+          {caracteristicas.map((caract) => (
+            <div key={caract.id}>{caracteristicIconMapper(caract.nombre)}</div>
           ))}
         </ProductCardCaracteristics>
 
-        <ProductCardDescription>
-          {descriptionReduced}
-        </ProductCardDescription>
+        <ProductCardDescription>{descriptionReduced}</ProductCardDescription>
 
         <BtnDetails onClick={navigateProduct}>Ver detalles</BtnDetails>
-
       </ProductCardDescriptionContainer>
     </ProductCardStyled>
   );
 }
-

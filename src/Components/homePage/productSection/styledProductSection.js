@@ -86,9 +86,6 @@ export const ProductCardStyled = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    /* max-width: none; */
-    /* align-items: center; */
-    /* justify-content: space-between; */
     max-width: 850px;
   }
 `;
