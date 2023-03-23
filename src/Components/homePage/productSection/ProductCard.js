@@ -65,8 +65,8 @@ export default function ProductCard({ product }) {
 
   return (
     <ProductCardStyled>
-      <ProductImgContainer>
-        <img src={imagenes[0].url} alt={imagenes[0].titulo}/>
+      <ProductImgContainer $imgUrl={imagenes[0].url}>
+        {/* <img src={imagenes[0].url} alt={imagenes[0].titulo}/> */}
         <Fav />
       </ProductImgContainer>
 

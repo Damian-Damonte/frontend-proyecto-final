@@ -42,7 +42,6 @@ export const DetailSectionTitleCardContainer = styled.div`
 
     h3 {
       margin-left: 20px;
-      /* margin-top: 10px; */
       margin-bottom: 5px;
     }
   }

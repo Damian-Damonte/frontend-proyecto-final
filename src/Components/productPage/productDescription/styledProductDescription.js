@@ -30,6 +30,7 @@ export const ParagraphsContainer = styled.div`
   font-weight: 500;
   font-size: 14px;
   color: #4F4F50;
+  max-width: 1000px;
 
   @media (min-width: 1024px) {
     gap: 5px;

@@ -86,9 +86,9 @@ export const ProductCardStyled = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    max-width: none;
-    align-items: center;
-    justify-content: space-between;
+    /* max-width: none; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
     max-width: 850px;
   }
 `;
@@ -96,6 +96,10 @@ export const ProductCardStyled = styled.div`
 export const ProductImgContainer = styled.div`
   position: relative;
   height: 200px;
+  background-image: url(${({ $imgUrl }) => $imgUrl});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   svg {
     position: absolute;
@@ -110,16 +114,9 @@ export const ProductImgContainer = styled.div`
     fill: ${PURPLE2};
   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
   @media (min-width: 768px) {
     width: 50%;
-    height: 100%;
+    height: auto;
   }
 `;
 

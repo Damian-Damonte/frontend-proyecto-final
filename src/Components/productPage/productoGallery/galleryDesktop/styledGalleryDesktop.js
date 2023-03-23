@@ -189,7 +189,10 @@ export const GalleryDesktopStyled = styled.div`
     cursor: auto;
   }
 
-  && .image-gallery-thumbnail .image-gallery-thumbnail-image {
+  && .image-gallery-thumbnail-image {
+    height: 60px;
+    object-fit: cover;
+    width: 92px;
     cursor: pointer;
   }
 

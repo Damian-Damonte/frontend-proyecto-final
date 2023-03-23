@@ -41,8 +41,11 @@ export default function ProductDetailsSection({
     <ProductDetailsSectionStyled>
       <DetailSectionTitleCardContainer>
         <h3>Detalle de la reserva</h3>
+
         <DetailsImgContainer>
+
           <ImgContainer $imgUrl={imagenes[0].url} />
+
           <DetailsContainer>
             <ProductDetailsContainer>
               <p>{categoryTitle.toUpperCase()}</p>
@@ -87,7 +90,9 @@ export default function ProductDetailsSection({
               </BtnSubmit>
             </BtnValidationContainer>
           </DetailsContainer>
+
         </DetailsImgContainer>
+        
       </DetailSectionTitleCardContainer>
     </ProductDetailsSectionStyled>
   );
