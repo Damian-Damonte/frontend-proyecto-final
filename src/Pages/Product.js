@@ -21,6 +21,11 @@ export default function Product() {
 
   const handleShare = () => {
     console.log("SHARE");
+    navigator.share({
+      title: `Digital Booking`,
+      text: `Comparto contigo este increíble alojamiento que encontré`,
+      url: window.location.href
+    })
   };
 
   return (
