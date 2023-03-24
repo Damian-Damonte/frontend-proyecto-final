@@ -1,20 +1,17 @@
-import React, { useState } from "react";
 import CategoryCard from "./CategoryCard";
 import {
   CardContainer,
   CategoryContainerStyled,
   ErrorCategory,
 } from "./styledCategory";
-import { useFetch } from "../../../hooks/useFetch";
+import useFetch from "../../../hooks/useFetch";
 import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 
 export default function CategoryContainer({
   searchParams,
   searchProducts,
 }) {
-  const [catetoryState, setCatetoryState] = useState({});
-  useFetch("/categorias", setCatetoryState);
-  const{ data: categorys, loading, error} = catetoryState;
+  const { data: categorys, loading, error} = useFetch("/categorias");
   
   const selectCategory = (category) => {
     searchParams.category?.id === category.id 

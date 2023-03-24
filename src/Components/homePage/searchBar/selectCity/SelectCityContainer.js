@@ -8,13 +8,7 @@ import {
   SelectCityOptionNames,
 } from "./styledSelectCity";
 import SelectCityOption from "./SelectCityOption";
-import { useFetch } from "../../../../hooks/useFetch";
-
-const intialCityState = {
-  data: [],
-  loading: false,
-  errro: null,
-};
+import useFetch from "../../../../hooks/useFetch";
 
 export default function SelectCityContainer({
   handleShowCity,
@@ -22,12 +16,9 @@ export default function SelectCityContainer({
   searchParams,
   setSearchParams,
 }) {
-  const [citysState, setCitysState] = useState(intialCityState);
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
-  const { data: citys, loading, error } = citysState;
-
-  useFetch("/ciudades", setCitysState);
+  const { data: citys, loading, error } = useFetch("/ciudades");
 
   const matchCity = (city) => {
     const cityAndContry =
@@ -50,7 +41,7 @@ export default function SelectCityContainer({
   useEffect(() => {
     let citysToShow = [];
     if (citys !== null) {
-      for (let i = 0; i < citys.length && citysToShow.length < 4; i++) {
+      for (let i = 0; i < citys?.length && citysToShow.length < 4; i++) {
         matchCity(citys[i]) && citysToShow.push(citys[i]);
       }
       setCitysFilter(citysToShow);

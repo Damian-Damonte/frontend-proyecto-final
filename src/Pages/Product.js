@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import ProductBooking from "../Components/productPage/productBooking/ProductBooking";
 import ProductCaracteristics from "../Components/productPage/productCaracteristics/ProductCaracteristics";
 import ProductDescription from "../Components/productPage/productDescription/ProductDescription";
@@ -8,16 +7,13 @@ import ProductGalleryDesktop from "../Components/productPage/productoGallery/gal
 import ProductoGalleryMobile from "../Components/productPage/productoGallery/galleryMobile/ProductGalleryMobile";
 import ProductPolicies from "../Components/productPage/productPolicies/ProductPolicies";
 import { useParams } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ErrorMessageContainer } from "../Components/productPage/productHeader/styledProduct";
 
 export default function Product() {
-  const [productState, setProductState] = useState({});
-  const { data: product, loading, error } = productState;
   const { id } = useParams();
-
-  useFetch(`/productos/${id}`, setProductState);
+  const {data: product, loading, error } = useFetch(`/productos/${id}`);
 
   const handleFav = () => {
     console.log("FAV");

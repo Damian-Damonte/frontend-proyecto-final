@@ -4,7 +4,7 @@ import AddInfoCovid from "../Components/bookingPage/addInfoCovid/AddInfoCovid";
 import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
 import BookingProductPolicies from "../Components/bookingPage/bookingProductPolicies/ProductPolicies";
 import FormBookingContainer from "../Components/bookingPage/formContainer/FormBookingContainer";
-import { useFetch } from "../hooks/useFetch";
+import useFetch from "../hooks/useFetch";
 import { bookingValidations } from "./validations/bookingValidations";
 import { postReserva } from "../service/reservas";
 import { dateToApiDate } from "../utils/dateFormater";
@@ -24,7 +24,6 @@ const initialFormData = {
 };
 
 export default function Booking() {
-  const [productState, setProductState] = useState({});
   const [bookingState, setBookingState] = useState({});
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState({});
@@ -32,14 +31,9 @@ export default function Booking() {
   const { user, setUser } = useContext(UserContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const {
-    data: product,
-    loading: loadingProducto,
-    error: errorProducto,
-  } = productState;
-  const { booking, loading: loadingBooking } = bookingState;
 
-  useFetch(`/productos/${id}`, setProductState);
+  const { data: product, loading: loadingProducto, error: errorProducto } = useFetch(`/productos/${id}`);
+  const { booking, loading: loadingBooking } = bookingState;
 
   useEffect(() => {
     if (!user.token) {

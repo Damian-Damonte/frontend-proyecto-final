@@ -10,7 +10,4 @@ const authSingUp = async (payload) => {
   return response;
 };
 
-export {
-  authLogin,
-  authSingUp
-}
+export { authLogin, authSingUp };
