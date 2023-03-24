@@ -16,7 +16,7 @@ export default function ProductContainer({
   searchProducts,
   setPageData,
   showPager,
-  productState
+  productState,
 }) {
   const { city, category, startDate, endDate } = lastSearchParams;
   const { products, loading, error } = productState;
@@ -75,7 +75,7 @@ export default function ProductContainer({
         </EmptyProductsContainer>
       )}
 
-      {showPager && (
+      {showPager && !error && (
         <ProductoPages
           pageData={pageData}
           setPageData={setPageData}

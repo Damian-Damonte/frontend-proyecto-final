@@ -46,6 +46,7 @@ export default function FormUserData({
             value={formData.city}
             onChange={handleChangeCity}
             $error={formErrors.city}
+            placeholder="Ingresá tu ciudad"
           />
         </InputLabelContainer>
       </InputsContainer>

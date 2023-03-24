@@ -6,7 +6,7 @@ export default function CategoryCard({
   searchParams,
   selectCategory,
 }) {
-  const { id, titulo, urlImagen } = categoria;
+  const { id, titulo, urlImagen, cantProductos } = categoria;
 
   return (
     <CategoryCardStyled
@@ -16,7 +16,7 @@ export default function CategoryCard({
       <div></div>
       <img src={urlImagen} alt={titulo} />
       <h3>{titulo}</h3>
-      <p>807.105 {titulo}</p>
+      <p>{cantProductos} {titulo}</p>
     </CategoryCardStyled>
   );
 }

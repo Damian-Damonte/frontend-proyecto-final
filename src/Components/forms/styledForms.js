@@ -104,6 +104,10 @@ export const FormFieldStyled = styled.div`
     border: ${({ $error }) => ($error ? "solid 1px #ff0000" : "none")};
     background-color: ${({ $error }) => ($error ? "#ffe1e1" : "none")};
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+
+    :focus {
+      outline: ${({ $error }) => ($error ? "none" : `1px solid ${PRIMARY_COLOR}`)};
+    }
   }
 
   p {
