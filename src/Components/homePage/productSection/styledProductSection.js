@@ -42,12 +42,14 @@ export const ProductCardContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  width: 100%;
 
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 1fr;
     align-items: stretch;
     row-gap: 30px;
+    justify-items: center;
   }
 
   @media (min-width: 1200px) {
