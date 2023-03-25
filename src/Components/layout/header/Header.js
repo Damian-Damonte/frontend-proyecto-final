@@ -37,6 +37,7 @@ export default function Header() {
 
   const handleCerrarSesion = () => {
     setShowDrawer(!showDrawer);
+    localStorage.removeItem("userData");
     setUser({});
   };
 

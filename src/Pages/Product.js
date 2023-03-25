@@ -13,7 +13,7 @@ import { ErrorMessageContainer } from "../Components/productPage/productHeader/s
 
 export default function Product() {
   const { id } = useParams();
-  const {data: product, loading, error } = useFetch(`/productos/${id}`);
+  const { data: product, loading, error } = useFetch(`/productos/${id}`);
 
   const handleFav = () => {
     console.log("FAV");
@@ -24,8 +24,8 @@ export default function Product() {
     navigator.share({
       title: `Digital Booking`,
       text: `Comparto contigo este increíble alojamiento que encontré`,
-      url: window.location.href
-    })
+      url: window.location.href,
+    });
   };
 
   return (

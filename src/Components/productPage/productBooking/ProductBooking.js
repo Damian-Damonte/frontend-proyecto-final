@@ -5,13 +5,22 @@ import {
   ProductBookingContainer,
 } from "./styledProductBooking";
 import { useNavigate, useParams } from "react-router-dom";
+import UserContext from "../../../context/user.context";
+import { routes } from "../../../Routes";
+import { useContext } from "react"
 
 export default function ProductBooking({ reservas }) {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
 
   const toBookingPage = () => {
-    navigate(`/producto/${id}/reserva`);
+    if (!user.token) {
+      setUser({ ...user, toBooking: `/producto/${id}/reserva` });
+      navigate(routes.login, { replace: true });
+    } else {
+      navigate(`/producto/${id}/reserva`);
+    }
   };
 
   return (

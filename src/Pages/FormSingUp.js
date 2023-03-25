@@ -56,6 +56,7 @@ export default function FormSingIn() {
     if (response.data?.token) {
       setLoading(false);
       const userData = userDataFromJwt(response.data.token);
+      localStorage.setItem("userData", JSON.stringify(userData));
       setUser(userData);
       user.toBooking
         ? navigate(user.toBooking, { replace: true })
@@ -73,7 +74,6 @@ export default function FormSingIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = singUpValidations(formData);
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
       setErrors({});
       validateCredentials();

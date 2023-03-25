@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AddInfoCovid from "../Components/bookingPage/addInfoCovid/AddInfoCovid";
 import BookingHeader from "../Components/bookingPage/bookingHeader/BookingHeader";
@@ -32,15 +32,12 @@ export default function Booking() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { data: product, loading: loadingProducto, error: errorProducto } = useFetch(`/productos/${id}`);
+  const {
+    data: product,
+    loading: loadingProducto,
+    error: errorProducto,
+  } = useFetch(`/productos/${id}`);
   const { booking, loading: loadingBooking } = bookingState;
-
-  useEffect(() => {
-    if (!user.token) {
-      setUser({ ...user, toBooking: `/producto/${id}/reserva` });
-      navigate(routes.login, { replace: true });
-    }
-  }, [id, user]);
 
   const getRequestPayload = () => {
     return {
@@ -61,9 +58,14 @@ export default function Booking() {
 
   const handleSubmit = () => {
     if (!loadingBooking) {
+      if (!user.token) {
+        setUser({ ...user, toBooking: `/producto/${id}/reserva` });
+        navigate(routes.login, { replace: true });
+      }
       const errors = bookingValidations(formData);
       if (Object.keys(errors).length === 0) {
         setFormErrors({});
+
         postReserva(getRequestPayload(), user.token, setBookingState);
       } else {
         setFormErrors(errors);
