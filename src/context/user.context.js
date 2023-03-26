@@ -12,13 +12,9 @@ export function UserProvider({ children }) {
     if (userData) {
       userData = JSON.parse(userData);
       const expritationDate = new Date(userData.exp * 1000);
-      if (expritationDate < Date.now()) {
-        console.log("token expirado");
-        localStorage.removeItem("userData");
-      } else {
-        console.log("token valido");
-        setUser(userData);
-      }
+      expritationDate < Date.now()
+        ? localStorage.removeItem("userData")
+        : setUser(userData);
     }
   }, []);
 

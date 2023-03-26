@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProductCard from "./ProductCard";
 import {
   EmptyProductsContainer,
@@ -9,6 +9,7 @@ import {
 import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 import { dateToUserDate } from "../../../utils/dateFormater";
 import ProductoPages from "./ProductoPages";
+import FavsContext from "../../../context/favs.context";
 
 export default function ProductContainer({
   lastSearchParams,
@@ -20,6 +21,11 @@ export default function ProductContainer({
 }) {
   const { city, category, startDate, endDate } = lastSearchParams;
   const { products, loading, error } = productState;
+  const { favs, handleFav } = useContext(FavsContext);
+
+  const isProductFav = (id) => {
+    return favs.some((fav) => id === fav.id);
+  };
 
   const searchParmsMsj = (defaultText, customText) => {
     let title = defaultText;
@@ -52,7 +58,12 @@ export default function ProductContainer({
             <h4>{searchParmsMsj("Recomendaciones", "Alojamientos")}</h4>
             <ProductCardContainer>
               {products?.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isFav={isProductFav(product.id)}
+                  handleFav={handleFav}
+                />
               ))}
             </ProductCardContainer>
           </>

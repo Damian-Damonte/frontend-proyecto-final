@@ -21,7 +21,7 @@ import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, isFav, handleFav }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
 
   const navigate = useNavigate();
@@ -78,8 +78,10 @@ export default function ProductCard({ product }) {
 
   return (
     <ProductCardStyled>
-      <ProductImgContainer $imgUrl={imagenes[0].url}>
-        <Fav />
+      <ProductImgContainer $imgUrl={imagenes[0].url} $isFav={isFav}>
+        <div>
+          <Fav onClick={() => handleFav(product)}/>
+        </div>
       </ProductImgContainer>
 
       <ProductCardDescriptionContainer>

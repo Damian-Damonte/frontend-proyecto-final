@@ -58,4 +58,8 @@ const getRandomProducts = async (setProductState, setShowPager) => {
   }
 };
 
+const productFav = () => {
+  
+}
+
 export { getFilteredProducts, getRandomProducts };

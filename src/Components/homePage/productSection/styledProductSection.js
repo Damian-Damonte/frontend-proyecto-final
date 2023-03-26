@@ -99,23 +99,43 @@ export const ProductImgContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  color: ${({ $isFav }) => {console.log($isFav)}};
+
+
+  div {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(0,0,0,0.3);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 0 0 5px;
+  }
 
   svg {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    fill: #fff;
+    /* fill: #fff; */
+    fill: ${({ $isFav }) => $isFav ? "#1cebdd" : "#fff"};
     cursor: pointer;
     transition: all 0.3s ease;
   }
 
-  svg:hover {
-    fill: ${PURPLE2};
-  }
+  /* svg:hover {
+    fill: #eee;
+  } */
 
   @media (min-width: 768px) {
     width: 50%;
     height: auto;
+  }
+
+  @media (min-width: 1200px) {
+    div {
+      width: 30px;
+      height: 30px;
+    }
   }
 `;
 
