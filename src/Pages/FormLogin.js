@@ -13,7 +13,7 @@ import {
 } from "../Components/forms/styledForms";
 import { ReactComponent as IconWarn } from "../img/warn-login.svg";
 import { authLogin } from "../service/auth";
-import userDataFromJwt from "../utils/userDataFromJwt";
+import dataFromJwt from "../utils/dataFromJwt";
 import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
 
 const initialForm = {
@@ -47,7 +47,7 @@ export default function NewForm() {
 
     if (response.data?.token) {
       setLoading(false);
-      const userData = userDataFromJwt(response.data.token);
+      const userData = dataFromJwt(response.data.token);
       localStorage.setItem("userData", JSON.stringify(userData));
       setUser(userData);
       user.toBooking

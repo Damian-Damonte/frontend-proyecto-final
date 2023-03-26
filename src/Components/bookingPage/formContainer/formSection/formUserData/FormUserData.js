@@ -25,17 +25,17 @@ export default function FormUserData({
       <InputsContainer>
         <InputLabelContainer>
           <UserDataLabel>Nombre</UserDataLabel>
-          <UserDataInput value={firstName} disabled />
+          <UserDataInput value={firstName || ""} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Apellido</UserDataLabel>
-          <UserDataInput value={lastName} disabled />
+          <UserDataInput value={lastName || ""} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Correo electrónico</UserDataLabel>
-          <UserDataInput value={email} disabled />
+          <UserDataInput value={email || ""} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>

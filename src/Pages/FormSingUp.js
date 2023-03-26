@@ -6,7 +6,7 @@ import { singUpValidations } from "./validations/singUpValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import { authSingUp } from "../service/auth";
-import userDataFromJwt from "../utils/userDataFromJwt";
+import dataFromJwt from "../utils/dataFromJwt";
 import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
 import {
   FormContainer,
@@ -55,7 +55,7 @@ export default function FormSingIn() {
 
     if (response.data?.token) {
       setLoading(false);
-      const userData = userDataFromJwt(response.data.token);
+      const userData = dataFromJwt(response.data.token);
       localStorage.setItem("userData", JSON.stringify(userData));
       setUser(userData);
       user.toBooking
