@@ -5,10 +5,10 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const LoaderClassicStyled = styled.span`
-  width: 25px;
-  height: 25px;
-  border: 3px solid ${PURPLE3};
-  border-bottom-color: #fff;
+  width: ${({ $size }) => $size};
+  height: ${({ $size }) => $size};
+  border: ${({ $borderWidth }) => $borderWidth} solid ${({ $bgcColor }) => $bgcColor};
+  border-bottom-color: ${({ $loaderColor}) => $loaderColor};
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;

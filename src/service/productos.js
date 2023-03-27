@@ -1,4 +1,4 @@
-import { get } from "./api";
+import { get, post } from "./api";
 import { dateToApiDate } from "../utils/dateFormater";
 
 const getFilterQueryParams = (page, searchParams) => {
@@ -58,8 +58,8 @@ const getRandomProducts = async (setProductState, setShowPager) => {
   }
 };
 
-const productFav = () => {
-  
-}
+const productFav = async (payload, token) => {
+  return post("/usuarios/favoritos", payload, token);
+};
 
-export { getFilteredProducts, getRandomProducts };
+export { getFilteredProducts, getRandomProducts, productFav };

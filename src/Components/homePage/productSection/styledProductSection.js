@@ -99,8 +99,6 @@ export const ProductImgContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  color: ${({ $isFav }) => {console.log($isFav)}};
-
 
   div {
     position: absolute;
@@ -116,15 +114,10 @@ export const ProductImgContainer = styled.div`
   }
 
   svg {
-    /* fill: #fff; */
-    fill: ${({ $isFav }) => $isFav ? "#1cebdd" : "#fff"};
+    fill: ${({ $isFav }) => $isFav ? "#fff" : "#fff"};
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
-  /* svg:hover {
-    fill: #eee;
-  } */
 
   @media (min-width: 768px) {
     width: 50%;

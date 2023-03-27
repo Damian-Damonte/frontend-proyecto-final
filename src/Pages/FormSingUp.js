@@ -7,13 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import { authSingUp } from "../service/auth";
 import dataFromJwt from "../utils/dataFromJwt";
-import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
 import {
   FormContainer,
   FormSinginNamesFileds,
   FormUser,
   SubmitSection,
 } from "../Components/forms/styledForms";
+import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
 
 const initialForm = {
   firstName: "",
@@ -45,12 +45,14 @@ export default function FormSingIn() {
 
   const validateCredentials = async () => {
     setLoading(true);
+
     const payload = {
       nombre: formData.firstName,
       apellido: formData.lastName,
       email: formData.email,
       password: formData.password,
     };
+    
     const response = await authSingUp(payload);
 
     if (response.data?.token) {
@@ -136,7 +138,16 @@ export default function FormSingIn() {
         <SubmitSection singin>
           <p>{errors.singUp}</p>
           <button type="submit">
-            {loading ? <LoaderClassic /> : "Crear cuenta"}
+            {loading ? (
+              <LoaderClassicStyled
+                $size="25px"
+                $loaderColor="#fff"
+                $bgcColor="#383B58"
+                $borderWidth="3px"
+              />
+            ) : (
+              "Crear cuenta"
+            )}
           </button>
           <p>
             ¿Ya tiene una cuenta?

@@ -9,7 +9,7 @@ import {
 import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 import { dateToUserDate } from "../../../utils/dateFormater";
 import ProductoPages from "./ProductoPages";
-import FavsContext from "../../../context/favs.context";
+import UserContext from "../../../context/user.context";
 
 export default function ProductContainer({
   lastSearchParams,
@@ -21,7 +21,7 @@ export default function ProductContainer({
 }) {
   const { city, category, startDate, endDate } = lastSearchParams;
   const { products, loading, error } = productState;
-  const { favs, handleFav } = useContext(FavsContext);
+  const { favs } = useContext(UserContext);
 
   const isProductFav = (id) => {
     return favs.some((fav) => id === fav.id);
@@ -62,7 +62,6 @@ export default function ProductContainer({
                   key={product.id}
                   product={product}
                   isFav={isProductFav(product.id)}
-                  handleFav={handleFav}
                 />
               ))}
             </ProductCardContainer>

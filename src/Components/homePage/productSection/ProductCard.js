@@ -16,14 +16,17 @@ import {
   StarsContainer,
 } from "./styledProductSection";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
+import { ReactComponent as FavFull } from "../../../img/icon-fav-full.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
+import { LoaderClassicStyled } from "../../common/loaderClassic/styledLoaderClassic";
+import { useProductFav } from "../../../hooks/useProductFav";
 
-export default function ProductCard({ product, isFav, handleFav }) {
+export default function ProductCard({ product, isFav }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
-
+  const { loadingCard, handleFav } = useProductFav();
   const navigate = useNavigate();
 
   const {
@@ -80,7 +83,18 @@ export default function ProductCard({ product, isFav, handleFav }) {
     <ProductCardStyled>
       <ProductImgContainer $imgUrl={imagenes[0].url} $isFav={isFav}>
         <div>
-          <Fav onClick={() => handleFav(product)}/>
+          {loadingCard ? (
+            <LoaderClassicStyled
+              $size="20px"
+              $loaderColor="#fff"
+              $bgcColor="#383B58"
+              $borderWidth="2px"
+            />
+          ) : isFav ? (
+            <FavFull onClick={() => handleFav(product)} />
+          ) : (
+            <Fav onClick={() => handleFav(product)} />
+          )}
         </div>
       </ProductImgContainer>
 

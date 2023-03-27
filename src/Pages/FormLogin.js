@@ -14,7 +14,7 @@ import {
 import { ReactComponent as IconWarn } from "../img/warn-login.svg";
 import { authLogin } from "../service/auth";
 import dataFromJwt from "../utils/dataFromJwt";
-import LoaderClassic from "../Components/common/loaderClassic/LoaderClassic";
+import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
 
 const initialForm = {
   email: "",
@@ -104,7 +104,16 @@ export default function NewForm() {
         <SubmitSection>
           <p>{errors.credentials || errors.login}</p>
           <button type="submit">
-            {loading ? <LoaderClassic /> : "Ingresar"}
+            {loading ? (
+              <LoaderClassicStyled
+                $size="25px"
+                $loaderColor="#fff"
+                $bgcColor="#383B58"
+                $borderWidth="3px"
+              />
+            ) : (
+              "Ingresar"
+            )}
           </button>
           <p>
             ¿Aún no tenes cuenta?

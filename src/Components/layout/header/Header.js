@@ -11,7 +11,7 @@ import { HeaderStyled, LogoContainer } from "./styledHeader";
 
 export default function Header() {
   const [showDrawer, setShowDrawer] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setFavs } = useContext(UserContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -39,6 +39,7 @@ export default function Header() {
     setShowDrawer(!showDrawer);
     localStorage.removeItem("userData");
     setUser({});
+    setFavs([]);
   };
 
   return (
