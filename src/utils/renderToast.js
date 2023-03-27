@@ -1,4 +1,4 @@
-import { toast, Flip, Zoom, Slide } from "react-toastify";
+import { toast, Zoom } from "react-toastify";
 
 // types: info, success, warning, error
 export const renderToast = (type, text) => {

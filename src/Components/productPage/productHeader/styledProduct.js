@@ -169,9 +169,9 @@ export const BtnShareFavContainer = styled.div`
     transition: all 0.3s ease;
   }
 
-  svg:hover {
+  /* svg:hover {
     fill: ${PRIMARY_COLOR};
-  }
+  } */
 
   @media (min-width: 768px) {
     display: flex;

@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
   BtnShareFavContainer,
@@ -15,18 +14,19 @@ import { ReactComponent as Location } from "../../../img/icon-location.svg";
 import { ReactComponent as StarFull } from "../../../img/icon-star-full.svg";
 import { ReactComponent as Share } from "../../../img/icon-share.svg";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
+import { ReactComponent as FavFull } from "../../../img/icon-fav-full.svg";
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
+import { LoaderClassicStyled } from "../../common/loaderClassic/styledLoaderClassic";
 
-export default function ProductHeader({ handleFav, handleShare, product }) {
-  const {
-    categoria,
-    ciudad,
-    titulo,
-    direccion,
-    promedioPuntuacion
-  } = product;
-
+export default function ProductHeader({
+  handleFav,
+  handleShare,
+  product,
+  isFav,
+  loadingCard,
+}) {
   const navigate = useNavigate();
+  const { categoria, ciudad, titulo, direccion, promedioPuntuacion } = product;
 
   const goBack = () => {
     navigate(-1);
@@ -69,7 +69,18 @@ export default function ProductHeader({ handleFav, handleShare, product }) {
 
       <BtnShareFavContainer>
         <Share onClick={handleShare} />
-        <Fav onClick={handleFav} />
+        {loadingCard ? (
+          <LoaderClassicStyled
+            $size="20px"
+            $loaderColor="#fff"
+            $bgcColor="#383B58"
+            $borderWidth="2px"
+          />
+        ) : isFav ? (
+          <FavFull onClick={() => handleFav(product)} />
+        ) : (
+          <Fav onClick={() => handleFav(product)} />
+        )}
       </BtnShareFavContainer>
     </div>
   );

@@ -10,17 +10,20 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ErrorMessageContainer } from "../Components/productPage/productHeader/styledProduct";
+import UserContext from "../context/user.context";
+import { useContext } from "react";
+import { useProductFav } from "../hooks/useProductFav";
+
 
 export default function Product() {
   const { id } = useParams();
-  const { data: product, loading, error } = useFetch(`/productos/${id}`);
+  const { favs } = useContext(UserContext);
+  const { loadingCard, handleFav } = useProductFav();
 
-  const handleFav = () => {
-    console.log("FAV");
-  };
+  const { data: product, loading, error } = useFetch(`/productos/${id}`);
+  const isFav = favs.some((fav) => fav.id === Number(id));
 
   const handleShare = () => {
-    console.log("SHARE");
     navigator.share({
       title: `Digital Booking`,
       text: `Comparto contigo este increíble alojamiento que encontré`,
@@ -38,11 +41,16 @@ export default function Product() {
             handleFav={handleFav}
             handleShare={handleShare}
             product={product}
+            isFav={isFav}
+            loadingCard={loadingCard}
           />
           <ProductoGalleryMobile
             images={product?.imagenes}
             handleFav={handleFav}
             handleShare={handleShare}
+            product={product}
+            isFav={isFav}
+            loadingCard={loadingCard}
           />
           <ProductGalleryDesktop images={product.imagenes} />
           <ProductDescription product={product} />
