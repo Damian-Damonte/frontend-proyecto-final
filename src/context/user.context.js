@@ -11,38 +11,33 @@ export function UserProvider({ children }) {
   useEffect(() => {
     let userData = localStorage.userData;
 
-    const fetchFavs = async () => {
-      const favs = await getUserFavs(userData.id, userData.token);
-      setFavs(favs);
-    }
-
     if (userData && !user.token) {
       userData = JSON.parse(userData);
       const expritationDate = new Date(userData.exp * 1000);
       expritationDate < Date.now()
         ? localStorage.removeItem("userData")
         : setUser(userData);
-      fetchFavs();
-    } else if (user.token) {
-      userData = JSON.parse(userData);
-      fetchFavs();
+
+      getUserFavs(userData.id, userData.token).then((res) => {
+        if (!res.error) {
+          console.log("cargando favs desde context");
+          setFavs(res);
+        } else {
+          console.log("ERROR AL CARGAR LOS FAVORITOS");
+          //TODO lanzar toast
+        }
+      });
     }
-  }, [user]);
-
-
+  }, []);
 
   const handleFav = (product) => {
     const isFav = favs.some((fav) => fav.id === product.id);
-
-    if (isFav) {
-      setFavs(favs.filter((fav) => fav.id !== product.id));
-    } else {
-      setFavs([...favs, product]);
-    }
+    isFav
+      ? setFavs(favs.filter((fav) => fav.id !== product.id))
+      : setFavs([...favs, product]);
   };
 
   const data = { user, setUser, favs, setFavs, handleFav, loading, setLoading };
-
 
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 }

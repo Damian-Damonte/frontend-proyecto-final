@@ -6,7 +6,6 @@ import { singUpValidations } from "./validations/singUpValidations";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes";
 import { authSingUp } from "../service/auth";
-import dataFromJwt from "../utils/dataFromJwt";
 import {
   FormContainer,
   FormSinginNamesFileds,
@@ -14,6 +13,8 @@ import {
   SubmitSection,
 } from "../Components/forms/styledForms";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
+import { useAuthStorage } from "../hooks/useAuthStorage";
+
 
 const initialForm = {
   firstName: "",
@@ -28,7 +29,9 @@ export default function FormSingIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+  const saveUserData = useAuthStorage();
+  
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -57,9 +60,8 @@ export default function FormSingIn() {
 
     if (response.data?.token) {
       setLoading(false);
-      const userData = dataFromJwt(response.data.token);
-      localStorage.setItem("userData", JSON.stringify(userData));
-      setUser(userData);
+      saveUserData(response.data.token);
+      
       user.toBooking
         ? navigate(user.toBooking, { replace: true })
         : navigate(routes.home);

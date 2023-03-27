@@ -13,8 +13,8 @@ import {
 } from "../Components/forms/styledForms";
 import { ReactComponent as IconWarn } from "../img/warn-login.svg";
 import { authLogin } from "../service/auth";
-import dataFromJwt from "../utils/dataFromJwt";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
+import { useAuthStorage } from "../hooks/useAuthStorage";
 
 const initialForm = {
   email: "",
@@ -26,7 +26,8 @@ export default function NewForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+  const saveUserData = useAuthStorage();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -43,13 +44,13 @@ export default function NewForm() {
 
   const validateCredentials = async () => {
     setLoading(true);
+
     const response = await authLogin(formData);
 
     if (response.data?.token) {
       setLoading(false);
-      const userData = dataFromJwt(response.data.token);
-      localStorage.setItem("userData", JSON.stringify(userData));
-      setUser(userData);
+      saveUserData(response.data.token)
+
       user.toBooking
         ? navigate(user.toBooking, { replace: true })
         : navigate(routes.home);
