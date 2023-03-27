@@ -20,8 +20,7 @@ export function UserProvider({ children }) {
 
       getUserFavs(userData.id, userData.token).then((res) => {
         if (!res.error) {
-          console.log("cargando favs desde context");
-          setFavs(res);
+          setFavs(res.data.favoritos);
         } else {
           console.log("ERROR AL CARGAR LOS FAVORITOS");
           //TODO lanzar toast

@@ -38,5 +38,5 @@ export const useProductFav = () => {
       //TODO lanzar toast
     }
   };
-  return { loadingCard, handleFav };
+  return { loadingCard, handleFav, loadingContext };
 };

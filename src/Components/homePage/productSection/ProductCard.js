@@ -26,7 +26,7 @@ import { useProductFav } from "../../../hooks/useProductFav";
 
 export default function ProductCard({ product, isFav }) {
   const [descriptionReduced, setDescriptionReduced] = useState("");
-  const { loadingCard, handleFav } = useProductFav();
+  const { loadingCard, handleFav, loadingContext } = useProductFav();
   const navigate = useNavigate();
 
   const {
@@ -81,7 +81,11 @@ export default function ProductCard({ product, isFav }) {
 
   return (
     <ProductCardStyled>
-      <ProductImgContainer $imgUrl={imagenes[0].url} $isFav={isFav}>
+      <ProductImgContainer
+        $imgUrl={imagenes[0].url}
+        $isFav={isFav}
+        $loadingContext={loadingContext}
+      >
         <div>
           {loadingCard ? (
             <LoaderClassicStyled

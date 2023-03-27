@@ -3,7 +3,7 @@ import UserContext from "../context/user.context";
 import dataFromJwt from "../utils/dataFromJwt";
 import { getUserFavs } from "../service/user";
 
-export const useAuthStorage = () => {
+export const useUserDataStorage = () => {
   const { setUser, setFavs } = useContext(UserContext);
 
   const saveUserData = (token) => {
@@ -13,7 +13,7 @@ export const useAuthStorage = () => {
 
     getUserFavs(userData.id, userData.token).then((res) => {
       if (!res.error) {
-        setFavs(res);
+        setFavs(res.data.favoritos);
       } else {
         console.log("ERROR AL CARGAR LOS FAVORITOS"); //TODO lanzar toast
       }

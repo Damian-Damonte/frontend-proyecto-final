@@ -115,7 +115,7 @@ export const ProductImgContainer = styled.div`
 
   svg {
     fill: ${({ $isFav }) => $isFav ? "#fff" : "#fff"};
-    cursor: pointer;
+    cursor: ${({ $loadingContext }) => $loadingContext ? "not-allowed" : "pointer"};
     transition: all 0.3s ease;
   }
 

@@ -14,7 +14,7 @@ import {
 import { ReactComponent as IconWarn } from "../img/warn-login.svg";
 import { authLogin } from "../service/auth";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
-import { useAuthStorage } from "../hooks/useAuthStorage";
+import { useUserDataStorage } from "../hooks/useUserDataStorage";
 
 const initialForm = {
   email: "",
@@ -27,7 +27,7 @@ export default function NewForm() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const { user } = useContext(UserContext);
-  const saveUserData = useAuthStorage();
+  const saveUserData = useUserDataStorage();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
