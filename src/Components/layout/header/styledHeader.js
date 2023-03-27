@@ -158,6 +158,7 @@ export const ProfileIcon = styled.p`
   font-size: 20px;
   color: ${PURPLE3};
   font-weight: 700;
+  line-height: 10px;
 
   @media (min-width: 768px) {
     background: #383b58;
@@ -166,7 +167,6 @@ export const ProfileIcon = styled.p`
 `;
 
 export const ProfileNameContainer = styled.div`
-  margin-top: 5px;
   text-align: right;
   color: #fff;
   font-weight: 700;
@@ -178,10 +178,14 @@ export const ProfileNameContainer = styled.div`
 
   @media (min-width: 768px) {
     text-align: left;
-    color: rgba(0, 0, 0, 0.5);
     font-weight: 700;
     font-size: 16px;
     margin-left: 10px;
+
+    & > p:first-child {
+      color: rgba(0, 0, 0, 0.5);
+      line-height: 16px;
+    }
 
     & > p:last-child {
       color: ${PRIMARY_COLOR};
@@ -278,3 +282,23 @@ export const HeaderOptionsDesktop = styled.div`
     display: flex;
   }
 `;
+
+export const AdminContainer = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  p {
+    font-weight: 700;
+    font-size: 16px;
+    color: ${PURPLE3};
+    line-height: 8px;
+  }
+`;
+
+export const LineaDivisoria = styled.div`
+  width: 2px;
+  height: 100%;
+  height: 40px;
+  background-color: ${PRIMARY_COLOR};
+`

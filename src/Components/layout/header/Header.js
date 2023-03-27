@@ -65,6 +65,7 @@ export default function Header() {
         user={user}
         urlPath={urlPath}
         handleCerrarSesion={handleCerrarSesion}
+        isAdmin={user.rol === "ADMIN"}
       />
     </HeaderStyled>
   );

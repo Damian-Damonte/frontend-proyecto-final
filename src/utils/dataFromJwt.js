@@ -7,7 +7,8 @@ export default function dataFromJwt(token) {
     firstName: tokenDecode.nombre,
     lastName: tokenDecode.apellido,
     email: tokenDecode.sub,
-    exp:  tokenDecode.exp,
+    exp: tokenDecode.exp,
+    rol: tokenDecode.rol,
     token,
   };
   return userData;
