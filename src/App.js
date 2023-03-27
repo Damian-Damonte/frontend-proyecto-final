@@ -8,10 +8,13 @@ import FormSingUp from "./Pages/FormSingUp";
 import FormLogin from "./Pages/FormLogin";
 import Product from "./Pages/Product";
 import Booking from "./Pages/Booking";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer limit={1}/>
       <Routes>
         <Route element={<Layout />}>
           <Route path={routes.home} element={<Home />} />

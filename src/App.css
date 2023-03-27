@@ -1,11 +1,11 @@
 :root {
   --primary-color: #1dbeb4;
   --secondo-color: #545776;
+  --toastify-color-info: #1dbeb4 !important;
 }
 
 .main-container {
   padding: 70px 0px 50px 0px;
-  /* background-color: #eeeeee; */
   background-color: #ebebee;
   min-height: 100vh;
 }
@@ -17,5 +17,12 @@
 @media (max-width: 999px) {
   body {
     overflow: unset !important;
+  }
+}
+
+/* para que en mobile las toasts no se vean cortadas */
+@media only screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    padding-right: 10px !important;
   }
 }

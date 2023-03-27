@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { getUserFavs } from "../service/user";
+import { renderToast } from "../utils/renderToast";
 
 const UserContext = createContext();
 
@@ -14,18 +15,17 @@ export function UserProvider({ children }) {
     if (userData && !user.token) {
       userData = JSON.parse(userData);
       const expritationDate = new Date(userData.exp * 1000);
-      expritationDate < Date.now()
-        ? localStorage.removeItem("userData")
-        : setUser(userData);
 
-      getUserFavs(userData.id, userData.token).then((res) => {
-        if (!res.error) {
-          setFavs(res.data.favoritos);
-        } else {
-          console.log("ERROR AL CARGAR LOS FAVORITOS");
-          //TODO lanzar toast
-        }
-      });
+      if (expritationDate < Date.now()) {
+        localStorage.removeItem("userData")
+      } else {
+        setUser(userData);
+        getUserFavs(userData.id, userData.token).then((res) => {
+          res.error
+            ? renderToast("error", "Error al cargar los favoritos. Por favor, intente más tarde")
+            : setFavs(res.data.favoritos);
+        });
+      }
     }
   }, []);
 
