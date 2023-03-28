@@ -41,10 +41,10 @@ export const CategoryOptionContainer = styled.div`
     border-bottom: none;
   }
 
-  ${({ $show }) => {
+  ${({ $show, $coutCateotys }) => {
     if ($show) {
       return css`
-        height: ${45 * 4 + 10 + "px"};
+        height: ${45 * $coutCateotys + 10 + "px"};
         padding: 5px 10px;
         opacity: 1;
       `;

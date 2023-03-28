@@ -1,34 +1,66 @@
-import React from 'react'
-import CategorySelect from './CategorySelect/CategorySelect'
-import { DescriptionContainer, GeneralInfoContainer, GeneralInfoStyled, InputContainer } from './styledGeneralInfo'
+import React from "react";
+import CategorySelect from "./CategorySelect/CategorySelect";
+import {
+  DescriptionContainer,
+  GeneralInfoContainer,
+  GeneralInfoStyled,
+  InputContainer,
+} from "./styledGeneralInfo";
 
-export default function GeneralInfo() {
+export default function GeneralInfo({ productForm, setProductForm, errors }) {
+  const handleChange = (e) => {
+    setProductForm({ ...productForm, [e.target.name]: e.target.value });
+  };
+
   return (
     <GeneralInfoStyled>
       <GeneralInfoContainer>
-
         <InputContainer>
-          <label>Nombre de la propiedad</label>
-          <input />
+          <label htmlFor="nombre">Nombre de la propiedad</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            onChange={handleChange}
+            value={productForm.nombre}
+          />
+          <p>{errors.nombre}</p>
         </InputContainer>
         <InputContainer>
-          <label>Categoria</label>
-          <CategorySelect />
+          <label>Categoría</label>
+          <CategorySelect
+            productForm={productForm}
+            setProductForm={setProductForm}
+          />
+          <p>{errors.categoria}</p>
         </InputContainer>
         <InputContainer>
-          <label>Dirección</label>
-          <input />
+          <label htmlFor="direccion">Dirección</label>
+          <input
+            type="text"
+            id="direccion"
+            name="direccion"
+            onChange={handleChange}
+            value={productForm.direccion}
+          />
+          <p>{errors.direccion}</p>
         </InputContainer>
         <InputContainer>
           <label>Ciudad</label>
           <input />
+          <p>{errors.ciudad}</p>
         </InputContainer>
-
       </GeneralInfoContainer>
       <DescriptionContainer>
-        <label>Descripción</label>
-        <textarea></textarea>
+        <label htmlFor="descripcion">Descripción</label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          onChange={handleChange}
+          value={productForm.descripcion}
+        />
+        <p>{errors.descripcion}</p>
       </DescriptionContainer>
     </GeneralInfoStyled>
-  )
+  );
 }

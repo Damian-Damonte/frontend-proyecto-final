@@ -11,7 +11,7 @@ export const GeneralInfoStyled = styled.div`
 export const GeneralInfoContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  /* gap: 5px; */
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
@@ -38,16 +38,26 @@ export const DescriptionContainer = styled.div`
     width: 100% !important;
     height: 300px !important;
     margin-top: 5px;
+    padding: 10px;
 
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};
     }
   }
 
+  p {
+    color: #ff0000;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: right;
+    min-width: 10px;
+    min-height: 16px;
+    align-self: flex-end;
+  }
+
   @media (min-width: 768px) {
     textarea {
       height: 150px !important;
-      
     }
   }
 `;
@@ -65,7 +75,8 @@ export const InputContainer = styled.div`
     color: ${PURPLE2};
   }
 
-  input, select {
+  input,
+  select {
     width: 100%;
     border-radius: 5px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
@@ -77,5 +88,15 @@ export const InputContainer = styled.div`
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};
     }
+  }
+
+  > p {
+    color: #ff0000;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: right;
+    min-width: 10px;
+    min-height: 16px;
+    align-self: flex-end;
   }
 `;
