@@ -24,6 +24,8 @@ export default function Drawer({
   urlPath,
   user,
   handleCerrarSesion,
+  isAdmin,
+  toAdminPage
 }) {
   const handleActions = (urlPath) => {
     const login = <p onClick={navigateLogin}>Iniciar sesión</p>;
@@ -59,6 +61,7 @@ export default function Drawer({
         <BottomSectionDrawer>
           <BottomSectionDrawerOptions>
             {handleActions(urlPath)}
+            {isAdmin && <p onClick={toAdminPage}>Administracion</p>}
           </BottomSectionDrawerOptions>
           <CloseSissionAndSocial>
             {user.token && (

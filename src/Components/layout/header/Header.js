@@ -42,6 +42,10 @@ export default function Header() {
     setFavs([]);
   };
 
+  const toAdminPage = () => {
+    console.log("admin page");
+  };
+
   return (
     <HeaderStyled>
       <LogoContainer onClick={navigateHome}>
@@ -58,6 +62,8 @@ export default function Header() {
         user={user}
         setUser={setUser}
         handleCerrarSesion={handleCerrarSesion}
+        isAdmin={user.rol === "ADMIN"}
+        toAdminPage={toAdminPage}
       />
       <HeaderOptionsDesk
         navigateSingin={navigateSingin}
@@ -66,6 +72,7 @@ export default function Header() {
         urlPath={urlPath}
         handleCerrarSesion={handleCerrarSesion}
         isAdmin={user.rol === "ADMIN"}
+        toAdminPage={toAdminPage}
       />
     </HeaderStyled>
   );
