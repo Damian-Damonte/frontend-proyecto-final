@@ -3,5 +3,6 @@ export const routes={
     login: "/iniciar-sesion",
     singin: "/registro",
     product: "/producto/:id",
-    booking: "/producto/:id/reserva"
+    booking: "/producto/:id/reserva",
+    admin: "/administracion"
 }

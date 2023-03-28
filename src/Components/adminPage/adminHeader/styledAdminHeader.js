@@ -1,26 +1,21 @@
 import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const ProductNameHeader = styled.div`
-  padding: 10px;
+  padding: 15px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${PURPLE3};
-  font-weight: 700;
-  color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  p {
-    font-size: 14px;
-  }
 
   h3 {
     font-size: 24px;
-    line-height: 24px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #fff;
   }
 
   svg {
@@ -35,11 +30,11 @@ export const ProductNameHeader = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 10px 20px;
+    padding: 15px 20px;
     box-shadow: none;
   }
   @media (min-width: 1024px) {
-    padding: 10px 30px;
+    padding: 15px 30px;
   }
 `;
 

@@ -43,7 +43,7 @@ export default function Header() {
   };
 
   const toAdminPage = () => {
-    console.log("admin page");
+    navigate(routes.admin);
   };
 
   return (

@@ -10,6 +10,7 @@ import Product from "./Pages/Product";
 import Booking from "./Pages/Booking";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Administration from "./Pages/Administration";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path={routes.singin} element={<FormSingUp />} />
           <Route path={routes.product} element={<Product />} />
           <Route path={routes.booking} element={<Booking />} />
+          <Route path={routes.admin} element={<Administration />} />
         </Route>
           <Route path="*" element={<NotFound />} />
       </Routes>
