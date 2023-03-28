@@ -11,10 +11,10 @@ export const GeneralInfoStyled = styled.div`
 export const GeneralInfoContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  /* gap: 5px; */
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
     column-gap: 20px;
   }
 `;
@@ -22,7 +22,6 @@ export const GeneralInfoContainer = styled.div`
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
 
   label {
     font-weight: 500;
@@ -56,6 +55,8 @@ export const DescriptionContainer = styled.div`
   }
 
   @media (min-width: 768px) {
+    margin-top: 5px;
+
     textarea {
       height: 150px !important;
     }

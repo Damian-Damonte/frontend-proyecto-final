@@ -15,6 +15,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
   return (
     <GeneralInfoStyled>
       <GeneralInfoContainer>
+
         <InputContainer>
           <label htmlFor="nombre">Nombre de la propiedad</label>
           <input
@@ -26,6 +27,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           />
           <p>{errors.nombre}</p>
         </InputContainer>
+
         <InputContainer>
           <label>Categoría</label>
           <CategorySelect
@@ -34,6 +36,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           />
           <p>{errors.categoria}</p>
         </InputContainer>
+
         <InputContainer>
           <label htmlFor="direccion">Dirección</label>
           <input
@@ -45,12 +48,14 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           />
           <p>{errors.direccion}</p>
         </InputContainer>
+
         <InputContainer>
           <label>Ciudad</label>
           <input />
           <p>{errors.ciudad}</p>
         </InputContainer>
       </GeneralInfoContainer>
+
       <DescriptionContainer>
         <label htmlFor="descripcion">Descripción</label>
         <textarea
@@ -61,6 +66,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
         />
         <p>{errors.descripcion}</p>
       </DescriptionContainer>
+      
     </GeneralInfoStyled>
   );
 }

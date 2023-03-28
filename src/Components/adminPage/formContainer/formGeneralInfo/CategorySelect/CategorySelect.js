@@ -29,9 +29,10 @@ export default function CategorySelect({ productForm, setProductForm }) {
       >
         {loading && (
           <CategoryOption>
-            <p>Cargando categorias...</p>
+            <p>Cargando categorías...</p>
           </CategoryOption>
         )}
+
         {categorys &&
           categorys.map((cat) => (
             <CategoryOption
@@ -41,9 +42,10 @@ export default function CategorySelect({ productForm, setProductForm }) {
               <p>{cat.titulo}</p>
             </CategoryOption>
           ))}
+
         {error && (
           <CategoryOption>
-            <p>Error al cargar la categorias</p>
+            <p>Error al cargar la categorías</p>
           </CategoryOption>
         )}
       </CategoryOptionContainer>
