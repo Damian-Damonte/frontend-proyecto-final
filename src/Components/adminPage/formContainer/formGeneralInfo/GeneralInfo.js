@@ -1,5 +1,6 @@
 import React from "react";
-import CategorySelect from "./CategorySelect/CategorySelect";
+import CategorySelect from "./categorySelect/CategorySelect";
+import CitySelectContainer from "./citySelect/CitySelectContainer";
 import {
   DescriptionContainer,
   GeneralInfoContainer,
@@ -51,7 +52,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
 
         <InputContainer>
           <label>Ciudad</label>
-          <input />
+          <CitySelectContainer productForm={productForm} setProductForm={setProductForm}/>
           <p>{errors.ciudad}</p>
         </InputContainer>
       </GeneralInfoContainer>
@@ -66,7 +67,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
         />
         <p>{errors.descripcion}</p>
       </DescriptionContainer>
-      
+
     </GeneralInfoStyled>
   );
 }
