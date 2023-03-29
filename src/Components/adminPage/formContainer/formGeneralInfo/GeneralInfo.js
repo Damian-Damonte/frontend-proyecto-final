@@ -6,6 +6,7 @@ import {
   GeneralInfoContainer,
   GeneralInfoStyled,
   InputContainer,
+  InputContainerPrice,
 } from "./styledGeneralInfo";
 
 export default function GeneralInfo({ productForm, setProductForm, errors }) {
@@ -16,7 +17,6 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
   return (
     <GeneralInfoStyled>
       <GeneralInfoContainer>
-
         <InputContainer>
           <label htmlFor="nombre">Nombre de la propiedad</label>
           <input
@@ -52,9 +52,37 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
 
         <InputContainer>
           <label>Ciudad</label>
-          <CitySelectContainer productForm={productForm} setProductForm={setProductForm}/>
+          <CitySelectContainer
+            productForm={productForm}
+            setProductForm={setProductForm}
+          />
           <p>{errors.ciudad}</p>
         </InputContainer>
+
+        <InputContainer>
+          <label htmlFor="titulo">Título</label>
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            onChange={handleChange}
+            value={productForm.titulo}
+          />
+          <p>{errors.direccion}</p>
+        </InputContainer>
+
+        <InputContainerPrice>
+          <label htmlFor="precioPorNoche">Precio por noche</label>
+          <input
+            type="number"
+            id="precioPorNoche"
+            name="precioPorNoche"
+            onChange={handleChange}
+            value={productForm.precioPorNoche}
+          />
+          <p>$</p>
+          <p>{errors.direccion}</p>
+        </InputContainerPrice>
       </GeneralInfoContainer>
 
       <DescriptionContainer>
@@ -67,7 +95,6 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
         />
         <p>{errors.descripcion}</p>
       </DescriptionContainer>
-
     </GeneralInfoStyled>
   );
 }

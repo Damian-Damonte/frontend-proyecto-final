@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const CitySelectContainerStyled = styled.div`
   width: 100%;
@@ -52,6 +51,7 @@ export const CityOptionContainer = styled.div`
         height: ${45 * $coutCitys + 10 + "px"};
         padding: 5px 10px;
         opacity: 1;
+        z-index: 1;
       `;
     }
   }};

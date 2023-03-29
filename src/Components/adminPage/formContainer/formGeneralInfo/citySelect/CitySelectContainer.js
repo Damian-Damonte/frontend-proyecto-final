@@ -20,15 +20,6 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
     return cityAndContry.includes(citySearchText.toLocaleLowerCase());
   };
 
-  const handleSelectCity = (city) => {
-    setProductForm({ ...productForm, ciudad: city });
-    setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
-  };
-
-  const handleChangeCityText = (e) => {
-    e.target.value === "" && setProductForm({ ...productForm, ciudad: null });
-    setCitySearchText(e.target.value);
-  };
 
   useEffect(() => {
     let citysToShow = [];
@@ -40,12 +31,27 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
     }
   }, [citySearchText, citys]);
 
+  const handleChangeCityText = (e) => {
+    e.target.value === "" && setProductForm({ ...productForm, ciudad: null });
+    setCitySearchText(e.target.value);
+  };
+
+  const handleSelectCity = (city) => {
+    setProductForm({ ...productForm, ciudad: city });
+    setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
+  };
+
   const handleShowSelect = () => {
     setShowSelect(!showSelect);
   };
 
+  const closeSelectOnBlur = () => {
+    setTimeout(() => {
+      handleShowSelect()
+    }, 100)
+  }
+
   const cleanCity = () => {
-    console.log("clean");
     setCitySearchText("");
     setProductForm({...productForm, ciudad: null})
   };
@@ -55,7 +61,7 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
       <input
         value={citySearchText}
         onChange={handleChangeCityText}
-        onBlur={handleShowSelect}
+        onBlur={closeSelectOnBlur}
         onFocus={handleShowSelect}
       />
 

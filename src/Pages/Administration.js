@@ -10,6 +10,8 @@ const productInitialForm = {
   categoria: null,
   direccion: "",
   ciudad: null,
+  titulo:"",
+  precioPorNoche: "",
   atributos: [],
   politicas: [],
   imagenes: [],

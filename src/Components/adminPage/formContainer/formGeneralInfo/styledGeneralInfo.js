@@ -69,6 +69,7 @@ export const InputContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 5px;
+  position: relative;
 
   label {
     font-weight: 500;
@@ -91,7 +92,7 @@ export const InputContainer = styled.div`
     }
   }
 
-  > p {
+  > p:last-child {
     color: #ff0000;
     font-weight: 500;
     font-size: 12px;
@@ -101,3 +102,17 @@ export const InputContainer = styled.div`
     align-self: flex-end;
   }
 `;
+
+export const InputContainerPrice = styled(InputContainer)`
+  position: relative;
+
+  input {
+    padding-left: 23px;
+  }
+
+  p:nth-of-type(1) {
+    position: absolute;
+    top: 33px;
+    left: 10px;
+  }
+`
