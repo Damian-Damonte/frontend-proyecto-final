@@ -6,7 +6,7 @@ export const FormContainerStyled = styled.div`
   background-color: #fff;
   border: 1px solid #dfe4ea;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 25px;
+  padding: 0 0 400px; //para agergarle margen abajo
 
   h3 {
     font-weight: 700;

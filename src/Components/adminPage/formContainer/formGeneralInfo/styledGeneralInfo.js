@@ -5,7 +5,11 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const GeneralInfoStyled = styled.div`
-  /* padding: 25px; */
+  padding: 15px 15px 0;
+
+  @media (min-width: 768px) {
+    padding: 25px 25px 0;
+  }
 `;
 
 export const GeneralInfoContainer = styled.div`

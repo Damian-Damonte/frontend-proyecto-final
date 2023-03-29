@@ -13,7 +13,7 @@ export const AdminMainContainerStyled = styled.div`
 
   @media (min-width: 768px) {
     padding: 0 20px;
-    h3 {
+    > h3 {
       margin: 20px 0 15px 0px;
     }
   }

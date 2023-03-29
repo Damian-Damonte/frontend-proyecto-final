@@ -6,12 +6,17 @@ const PURPLE3 = "#545776";
 
 export const CoordinatesStyled = styled.div`
   margin-top: 20px;
+  padding: 0 15px;
 
-`
+  @media (min-width: 768px) {
+    padding: 0 25px;
+  }
+`;
 
 export const CoordinatesContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  margin-top: 15px;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;

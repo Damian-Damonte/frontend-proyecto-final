@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AdminHeader from "../Components/adminPage/adminHeader/AdminHeader";
+import CaracteristicsContainer from "../Components/adminPage/formContainer/caracteristics/CaracteristicsContainer";
 import Coordinates from "../Components/adminPage/formContainer/coordinates/Coordinates";
 import FormContainer from "../Components/adminPage/formContainer/FormContainer";
 import GeneralInfo from "../Components/adminPage/formContainer/formGeneralInfo/GeneralInfo";
@@ -49,6 +50,7 @@ export default function Administration() {
             setProductForm={setProductForm}
             errors={errors}
           />
+          <CaracteristicsContainer />
         </FormContainer>
       </AdminMainContainer>
       <button onClick={handleSubmit}>submit</button>
