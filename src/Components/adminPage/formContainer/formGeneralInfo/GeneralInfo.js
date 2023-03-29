@@ -25,6 +25,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             name="nombre"
             onChange={handleChange}
             value={productForm.nombre}
+            placeholder="Nombre"
           />
           <p>{errors.nombre}</p>
         </InputContainer>
@@ -46,6 +47,8 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             name="direccion"
             onChange={handleChange}
             value={productForm.direccion}
+            placeholder="Dirección"
+
           />
           <p>{errors.direccion}</p>
         </InputContainer>
@@ -67,6 +70,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             name="titulo"
             onChange={handleChange}
             value={productForm.titulo}
+            placeholder="Título"
           />
           <p>{errors.titulo}</p>
         </InputContainer>
@@ -79,6 +83,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             name="precioPorNoche"
             onChange={handleChange}
             value={productForm.precioPorNoche}
+            placeholder="Precio por noche"
           />
           <p>$</p>
           <p>{errors.precioPorNoche}</p>
@@ -92,6 +97,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           name="descripcion"
           onChange={handleChange}
           value={productForm.descripcion}
+          placeholder="Descripción del producto"
         />
         <p>{errors.descripcion}</p>
       </DescriptionContainer>

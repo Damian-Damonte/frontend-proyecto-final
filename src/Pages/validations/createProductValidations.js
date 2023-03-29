@@ -1,6 +1,10 @@
 export const createProductValidations = (data) => {
   let errors = [];
-  const isNegativeNumber = Number(data.precioPorNoche) < 0;
+  const isPriveNegative = Number(data.precioPorNoche) < 0;
+  const isLatitudeValid =
+    Number(data.latitud) < -90 || Number(data.latitud) > 90;
+  const isLongitudeValid =
+    Number(data.longitud) < -180 || Number(data.latitud) > 180;
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
   else if (data.nombre.length < 6)
@@ -24,8 +28,16 @@ export const createProductValidations = (data) => {
 
   if (!data.precioPorNoche)
     errors.precioPorNoche = "Debe colocar un precio por noche";
-  else if (isNegativeNumber)
+  else if (isPriveNegative)
     errors.precioPorNoche = "El precio por noche debe ser un número positivo";
+
+  if (!data.latitud) errors.latitud = "Debe colocar la latitud";
+  else if (isLatitudeValid)
+    errors.latitud = "La latitud no debe ser menor a -90 ni mayor a 90";
+
+  if (!data.longitud) errors.longitud = "Debe colocar la longitud";
+  else if (isLongitudeValid)
+    errors.longitud = "La longitud no debe ser menor a -180 ni mayor a 180";
 
   return errors;
 };

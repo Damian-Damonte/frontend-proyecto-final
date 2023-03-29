@@ -3,7 +3,7 @@ import styled from "styled-components";
 const PURPLE2 = "#383B58";
 
 export const AdminMainContainerStyled = styled.div`
-  h3 {
+  > h3 {
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;

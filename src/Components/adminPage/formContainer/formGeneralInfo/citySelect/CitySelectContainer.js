@@ -63,6 +63,7 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
         onChange={handleChangeCityText}
         onBlur={closeSelectOnBlur}
         onFocus={handleShowSelect}
+        placeholder="Ciudad"
       />
 
       <CityOptionContainer

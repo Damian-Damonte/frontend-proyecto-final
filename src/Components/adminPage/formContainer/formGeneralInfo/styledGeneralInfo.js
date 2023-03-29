@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const GeneralInfoStyled = styled.div`
-  padding: 25px;
+  /* padding: 25px; */
 `;
 
 export const GeneralInfoContainer = styled.div`
@@ -85,7 +85,7 @@ export const InputContainer = styled.div`
     border: none;
     padding-left: 10px;
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
 
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};
