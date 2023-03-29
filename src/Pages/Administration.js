@@ -10,7 +10,7 @@ const productInitialForm = {
   categoria: null,
   direccion: "",
   ciudad: null,
-  titulo:"",
+  titulo: "",
   precioPorNoche: "",
   atributos: [],
   politicas: [],
@@ -28,7 +28,6 @@ export default function Administration() {
     } else {
       setErrors(errors);
     }
-    console.log(errors);
   };
 
   return (

@@ -68,7 +68,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             onChange={handleChange}
             value={productForm.titulo}
           />
-          <p>{errors.direccion}</p>
+          <p>{errors.titulo}</p>
         </InputContainer>
 
         <InputContainerPrice>
@@ -81,7 +81,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             value={productForm.precioPorNoche}
           />
           <p>$</p>
-          <p>{errors.direccion}</p>
+          <p>{errors.precioPorNoche}</p>
         </InputContainerPrice>
       </GeneralInfoContainer>
 
