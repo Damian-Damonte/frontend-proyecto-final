@@ -10,13 +10,12 @@ import {
   IconContainerChild,
   InputsContainer,
 } from "./styledCaracteristics";
-import useFetch from "../../../../hooks/useFetch";
 import { ReactComponent as InputArrow } from "../../../../img/icon-bottom-arrow.svg";
 import { ReactComponent as AddCaract } from "../../../../img/icon-add-caracteristic.svg";
+import { caracteristicIconMapper } from "../../../../utils/catacteristicsIconMapper";
 
-export default function Caracteristic() {
+export default function Caracteristic({ allCaracteristics, loading, error }) {
   const [showSelect, setshowSelect] = useState(false);
-  const { data: caracteristics, loading, error } = useFetch("/caracteristicas");
   const [caracteristicSelected, setCaracteristicSelected] = useState(null);
 
   const handleShowSelect = () => {
@@ -33,18 +32,31 @@ export default function Caracteristic() {
         <CaracteristicSelectContainer>
           <p>Nombre</p>
           <CaracteristicSelect onClick={handleShowSelect}>
-            {/* caracteristica seleccionada */}
             <p>{caracteristicSelected?.nombre || "Seleccione un atributo"}</p>
             <CaracteristicOptionContainer
               $show={showSelect}
-              $coutCaracteristics={caracteristics?.length || 1}
+              $coutCaracteristics={allCaracteristics?.length || 1}
             >
-              {caracteristics &&
-                caracteristics.map((caract) => (
-                  <CaracteristicOption key={caract.id} onClick={() => selectCaracteristics(caract)}>
+              {loading && (
+                <CaracteristicOption>
+                  <p>Cargando características...</p>
+                </CaracteristicOption>
+              )}
+              {allCaracteristics &&
+                allCaracteristics.map((caract) => (
+                  <CaracteristicOption
+                    key={caract.id}
+                    onClick={() => selectCaracteristics(caract)}
+                  >
                     <p>{caract.nombre}</p>
                   </CaracteristicOption>
                 ))}
+
+              {error && (
+                <CaracteristicOption>
+                  <p>Ha ocurrido un error al cargar las características</p>
+                </CaracteristicOption>
+              )}
             </CaracteristicOptionContainer>
             <InputArrow />
           </CaracteristicSelect>
@@ -52,7 +64,10 @@ export default function Caracteristic() {
 
         <IconContainer>
           <p>Ícono</p>
-          <IconContainerChild />
+          <IconContainerChild>
+            {caracteristicSelected &&
+              caracteristicIconMapper(caracteristicSelected.nombre)}
+          </IconContainerChild>
         </IconContainer>
       </InputsContainer>
 

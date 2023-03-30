@@ -16,8 +16,8 @@ const productInitialForm = {
   precioPorNoche: "",
   descripcion: "",
   latitud: "",
-  longitud:"",
-  atributos: [],
+  longitud: "",
+  caracteristicas: [],
   politicas: [],
   imagenes: [],
 };
@@ -50,7 +50,10 @@ export default function Administration() {
             setProductForm={setProductForm}
             errors={errors}
           />
-          <CaracteristicsContainer />
+          <CaracteristicsContainer
+            productForm={productForm}
+            setProductForm={setProductForm}
+          />
         </FormContainer>
       </AdminMainContainer>
       <button onClick={handleSubmit}>submit</button>

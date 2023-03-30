@@ -27,6 +27,6 @@ const iconDictionary = {
   "Vistas a la ciudad": <VistaCiudad />
 };
 
-export const caracteristicIconMapper = caracteristic => {
+export const caracteristicIconMapper = (caracteristic) => {
   return iconDictionary[caracteristic] && iconDictionary[caracteristic];
 };

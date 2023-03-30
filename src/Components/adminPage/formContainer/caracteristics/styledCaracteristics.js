@@ -7,6 +7,9 @@ const PURPLE3 = "#545776";
 export const CaracteristicsContainerStyled = styled.div`
   margin-top: 20px;
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   @media (min-width: 768px) {
     padding: 0 25px;
@@ -14,13 +17,24 @@ export const CaracteristicsContainerStyled = styled.div`
 `;
 
 export const CaracteristicStyledContainer = styled.div`
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  /* overflow: hidden; */
+  transition: all 0.4s ease;
+  height: ${({ $countCaract }) =>
+    $countCaract * 188 + ($countCaract && $countCaract - 1) * 25 + "px"};
+
+  @media (min-width: 768px) {
+    gap: 15px;
+    height: ${({ $countCaract }) =>
+      $countCaract * 109 + ($countCaract && $countCaract - 1) * 15 + "px"};
+  }
 
   @media (min-width: 1024px) {
     gap: 15px;
+    height: ${({ $countCaract }) =>
+      $countCaract * 119 + ($countCaract && $countCaract - 1) * 15 + "px"};
   }
 `;
 
@@ -32,13 +46,16 @@ export const CaracteristicStyled = styled.div`
   background-color: #f9f9f9;
   padding: 10px 20px 20px;
   border-radius: 5px;
+  margin-top: ${({ $marginTop }) => ($marginTop ? "15px" : "0px")};
 
   @media (min-width: 768px) {
     padding: 20px;
+    margin-top: ${({ $marginTop }) => ($marginTop ? "5px" : "0px")};
   }
 
   @media (min-width: 1024px) {
     padding: 25px 30px;
+    margin-top: ${({ $marginTop }) => ($marginTop ? "5px" : "0px")};
   }
 `;
 
@@ -49,7 +66,7 @@ export const InputsContainer = styled.div`
   row-gap: 20px;
 
   @media (min-width: 768px) {
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 1fr 80px;
     row-gap: 5px;
     column-gap: 20px;
   }
@@ -85,6 +102,10 @@ export const CaracteristicSelect = styled.div`
     position: absolute;
     right: 10px;
     top: 18px;
+  }
+
+  @media (max-width: 310px) {
+    font-size: 13px;
   }
 `;
 
@@ -152,6 +173,14 @@ export const IconContainerChild = styled.div`
   padding: 10px;
   height: 40px;
   background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: ${PRIMARY_COLOR};
+    font-size: 30px;
+  }
 `;
 
 export const AddCaracteristic = styled.div`
