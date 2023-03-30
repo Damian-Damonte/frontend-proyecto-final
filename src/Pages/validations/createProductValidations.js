@@ -39,5 +39,12 @@ export const createProductValidations = (data) => {
   else if (isLongitudeValid)
     errors.longitud = "La longitud no debe ser menor a -180 ni mayor a 180";
 
+  if (!data.politicas.normasDeLaCasa)
+    errors.normasDeLaCasa = "Debe agregar normas de la casa";
+  if (!data.politicas.saludYSeguridad)
+    errors.saludYSeguridad = "Debe agregar polícas de salud y seguridad";
+  if (!data.politicas.politicaDeCancelacion)
+    errors.politicaDeCancelacion = "Debe agregar políticas de cancelación";
+
   return errors;
 };

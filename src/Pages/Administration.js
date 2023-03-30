@@ -8,8 +8,8 @@ import AdminMainContainer from "../Components/adminPage/mainContainer/AdminMainC
 import { createProductValidations } from "./validations/createProductValidations";
 import { postProduct } from "../service/productos";
 import UserContext from "../context/user.context";
-import { routes } from "../Routes";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
+import Policies from "../Components/adminPage/formContainer/policies/Policies";
 
 const productInitialForm = {
   nombre: "",
@@ -22,7 +22,11 @@ const productInitialForm = {
   latitud: "",
   longitud: "",
   caracteristicas: [],
-  politicas: [],
+  politicas: {
+    normasDeLaCasa: "",
+    saludYSeguridad: "",
+    politicaDeCancelacion: "",
+  },
   imagenes: [],
 };
 
@@ -62,6 +66,7 @@ export default function Administration() {
 
   const getPayload = () => {
     let caracteristicas = [];
+    let politicas = [];
 
     if (productForm.caracteristicas.length) {
       caracteristicas = productForm.caracteristicas
@@ -70,6 +75,19 @@ export default function Administration() {
           return { id: caract.caracteristicSelected.id };
         });
     }
+
+    politicas.push({
+      descripcion: productForm.politicas.normasDeLaCasa,
+      tipoPolitica: { id: 1 },
+    });
+    politicas.push({
+      descripcion: productForm.politicas.politicaDeCancelacion,
+      tipoPolitica: { id: 2 },
+    });
+    politicas.push({
+      descripcion: productForm.politicas.saludYSeguridad,
+      tipoPolitica: { id: 3 },
+    });
 
     const payload = {
       titulo: productForm.nombre,
@@ -81,7 +99,7 @@ export default function Administration() {
       ciudad: productForm.ciudad,
       caracteristicas,
       imagenes: imgHardcoded,
-      politicas: politicasHardcoded,
+      politicas,
       coordenadas: {
         latitud: productForm.latitud,
         longitud: productForm.longitud,
@@ -100,6 +118,7 @@ export default function Administration() {
         console.log(getPayload());
       } else {
         setErrors(errors);
+        console.log(Object.values(productForm.politicas));
       }
     }
   };
@@ -122,6 +141,12 @@ export default function Administration() {
           <CaracteristicsContainer
             productForm={productForm}
             setProductForm={setProductForm}
+            errors={errors}
+          />
+          <Policies
+            productForm={productForm}
+            setProductForm={setProductForm}
+            errors={errors}
           />
         </FormContainer>
       </AdminMainContainer>
@@ -135,7 +160,6 @@ export default function Administration() {
           $borderWidth="3px"
         />
       )}
-
     </div>
   );
 }
