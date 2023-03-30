@@ -62,4 +62,14 @@ const productFav = async (payload, token) => {
   return post("/usuarios/favoritos", payload, token);
 };
 
-export { getFilteredProducts, getRandomProducts, productFav };
+const postProduct = async (payload, token, setProductState) => {
+  setProductState({ product: null, loading: true, error: null });
+
+  const response = await post("/productos", payload, token);
+
+  response.error
+    ? setProductState({ product: null, loading: false, error: response.error })
+    : setProductState({ product: response.data, loading: false, error: null });
+};
+
+export { getFilteredProducts, getRandomProducts, productFav, postProduct };
