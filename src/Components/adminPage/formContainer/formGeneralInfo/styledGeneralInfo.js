@@ -63,6 +63,7 @@ export const DescriptionContainer = styled.div`
 
     textarea {
       height: 150px !important;
+      font-size: 14px;
     }
   }
 `;

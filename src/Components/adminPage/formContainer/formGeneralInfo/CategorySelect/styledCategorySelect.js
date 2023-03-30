@@ -12,7 +12,7 @@ export const CategorySelectStyled = styled.div`
   padding: 10px;
   height: 40px;
   line-height: 18px;
-  font-size: 16px;
+  font-size: 14px;
   position: relative;
   cursor: pointer;
 

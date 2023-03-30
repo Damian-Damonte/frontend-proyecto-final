@@ -11,30 +11,29 @@ import {
   InputsContainer,
 } from "./styledCaracteristics";
 import { ReactComponent as InputArrow } from "../../../../img/icon-bottom-arrow.svg";
-import { ReactComponent as AddCaract } from "../../../../img/icon-add-caracteristic.svg";
+import { ReactComponent as RemoveCaract } from "../../../../img/icon-cross-caracteristic.svg";
 import { caracteristicIconMapper } from "../../../../utils/catacteristicsIconMapper";
 
-export default function Caracteristic({ allCaracteristics, loading, error }) {
-  const [showSelect, setshowSelect] = useState(false);
-  const [caracteristicSelected, setCaracteristicSelected] = useState(null);
-
-  const handleShowSelect = () => {
-    setshowSelect(!showSelect);
-  };
-
-  const selectCaracteristics = (caracteristic) => {
-    setCaracteristicSelected(caracteristic);
-  };
+export default function Caracteristic({
+  caracteristic,
+  allCaracteristics,
+  loading,
+  error,
+  changeCaracteristic,
+  removeCaracteristic,
+  handleOpenSelect,
+  selectOpen
+}) {
 
   return (
     <CaracteristicStyled>
       <InputsContainer>
         <CaracteristicSelectContainer>
           <p>Nombre</p>
-          <CaracteristicSelect onClick={handleShowSelect}>
-            <p>{caracteristicSelected?.nombre || "Seleccione un atributo"}</p>
+          <CaracteristicSelect onClick={() => handleOpenSelect(caracteristic.id)}>
+            <p>{caracteristic.caracteristicSelected?.nombre || "Seleccione un atributo"}</p>
             <CaracteristicOptionContainer
-              $show={showSelect}
+              $show={selectOpen === caracteristic.id}
               $coutCaracteristics={allCaracteristics?.length || 1}
             >
               {loading && (
@@ -42,11 +41,12 @@ export default function Caracteristic({ allCaracteristics, loading, error }) {
                   <p>Cargando características...</p>
                 </CaracteristicOption>
               )}
+
               {allCaracteristics &&
                 allCaracteristics.map((caract) => (
                   <CaracteristicOption
                     key={caract.id}
-                    onClick={() => selectCaracteristics(caract)}
+                    onClick={() => changeCaracteristic(caracteristic.id, caract)}
                   >
                     <p>{caract.nombre}</p>
                   </CaracteristicOption>
@@ -65,14 +65,14 @@ export default function Caracteristic({ allCaracteristics, loading, error }) {
         <IconContainer>
           <p>Ícono</p>
           <IconContainerChild>
-            {caracteristicSelected &&
-              caracteristicIconMapper(caracteristicSelected.nombre)}
+            {caracteristic.caracteristicSelected &&
+              caracteristicIconMapper(caracteristic.caracteristicSelected.nombre)}
           </IconContainerChild>
         </IconContainer>
       </InputsContainer>
 
-      <AddCaracteristic>
-        <AddCaract />
+      <AddCaracteristic onClick={() => removeCaracteristic(caracteristic.id)}>
+        <RemoveCaract />
       </AddCaracteristic>
     </CaracteristicStyled>
   );

@@ -20,7 +20,6 @@ export const CaracteristicStyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
-  /* overflow: hidden; */
   transition: all 0.4s ease;
   height: ${({ $countCaract }) =>
     $countCaract * 188 + ($countCaract && $countCaract - 1) * 25 + "px"};
@@ -29,12 +28,6 @@ export const CaracteristicStyledContainer = styled.div`
     gap: 15px;
     height: ${({ $countCaract }) =>
       $countCaract * 109 + ($countCaract && $countCaract - 1) * 15 + "px"};
-  }
-
-  @media (min-width: 1024px) {
-    gap: 15px;
-    height: ${({ $countCaract }) =>
-      $countCaract * 119 + ($countCaract && $countCaract - 1) * 15 + "px"};
   }
 `;
 
@@ -47,6 +40,7 @@ export const CaracteristicStyled = styled.div`
   padding: 10px 20px 20px;
   border-radius: 5px;
   margin-top: ${({ $marginTop }) => ($marginTop ? "15px" : "0px")};
+  transition: all 0.4s ease;
 
   @media (min-width: 768px) {
     padding: 20px;
@@ -54,8 +48,7 @@ export const CaracteristicStyled = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 25px 30px;
-    margin-top: ${({ $marginTop }) => ($marginTop ? "5px" : "0px")};
+    padding: 20px 30px;
   }
 `;
 
@@ -93,9 +86,11 @@ export const CaracteristicSelect = styled.div`
   padding: 10px;
   height: 40px;
   line-height: 18px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
   position: relative;
-  cursor: pointer;
+  color: ${({$static}) => $static ? "#BEBEBE" : PURPLE3};
+  cursor: ${({$static}) => $static ? "default" : "pointer"};
 
   svg {
     fill: ${PRIMARY_COLOR};
@@ -178,7 +173,7 @@ export const IconContainerChild = styled.div`
   justify-content: center;
 
   svg {
-    fill: ${PRIMARY_COLOR};
+    fill: ${({$static}) => $static ? "#BEBEBE" : PRIMARY_COLOR};
     font-size: 30px;
   }
 `;
@@ -198,11 +193,11 @@ export const AddCaracteristic = styled.div`
 
   svg {
     font-size: 20px;
-    fill: ${PRIMARY_COLOR};
+    fill: ${({$static}) => $static ? PRIMARY_COLOR : PURPLE3};
     transition: all 0.3s ease;
 
     &:hover {
-      fill: #15a39a;
+      fill: ${({$static}) => $static ? "#15a39a" : "#41435c"};
     }
   }
 
