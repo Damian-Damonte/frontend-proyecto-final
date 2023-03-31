@@ -91,8 +91,9 @@ export const CaracteristicSelect = styled.div`
   font-size: 14px;
   font-weight: 500;
   position: relative;
-  color: ${({$static}) => $static ? "#BEBEBE" : PURPLE3};
-  cursor: ${({$static}) => $static ? "default" : "pointer"};
+  color: ${({ $static, $noSelected }) =>
+    $static ? "#BEBEBE" : $noSelected ? PURPLE3 : "#BEBEBE"};
+  cursor: ${({ $static }) => ($static ? "default" : "pointer")};
 
   svg {
     fill: ${PRIMARY_COLOR};
@@ -138,15 +139,17 @@ export const CaracteristicOptionContainer = styled.div`
 export const CaracteristicOption = styled.div`
   font-weight: 500;
   font-size: 14px;
-  color: ${PURPLE2};
   height: 30px;
   display: flex;
   align-items: center;
   border-bottom: solid 1px ${PRIMARY_COLOR};
   padding: 5px;
+  color: ${({ $alredySelected }) => ($alredySelected ? "#aaa" : PURPLE2)};
+  cursor: ${({ $alredySelected }) => ($alredySelected ? "default" : "pointer")};
 
   &:hover {
-    background-color: #eee;
+    background-color: ${({ $alredySelected }) =>
+      $alredySelected ? "#fff" : "#eee"};
   }
 `;
 
@@ -175,7 +178,7 @@ export const IconContainerChild = styled.div`
   justify-content: center;
 
   svg {
-    fill: ${({$static}) => $static ? "#BEBEBE" : PRIMARY_COLOR};
+    fill: ${({ $static }) => ($static ? "#BEBEBE" : PRIMARY_COLOR)};
     font-size: 30px;
   }
 `;
@@ -195,11 +198,11 @@ export const AddCaracteristic = styled.div`
 
   svg {
     font-size: 20px;
-    fill: ${({$static}) => $static ? PRIMARY_COLOR : PURPLE3};
+    fill: ${({ $static }) => ($static ? PRIMARY_COLOR : PURPLE3)};
     transition: all 0.3s ease;
 
     &:hover {
-      fill: ${({$static}) => $static ? "#15a39a" : "#41435c"};
+      fill: ${({ $static }) => ($static ? "#15a39a" : "#41435c")};
     }
   }
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   AddCaracteristic,
   CaracteristicOption,
@@ -22,16 +21,22 @@ export default function Caracteristic({
   changeCaracteristic,
   removeCaracteristic,
   handleOpenSelect,
-  selectOpen
+  selectOpen,
+  caractAlredySelected,
 }) {
-
   return (
     <CaracteristicStyled>
       <InputsContainer>
         <CaracteristicSelectContainer>
           <p>Nombre</p>
-          <CaracteristicSelect onClick={() => handleOpenSelect(caracteristic.id)}>
-            <p>{caracteristic.caracteristicSelected?.nombre || "Seleccione un atributo"}</p>
+          <CaracteristicSelect
+            onClick={() => handleOpenSelect(caracteristic.id)}
+            $noSelected={caracteristic.caracteristicSelected}
+          >
+            <p>
+              {caracteristic.caracteristicSelected?.nombre ||
+                "Seleccione un atributo"}
+            </p>
             <CaracteristicOptionContainer
               $show={selectOpen === caracteristic.id}
               $coutCaracteristics={allCaracteristics?.length || 1}
@@ -46,7 +51,10 @@ export default function Caracteristic({
                 allCaracteristics.map((caract) => (
                   <CaracteristicOption
                     key={caract.id}
-                    onClick={() => changeCaracteristic(caracteristic.id, caract)}
+                    onClick={(e) =>
+                      changeCaracteristic(e, caracteristic.id, caract)
+                    }
+                    $alredySelected={caractAlredySelected.includes(caract.id)}
                   >
                     <p>{caract.nombre}</p>
                   </CaracteristicOption>
@@ -66,7 +74,9 @@ export default function Caracteristic({
           <p>Ícono</p>
           <IconContainerChild>
             {caracteristic.caracteristicSelected &&
-              caracteristicIconMapper(caracteristic.caracteristicSelected.nombre)}
+              caracteristicIconMapper(
+                caracteristic.caracteristicSelected.nombre
+              )}
           </IconContainerChild>
         </IconContainer>
       </InputsContainer>

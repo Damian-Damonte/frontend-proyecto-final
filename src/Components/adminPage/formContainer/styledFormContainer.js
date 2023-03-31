@@ -28,7 +28,7 @@ export const SubmitContainer = styled.div`
   justify-content:center;
   align-items: center;
   gap: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
 
   > p {
     color: ${({ $error }) => $error ? "#ff0000" : "transparent"};

@@ -20,15 +20,23 @@ export default function CaracteristicsContainer({
   const { caracteristicas: currentCaracteristics } = productForm;
   const [selectOpen, setSelectOpen] = useState(null);
 
-  const changeCaracteristic = (id, caracteristic) => {
-    const objIndex = currentCaracteristics.findIndex((obj) => obj.id === id);
-    if (objIndex !== -1) {
-      const newCurrentCaracteristcs = currentCaracteristics;
-      newCurrentCaracteristcs[objIndex].caracteristicSelected = caracteristic;
-      setProductForm({
-        ...productForm,
-        caracteristicas: newCurrentCaracteristcs,
-      });
+  const caractAlredySelected = currentCaracteristics.map((caract) =>
+    !caract.caracteristicSelected ? null : caract.caracteristicSelected.id
+  );
+
+  const changeCaracteristic = (e, id, caracteristic) => {
+    if(caractAlredySelected.includes(caracteristic.id)) {
+      e.stopPropagation();
+    } else {
+      const objIndex = currentCaracteristics.findIndex((obj) => obj.id === id);
+      if (objIndex !== -1) {
+        const newCurrentCaracteristcs = currentCaracteristics;
+        newCurrentCaracteristcs[objIndex].caracteristicSelected = caracteristic;
+        setProductForm({
+          ...productForm,
+          caracteristicas: newCurrentCaracteristcs,
+        });
+      }
     }
   };
 
@@ -69,6 +77,7 @@ export default function CaracteristicsContainer({
             removeCaracteristic={removeCaracteristic}
             handleOpenSelect={handleOpenSelect}
             selectOpen={selectOpen}
+            caractAlredySelected={caractAlredySelected}
           />
         ))}
       </CaracteristicStyledContainer>

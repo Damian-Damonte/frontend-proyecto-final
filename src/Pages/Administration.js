@@ -103,10 +103,8 @@ export default function Administration() {
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);
-        console.log(getPayload());
       } else {
         setErrors(errors);
-        console.log(errors);
       }
     }
   };
