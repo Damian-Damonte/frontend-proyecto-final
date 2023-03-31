@@ -48,8 +48,6 @@ export const CoordinatesInputContainer = styled.div`
     padding-left: 10px;
     height: 40px;
     font-size: 14px;
-    font-weight: 500;
-    color: ${PURPLE3};
 
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};

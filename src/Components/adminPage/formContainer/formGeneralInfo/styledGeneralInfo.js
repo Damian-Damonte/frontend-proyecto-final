@@ -21,6 +21,10 @@ export const GeneralInfoContainer = styled.div`
     row-gap: 5px;
     column-gap: 20px;
   }
+
+  @media (min-width: 1024px) {
+    column-gap:40px
+  }
 `;
 
 export const DescriptionContainer = styled.div`

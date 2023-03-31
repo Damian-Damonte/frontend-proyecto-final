@@ -54,7 +54,7 @@ export default function ImagesContainer({
         $marginTop={Object.values(currentImages).length}
         $static={true}
       >
-        <input placeholder="Agrega imágenes" disabled />
+        <input placeholder="Agregue imágenes" disabled />
         <AddImage onClick={addImg} $static={true}>
           <AddImageIcon />
         </AddImage>

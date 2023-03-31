@@ -65,6 +65,10 @@ export const ImageCardStyled = styled.div`
     width: calc(100% - 40px);
     cursor: ${({ $static }) => ($static ? "default" : "pointer")};
 
+    &::placeholder {
+      color: ${({ $static }) => ($static ? "#bebebe" : PURPLE3)};
+    }
+
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};
     }

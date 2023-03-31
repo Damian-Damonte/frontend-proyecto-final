@@ -3,6 +3,7 @@ import styled from "styled-components";
 const PURPLE2 = "#383B58";
 
 export const AdminMainContainerStyled = styled.div`
+  padding: 0 0 50px;
   > h3 {
     font-weight: 700;
     font-size: 24px;
@@ -12,13 +13,13 @@ export const AdminMainContainerStyled = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 0 20px;
+    padding: 0 20px 40px;
     > h3 {
-      margin: 20px 0 15px 0px;
+      margin: 30px 0 15px 0px;
     }
   }
 
   @media (min-width: 1024px) {
-    padding: 0 30px;
+    padding: 0 40px 60px;
   }
 `;

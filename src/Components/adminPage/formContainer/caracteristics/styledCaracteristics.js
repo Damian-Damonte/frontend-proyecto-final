@@ -9,7 +9,7 @@ export const CaracteristicsContainerStyled = styled.div`
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* gap: 10px; */
 
   @media (min-width: 768px) {
     padding: 0 25px;
@@ -23,6 +23,8 @@ export const CaracteristicStyledContainer = styled.div`
   transition: all 0.4s ease;
   height: ${({ $countCaract }) =>
     $countCaract * 188 + ($countCaract && $countCaract - 1) * 25 + "px"};
+
+  margin-top: 15px;
 
   @media (min-width: 768px) {
     gap: 15px;
@@ -39,12 +41,12 @@ export const CaracteristicStyled = styled.div`
   background-color: #f9f9f9;
   padding: 10px 20px 20px;
   border-radius: 5px;
-  margin-top: ${({ $marginTop }) => ($marginTop ? "15px" : "0px")};
+  margin-top: ${({ $marginTop }) => ($marginTop ? "25px" : "0px")};
   transition: all 0.4s ease;
 
   @media (min-width: 768px) {
     padding: 20px;
-    margin-top: ${({ $marginTop }) => ($marginTop ? "5px" : "0px")};
+    margin-top: ${({ $marginTop }) => ($marginTop ? "15px" : "0px")};
   }
 
   @media (min-width: 1024px) {

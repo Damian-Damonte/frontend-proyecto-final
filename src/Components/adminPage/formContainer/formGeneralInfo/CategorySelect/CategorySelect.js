@@ -20,8 +20,8 @@ export default function CategorySelect({ productForm, setProductForm }) {
   };
 
   return (
-    <CategorySelectStyled onClick={handleShowSelect}>
-      <p>{productForm.categoria?.titulo}</p>
+    <CategorySelectStyled onClick={handleShowSelect} $empty={productForm.categoria?.titulo}>
+      <p>{productForm.categoria?.titulo || "Seleccione una categoría"}</p>
 
       <CategoryOptionContainer
         $show={showSelect}
@@ -45,7 +45,7 @@ export default function CategorySelect({ productForm, setProductForm }) {
 
         {error && (
           <CategoryOption>
-            <p>Error al cargar la categorías</p>
+            <p>Ha ocurrido un error al cargar las categorías</p>
           </CategoryOption>
         )}
       </CategoryOptionContainer>

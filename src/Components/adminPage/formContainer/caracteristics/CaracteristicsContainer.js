@@ -72,7 +72,10 @@ export default function CaracteristicsContainer({
           />
         ))}
       </CaracteristicStyledContainer>
-      <StaticCaracteristic addCaracteristic={addCaracteristic} />
+      <StaticCaracteristic
+        addCaracteristic={addCaracteristic}
+        currentCaracteristics={currentCaracteristics}
+      />
     </CaracteristicsContainerStyled>
   );
 }

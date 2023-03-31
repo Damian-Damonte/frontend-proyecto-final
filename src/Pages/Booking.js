@@ -65,7 +65,6 @@ export default function Booking() {
       const errors = bookingValidations(formData);
       if (Object.keys(errors).length === 0) {
         setFormErrors({});
-
         postReserva(getRequestPayload(), user.token, setBookingState);
       } else {
         setFormErrors(errors);

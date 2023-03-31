@@ -11,6 +11,11 @@ import UserContext from "../context/user.context";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
 import Policies from "../Components/adminPage/formContainer/policies/Policies";
 import ImagesContainer from "../Components/adminPage/formContainer/productImages/ImagesContainer";
+import {
+  BtnSubmit,
+  SubmitContainer,
+} from "../Components/adminPage/formContainer/styledFormContainer";
+import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
 
 const productInitialForm = {
   nombre: "",
@@ -30,17 +35,6 @@ const productInitialForm = {
   },
   imagenes: {},
 };
-
-const imgHardcoded = [
-  {
-    titulo: "imagen 1",
-    url: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80%27 ",
-  },
-  {
-    titulo: "imagen 2",
-    url: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80%27",
-  },
-];
 
 export default function Administration() {
   const [productState, setProductState] = useState({});
@@ -109,7 +103,6 @@ export default function Administration() {
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);
-        console.log(getPayload());
       } else {
         setErrors(errors);
       }
@@ -117,47 +110,66 @@ export default function Administration() {
   };
 
   return (
-    <div>
-      <AdminHeader />
-      <AdminMainContainer>
-        <FormContainer>
-          <GeneralInfo
-            productForm={productForm}
-            setProductForm={setProductForm}
-            errors={errors}
-          />
-          <Coordinates
-            productForm={productForm}
-            setProductForm={setProductForm}
-            errors={errors}
-          />
-          <CaracteristicsContainer
-            productForm={productForm}
-            setProductForm={setProductForm}
-            errors={errors}
-          />
-          <Policies
-            productForm={productForm}
-            setProductForm={setProductForm}
-            errors={errors}
-          />
-          <ImagesContainer
-            errors={errors}
-            images={images}
-            setImages={setImages}
-          />
-        </FormContainer>
-      </AdminMainContainer>
-      <button onClick={handleSubmit}>submit</button>
+    <>
+      {productState.product &&
+        <CreatedSuccessfully />
+      }
+      {!productState.product && (
+        <div>
+          <AdminHeader />
+          <AdminMainContainer>
+            <FormContainer>
+              <GeneralInfo
+                productForm={productForm}
+                setProductForm={setProductForm}
+                errors={errors}
+              />
+              <Coordinates
+                productForm={productForm}
+                setProductForm={setProductForm}
+                errors={errors}
+              />
+              <CaracteristicsContainer
+                productForm={productForm}
+                setProductForm={setProductForm}
+                errors={errors}
+              />
+              <Policies
+                productForm={productForm}
+                setProductForm={setProductForm}
+                errors={errors}
+              />
+              <ImagesContainer
+                errors={errors}
+                images={images}
+                setImages={setImages}
+              />
 
-      {productState.loading && (
-        <LoaderClassicStyled
-          $size="25px"
-          $loaderColor="#fff"
-          $bgcColor="#383B58"
-          $borderWidth="3px"
-        />
+              <SubmitContainer
+                $error={Object.keys(errors).length || productState.error}
+              >
+                <p>
+                  {Object.keys(errors).length
+                    ? "Complete los campos obligatorios"
+                    : "Lamentablemente, el producto no ha podido crearse. Por favor, intente más tarde"}
+                </p>
+                <BtnSubmit onClick={handleSubmit}>
+                  {productState.loading ? (
+                    <LoaderClassicStyled
+                      $size="25px"
+                      $loaderColor="#fff"
+                      $bgcColor="#383B58"
+                      $borderWidth="3px"
+                    />
+                  ) : (
+                    "Crear"
+                  )}
+                </BtnSubmit>
+              </SubmitContainer>
+            </FormContainer>
+          </AdminMainContainer>
+        </div>
       )}
-    </div>
+    </>
   );
 }

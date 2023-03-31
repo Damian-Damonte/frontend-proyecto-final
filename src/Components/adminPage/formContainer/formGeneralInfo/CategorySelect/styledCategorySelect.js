@@ -16,6 +16,10 @@ export const CategorySelectStyled = styled.div`
   position: relative;
   cursor: pointer;
 
+  > p {
+    color: ${({$empty}) => $empty ? "#000" : "rgb(118, 118, 118)"};
+  }
+
   svg {
     fill: ${PRIMARY_COLOR};
     position: absolute;

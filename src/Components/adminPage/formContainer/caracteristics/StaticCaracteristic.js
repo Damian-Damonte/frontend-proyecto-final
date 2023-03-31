@@ -12,14 +12,14 @@ import {
 import { ReactComponent as AddCaract } from "../../../../img/icon-add-caracteristic.svg";
 import { IoIosWifi as Wifi } from "react-icons/io";
 
-export default function StaticCaracteristic({ addCaracteristic }) {
+export default function StaticCaracteristic({ addCaracteristic, currentCaracteristics }) {
   return (
-    <CaracteristicStyled $marginTop={true}>
+    <CaracteristicStyled $marginTop={currentCaracteristics.length}>
       <InputsContainer>
         <CaracteristicSelectContainer>
           <p>Nombre</p>
           <CaracteristicSelect $static={true}>
-            <p>Agregue un atributo</p>
+            <p>Agregue atributos</p>
             <CaracteristicOptionContainer></CaracteristicOptionContainer>
           </CaracteristicSelect>
         </CaracteristicSelectContainer>
