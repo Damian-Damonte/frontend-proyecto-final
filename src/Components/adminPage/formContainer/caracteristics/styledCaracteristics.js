@@ -9,7 +9,14 @@ export const CaracteristicsContainerStyled = styled.div`
   padding: 0 10px;
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
+
+  > p {
+    font-weight: 500;
+    font-size: 12px;
+    min-width: 10px;
+    min-height: 17px;
+    color: #ff0000;
+  }
 
   @media (min-width: 768px) {
     padding: 0 25px;

@@ -5,6 +5,8 @@ export const createProductValidations = (data, images) => {
     Number(data.latitud) < -90 || Number(data.latitud) > 90;
   const isLongitudeValid =
     Number(data.longitud) < -180 || Number(data.latitud) > 180;
+  const caracteristics = data.caracteristicas;
+  console.log(data.caracteristicas);
   const currentImages = Object.values(images);
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
@@ -39,6 +41,17 @@ export const createProductValidations = (data, images) => {
   if (!data.longitud) errors.longitud = "Debe colocar la longitud";
   else if (isLongitudeValid)
     errors.longitud = "La longitud no debe ser menor a -180 ni mayor a 180";
+
+  if (!caracteristics.length)
+    errors.caracteristicas = "Debe agregar los atributos de la propiedad";
+  else {
+    const nullCaracteristic = caracteristics.some(
+      (caract) => caract.caracteristicSelected === null
+    );
+    if (nullCaracteristic)
+      errors.caracteristicas =
+        "Los atributos deben tener un tipo seleccionado";
+  }
 
   if (!data.politicas.normasDeLaCasa)
     errors.normasDeLaCasa = "Debe agregar normas de la casa";

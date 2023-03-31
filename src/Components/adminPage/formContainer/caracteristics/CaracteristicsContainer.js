@@ -11,6 +11,7 @@ import { v4 as uuid } from "uuid";
 export default function CaracteristicsContainer({
   productForm,
   setProductForm,
+  errors
 }) {
   const {
     data: allCaracteristics,
@@ -85,6 +86,7 @@ export default function CaracteristicsContainer({
         addCaracteristic={addCaracteristic}
         currentCaracteristics={currentCaracteristics}
       />
+      <p>{errors.caracteristicas}</p>
     </CaracteristicsContainerStyled>
   );
 }
