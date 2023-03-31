@@ -97,7 +97,7 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           name="descripcion"
           onChange={handleChange}
           value={productForm.descripcion}
-          placeholder="Descripción del producto"
+          placeholder="Escribir aquí"
         />
         <p>{errors.descripcion}</p>
       </DescriptionContainer>

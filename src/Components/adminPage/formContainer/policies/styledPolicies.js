@@ -80,6 +80,7 @@ export const PolicyContainer = styled.div`
     min-width: 10px;
     min-height: 16px;
     margin-top: 5px;
+    align-self: flex-end;
   }
 
   @media (min-width: 1024px) {

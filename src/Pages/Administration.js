@@ -10,6 +10,7 @@ import { postProduct } from "../service/productos";
 import UserContext from "../context/user.context";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
 import Policies from "../Components/adminPage/formContainer/policies/Policies";
+import ImagesContainer from "../Components/adminPage/formContainer/productImages/ImagesContainer";
 
 const productInitialForm = {
   nombre: "",
@@ -27,7 +28,7 @@ const productInitialForm = {
     saludYSeguridad: "",
     politicaDeCancelacion: "",
   },
-  imagenes: [],
+  imagenes: {},
 };
 
 const imgHardcoded = [
@@ -41,25 +42,12 @@ const imgHardcoded = [
   },
 ];
 
-const politicasHardcoded = [
-  {
-    descripcion: "norma de la casa 1",
-    tipoPolitica: {
-      id: 3,
-    },
-  },
-  {
-    descripcion: "politica especial 1",
-    tipoPolitica: {
-      id: 2,
-    },
-  },
-];
-
 export default function Administration() {
   const [productState, setProductState] = useState({});
   const [productForm, setProductForm] = useState(productInitialForm);
   const [errors, setErrors] = useState({});
+  const [images, setImages] = useState({});
+
   const {
     user: { token },
   } = useContext(UserContext);
@@ -89,6 +77,12 @@ export default function Administration() {
       tipoPolitica: { id: 3 },
     });
 
+    const imagenes = Object.values(images)
+      .filter((img) => img.url !== "")
+      .map((img) => {
+        return { titulo: `Imagen ${img.id}`, url: img.url };
+      });
+
     const payload = {
       titulo: productForm.nombre,
       tituloDescripcion: productForm.titulo,
@@ -98,7 +92,7 @@ export default function Administration() {
       categoria: productForm.categoria,
       ciudad: productForm.ciudad,
       caracteristicas,
-      imagenes: imgHardcoded,
+      imagenes,
       politicas,
       coordenadas: {
         latitud: productForm.latitud,
@@ -111,14 +105,13 @@ export default function Administration() {
 
   const handleSubmit = () => {
     if (!productState.loading) {
-      const errors = createProductValidations(productForm);
+      const errors = createProductValidations(productForm, images);
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);
         console.log(getPayload());
       } else {
         setErrors(errors);
-        console.log(Object.values(productForm.politicas));
       }
     }
   };
@@ -147,6 +140,11 @@ export default function Administration() {
             productForm={productForm}
             setProductForm={setProductForm}
             errors={errors}
+          />
+          <ImagesContainer
+            errors={errors}
+            images={images}
+            setImages={setImages}
           />
         </FormContainer>
       </AdminMainContainer>

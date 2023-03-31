@@ -1,10 +1,11 @@
-export const createProductValidations = (data) => {
+export const createProductValidations = (data, images) => {
   let errors = [];
-  const isPriveNegative = Number(data.precioPorNoche) < 0;
+  const isPriceNegative = Number(data.precioPorNoche) < 0;
   const isLatitudeValid =
     Number(data.latitud) < -90 || Number(data.latitud) > 90;
   const isLongitudeValid =
     Number(data.longitud) < -180 || Number(data.latitud) > 180;
+  const currentImages = Object.values(images).filter((img) => img.url !== "");
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
   else if (data.nombre.length < 6)
@@ -28,7 +29,7 @@ export const createProductValidations = (data) => {
 
   if (!data.precioPorNoche)
     errors.precioPorNoche = "Debe colocar un precio por noche";
-  else if (isPriveNegative)
+  else if (isPriceNegative)
     errors.precioPorNoche = "El precio por noche debe ser un número positivo";
 
   if (!data.latitud) errors.latitud = "Debe colocar la latitud";
@@ -45,6 +46,9 @@ export const createProductValidations = (data) => {
     errors.saludYSeguridad = "Debe agregar polícas de salud y seguridad";
   if (!data.politicas.politicaDeCancelacion)
     errors.politicaDeCancelacion = "Debe agregar políticas de cancelación";
+
+  if (!currentImages.length)
+    errors.imagenes = "El producto debe contener una imagen";
 
   return errors;
 };

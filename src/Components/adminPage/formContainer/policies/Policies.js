@@ -21,7 +21,7 @@ export default function Policies({ productForm, setProductForm, errors }) {
           <h5>Normas de la casa</h5>
           <label htmlFor="normasDeLaCasa">Descripción</label>
           <textarea
-            placeholder="Escriba aquí"
+            placeholder="Escribir aquí"
             id="normasDeLaCasa"
             name="normasDeLaCasa"
             onChange={handleChange}
@@ -33,7 +33,7 @@ export default function Policies({ productForm, setProductForm, errors }) {
           <h5>Salud y seguridad</h5>
           <label htmlFor="saludYSeguridad">Descripción</label>
           <textarea
-            placeholder="Escriba aquí"
+            placeholder="Escribir aquí"
             id="saludYSeguridad"
             name="saludYSeguridad"
             onChange={handleChange}
@@ -45,7 +45,7 @@ export default function Policies({ productForm, setProductForm, errors }) {
           <h5>Política de cancelación</h5>
           <label htmlFor="politicaDeCancelacion">Descripción</label>
           <textarea
-            placeholder="Escriba aquí"
+            placeholder="Escribir aquí"
             id="politicaDeCancelacion"
             name="politicaDeCancelacion"
             onChange={handleChange}
