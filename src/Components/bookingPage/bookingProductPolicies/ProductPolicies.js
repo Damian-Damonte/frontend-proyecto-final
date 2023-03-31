@@ -3,10 +3,10 @@ import {
   PoliciesContainer,
   ProductPoliciesStyled,
 } from "./styledProductPolicies";
-
+import { v4 as uuid } from "uuid";
 
 export default function BookingProductPolicies({ policies }) {
-  const policiesByType =policies.reduce((acc, politica) => {
+  const policiesByType = policies.reduce((acc, politica) => {
     if (!acc[politica.tipoPolitica.nombre]) {
       acc[politica.tipoPolitica.nombre] = [];
     }
@@ -14,23 +14,26 @@ export default function BookingProductPolicies({ policies }) {
     return acc;
   }, {});
 
+  const paragraphToPolicy = (paragraph) => {
+    const policies = paragraph.split("\n");
+    return policies.map((policy) => <p key={uuid()}>{policy}</p>);
+  };
+
   return (
     <ProductPoliciesStyled>
       <h3>Qué tenés que saber</h3>
 
       <PoliciesContainer>
-
-        {
-          Object.keys(policiesByType).map(type => (
-            <div key={type}>
-              <h4>{type}</h4>
-              <div>
-                {policiesByType[type].map(policie => (<p key={policie.id}>{policie.descripcion}</p>))}
-              </div>
+        {Object.keys(policiesByType).map((type) => (
+          <div key={type}>
+            <h4>{type}</h4>
+            <div>
+              {policiesByType[type].map((policy) => (
+                paragraphToPolicy(policy.descripcion)
+              ))}
             </div>
-          ))
-        }
-        
+          </div>
+        ))}
       </PoliciesContainer>
     </ProductPoliciesStyled>
   );
