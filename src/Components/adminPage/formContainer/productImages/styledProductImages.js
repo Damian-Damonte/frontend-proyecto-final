@@ -7,7 +7,7 @@ export const ProductImagesStyled = styled.div`
   margin-top: 10px;
   padding: 0 10px;
 
-  p:last-child {
+  > p:last-child {
     color: #ff0000;
     font-weight: 500;
     font-size: 12px;
@@ -33,23 +33,51 @@ export const AllImagesContainer = styled.div`
   gap: 15px;
   margin-top: 15px;
   height: ${({ $countImg }) =>
-    $countImg * 80 + ($countImg && $countImg - 1) * 15 + "px"};
+    $countImg * 90 + ($countImg && $countImg - 1) * 15 + "px"};
   transition: all 0.4s ease;
+
+  @media (max-width: 312px) {
+    height: ${({ $countImg }) =>
+      $countImg * 106 + ($countImg && $countImg - 1) * 15 + "px"};
+  }
 
   @media (min-width: 768px) {
     height: ${({ $countImg }) =>
-      $countImg * 100 + ($countImg && $countImg - 1) * 15 + "px"};
+      $countImg * 102 + ($countImg && $countImg - 1) * 15 + "px"};
   }
 `;
 
 export const ImageCardStyled = styled.div`
   background-color: #f9f9f9;
   display: flex;
-  align-items: center;
-  padding: 20px;
-  gap: 15px;
+  flex-direction: column;
+  padding: 25px 20px 9px;
   border-radius: 5px;
   margin-top: ${({ $marginTop }) => ($marginTop ? "15px" : "0px")};
+
+  > p {
+    color: #ff0000;
+    font-weight: 500;
+    font-size: 12px;
+    min-width: 10px;
+    min-height: 16px;
+  }
+
+  @media (max-width: 312px) {
+    > p {
+      min-height: 32px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 30px 25px 16px;
+  }
+`;
+
+export const InputBtnContainer = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 15px;
 
   input {
     border-radius: 5px;
@@ -66,16 +94,12 @@ export const ImageCardStyled = styled.div`
     cursor: ${({ $static }) => ($static ? "default" : "pointer")};
 
     &::placeholder {
-      color: ${({ $static }) => ($static ? "#bebebe" : PURPLE3)};
+      color: ${({ $static }) => ($static ? "#bebebe" : "#bebebe")};
     }
 
     &:focus {
       outline: 1px solid ${PRIMARY_COLOR};
     }
-  }
-
-  @media (min-width: 768px) {
-    padding: 30px 25px;
   }
 `;
 

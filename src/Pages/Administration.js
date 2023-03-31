@@ -103,42 +103,32 @@ export default function Administration() {
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);
+        console.log(getPayload());
       } else {
         setErrors(errors);
+        console.log(errors);
       }
     }
   };
 
+  const childProps = {
+    productForm,
+    setProductForm,
+    errors,
+  };
+
   return (
     <>
-      {productState.product &&
-        <CreatedSuccessfully />
-      }
+      {productState.product && <CreatedSuccessfully />}
       {!productState.product && (
         <div>
           <AdminHeader />
           <AdminMainContainer>
             <FormContainer>
-              <GeneralInfo
-                productForm={productForm}
-                setProductForm={setProductForm}
-                errors={errors}
-              />
-              <Coordinates
-                productForm={productForm}
-                setProductForm={setProductForm}
-                errors={errors}
-              />
-              <CaracteristicsContainer
-                productForm={productForm}
-                setProductForm={setProductForm}
-                errors={errors}
-              />
-              <Policies
-                productForm={productForm}
-                setProductForm={setProductForm}
-                errors={errors}
-              />
+              <GeneralInfo {...childProps} />
+              <Coordinates {...childProps} />
+              <CaracteristicsContainer {...childProps} />
+              <Policies {...childProps} />
               <ImagesContainer
                 errors={errors}
                 images={images}

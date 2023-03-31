@@ -5,7 +5,7 @@ export const createProductValidations = (data, images) => {
     Number(data.latitud) < -90 || Number(data.latitud) > 90;
   const isLongitudeValid =
     Number(data.longitud) < -180 || Number(data.latitud) > 180;
-  const currentImages = Object.values(images).filter((img) => img.url !== "");
+  const currentImages = Object.values(images);
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
   else if (data.nombre.length < 6)
@@ -49,6 +49,24 @@ export const createProductValidations = (data, images) => {
 
   if (!currentImages.length)
     errors.imagenes = "El producto debe contener una imagen";
+  else {
+    const invalidUrl = imagesValidation(currentImages);
+    if (Object.keys(invalidUrl).length) errors.urlImagenes = invalidUrl;
+  }
 
   return errors;
+};
+
+const imagesValidation = (currentImages) => {
+  const httpRegex = /^http:\/\//i;
+  const httpsRegex = /^https:\/\//i;
+  let imagesErrors = {};
+
+  currentImages.forEach((img) => {
+    if (!httpRegex.test(img.url) && !httpsRegex.test(img.url)) {
+      imagesErrors[img.id] = "La url debe comenzar con http:// o https://";
+    }
+  });
+
+  return imagesErrors;
 };
