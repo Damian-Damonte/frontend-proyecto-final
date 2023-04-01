@@ -44,6 +44,7 @@ export default function Header() {
 
   const toAdminPage = () => {
     navigate(routes.admin);
+    setShowDrawer(!showDrawer);
   };
 
   return (

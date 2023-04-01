@@ -35,7 +35,7 @@ export const SubmitContainer = styled.div`
     font-weight: 500;
     font-size: 12px;
     min-width: 10px;
-    min-height: 16px;
+    min-height: 17px;
   }
 `
 

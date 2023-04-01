@@ -6,7 +6,6 @@ export const createProductValidations = (data, images) => {
   const isLongitudeValid =
     Number(data.longitud) < -180 || Number(data.latitud) > 180;
   const caracteristics = data.caracteristicas;
-  console.log(data.caracteristicas);
   const currentImages = Object.values(images);
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
@@ -22,8 +21,8 @@ export const createProductValidations = (data, images) => {
   if (!data.ciudad) errors.ciudad = "Debe seleccionar una ciudad";
 
   if (!data.descripcion) errors.descripcion = "Debe colocar una descripción";
-  else if (data.descripcion.length < 6)
-    errors.descripcion = "La descripción debe tener más de 5 caracteres";
+  // else if (data.descripcion.length < 6)
+  //   errors.descripcion = "La descripción debe tener más de 5 caracteres";
 
   if (!data.titulo) errors.titulo = "Debe colocar un título";
   else if (data.titulo.length < 6)

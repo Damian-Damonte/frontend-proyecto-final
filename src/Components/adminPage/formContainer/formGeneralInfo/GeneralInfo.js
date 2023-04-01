@@ -1,4 +1,3 @@
-import React from "react";
 import CategorySelect from "./categorySelect/CategorySelect";
 import CitySelectContainer from "./citySelect/CitySelectContainer";
 import {
@@ -48,7 +47,6 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
             onChange={handleChange}
             value={productForm.direccion}
             placeholder="Dirección"
-
           />
           <p>{errors.direccion}</p>
         </InputContainer>
@@ -90,7 +88,9 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
         </InputContainerPrice>
       </GeneralInfoContainer>
 
-      <DescriptionContainer>
+      <DescriptionContainer
+        $error={productForm.descripcion.length > 0 ? "" : errors.descripcion}
+      >
         <label htmlFor="descripcion">Descripción</label>
         <textarea
           id="descripcion"
@@ -98,8 +98,16 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           onChange={handleChange}
           value={productForm.descripcion}
           placeholder="Escribir aquí"
+          maxLength={1200}
         />
-        <p>{errors.descripcion}</p>
+
+        <p>
+          {productForm.descripcion.length > 0
+            ? 1200 - productForm.descripcion.length
+            : errors.descripcion
+              ? errors.descripcion
+              : 1200 - productForm.descripcion.length}
+        </p>
       </DescriptionContainer>
     </GeneralInfoStyled>
   );

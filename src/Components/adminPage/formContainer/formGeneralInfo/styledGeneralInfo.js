@@ -53,13 +53,13 @@ export const DescriptionContainer = styled.div`
   }
 
   p {
-    color: #ff0000;
     font-weight: 500;
     font-size: 12px;
     text-align: right;
     min-width: 10px;
-    min-height: 16px;
+    min-height: 17px;
     align-self: flex-end;
+    color: ${({$error}) => $error ? "#ff0000" : "#000"};
   }
 
   @media (min-width: 768px) {
@@ -107,7 +107,7 @@ export const InputContainer = styled.div`
     font-size: 12px;
     text-align: right;
     min-width: 10px;
-    min-height: 16px;
+    min-height: 17px;
     align-self: flex-end;
   }
 `;

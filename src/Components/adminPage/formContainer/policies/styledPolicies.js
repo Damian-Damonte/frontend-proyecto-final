@@ -78,7 +78,7 @@ export const PolicyContainer = styled.div`
     font-weight: 500;
     font-size: 12px;
     min-width: 10px;
-    min-height: 16px;
+    min-height: 17px;
     margin-top: 5px;
     align-self: flex-end;
   }

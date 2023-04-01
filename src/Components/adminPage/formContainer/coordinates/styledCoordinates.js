@@ -60,7 +60,7 @@ export const CoordinatesInputContainer = styled.div`
     font-size: 12px;
     text-align: right;
     min-width: 10px;
-    min-height: 16px;
+    min-height: 17px;
     align-self: flex-end;
   }
 `;
