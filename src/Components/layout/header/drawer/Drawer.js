@@ -1,9 +1,9 @@
-import { ReactComponent as BtnCloseMenu } from "../../../img/cross-white.svg";
-import { ReactComponent as Facebook } from "../../../img/icon-facebook.svg";
-import { ReactComponent as Linkedin } from "../../../img/icon-linkedin.svg";
-import { ReactComponent as Twitter } from "../../../img/icon-twitter.svg";
-import { ReactComponent as Instagram } from "../../../img/icon-instagram.svg";
-import UserProfile from "./UserProfile";
+import { ReactComponent as BtnCloseMenu } from "../../../../img/cross-white.svg";
+import { ReactComponent as Facebook } from "../../../../img/icon-facebook.svg";
+import { ReactComponent as Linkedin } from "../../../../img/icon-linkedin.svg";
+import { ReactComponent as Twitter } from "../../../../img/icon-twitter.svg";
+import { ReactComponent as Instagram } from "../../../../img/icon-instagram.svg";
+import UserProfile from "../UserProfile";
 import {
   BottomSectionDrawer,
   BottomSectionDrawerOptions,
@@ -14,7 +14,7 @@ import {
   PMenu,
   SocialContainer,
   TopSectionDrawer,
-} from "./styledHeader";
+} from "./styledDrawer";
 
 export default function Drawer({
   showDrawer,

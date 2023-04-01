@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactComponent as BtnCloseSesion } from "../../../img/cross-black.svg";
 import {
   ProfileIcon,
@@ -7,11 +7,17 @@ import {
 } from "./styledHeader";
 
 export default function UserProfile({ user, handleCerrarSesion }) {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleShowMenu = () => {
+    setShowMenu(!setShowMenu);
+  };
+
   const firstNameLetter = user.firstName.charAt(0).toUpperCase();
   const lastNameLetter = user.lastName.charAt(0).toUpperCase();
 
   return (
-    <UserProfileContainer>
+    <UserProfileContainer onClick={handleShowMenu}>
       <BtnCloseSesion onClick={handleCerrarSesion} />
       <ProfileIcon>{firstNameLetter + lastNameLetter}</ProfileIcon>
       <ProfileNameContainer>

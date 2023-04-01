@@ -3,7 +3,7 @@ import UserContext from "../../../context/user.context";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../img/logo-desk.svg";
 import { ReactComponent as BtnMenu } from "../../../img/menu.svg";
-import Drawer from "./Drawer";
+import Drawer from "./drawer/Drawer";
 import { routes } from "../../../Routes";
 import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
