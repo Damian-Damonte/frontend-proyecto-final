@@ -13,6 +13,11 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
     setProductForm({ ...productForm, [e.target.name]: e.target.value });
   };
 
+  const handleChandeNumber = (e) => {
+    const pattern = /^[0-9]*\.?[0-9]*$/;
+    pattern.test(e.target.value) && handleChange(e);
+  };
+
   return (
     <GeneralInfoStyled>
       <GeneralInfoContainer>
@@ -76,10 +81,10 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
         <InputContainerPrice>
           <label htmlFor="precioPorNoche">Precio por noche</label>
           <input
-            type="number"
+            type="text"
             id="precioPorNoche"
             name="precioPorNoche"
-            onChange={handleChange}
+            onChange={handleChandeNumber}
             value={productForm.precioPorNoche}
             placeholder="Precio por noche"
           />
@@ -105,8 +110,8 @@ export default function GeneralInfo({ productForm, setProductForm, errors }) {
           {productForm.descripcion.length > 0
             ? 1200 - productForm.descripcion.length
             : errors.descripcion
-              ? errors.descripcion
-              : 1200 - productForm.descripcion.length}
+            ? errors.descripcion
+            : 1200 - productForm.descripcion.length}
         </p>
       </DescriptionContainer>
     </GeneralInfoStyled>

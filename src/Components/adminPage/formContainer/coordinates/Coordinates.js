@@ -10,6 +10,11 @@ export default function Coordinates({ productForm, setProductForm, errors }) {
     setProductForm({ ...productForm, [e.target.name]: e.target.value });
   };
 
+  const handleChandeNumber = (e) => {
+    const pattern = /^(-?[0-9]*\.?[0-9]*)$/;
+    pattern.test(e.target.value) && handleChange(e);
+  };
+
   return (
     <CoordinatesStyled>
       <h3>Coordenadas</h3>
@@ -17,10 +22,10 @@ export default function Coordinates({ productForm, setProductForm, errors }) {
         <CoordinatesInputContainer>
           <label htmlFor="latitud">Latitud</label>
           <input
-            type="number"
+            type="text"
             id="latitud"
             name="latitud"
-            onChange={handleChange}
+            onChange={handleChandeNumber}
             value={productForm.latitud}
             placeholder="Latitud"
           />
@@ -30,10 +35,10 @@ export default function Coordinates({ productForm, setProductForm, errors }) {
         <CoordinatesInputContainer>
           <label htmlFor="longitud">Longitud</label>
           <input
-            type="number"
+            type="text"
             id="longitud"
             name="longitud"
-            onChange={handleChange}
+            onChange={handleChandeNumber}
             value={productForm.longitud}
             placeholder="Longitud"
           />

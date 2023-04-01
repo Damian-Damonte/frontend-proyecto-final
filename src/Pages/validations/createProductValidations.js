@@ -8,7 +8,7 @@ export const createProductValidations = (data, images) => {
   const caracteristics = data.caracteristicas;
   const currentImages = Object.values(images);
 
-  if (!data.nombre) errors.nombre = "Debe colocarle un nombre al producto";
+  if (!data.nombre) errors.nombre = "Debe colocarle un nombre";
   else if (data.nombre.length < 6)
     errors.nombre = "El nombre debe tener más de 5 caracteres";
 
@@ -32,6 +32,9 @@ export const createProductValidations = (data, images) => {
     errors.precioPorNoche = "Debe colocar un precio por noche";
   else if (isPriceNegative)
     errors.precioPorNoche = "El precio por noche debe ser un número positivo";
+  else if (data.precioPorNoche === 0)
+    errors.precioPorNoche = "El precio por noche debe ser mayor a 0";
+
 
   if (!data.latitud) errors.latitud = "Debe colocar la latitud";
   else if (isLatitudeValid)
