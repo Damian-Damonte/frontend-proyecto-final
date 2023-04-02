@@ -139,7 +139,7 @@ export const ProfileNameContainer = styled.div`
 export const HeaderOptionsDesktop = styled.div`
   display: none;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   position: relative;
 
   button {
@@ -159,10 +159,25 @@ export const HeaderOptionsDesktop = styled.div`
   }
 `;
 
+export const UserProfileContainerDesktop = styled.div`
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;
+
 export const AdminContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
 
   p {
     font-weight: 700;
@@ -170,11 +185,14 @@ export const AdminContainer = styled.div`
     color: ${PURPLE3};
     line-height: 8px;
   }
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
 `;
 
 export const LineaDivisoria = styled.div`
   width: 2px;
-  height: 100%;
-  height: 40px;
+  height: 50px;
   background-color: ${PRIMARY_COLOR};
-`
+`;

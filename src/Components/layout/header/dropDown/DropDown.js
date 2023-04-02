@@ -7,12 +7,11 @@ import {
 import { BsCheckCircle as Check } from "react-icons/bs";
 import { MdFavoriteBorder as Favs } from "react-icons/md";
 import { MdLogout as Logout } from "react-icons/md";
-// import { ReactComponent as Favs } from "../../../../img/icon-fav-empty.svg";
 
-export default function DropDown({ showDrawer, handleBtnDrawer }) {
+export default function DropDown({ showDropDown, handleShowDropDown, handleCerrarSesion }) {
   return (
-    <DropDownStyled $showDrawer={showDrawer} onClick={handleBtnDrawer}>
-      <DropDownContainer onClick={handleBtnDrawer} $showDrawer={showDrawer}>
+    <DropDownStyled $showDropDown={showDropDown} onClick={handleShowDropDown}>
+      <DropDownContainer onClick={handleShowDropDown} $showDropDown={showDropDown}>
         <DropDownOption>
           <Favs />
           <p>Mis favoritos</p>
@@ -21,7 +20,7 @@ export default function DropDown({ showDrawer, handleBtnDrawer }) {
           <Check />
           <p>Mis reservas</p>
         </DropDownOption>
-        <DropDownOption>
+        <DropDownOption onClick={handleCerrarSesion}>
           <Logout />
           <p>Cerrar sesión</p>
         </DropDownOption>

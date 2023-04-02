@@ -54,7 +54,7 @@ export default function Drawer({
           {!user.token ? (
             <PMenu>MENÚ</PMenu>
           ) : (
-            <UserProfile user={user} handleCerrarSesion={handleCerrarSesion} />
+            <UserProfile user={user} />
           )}
         </TopSectionDrawer>
 

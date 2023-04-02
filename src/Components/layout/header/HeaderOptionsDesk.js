@@ -3,6 +3,7 @@ import {
   AdminContainer,
   HeaderOptionsDesktop,
   LineaDivisoria,
+  UserProfileContainerDesktop,
 } from "./styledHeader";
 import UserProfile from "./UserProfile";
 
@@ -11,10 +12,9 @@ export default function HeaderOptionsDesk({
   navigateLogin,
   user,
   urlPath,
-  handleCerrarSesion,
   isAdmin,
   toAdminPage,
-  handleBtnDrawer
+  handleShowDropDown,
 }) {
   const headerOptions = (urlPath, user) => {
     const login = <button onClick={navigateLogin}>Iniciar sesión</button>;
@@ -24,20 +24,25 @@ export default function HeaderOptionsDesk({
       return urlPath === "/registro" ? login : singin;
 
     if (!user.token)
-      return (<>{singin} {login}</>);
+      return (
+        <>
+          {singin} {login}
+        </>
+      );
     else
       return (
-        <UserProfile user={user} handleCerrarSesion={handleCerrarSesion} />
+        <UserProfileContainerDesktop onClick={handleShowDropDown}>
+          <UserProfile user={user} />
+        </UserProfileContainerDesktop>
       );
   };
-  
+
   return (
     <HeaderOptionsDesktop>
       {isAdmin && (
         <>
-          <AdminContainer 
-          onClick={handleBtnDrawer}
-          // onClick={toAdminPage}
+          <AdminContainer
+            onClick={toAdminPage}
           >
             <p>Administración</p>
           </AdminContainer>

@@ -12,6 +12,7 @@ import DropDown from "./dropDown/DropDown";
 
 export default function Header() {
   const [showDrawer, setShowDrawer] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
   const { user, setUser, setFavs } = useContext(UserContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -43,9 +44,12 @@ export default function Header() {
     setFavs([]);
   };
 
+  const handleShowDropDown = () => {
+    setShowDropDown(!showDropDown);
+  }
+
   const toAdminPage = () => {
     navigate(routes.admin);
-    setShowDrawer(!showDrawer);
   };
 
   return (
@@ -72,12 +76,15 @@ export default function Header() {
         navigateLogin={navigateLogin}
         user={user}
         urlPath={urlPath}
-        handleCerrarSesion={handleCerrarSesion}
         isAdmin={user.rol === "ADMIN"}
         toAdminPage={toAdminPage}
-        handleBtnDrawer={handleBtnDrawer}
+        handleShowDropDown={handleShowDropDown}
       />
-      <DropDown showDrawer={showDrawer} handleBtnDrawer={handleBtnDrawer} />
+      <DropDown
+        showDropDown={showDropDown}
+        handleShowDropDown={handleShowDropDown}
+        handleCerrarSesion={handleCerrarSesion}
+      />
     </HeaderStyled>
   );
 }
