@@ -13,8 +13,8 @@ export default function HeaderOptionsDesk({
   urlPath,
   handleCerrarSesion,
   isAdmin,
-  toAdminPage
-
+  toAdminPage,
+  handleBtnDrawer
 }) {
   const headerOptions = (urlPath, user) => {
     const login = <button onClick={navigateLogin}>Iniciar sesión</button>;
@@ -35,7 +35,10 @@ export default function HeaderOptionsDesk({
     <HeaderOptionsDesktop>
       {isAdmin && (
         <>
-          <AdminContainer onClick={toAdminPage}>
+          <AdminContainer 
+          onClick={handleBtnDrawer}
+          // onClick={toAdminPage}
+          >
             <p>Administración</p>
           </AdminContainer>
           <LineaDivisoria></LineaDivisoria>

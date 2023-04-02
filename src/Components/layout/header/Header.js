@@ -8,6 +8,7 @@ import { routes } from "../../../Routes";
 import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
 import { HeaderStyled, LogoContainer } from "./styledHeader";
+import DropDown from "./dropDown/DropDown";
 
 export default function Header() {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -74,7 +75,9 @@ export default function Header() {
         handleCerrarSesion={handleCerrarSesion}
         isAdmin={user.rol === "ADMIN"}
         toAdminPage={toAdminPage}
+        handleBtnDrawer={handleBtnDrawer}
       />
+      <DropDown showDrawer={showDrawer} handleBtnDrawer={handleBtnDrawer} />
     </HeaderStyled>
   );
 }
