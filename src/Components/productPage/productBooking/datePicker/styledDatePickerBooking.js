@@ -211,4 +211,19 @@ export const DatePickerBookingContainer = styled.div`
       top: 8px;
     }
   }
+
+  @media (min-width: 1400px) {
+    width: 950px;
+
+    .react-datepicker__month-container {
+      margin: 10px 35px 0 35px;
+    }
+    .react-datepicker__navigation--next {
+      right: -25px;
+    }
+
+    .react-datepicker__navigation--previous {
+      left: -25px;
+    }
+  }
 `;
