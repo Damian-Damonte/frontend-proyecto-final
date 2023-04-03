@@ -161,7 +161,7 @@ export const HeaderOptionsDesktop = styled.div`
 
 export const UserProfileContainerDesktop = styled.div`
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.2s ease;
 
@@ -175,7 +175,7 @@ export const AdminContainer = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.2s ease;
 
@@ -193,6 +193,6 @@ export const AdminContainer = styled.div`
 
 export const LineaDivisoria = styled.div`
   width: 2px;
-  height: 50px;
+  height: 55px;
   background-color: ${PRIMARY_COLOR};
 `;

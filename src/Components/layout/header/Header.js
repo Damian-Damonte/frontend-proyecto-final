@@ -46,10 +46,20 @@ export default function Header() {
 
   const handleShowDropDown = () => {
     setShowDropDown(!showDropDown);
-  }
+  };
+
+  const toFavoritos = () => {
+    navigate(routes.myFavorites);
+    setShowDrawer(!showDrawer);
+  };
+  const toReservas = () => {
+    navigate(routes.myBookings);
+    setShowDrawer(!showDrawer);
+  };
 
   const toAdminPage = () => {
     navigate(routes.admin);
+    setShowDrawer(!showDrawer);
   };
 
   return (
@@ -70,6 +80,8 @@ export default function Header() {
         handleCerrarSesion={handleCerrarSesion}
         isAdmin={user.rol === "ADMIN"}
         toAdminPage={toAdminPage}
+        toFavoritos={toFavoritos}
+        toReservas={toReservas}
       />
       <HeaderOptionsDesk
         navigateSingin={navigateSingin}
@@ -84,6 +96,8 @@ export default function Header() {
         showDropDown={showDropDown}
         handleShowDropDown={handleShowDropDown}
         handleCerrarSesion={handleCerrarSesion}
+        toFavoritos={toFavoritos}
+        toReservas={toReservas}
       />
     </HeaderStyled>
   );

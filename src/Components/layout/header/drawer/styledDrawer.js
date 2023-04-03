@@ -74,26 +74,30 @@ export const BottomSectionDrawerOptions = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 10px;
+  /* gap: 20px; */
   font-size: 16px;
   font-weight: 700;
 
-  p {
+  > p {
     cursor: pointer;
     color: #383b58;
     transition: all 0.2s ease;
-
+    border-bottom: 1px solid ${PRIMARY_COLOR};
+    width: 100%;
+    text-align: right;
+    padding: 20px 0px 5px 0;
     &:hover {
-      color: #383b58aa;
+      background-color: #f2f2f2;
     }
   }
 
-  div {
+  /* div {
     width: 100%;
     height: 1px;
     background-color: #545776;
-  }
+  } */
 `;
+
 
 export const CloseSissionAndSocial = styled.div`
   display: flex;

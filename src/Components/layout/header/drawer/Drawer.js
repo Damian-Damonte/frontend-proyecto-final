@@ -25,7 +25,9 @@ export default function Drawer({
   user,
   handleCerrarSesion,
   isAdmin,
-  toAdminPage
+  toAdminPage,
+  toFavoritos,
+  toReservas,
 }) {
   const handleActions = (urlPath) => {
     const login = <p onClick={navigateLogin}>Iniciar sesión</p>;
@@ -51,17 +53,19 @@ export default function Drawer({
       <DrawerStyled $showDrawer={showDrawer}>
         <TopSectionDrawer>
           <BtnCloseMenu onClick={handleBtnDrawer} />
-          {!user.token ? (
-            <PMenu>MENÚ</PMenu>
-          ) : (
-            <UserProfile user={user} />
-          )}
+          {!user.token ? <PMenu>MENÚ</PMenu> : <UserProfile user={user} />}
         </TopSectionDrawer>
 
         <BottomSectionDrawer>
           <BottomSectionDrawerOptions>
             {handleActions(urlPath)}
             {isAdmin && <p onClick={toAdminPage}>Administracion</p>}
+            {user.token && (
+              <>
+                <p onClick={toFavoritos}>Mis favoritos</p>
+                <p onClick={toReservas}>Mis reservas</p>
+              </>
+            )}
           </BottomSectionDrawerOptions>
           <CloseSissionAndSocial>
             {user.token && (

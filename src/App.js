@@ -11,6 +11,8 @@ import Booking from "./Pages/Booking";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Administration from "./Pages/Administration";
+import MyFavorites from "./Pages/MyFavorites";
+import MyBookings from "./Pages/MyBookings";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path={routes.product} element={<Product />} />
           <Route path={routes.booking} element={<Booking />} />
           <Route path={routes.admin} element={<Administration />} />
+          <Route path={routes.myFavorites} element={<MyFavorites />} />
+          <Route path={routes.myBookings} element={<MyBookings />} />
         </Route>
           <Route path="*" element={<NotFound />} />
       </Routes>
