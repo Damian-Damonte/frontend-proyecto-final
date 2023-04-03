@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getUserFavs } from "../service/user";
+import { getUserData } from "../service/user";
 import { renderToast } from "../utils/renderToast";
 
 const UserContext = createContext();
@@ -20,7 +20,7 @@ export function UserProvider({ children }) {
         localStorage.removeItem("userData")
       } else {
         setUser(userData);
-        getUserFavs(userData.id, userData.token).then((res) => {
+        getUserData(userData.id, userData.token).then((res) => {
           res.error
             ? renderToast("error", "Error al cargar los favoritos. Por favor, intente más tarde")
             : setFavs(res.data.favoritos);

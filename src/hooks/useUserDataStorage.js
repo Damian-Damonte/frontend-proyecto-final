@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import UserContext from "../context/user.context";
 import dataFromJwt from "../utils/dataFromJwt";
-import { getUserFavs } from "../service/user";
+import { getUserData } from "../service/user";
+import { renderToast } from "../utils/renderToast";
 
 export const useUserDataStorage = () => {
   const { setUser, setFavs } = useContext(UserContext);
@@ -11,12 +12,10 @@ export const useUserDataStorage = () => {
     localStorage.setItem("userData", JSON.stringify(userData));
     setUser(userData);
 
-    getUserFavs(userData.id, userData.token).then((res) => {
-      if (!res.error) {
-        setFavs(res.data.favoritos);
-      } else {
-        console.log("ERROR AL CARGAR LOS FAVORITOS"); //TODO lanzar toast
-      }
+    getUserData(userData.id, userData.token).then((res) => {
+      res.error 
+        ? renderToast("error", "Error al cargar los favoritos. Por favor, intente más tarde")
+        : setFavs(res.data.favoritos);
     });
   };
 

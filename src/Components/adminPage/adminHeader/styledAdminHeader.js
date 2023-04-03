@@ -23,10 +23,10 @@ export const ProductNameHeader = styled.div`
     height: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
 
-  svg:hover {
-    fill: ${PRIMARY_COLOR};
+    &:hover {
+      fill: ${PRIMARY_COLOR};
+    }
   }
 
   @media (min-width: 768px) {
@@ -37,4 +37,3 @@ export const ProductNameHeader = styled.div`
     padding: 15px 30px;
   }
 `;
-

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {
+  MyFavoritesHeader,
   MyFavoritesStyled,
   NoFavorites,
   NoFavoritesContainer,
@@ -9,8 +10,7 @@ import UserContext from "../context/user.context";
 import ProductCard from "../Components/homePage/productSection/ProductCard";
 import { BsHeartbreakFill as EmptyFavorites } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../Routes";
-
+import { ReactComponent as Back } from "../img/icon-product-back.svg";
 
 export default function MyFavorites() {
   const { favs } = useContext(UserContext);
@@ -18,13 +18,17 @@ export default function MyFavorites() {
 
   const goBack = () => {
     navigate(-1);
-  }
+  };
 
   return (
     <>
+      <MyFavoritesHeader>
+        <div>
+          <h3>Mis Favoritos</h3>
+        </div>
+        <Back onClick={goBack} />
+      </MyFavoritesHeader>
       <MyFavoritesStyled>
-        <h3>Mis favoritos</h3>
-
         {favs.length === 0 ? (
           <NoFavorites>
             <NoFavoritesContainer>
@@ -35,7 +39,7 @@ export default function MyFavorites() {
               </h4>
               <p>
                 Para agregar alojamientos, navega a través de nuestro sitio y
-                marcá tus alojamientos favoritos con el botón ❤
+                marca tus alojamientos favoritos con el botón ❤
               </p>
               <button onClick={goBack}>Volver</button>
             </NoFavoritesContainer>

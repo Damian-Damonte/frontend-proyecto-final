@@ -4,7 +4,7 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
-export const MyFavoritesStyled = styled.div`
+export const MyBookingsStyled = styled.div`
   padding: 20px 10px;
 
   > h3 {
@@ -22,7 +22,7 @@ export const MyFavoritesStyled = styled.div`
   }
 `;
 
-export const MyFavoritesHeader = styled.div`
+export const MyBookingsHeader = styled.div`
   padding: 15px 10px;
   display: flex;
   justify-content: space-between;
@@ -57,7 +57,7 @@ export const MyFavoritesHeader = styled.div`
   }
 `;
 
-export const NoFavorites = styled.div`
+export const NoBookings = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ export const NoFavorites = styled.div`
   }
 `;
 
-export const NoFavoritesContainer = styled.div`
+export const NoBookingsContainer = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,6 @@ export const NoFavoritesContainer = styled.div`
   gap: 25px;
 
   svg {
-    /* height: 78px; */
     font-size: 60px;
     fill: ${PRIMARY_COLOR};
   }
@@ -123,5 +122,67 @@ export const NoFavoritesContainer = styled.div`
   }
 
   @media (min-width: 768px) {
+  }
+`;
+
+export const BookingCardContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+
+  > div:last-child {
+    border-radius: 0px 0px 10px 10px;
+    height: calc(100% - 40px);
+  }
+
+  @media (max-width: 415px) {
+    > div:last-child {
+      height: calc(100% - 80px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    max-width: 850px;
+  }
+`;
+
+export const DatesContainer = styled.div`
+  display: flex;
+  padding: 8px;
+  gap: 30px;
+
+  background-color: #fff;
+  border-radius: 10px 10px 0 0;
+  height: 40px;
+
+  > p {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  @media (max-width: 415px) {
+    flex-direction: column;
+    gap: 5px;
+    height: 65px;
+  }
+`;
+
+export const ErrorMessageContainer = styled.div`
+  margin: 200px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(155, 161, 235, 0.3);
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 700px;
+  align-self: center;
+
+  img {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
   }
 `;

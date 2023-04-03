@@ -18,3 +18,12 @@ export const apiDateToDate = (apiDate) => {
   const [year, month, day] = apiDate.split("-").map(Number);
   return new Date(year, month - 1, day);
 };
+
+export const apiDateToUserDate = (apiDate) => {
+  const partes = apiDate.split('-'); 
+  const anio = partes[0];
+  const mes = partes[1];
+  const dia = partes[2];
+  const fechaConvertida = `${dia}/${mes}/${anio}`; 
+  return fechaConvertida;
+}
