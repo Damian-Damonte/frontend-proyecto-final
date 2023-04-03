@@ -56,7 +56,7 @@ export default function MyBookings() {
                   <EmptyBookings />
                   <h4>Aún no has realizado ninguna reserva</h4>
                   <p>
-                    Para realizar una reserva debes ir al detalle del
+                    Para realizar una reserva debes dirigirte al detalle del
                     alojamiento, dar clic en el botón Iniciar reserva y
                     completar el formulario
                   </p>

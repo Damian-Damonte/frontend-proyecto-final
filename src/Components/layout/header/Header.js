@@ -38,10 +38,13 @@ export default function Header() {
   };
 
   const handleCerrarSesion = () => {
+    const authenticatePath = ["/mis-favoritos", "/mis-reservas", "/administracion"];
     setShowDrawer(!showDrawer);
     localStorage.removeItem("userData");
     setUser({});
     setFavs([]);
+
+    authenticatePath.includes(urlPath) && navigate(routes.home);
   };
 
   const handleShowDropDown = () => {
