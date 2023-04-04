@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   MyFavoritesHeader,
   MyFavoritesStyled,
@@ -15,6 +15,10 @@ import { ReactComponent as Back } from "../img/icon-product-back.svg";
 export default function MyFavorites() {
   const { favs } = useContext(UserContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const goBack = () => {
     navigate(-1);
