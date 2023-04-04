@@ -56,7 +56,7 @@ export default function Product() {
           <ProductDescription product={product} />
           <ProductCaracteristics caracteristics={product.caracteristicas} />
           <ProductBooking reservas={product.reservas} />
-          <ProductLocation product={product} />
+          <ProductLocation coordinates={product.coordenadas} city={product.ciudad} />
           {product.politicas.length !== 0 && (
             <ProductPolicies policies={product.politicas} />
           )}

@@ -37,13 +37,8 @@ export const MapSection = styled.div`
 
   }
 
-  img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-top: 20px;
-    cursor: pointer;
+  > div {
+    margin-top:10px;
   }
 
   @media (min-width: 768px) {

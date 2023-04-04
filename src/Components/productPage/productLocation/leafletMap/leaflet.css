@@ -1,0 +1,14 @@
+.leaflet-pane {
+  z-index: 1;
+}
+
+.leaflet-control {
+  z-index: 2;
+}
+
+.leaflet-top {
+  z-index: 3;
+}
+.leaflet-bottom {
+  z-index: 3;
+}
