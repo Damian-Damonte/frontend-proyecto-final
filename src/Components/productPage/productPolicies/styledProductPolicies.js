@@ -19,12 +19,12 @@ export const ProductPoliciesStyled = styled.div`
   @media (min-width: 768px) {
     padding-bottom: 50px;
     h3 {
-      padding: 25px 20px 10px 20px;
+      padding: 15px 20px 10px 20px;
     }
   }
   @media (min-width: 1024px) {
     h3 {
-      padding: 25px 30px 10px 30px;
+      padding: 15px 30px 10px 30px;
     }
   }
 `;

@@ -58,13 +58,12 @@ export const MyFavoritesHeader = styled.div`
 `;
 
 export const NoFavorites = styled.div`
-  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   @media (min-width: 768px) {
-    margin-top: 50px;
+    margin-top: 10px;
   }
 `;
 
@@ -74,7 +73,7 @@ export const NoFavoritesContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 30px 50px;
+  padding: 45px 30px 40px;
   width: 90%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
@@ -82,7 +81,6 @@ export const NoFavoritesContainer = styled.div`
   gap: 25px;
 
   svg {
-    /* height: 78px; */
     font-size: 60px;
     fill: ${PRIMARY_COLOR};
   }
@@ -91,7 +89,6 @@ export const NoFavoritesContainer = styled.div`
     color: ${PRIMARY_COLOR};
     font-size: 20px;
     font-weight: 700;
-    margin-top: 10px;
     text-align: center;
   }
 

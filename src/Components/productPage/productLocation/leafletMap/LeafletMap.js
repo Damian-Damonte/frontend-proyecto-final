@@ -8,9 +8,9 @@ export default function LeafletMap({latitud, longitud}) {
   const position = [latitud, longitud];
   const miIcono = L.icon({
     iconUrl: icono,
-    iconSize: [40, 40], // tamaño del icono en pixeles
-    iconAnchor: [20, 20], // posición del ancla del icono, en este caso la mitad del ancho y la altura del icono
-    popupAnchor: [0, -40], // posición del ancla del popup, en este caso arriba del icono
+    iconSize: [40, 40],
+    iconAnchor: [20, 20], 
+    popupAnchor: [0, -40], 
   });
 
   return (

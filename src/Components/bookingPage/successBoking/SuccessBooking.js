@@ -20,7 +20,7 @@ export default function SuccessBooking() {
         <Check />
         <h4>¡Muchas gracias!</h4>
         <p>Su reserva se ha realizado con éxito</p>
-        <button onClick={toHome}>volver al home</button>
+        <button onClick={toHome}>Volver al inicio</button>
       </SuccessBookingContainer>
     </SuccessBookingStyled>
   );

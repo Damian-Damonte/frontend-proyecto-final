@@ -16,8 +16,8 @@ export default function ProductLocation({ coordinates, city }) {
       <h3>¿Dónde vas a estar?</h3>
       <MapSection>
         <p>{`${cityName}, ${countryName}`}</p>
-        {/* <img src="/assets/map-desktop.png" alt="map" onClick={toGoogleMaps} /> */}
         <LeafletMap latitud={latitud} longitud={longitud} />
+        <button onClick={toGoogleMaps}>Ver en Google Maps</button>
       </MapSection>
     </ProductLocationStyled>
   );
