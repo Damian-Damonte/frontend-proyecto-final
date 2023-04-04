@@ -9,6 +9,7 @@ import {
   IconCalendar,
 } from "./styledSearchBar";
 import SelectCityContainer from "./selectCity/SelectCityContainer";
+import { BsFillXCircleFill as  CleanCity} from "react-icons/bs";
 
 export default function SearchBar({
   searchParams,
@@ -48,6 +49,11 @@ export default function SearchBar({
     searchProducts(searchParams);
   };
 
+  const cleanDates = (e) => {
+    e.stopPropagation();
+    setSearchParams({ ...searchParams, startDate: null, endDate: null });
+  }
+
   return (
     <SearchBarContainer>
       <SearchBarTitle>
@@ -64,6 +70,7 @@ export default function SearchBar({
 
         <SearchDateInput onClick={handleShowCalendar} $empty={startDate}>
           <IconCalendar />
+          <CleanCity onClick={e => cleanDates(e)} />
           {startDate ? dayFormater(startDate) : "Check in"}
           {" - "}
           {endDate ? dayFormater(endDate) : "Check out"}

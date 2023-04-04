@@ -8,11 +8,26 @@ const PURPLE3 = "#545776";
 export const SelectCityContainerStyled = styled.div`
   position: relative;
 
-  > svg {
+  > svg:nth-of-type(1) {
     position: absolute;
-    fill: ${({ $empty }) => ($empty ? PURPLE3 : "#7f7f7f")};
+    fill: ${({ $citySelected }) => ($citySelected ? PURPLE3 : "#7f7f7f")};
     top: 8px;
     left: 14px;
+  }
+
+  > svg:nth-of-type(2) {
+    position: absolute;
+    display: ${({ $emptyInput }) => ($emptyInput ? "block" : "none")};
+    fill: #b2b2b2;
+    top: 8px;
+    right: 10px;
+    font-size: 24px;
+    cursor:pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      fill: #8e8e8e;
+    }
   }
 
   @media (min-width: 768px) {
@@ -28,6 +43,7 @@ export const SelectCity = styled.input`
   color: ${PURPLE3};
   height: 38px;
   padding-left: 38px;
+  padding: 0 40px 0 38px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   border: none;

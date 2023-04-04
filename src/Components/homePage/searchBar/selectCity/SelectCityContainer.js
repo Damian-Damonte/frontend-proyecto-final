@@ -9,6 +9,8 @@ import {
 } from "./styledSelectCity";
 import SelectCityOption from "./SelectCityOption";
 import useFetch from "../../../../hooks/useFetch";
+import { BsFillXCircleFill as  CleanCity} from "react-icons/bs";
+
 
 export default function SelectCityContainer({
   handleShowCity,
@@ -48,13 +50,20 @@ export default function SelectCityContainer({
     }
   }, [citySearchText, citys]);
 
+  const cleanCity = () => {
+    setCitySearchText("");
+    setSearchParams({ ...searchParams, city: null });
+  };
+
   return (
     <SelectCityContainerStyled
       onFocus={handleShowCity}
       onBlur={handleShowCity}
-      $empty={searchParams.city}
+      $citySelected={searchParams.city}
+      $emptyInput={citySearchText}
     >
       <IconLocation />
+      <CleanCity onClick={cleanCity}/>
       <SelectCity
         placeholder="¿A dónde vamos?"
         value={citySearchText}

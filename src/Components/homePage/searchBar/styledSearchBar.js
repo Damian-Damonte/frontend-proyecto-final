@@ -63,8 +63,26 @@ export const SearchDateInput = styled.div`
   font-weight: 500;
   background-color: #fff;
   cursor: pointer;
-  fill: ${({ $empty }) => $empty ? PURPLE3 : "#7f7f7f"};
-  color: ${({ $empty }) => $empty ? PURPLE3 : "#7f7f7f"};
+  color: ${({ $empty }) => ($empty ? PURPLE3 : "#7f7f7f")};
+
+  svg:nth-of-type(1) {
+    fill: ${({ $empty }) => ($empty ? PURPLE3 : "#7f7f7f")};
+  }
+
+  svg:nth-of-type(2) {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    fill: #b2b2b2;
+    font-size: 24px;
+    cursor:pointer;
+    transition: all 0.2s ease;
+    display: ${({ $empty }) => ($empty ? "block" : "none")};
+
+    &:hover {
+      fill: #8e8e8e;
+    }
+  }
 
   @media (min-width: 768px) {
     width: 40%;
@@ -97,4 +115,3 @@ export const BtnSearch = styled.button`
 export const IconCalendar = styled(Icon_Calendar)`
   margin-right: 6px;
 `;
-
