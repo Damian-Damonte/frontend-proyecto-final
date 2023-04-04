@@ -90,7 +90,6 @@ export const NoBookingsContainer = styled.div`
     color: ${PRIMARY_COLOR};
     font-size: 20px;
     font-weight: 700;
-    /* margin-top: 10px; */
     text-align: center;
   }
 
@@ -130,10 +129,13 @@ export const BookingCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 450px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 
   > div:last-child {
     border-radius: 0px 0px 10px 10px;
     height: calc(100% - 40px);
+    box-shadow: none;
   }
 
   @media (max-width: 415px) {
