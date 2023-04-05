@@ -4,19 +4,33 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+export const WidthLimitContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  /* left: 0; */
+  z-index: 10;
+  background-color: #1dbeb4;
+`;
+
 export const FooterStyled = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #1dbeb4;
   padding: 1rem;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   z-index: 10;
   height: 50px;
   width: 100%;
   size: 14px;
   color: white;
+  width: 100%;
+  max-width: 1800px;
 `;
 export const FooterTextContainer = styled.div`
   display: flex;
@@ -24,12 +38,12 @@ export const FooterTextContainer = styled.div`
 `;
 export const FooterIconContainer = styled.div`
   display: flex;
-  justify-content:right;
+  justify-content: right;
   gap: 30px;
   margin-right: 1rem;
   font-weight: 300;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
   text-align: left;
   margin-left: 19px;

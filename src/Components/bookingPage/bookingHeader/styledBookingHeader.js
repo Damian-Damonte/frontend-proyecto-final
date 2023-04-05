@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const ProductNameHeader = styled.div`
@@ -13,6 +12,8 @@ export const ProductNameHeader = styled.div`
   font-weight: 700;
   color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 1800px;
 
   p {
     font-size: 14px;

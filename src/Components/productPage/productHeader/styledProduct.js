@@ -4,6 +4,12 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+export const WidthLimitContainer = styled.div`
+  background-color: #fff;
+  display: flex;
+  justify-content:center;
+`
+
 export const ErrorMessageContainer = styled.div`
   margin: 100px auto;
   display: flex;
@@ -32,6 +38,8 @@ export const ProductNameHeader = styled.div`
   font-weight: 700;
   color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  max-width:1800px;
+  width: 100%;
 
   p {
     font-size: 14px;
@@ -67,6 +75,8 @@ export const ProductLocationRatingHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  max-width:1800px;
+  width: 100%;
 
   @media (max-width: 320px) {
     flex-direction: column;
@@ -162,16 +172,14 @@ export const BtnShareFavContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
+  max-width:1800px;
+  width: 100%;
 
   svg {
     fill: ${PURPLE3};
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
-  /* svg:hover {
-    fill: ${PRIMARY_COLOR};
-  } */
 
   @media (min-width: 768px) {
     display: flex;

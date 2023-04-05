@@ -7,13 +7,18 @@ const PURPLE3 = "#545776";
 export const ProductPoliciesStyled = styled.div`
   background-color: #fff;
   padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
-    border-bottom: 1px solid ${PRIMARY_COLOR};
+    /* border-bottom: 1px solid ${PRIMARY_COLOR}; */
     padding: 25px 10px 10px 10px;
+    max-width: 1800px;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
@@ -29,11 +34,19 @@ export const ProductPoliciesStyled = styled.div`
   }
 `;
 
+export const LineaDivisoria = styled.div`
+  width: 100%;
+  background-color: ${PRIMARY_COLOR};
+  height: 1px;
+`;
+
 export const PoliciesContainer = styled.div`
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  max-width: 1800px;
+  width: 100%;
 
   h4 {
     color: ${PURPLE3};

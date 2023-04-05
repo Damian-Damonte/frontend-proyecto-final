@@ -8,12 +8,18 @@ export const ProductLocationStyled = styled.div`
   background-color: #fff;
   margin-top: 30px;
   padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
-    border-bottom: 1px solid ${PRIMARY_COLOR};
+    /* border-bottom: 1px solid ${PRIMARY_COLOR}; */
     padding: 20px 10px 10px;
+    max-width: 1800px;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
@@ -29,10 +35,18 @@ export const ProductLocationStyled = styled.div`
   }
 `;
 
+export const LineaDivisoria = styled.div`
+  width: 100%;
+  background-color: ${PRIMARY_COLOR};
+  height: 1px;
+`;
+
 export const MapSection = styled.div`
   padding: 10px 10px;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
+  max-width: 1800px;
+  width: 100%;
 
   p {
     font-weight: 500;

@@ -4,16 +4,27 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
-export const DropDownStyled = styled.div`
+export const MaxWidthContainer = styled.div`
   display: none;
   position: fixed;
+  justify-content: center;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: ${({ $showDropDown }) => ($showDropDown ? "auto" : "none")};
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
+`
+
+export const DropDownStyled = styled.div`
+  width: 100%;
+  max-width:1800px;
   transition: 0.3s all ease;
-  /* background-color: ${({ $showDrawer }) =>
-    $showDrawer ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0.0)"}; */
+  position: relative;
   pointer-events: ${({ $showDropDown }) => ($showDropDown ? "auto" : "none")};
 
   @media (min-width: 768px) {

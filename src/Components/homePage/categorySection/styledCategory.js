@@ -4,12 +4,20 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+export const WidthLimitContainer = styled.div`
+  background-color: #fff;
+  display: flex;
+  justify-content:center;
+`
+
 export const CategoryContainerStyled = styled.section`
   padding: 20px 10px 30px;
   display: flex;
   flex-direction: column;
   background-color: #fff;
   min-height: 300px;
+  width: 100%;
+  max-width: 1800px;
 
   h2 {
     font-size: 24px;

@@ -10,6 +10,8 @@ export const GalleryDesktopContainer = styled.div`
   background-color: #fff;
   gap: 10px;
   position: relative;
+  max-width: 1800px;
+  width: 100%;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 180px 180px;
@@ -151,7 +153,7 @@ export const GalleryDesktopStyled = styled.div`
   left: 0;
   background-color: rgba(84, 87, 118, 0.95);
   padding: 0 30px;
-  z-index: 1;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,5 +205,31 @@ export const GalleryDesktopStyled = styled.div`
   && .image-gallery-thumbnail.active {
     border: 4px solid ${PRIMARY_COLOR};
   }
-`;
 
+  @media (min-width: 1500px) {
+    && .image-gallery-slide img {
+      height: 380px;
+      width: 1000px;
+      object-fit: cover;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    && .image-gallery-slide img {
+      height: 380px;
+      width: 1200px;
+      object-fit: cover;
+    }
+
+    && .image-gallery-thumbnail-image {
+      height: 80px;
+      object-fit: cover;
+      width: 140px;
+      cursor: pointer;
+    }
+
+    && .image-gallery-thumbnail {
+      width: 150px;
+    }
+  }
+`;

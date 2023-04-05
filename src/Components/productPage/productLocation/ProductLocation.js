@@ -1,5 +1,5 @@
 import React from "react";
-import { MapSection, ProductLocationStyled } from "./styledProductLocation";
+import { LineaDivisoria, MapSection, ProductLocationStyled } from "./styledProductLocation";
 import LeafletMap from "./leafletMap/LeafletMap";
 
 export default function ProductLocation({ coordinates, city }) {
@@ -14,6 +14,7 @@ export default function ProductLocation({ coordinates, city }) {
   return (
     <ProductLocationStyled>
       <h3>¿Dónde vas a estar?</h3>
+      <LineaDivisoria></LineaDivisoria>
       <MapSection>
         <p>{`${cityName}, ${countryName}`}</p>
         <LeafletMap latitud={latitud} longitud={longitud} />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GalleryDesktop from "./GalleryDesktop";
 import { GalleryDesktopContainer } from "./styledGalleryDesktop";
+import { MaxWidthContainer } from "../../../common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function ProductGalleryDesktop({ images }) {
   const [showGallery, setShowGallery] = useState(false);
@@ -21,18 +22,20 @@ export default function ProductGalleryDesktop({ images }) {
   return (
     <>
       {images && (
-        <GalleryDesktopContainer $countImg={imgGrid.length}>
-              {imgGrid.map((img) => (
-                <img src={img.url} key={img.id} alt={img.titulo} />
-              ))}
+        <MaxWidthContainer $bgcolor="#fff">
+          <GalleryDesktopContainer $countImg={imgGrid.length}>
+            {imgGrid.map((img) => (
+              <img src={img.url} key={img.id} alt={img.titulo} />
+            ))}
 
-              <p onClick={handleShowGallery}>Ver más</p>
-              <GalleryDesktop
-                galleryItems={galleryItems}
-                handleShowGallery={handleShowGallery}
-                showGallery={showGallery}
-              />
-        </GalleryDesktopContainer>
+            <p onClick={handleShowGallery}>Ver más</p>
+            <GalleryDesktop
+              galleryItems={galleryItems}
+              handleShowGallery={handleShowGallery}
+              showGallery={showGallery}
+            />
+          </GalleryDesktopContainer>
+        </MaxWidthContainer>
       )}
     </>
   );

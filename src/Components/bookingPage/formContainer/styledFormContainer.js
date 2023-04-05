@@ -8,6 +8,8 @@ export const FormBookingContainerStyled = styled.div`
   align-items: center;
   padding: 10px;
   margin-top: 10px;
+  width: 100%;
+  max-width: 1800px;
 
   @media (min-width: 768px) {
     padding: 10px 20px;

@@ -4,15 +4,25 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
-export const HeaderStyled = styled.header`
-  height: 70px;
-  position: fixed;
+export const WidthLimitContainer = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
+  background-color: #ffffff;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
+`;
+
+export const HeaderStyled = styled.header`
+  height: 70px;
+  width: 100%;
+  max-width: 1800px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   padding: 0 10px;
   z-index: 100;
   background-color: #ffffff;
@@ -164,7 +174,6 @@ export const UserProfileContainerDesktop = styled.div`
   padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.2s ease;
-
 
   &:hover {
     background-color: #f2f2f2;

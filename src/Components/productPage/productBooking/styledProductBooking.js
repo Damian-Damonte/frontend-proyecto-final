@@ -5,6 +5,8 @@ const PURPLE2 = "#383B58";
 
 export const ProductBookingContainer = styled.div`
   padding: 25px 10px 10px 10px;
+  max-width: 1800px;
+  width: 100%;
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
@@ -83,9 +85,9 @@ export const BtnBookingContainer = styled.div`
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
       button {
-      max-width: none;
-      margin-top: 10px;
-    }
+        max-width: none;
+        margin-top: 10px;
+      }
     }
   }
 `;

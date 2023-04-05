@@ -7,7 +7,11 @@ import Drawer from "./drawer/Drawer";
 import { routes } from "../../../Routes";
 import { useLocation } from "react-router-dom";
 import HeaderOptionsDesk from "./HeaderOptionsDesk";
-import { HeaderStyled, LogoContainer } from "./styledHeader";
+import {
+  HeaderStyled,
+  LogoContainer,
+  WidthLimitContainer,
+} from "./styledHeader";
 import DropDown from "./dropDown/DropDown";
 
 export default function Header() {
@@ -38,7 +42,11 @@ export default function Header() {
   };
 
   const handleCerrarSesion = () => {
-    const authenticatePath = ["/mis-favoritos", "/mis-reservas", "/administracion"];
+    const authenticatePath = [
+      "/mis-favoritos",
+      "/mis-reservas",
+      "/administracion",
+    ];
     setShowDrawer(!showDrawer);
     localStorage.removeItem("userData");
     setUser({});
@@ -66,42 +74,44 @@ export default function Header() {
   };
 
   return (
-    <HeaderStyled>
-      <LogoContainer onClick={navigateHome}>
-        <Logo />
-        <span>Sentite como en tu hogar</span>
-      </LogoContainer>
-      <BtnMenu onClick={handleBtnDrawer} />
-      <Drawer
-        showDrawer={showDrawer}
-        handleBtnDrawer={handleBtnDrawer}
-        navigateSingin={navigateSingin}
-        navigateLogin={navigateLogin}
-        urlPath={urlPath}
-        user={user}
-        setUser={setUser}
-        handleCerrarSesion={handleCerrarSesion}
-        isAdmin={user.rol === "ADMIN"}
-        toAdminPage={toAdminPage}
-        toFavoritos={toFavoritos}
-        toReservas={toReservas}
-      />
-      <HeaderOptionsDesk
-        navigateSingin={navigateSingin}
-        navigateLogin={navigateLogin}
-        user={user}
-        urlPath={urlPath}
-        isAdmin={user.rol === "ADMIN"}
-        toAdminPage={toAdminPage}
-        handleShowDropDown={handleShowDropDown}
-      />
-      <DropDown
-        showDropDown={showDropDown}
-        handleShowDropDown={handleShowDropDown}
-        handleCerrarSesion={handleCerrarSesion}
-        toFavoritos={toFavoritos}
-        toReservas={toReservas}
-      />
-    </HeaderStyled>
+    <WidthLimitContainer>
+      <HeaderStyled>
+        <LogoContainer onClick={navigateHome}>
+          <Logo />
+          <span>Sentite como en tu hogar</span>
+        </LogoContainer>
+        <BtnMenu onClick={handleBtnDrawer} />
+        <Drawer
+          showDrawer={showDrawer}
+          handleBtnDrawer={handleBtnDrawer}
+          navigateSingin={navigateSingin}
+          navigateLogin={navigateLogin}
+          urlPath={urlPath}
+          user={user}
+          setUser={setUser}
+          handleCerrarSesion={handleCerrarSesion}
+          isAdmin={user.rol === "ADMIN"}
+          toAdminPage={toAdminPage}
+          toFavoritos={toFavoritos}
+          toReservas={toReservas}
+        />
+        <HeaderOptionsDesk
+          navigateSingin={navigateSingin}
+          navigateLogin={navigateLogin}
+          user={user}
+          urlPath={urlPath}
+          isAdmin={user.rol === "ADMIN"}
+          toAdminPage={toAdminPage}
+          handleShowDropDown={handleShowDropDown}
+        />
+        <DropDown
+          showDropDown={showDropDown}
+          handleShowDropDown={handleShowDropDown}
+          handleCerrarSesion={handleCerrarSesion}
+          toFavoritos={toFavoritos}
+          toReservas={toReservas}
+        />
+      </HeaderStyled>
+    </WidthLimitContainer>
   );
 }

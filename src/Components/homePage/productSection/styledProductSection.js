@@ -4,6 +4,11 @@ const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
+export const WidthLimitContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 export const ProductContainerStyled = styled.div`
   padding: 10px 10px 30px;
   background-color: ${PURPLE2};
@@ -12,6 +17,8 @@ export const ProductContainerStyled = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 400px;
+  width: 100%;
+  max-width: 1800px;
 
   h4 {
     font-size: 22px;
@@ -104,7 +111,7 @@ export const ProductImgContainer = styled.div`
     position: absolute;
     top: 0px;
     right: 0px;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     width: 35px;
     height: 35px;
     display: flex;
@@ -114,8 +121,9 @@ export const ProductImgContainer = styled.div`
   }
 
   svg {
-    fill: ${({ $isFav }) => $isFav ? "#fff" : "#fff"};
-    cursor: ${({ $loadingContext }) => $loadingContext ? "not-allowed" : "pointer"};
+    fill: ${({ $isFav }) => ($isFav ? "#fff" : "#fff")};
+    cursor: ${({ $loadingContext }) =>
+      $loadingContext ? "not-allowed" : "pointer"};
     transition: all 0.3s ease;
   }
 

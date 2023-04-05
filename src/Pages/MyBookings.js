@@ -17,6 +17,7 @@ import ProductCard from "../Components/homePage/productSection/ProductCard";
 import { apiDateToUserDate } from "../utils/dateFormater";
 import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ReactComponent as Back } from "../img/icon-product-back.svg";
+import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function MyBookings() {
   const [bookingsState, setBookingsState] = useState({});
@@ -39,49 +40,55 @@ export default function MyBookings() {
 
   return (
     <>
-      <MyBookingsHeader>
-        <div>
-          <h3>Mis reservas</h3>
-        </div>
-        <Back onClick={goBack} />
-      </MyBookingsHeader>
+      <MaxWidthContainer $bgcolor={"#545776"}>
+        <MyBookingsHeader>
+          <div>
+            <h3>Mis reservas</h3>
+          </div>
+          <Back onClick={goBack} />
+        </MyBookingsHeader>
+      </MaxWidthContainer>
       {bookingsState.loading && <LoaderCircles height="400px" />}
 
       {bookingsState.bookings && (
         <>
-          <MyBookingsStyled>
-            {bookingsState.bookings.length === 0 ? (
-              <NoBookings>
-                <NoBookingsContainer>
-                  <EmptyBookings />
-                  <h4>Aún no has realizado ninguna reserva</h4>
-                  <p>
-                    Para realizar una reserva debes dirigirte al detalle del
-                    alojamiento, dar clic en el botón Iniciar reserva y
-                    completar el formulario
-                  </p>
-                  <button onClick={goBack}>Volver</button>
-                </NoBookingsContainer>
-              </NoBookings>
-            ) : (
-              <ProductCardContainer>
-                {bookingsState.bookings?.map((booking) => (
-                  <BookingCardContainer key={booking.id}>
-                    <DatesContainer>
-                      <p>{`Check-in: ${apiDateToUserDate(booking.checkIn)}`}</p>
-                      <p>{`Check-out: ${apiDateToUserDate(
-                        booking.checkOut
-                      )}`}</p>
-                    </DatesContainer>
-                    <ProductCard
-                      product={booking.producto}
-                      isFav={isProductFav(booking.producto.id)}
-                    />
-                  </BookingCardContainer>
-                ))}
-              </ProductCardContainer>
-            )}
-          </MyBookingsStyled>
+          <MaxWidthContainer>
+            <MyBookingsStyled>
+              {bookingsState.bookings.length === 0 ? (
+                <NoBookings>
+                  <NoBookingsContainer>
+                    <EmptyBookings />
+                    <h4>Aún no has realizado ninguna reserva</h4>
+                    <p>
+                      Para realizar una reserva debes dirigirte al detalle del
+                      alojamiento, dar clic en el botón Iniciar reserva y
+                      completar el formulario
+                    </p>
+                    <button onClick={goBack}>Volver</button>
+                  </NoBookingsContainer>
+                </NoBookings>
+              ) : (
+                <ProductCardContainer>
+                  {bookingsState.bookings?.map((booking) => (
+                    <BookingCardContainer key={booking.id}>
+                      <DatesContainer>
+                        <p>{`Check-in: ${apiDateToUserDate(
+                          booking.checkIn
+                        )}`}</p>
+                        <p>{`Check-out: ${apiDateToUserDate(
+                          booking.checkOut
+                        )}`}</p>
+                      </DatesContainer>
+                      <ProductCard
+                        product={booking.producto}
+                        isFav={isProductFav(booking.producto.id)}
+                      />
+                    </BookingCardContainer>
+                  ))}
+                </ProductCardContainer>
+              )}
+            </MyBookingsStyled>
+          </MaxWidthContainer>
         </>
       )}
 

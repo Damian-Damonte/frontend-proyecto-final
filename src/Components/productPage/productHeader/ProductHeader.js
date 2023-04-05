@@ -17,6 +17,7 @@ import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 import { ReactComponent as FavFull } from "../../../img/icon-fav-full.svg";
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 import { LoaderClassicStyled } from "../../common/loaderClassic/styledLoaderClassic";
+import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function ProductHeader({
   handleFav,
@@ -34,54 +35,60 @@ export default function ProductHeader({
 
   return (
     <div>
-      <ProductNameHeader>
-        <div>
-          <p>{categoria.titulo.toUpperCase()}</p>
-          <h3>{titulo}</h3>
-        </div>
-        <Back onClick={goBack} />
-      </ProductNameHeader>
+      <MaxWidthContainer $bgcolor="#545776">
+        <ProductNameHeader>
+          <div>
+            <p>{categoria.titulo.toUpperCase()}</p>
+            <h3>{titulo}</h3>
+          </div>
+          <Back onClick={goBack} />
+        </ProductNameHeader>
+      </MaxWidthContainer>
 
-      <ProductLocationRatingHeader>
-        <LocationContainer>
-          <IconContainer>
-            <Location />
-          </IconContainer>
-          <TextLocationContainer>
-            <p>{`${ciudad.nombre}, ${ciudad.pais.nombre}`}</p>
-            <p>{direccion}</p>
-          </TextLocationContainer>
-        </LocationContainer>
-        <RatingContainer>
-          <OpinionStarsContainer>
-            <p>{getRaitingScale(promedioPuntuacion)}</p>
-            <div>
-              <StarFull />
-              <StarFull />
-              <StarFull />
-              <StarFull />
-              <StarFull />
-            </div>
-          </OpinionStarsContainer>
-          <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
-        </RatingContainer>
-      </ProductLocationRatingHeader>
+      <MaxWidthContainer>
+        <ProductLocationRatingHeader>
+          <LocationContainer>
+            <IconContainer>
+              <Location />
+            </IconContainer>
+            <TextLocationContainer>
+              <p>{`${ciudad.nombre}, ${ciudad.pais.nombre}`}</p>
+              <p>{direccion}</p>
+            </TextLocationContainer>
+          </LocationContainer>
+          <RatingContainer>
+            <OpinionStarsContainer>
+              <p>{getRaitingScale(promedioPuntuacion)}</p>
+              <div>
+                <StarFull />
+                <StarFull />
+                <StarFull />
+                <StarFull />
+                <StarFull />
+              </div>
+            </OpinionStarsContainer>
+            <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
+          </RatingContainer>
+        </ProductLocationRatingHeader>
+      </MaxWidthContainer>
 
-      <BtnShareFavContainer>
-        <Share onClick={handleShare} />
-        {loadingCard ? (
-          <LoaderClassicStyled
-            $size="20px"
-            $loaderColor="#fff"
-            $bgcColor="#383B58"
-            $borderWidth="2px"
-          />
-        ) : isFav ? (
-          <FavFull onClick={() => handleFav(product)} />
-        ) : (
-          <Fav onClick={() => handleFav(product)} />
-        )}
-      </BtnShareFavContainer>
+      <MaxWidthContainer $bgcolor="#fff">
+        <BtnShareFavContainer >
+          <Share onClick={handleShare} />
+          {loadingCard ? (
+            <LoaderClassicStyled
+              $size="20px"
+              $loaderColor="#fff"
+              $bgcColor="#383B58"
+              $borderWidth="2px"
+            />
+          ) : isFav ? (
+            <FavFull onClick={() => handleFav(product)} />
+          ) : (
+            <Fav onClick={() => handleFav(product)} />
+          )}
+        </BtnShareFavContainer>
+      </MaxWidthContainer>
     </div>
   );
 }

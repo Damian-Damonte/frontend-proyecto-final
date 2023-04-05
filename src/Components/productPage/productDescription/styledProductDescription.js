@@ -7,6 +7,8 @@ const PURPLE3 = "#545776";
 export const ProductDescriptionContainer = styled.div`
   padding: 30px 10px 10px 10px;
   background-color: #fff;
+  max-width:1800px;
+  width: 100%;
 
   h3 {
     color: ${PURPLE2};

@@ -10,6 +10,8 @@ export const ProductNameHeader = styled.div`
   align-items: center;
   background-color: ${PURPLE3};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 1800px;
 
   h3 {
     font-size: 24px;
@@ -34,6 +36,6 @@ export const ProductNameHeader = styled.div`
     box-shadow: none;
   }
   @media (min-width: 1024px) {
-    padding: 15px 30px;
+    padding: 15px 40px;
   }
 `;

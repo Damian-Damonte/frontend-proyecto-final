@@ -1,12 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  ProductNameHeader,
-} from "./styledAdminHeader";
+import { ProductNameHeader } from "./styledAdminHeader";
 import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
+import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function AdminHeader() {
-
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -15,12 +13,14 @@ export default function AdminHeader() {
 
   return (
     <div>
-      <ProductNameHeader>
-        <div>
-          <h3>Administración</h3>
-        </div>
-        <Back onClick={goBack} />
-      </ProductNameHeader>
+      <MaxWidthContainer $bgcolor="#545776">
+        <ProductNameHeader>
+          <div>
+            <h3>Administración</h3>
+          </div>
+          <Back onClick={goBack} />
+        </ProductNameHeader>
+      </MaxWidthContainer>
     </div>
   );
 }

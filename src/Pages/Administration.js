@@ -16,6 +16,7 @@ import {
   SubmitContainer,
 } from "../Components/adminPage/formContainer/styledFormContainer";
 import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
+import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
 
 const productInitialForm = {
   nombre: "",
@@ -121,41 +122,43 @@ export default function Administration() {
       {!productState.product && (
         <div>
           <AdminHeader />
-          <AdminMainContainer>
-            <FormContainer>
-              <GeneralInfo {...childProps} />
-              <Coordinates {...childProps} />
-              <CaracteristicsContainer {...childProps} />
-              <Policies {...childProps} />
-              <ImagesContainer
-                errors={errors}
-                images={images}
-                setImages={setImages}
-              />
+          <MaxWidthContainer>
+            <AdminMainContainer>
+              <FormContainer>
+                <GeneralInfo {...childProps} />
+                <Coordinates {...childProps} />
+                <CaracteristicsContainer {...childProps} />
+                <Policies {...childProps} />
+                <ImagesContainer
+                  errors={errors}
+                  images={images}
+                  setImages={setImages}
+                />
 
-              <SubmitContainer
-                $error={Object.keys(errors).length || productState.error}
-              >
-                <p>
-                  {Object.keys(errors).length
-                    ? "Complete los campos obligatorios"
-                    : "Lamentablemente, el producto no ha podido crearse. Por favor, intente más tarde"}
-                </p>
-                <BtnSubmit onClick={handleSubmit}>
-                  {productState.loading ? (
-                    <LoaderClassicStyled
-                      $size="25px"
-                      $loaderColor="#fff"
-                      $bgcColor="#383B58"
-                      $borderWidth="3px"
-                    />
-                  ) : (
-                    "Crear"
-                  )}
-                </BtnSubmit>
-              </SubmitContainer>
-            </FormContainer>
-          </AdminMainContainer>
+                <SubmitContainer
+                  $error={Object.keys(errors).length || productState.error}
+                >
+                  <p>
+                    {Object.keys(errors).length
+                      ? "Complete los campos obligatorios"
+                      : "Lamentablemente, el producto no ha podido crearse. Por favor, intente más tarde"}
+                  </p>
+                  <BtnSubmit onClick={handleSubmit}>
+                    {productState.loading ? (
+                      <LoaderClassicStyled
+                        $size="25px"
+                        $loaderColor="#fff"
+                        $bgcColor="#383B58"
+                        $borderWidth="3px"
+                      />
+                    ) : (
+                      "Crear"
+                    )}
+                  </BtnSubmit>
+                </SubmitContainer>
+              </FormContainer>
+            </AdminMainContainer>
+          </MaxWidthContainer>
         </div>
       )}
     </>

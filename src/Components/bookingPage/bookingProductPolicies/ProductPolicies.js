@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  LineaDivisoria,
   PoliciesContainer,
   ProductPoliciesStyled,
 } from "./styledProductPolicies";
@@ -22,6 +23,7 @@ export default function BookingProductPolicies({ policies }) {
   return (
     <ProductPoliciesStyled>
       <h3>Qué tenés que saber</h3>
+      <LineaDivisoria></LineaDivisoria>
 
       <PoliciesContainer>
         {Object.keys(policiesByType).map((type) => (
