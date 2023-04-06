@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const ProductCaracteristicsStyled = styled.div`
   background-color: #fff;
@@ -10,13 +9,12 @@ export const ProductCaracteristicsStyled = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* max-width:1800px;
-  width: 100%; */
+  
+
   h3 {
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
-    /* border-bottom: 1px solid ${PRIMARY_COLOR}; */
     padding: 10px 0 10px 10px;
     max-width: 1800px;
     width: 100%;

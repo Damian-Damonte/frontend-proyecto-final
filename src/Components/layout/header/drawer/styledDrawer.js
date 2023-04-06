@@ -74,7 +74,6 @@ export const BottomSectionDrawerOptions = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* gap: 20px; */
   font-size: 16px;
   font-weight: 700;
 
@@ -90,14 +89,7 @@ export const BottomSectionDrawerOptions = styled.div`
       background-color: #f2f2f2;
     }
   }
-
-  /* div {
-    width: 100%;
-    height: 1px;
-    background-color: #545776;
-  } */
 `;
-
 
 export const CloseSissionAndSocial = styled.div`
   display: flex;

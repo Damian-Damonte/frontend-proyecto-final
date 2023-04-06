@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const WidthLimitContainer = styled.div`
   display: flex;
@@ -145,7 +144,6 @@ export const ProductCardDescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
 
   @media (min-width: 768px) {
     width: 50%;

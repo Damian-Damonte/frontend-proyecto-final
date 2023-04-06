@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const WidthLimitContainer = styled.div`
@@ -11,7 +9,6 @@ export const WidthLimitContainer = styled.div`
   background-color: #ffffff;
   position: fixed;
   bottom: 0;
-  /* left: 0; */
   z-index: 10;
   background-color: #1dbeb4;
 `;
@@ -22,8 +19,6 @@ export const FooterStyled = styled.footer`
   justify-content: space-between;
   background-color: #1dbeb4;
   padding: 1rem;
-  /* position: fixed;
-  bottom: 0; */
   z-index: 10;
   height: 50px;
   width: 100%;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const MaxWidthContainer = styled.div`
@@ -17,12 +16,11 @@ export const MaxWidthContainer = styled.div`
   @media (min-width: 768px) {
     display: flex;
   }
-
-`
+`;
 
 export const DropDownStyled = styled.div`
   width: 100%;
-  max-width:1800px;
+  max-width: 1800px;
   transition: 0.3s all ease;
   position: relative;
   pointer-events: ${({ $showDropDown }) => ($showDropDown ? "auto" : "none")};
@@ -45,11 +43,10 @@ export const DropDownContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
-  
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   div:nth-of-type(3) {
-    border-bottom:none;
+    border-bottom: none;
   }
 `;
 
@@ -66,7 +63,7 @@ export const DropDownOption = styled.div`
 
   svg {
     fill: ${PRIMARY_COLOR};
-    font-size:25px;
+    font-size: 25px;
   }
 
   p {
