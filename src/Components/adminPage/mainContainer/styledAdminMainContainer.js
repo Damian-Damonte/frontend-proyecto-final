@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 export const AdminMainContainerStyled = styled.div`
   padding: 0 0 50px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
   > h3 {
     font-weight: 700;
     font-size: 24px;

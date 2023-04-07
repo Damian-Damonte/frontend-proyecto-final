@@ -25,7 +25,7 @@ export const FooterStyled = styled.footer`
   size: 14px;
   color: white;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 `;
 export const FooterTextContainer = styled.div`
   display: flex;

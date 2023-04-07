@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 
 export const ProductBookingContainer = styled.div`
   padding: 25px 10px 10px 10px;
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
   h3 {
     color: ${PURPLE2};

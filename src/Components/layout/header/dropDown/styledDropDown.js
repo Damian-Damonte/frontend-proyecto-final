@@ -20,7 +20,7 @@ export const MaxWidthContainer = styled.div`
 
 export const DropDownStyled = styled.div`
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
   transition: 0.3s all ease;
   position: relative;
   pointer-events: ${({ $showDropDown }) => ($showDropDown ? "auto" : "none")};
@@ -35,7 +35,7 @@ export const DropDownContainer = styled.div`
   width: 250px;
   position: absolute;
   top: 80px;
-  right: 30px;
+  right: 20px;
   transition: 0.3s all ease-out;
   height: ${({ $showDropDown }) => ($showDropDown ? "190px" : "0px")};
   padding: ${({ $showDropDown }) => ($showDropDown ? "10px" : "0px")};
@@ -47,6 +47,10 @@ export const DropDownContainer = styled.div`
 
   div:nth-of-type(3) {
     border-bottom: none;
+  }
+
+  @media (min-width: 1200px) {
+    right: 38px;
   }
 `;
 

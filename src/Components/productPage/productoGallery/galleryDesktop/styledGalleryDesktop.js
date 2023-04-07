@@ -8,7 +8,7 @@ export const GalleryDesktopContainer = styled.div`
   background-color: #fff;
   gap: 10px;
   position: relative;
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
 
   grid-template-columns: repeat(4, 1fr);

@@ -15,9 +15,8 @@ export const ProductPoliciesStyled = styled.div`
     color: ${PURPLE2};
     font-weight: 700;
     font-size: 24px;
-    /* border-bottom: 1px solid ${PRIMARY_COLOR}; */
     padding: 25px 10px 10px 10px;
-    max-width: 1800px;
+    max-width: 1200px;
     width: 100%;
   }
 
@@ -45,7 +44,7 @@ export const PoliciesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
 
   h4 {

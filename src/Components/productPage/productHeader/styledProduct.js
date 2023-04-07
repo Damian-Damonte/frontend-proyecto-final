@@ -7,8 +7,8 @@ const PURPLE3 = "#545776";
 export const WidthLimitContainer = styled.div`
   background-color: #fff;
   display: flex;
-  justify-content:center;
-`
+  justify-content: center;
+`;
 
 export const ErrorMessageContainer = styled.div`
   margin: 100px auto;
@@ -38,7 +38,7 @@ export const ProductNameHeader = styled.div`
   font-weight: 700;
   color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  max-width:1800px;
+  max-width: 1200px;
   width: 100%;
 
   p {
@@ -75,7 +75,7 @@ export const ProductLocationRatingHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  max-width:1800px;
+  max-width: 1200px;
   width: 100%;
 
   @media (max-width: 320px) {
@@ -172,7 +172,7 @@ export const BtnShareFavContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  max-width:1800px;
+  max-width: 1200px;
   width: 100%;
 
   svg {

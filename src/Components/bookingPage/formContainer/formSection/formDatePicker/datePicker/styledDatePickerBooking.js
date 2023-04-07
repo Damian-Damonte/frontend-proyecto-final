@@ -271,38 +271,15 @@ export const DatePickerBookingContainer = styled.div`
   @media (min-width: 1200px) {
     /* separar los calendarios entre sí */
     .react-datepicker__month-container {
-      margin: 10px 20px 0 20px;
+      margin: 10px 15px 0 15px;
     }
 
     .react-datepicker__navigation--next {
-      right: -45px;
+      right: -35px;
     }
 
     .react-datepicker__navigation--previous {
-      left: -45px;
-    }
-  }
-
-  @media (min-width: 1250px) {
-    .react-datepicker__navigation--next {
-      right: -50px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -50px;
-    }
-  }
-
-  @media (min-width: 1300px) {
-    .react-datepicker__month-container {
-      margin: 10px 30px 0 30px;
-    }
-    .react-datepicker__navigation--next {
-      right: -50px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -50px;
+      left: -35px;
     }
   }
 `;

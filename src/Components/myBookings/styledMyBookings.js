@@ -7,7 +7,7 @@ const PURPLE3 = "#545776";
 export const MyBookingsStyled = styled.div`
   padding: 20px 10px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   > h3 {
     font-weight: 700;
@@ -32,7 +32,7 @@ export const MyBookingsHeader = styled.div`
   background-color: ${PURPLE3};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   h3 {
     font-size: 24px;

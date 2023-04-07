@@ -56,7 +56,7 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    gap: 15px;
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 `;

@@ -16,7 +16,7 @@ export const ProductCaracteristicsStyled = styled.div`
     font-weight: 700;
     font-size: 24px;
     padding: 10px 0 10px 10px;
-    max-width: 1800px;
+    max-width: 1200px;
     width: 100%;
   }
 
@@ -45,7 +45,7 @@ export const CaracteristicsContainer = styled.div`
   grid-template-columns: 1fr;
   row-gap: 20px;
   column-gap: 10px;
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
 
   svg {

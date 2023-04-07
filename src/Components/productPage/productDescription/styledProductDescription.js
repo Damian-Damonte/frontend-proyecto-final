@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-const PRIMARY_COLOR = "#1DBEB4";
 const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const ProductDescriptionContainer = styled.div`
   padding: 30px 10px 10px 10px;
   background-color: #fff;
-  max-width:1800px;
+  max-width:1200px;
   width: 100%;
 
   h3 {

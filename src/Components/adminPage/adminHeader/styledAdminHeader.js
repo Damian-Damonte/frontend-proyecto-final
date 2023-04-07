@@ -11,7 +11,7 @@ export const ProductNameHeader = styled.div`
   background-color: ${PURPLE3};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   h3 {
     font-size: 24px;

@@ -16,7 +16,7 @@ export const ProductLocationStyled = styled.div`
     font-weight: 700;
     font-size: 24px;
     padding: 20px 10px 10px;
-    max-width: 1800px;
+    max-width: 1200px;
     width: 100%;
   }
 
@@ -43,7 +43,7 @@ export const MapSection = styled.div`
   padding: 10px 10px;
   display: flex;
   flex-direction: column;
-  max-width: 1800px;
+  max-width: 1200px;
   width: 100%;
 
   p {

@@ -203,15 +203,14 @@ export const RatingContainer = styled.div`
 
 export const TitleContainer = styled.div`
   margin-top: 5px;
-  height: 44px;
+  /* height: 44px; */
   display: flex;
   align-items: center;
-  /* background-color: #aaa; */
+
   h3 {
     color: ${PURPLE2};
     font-size: 20px;
     line-height: 22px;
-    /* height: 44px; */
     padding-bottom: 2px;
 
     display: -webkit-box;
@@ -219,6 +218,10 @@ export const TitleContainer = styled.div`
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  @media (min-width: 1200px) {
+    height: 44px;
   }
 `;
 
@@ -279,7 +282,7 @@ export const IconContainer = styled.div`
 `;
 
 export const ProductCardCaracteristics = styled.div`
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
@@ -290,9 +293,9 @@ export const ProductCardCaracteristics = styled.div`
     font-size: 18px;
   }
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     display: flex;
-  }
+  } */
 `;
 
 export const ProductCardDescription = styled.div`
@@ -305,11 +308,11 @@ export const ProductCardDescription = styled.div`
 
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     overflow: hidden;
     text-overflow: ellipsis;
 
-    span {
+    /* span {
       color: ${PRIMARY_COLOR};
       cursor: pointer;
       transition: all 0.3s ease;
@@ -317,6 +320,13 @@ export const ProductCardDescription = styled.div`
       &:hover {
         color: #15a39a;
       }
+    } */
+  }
+
+  @media (min-width: 768px) {
+    p {
+    -webkit-line-clamp: 3;
+
     }
   }
 `;

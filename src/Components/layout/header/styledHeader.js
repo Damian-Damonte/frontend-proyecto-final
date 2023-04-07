@@ -18,7 +18,7 @@ export const WidthLimitContainer = styled.div`
 export const HeaderStyled = styled.header`
   height: 70px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;

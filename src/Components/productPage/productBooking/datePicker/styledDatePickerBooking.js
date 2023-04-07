@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
-const PURPLE3 = "#545776";
 
 export const DatePickerBookingContainer = styled.div`
   width: 100%;
@@ -147,14 +145,7 @@ export const DatePickerBookingContainer = styled.div`
       background-color: #a8a8a8a9;
       position: absolute;
       top: 5%;
-      /* left: 343px; */
       left: 50%;
-    }
-  }
-
-  @media (min-width: 900px) {
-    .react-datepicker__month-container {
-      margin: 10px 20px 0 20px;
     }
   }
 
@@ -171,18 +162,27 @@ export const DatePickerBookingContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    min-width: 850px;
-    width: 850px;
-    height: 387px;
+    min-width: 780px;
+    /* width: 850px; */
+    height: 359px;
     align-items: flex-start;
 
     .react-datepicker__month-container {
-      margin: 10px 25px 0 25px;
+      margin: 10px 20px 0 20px;
+    }
+
+    .react-datepicker__day {
+      margin: 8px;
+      font-size: 16px;
+    }
+
+    .react-datepicker__day-name {
+      margin: 8px;
     }
 
     /* cambiamos la posicion y color de las flechas para pasar de mes */
     .react-datepicker__navigation {
-      top: 45%;
+      top: 150px;
       background-color: ${PRIMARY_COLOR};
       border-radius: 50px;
       height: 40px;
@@ -209,21 +209,6 @@ export const DatePickerBookingContainer = styled.div`
       border-color: #fff;
       left: -5px;
       top: 8px;
-    }
-  }
-
-  @media (min-width: 1400px) {
-    width: 950px;
-
-    .react-datepicker__month-container {
-      margin: 10px 35px 0 35px;
-    }
-    .react-datepicker__navigation--next {
-      right: -25px;
-    }
-
-    .react-datepicker__navigation--previous {
-      left: -25px;
     }
   }
 `;

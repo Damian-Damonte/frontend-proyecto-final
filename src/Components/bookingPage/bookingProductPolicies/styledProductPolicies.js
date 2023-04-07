@@ -18,7 +18,7 @@ export const ProductPoliciesStyled = styled.div`
     font-size: 24px;
     padding: 25px 10px 10px 10px;
     width: 100%;
-    max-width: 1800px;
+    max-width: 1200px;
   }
 
   @media (min-width: 768px) {
@@ -46,7 +46,7 @@ export const PoliciesContainer = styled.div`
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   h4 {
     color: ${PURPLE3};
