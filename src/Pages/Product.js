@@ -14,7 +14,6 @@ import UserContext from "../context/user.context";
 import { useContext } from "react";
 import { useProductFav } from "../hooks/useProductFav";
 
-
 export default function Product() {
   const { id } = useParams();
   const { favs } = useContext(UserContext);
@@ -53,10 +52,16 @@ export default function Product() {
             loadingCard={loadingCard}
           />
           <ProductGalleryDesktop images={product.imagenes} />
-          <ProductDescription product={product} />
+          <ProductDescription
+            title={product.tituloDescripcion}
+            description={product.descripcion}
+          />
           <ProductCaracteristics caracteristics={product.caracteristicas} />
           <ProductBooking reservas={product.reservas} />
-          <ProductLocation coordinates={product.coordenadas} city={product.ciudad} />
+          <ProductLocation
+            coordinates={product.coordenadas}
+            city={product.ciudad}
+          />
           {product.politicas.length !== 0 && (
             <ProductPolicies policies={product.politicas} />
           )}

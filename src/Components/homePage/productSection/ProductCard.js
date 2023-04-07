@@ -27,9 +27,11 @@ import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 import { LoaderClassicStyled } from "../../common/loaderClassic/styledLoaderClassic";
 import { useProductFav } from "../../../hooks/useProductFav";
+import { HiOutlineEllipsisHorizontal as  Ellipsis} from "react-icons/hi2";
+
 
 export default function ProductCard({ product, isFav }) {
-  const [descriptionReduced, setDescriptionReduced] = useState("");
+  // const [descriptionReduced, setDescriptionReduced] = useState("");
   const { loadingCard, handleFav, loadingContext } = useProductFav();
   const navigate = useNavigate();
 
@@ -49,42 +51,55 @@ export default function ProductCard({ product, isFav }) {
     navigate(`/producto/${id}`);
   };
 
-  const descriptionReducer = () => {
-    if (window.innerWidth < 768) {
-      descripcion?.length > 200
-        ? setDescriptionReduced(
-            <p>
-              {" "}
-              {descripcion.substring(0, 200)}...{" "}
-              <span onClick={navigateProduct}>más...</span>{" "}
-            </p>
-          )
-        : setDescriptionReduced(<p>{descripcion}</p>);
-    } else {
-      descripcion?.length > 120
-        ? setDescriptionReduced(
-            <p>
-              {" "}
-              {descripcion.substring(0, 120)}...{" "}
-              <span onClick={navigateProduct}>más...</span>{" "}
-            </p>
-          )
-        : setDescriptionReduced(<p>{descripcion}</p>);
-    }
-  };
+  // const descriptionReducer = () => {
+  //   if (window.innerWidth < 768) {
+  //     descripcion?.length > 200
+  //       ? setDescriptionReduced(
+  //           <p>
+  //             {" "}
+  //             {descripcion.substring(0, 200)}...{" "}
+  //             <span onClick={navigateProduct}>más...</span>{" "}
+  //           </p>
+  //         )
+  //       : setDescriptionReduced(<p>{descripcion}</p>);
+  //   } else {
+  //     descripcion?.length > 120
+  //       ? setDescriptionReduced(
+  //           <p>
+  //             {" "}
+  //             {descripcion.substring(0, 120)}...{" "}
+  //             <span onClick={navigateProduct}>más...</span>{" "}
+  //           </p>
+  //         )
+  //       : setDescriptionReduced(<p>{descripcion}</p>);
+  //   }
+  // };
 
-  useEffect(() => {
-    descriptionReducer();
-    window.addEventListener("resize", descriptionReducer);
-    return () => {
-      window.removeEventListener("resize", descriptionReducer);
-    };
-  }, [descripcion]);
+  // useEffect(() => {
+  //   descriptionReducer();
+  //   window.addEventListener("resize", descriptionReducer);
+  //   return () => {
+  //     window.removeEventListener("resize", descriptionReducer);
+  //   };
+  // }, [descripcion]);
+
+  const getCaracteristics = () => {
+    const caracteristics = caracteristicas.map((caract) => (
+      <div key={caract.id}>{caracteristicIconMapper(caract.nombre)}</div>
+    ));
+
+    if (caracteristics.length > 9) {
+      caracteristics.pop();
+      caracteristics.push(<div><Ellipsis /></div>);
+    }
+
+    return caracteristics;
+  };
 
   const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
 
   return (
-    <ProductCardStyled >
+    <ProductCardStyled>
       <ProductImgContainer
         $imgUrl={imagenes[0].url}
         $isFav={isFav}
@@ -108,40 +123,44 @@ export default function ProductCard({ product, isFav }) {
 
       <ProductCardDescriptionContainer>
         <div>
+          <CategoryRatingContainer>
+            <CategoryStarsContainer>
+              <p>{tituloCat}</p>
+            </CategoryStarsContainer>
+            <RatingContainer>
+              <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
+              <p>{getRaitingScale(promedioPuntuacion)}</p>
+            </RatingContainer>
+          </CategoryRatingContainer>
 
-        <CategoryRatingContainer>
-          <CategoryStarsContainer>
-            <p>{tituloCat}</p>
-          </CategoryStarsContainer>
-          <RatingContainer>
-            <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
-            <p>{getRaitingScale(promedioPuntuacion)}</p>
-          </RatingContainer>
-        </CategoryRatingContainer>
+          <TitleContainer>
+            <h3>{titulo}</h3>
+          </TitleContainer>
 
-        <TitleContainer>
-          <h3>{titulo}</h3>
-        </TitleContainer>
+          <ProductCardLocationContainer>
+            <IconContainer>
+              <Location />
+            </IconContainer>
+            <DirectionContainer>
+              <p>{direccion}</p>
+              <a target="_blank" href={urlMap} rel="noopener noreferrer">
+                MOSTRAR EN EL MAPA
+              </a>
+            </DirectionContainer>
+          </ProductCardLocationContainer>
 
-        <ProductCardLocationContainer>
-          <IconContainer>
-            <Location />
-          </IconContainer>
-          <DirectionContainer>
-            <p>{direccion}</p>
-            <a target="_blank" href={urlMap} rel="noopener noreferrer">
-              MOSTRAR EN EL MAPA
-            </a>
-          </DirectionContainer>
-        </ProductCardLocationContainer>
+          <ProductCardCaracteristics>
+            {/* {caracteristicas.map((caract) => (
+              <div key={caract.id}>
+                {caracteristicIconMapper(caract.nombre)}
+              </div>
+            ))} */}
+            {getCaracteristics()}
+          </ProductCardCaracteristics>
 
-        <ProductCardCaracteristics>
-          {caracteristicas.map((caract) => (
-            <div key={caract.id}>{caracteristicIconMapper(caract.nombre)}</div>
-          ))}
-        </ProductCardCaracteristics>
-
-        <ProductCardDescription><p>{descripcion}</p></ProductCardDescription>
+          <ProductCardDescription>
+            <p>{descripcion}</p>
+          </ProductCardDescription>
         </div>
 
         <BtnDetails onClick={navigateProduct}>Ver detalles</BtnDetails>

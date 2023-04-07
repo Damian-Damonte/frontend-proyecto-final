@@ -5,16 +5,15 @@ import {
 } from "./styledProductDescription";
 import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
-export default function ProductDescription({ product }) {
-  const { tituloDescripcion, descripcion } = product;
-  const descriptionParagraphs = descripcion && descripcion.split("\n");
+export default function ProductDescription({ title, description }) {
+  const descriptionParagraphs = description && description.split("\n");
   return (
     <MaxWidthContainer $bgcolor="#fff">
       <ProductDescriptionContainer>
-        {tituloDescripcion && <h3>{tituloDescripcion}</h3>}
+        {title && <h3>{title}</h3>}
 
         <ParagraphsContainer>
-          {descripcion &&
+          {description &&
             descriptionParagraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
