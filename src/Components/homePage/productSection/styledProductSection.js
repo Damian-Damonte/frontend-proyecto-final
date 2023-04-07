@@ -6,6 +6,7 @@ const PURPLE2 = "#383B58";
 export const WidthLimitContainer = styled.div`
   display: flex;
   justify-content: center;
+  background-color: #eeeeee;
 `;
 
 export const ProductContainerStyled = styled.div`
@@ -17,7 +18,7 @@ export const ProductContainerStyled = styled.div`
   justify-content: center;
   min-height: 400px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   h4 {
     font-size: 22px;
@@ -60,6 +61,7 @@ export const ProductCardContainer = styled.div`
 
   @media (min-width: 1200px) {
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
   }
 `;
 
@@ -150,45 +152,33 @@ export const ProductCardDescriptionContainer = styled.div`
   }
 `;
 
-export const ProductCardTitleRatingContainer = styled.div`
+export const CategoryRatingContainer = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-`;
-
-export const CardTitleStars = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 70px);
-  margin-right: 5px;
-  h3 {
-    color: ${PURPLE2};
-    font-size: 24px;
-  }
 `;
 
 export const CategoryStarsContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap-reverse;
+  width: calc(100% - 105px);
+  flex-direction: column;
+  flex-wrap: wrap;
 
   p {
     font-weight: 500;
     color: rgba(56, 59, 88, 0.6);
     font-size: 14px;
-    margin-right: 10px;
   }
 `;
 
-export const StarsContainer = styled.div``;
-
-export const CardRating = styled.div`
+export const RatingContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: flex-end;
   justify-content: center;
-  width: 70px;
+  align-items: center;
+  gap: 10px;
+  /* width: 70px; */
 
   p:first-child {
     background-color: ${PURPLE2};
@@ -211,11 +201,32 @@ export const CardRating = styled.div`
   }
 `;
 
+export const TitleContainer = styled.div`
+  margin-top: 5px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  /* background-color: #aaa; */
+  h3 {
+    color: ${PURPLE2};
+    font-size: 20px;
+    line-height: 22px;
+    /* height: 44px; */
+    padding-bottom: 2px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;
+
 export const ProductCardLocationContainer = styled.div`
   display: flex;
   align-items: center;
   font-weight: 500;
-  margin-top: 15px;
+  margin-top: 10px;
   gap: 5px;
 
   p {
@@ -236,6 +247,28 @@ export const ProductCardLocationContainer = styled.div`
   }
 `;
 
+export const DirectionContainer = styled.div`
+  > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  > a {
+    color: ${PRIMARY_COLOR};
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: #15a39a;
+    }
+  }
+`;
+
 export const IconContainer = styled.div`
   width: 10px;
   svg {
@@ -250,7 +283,7 @@ export const ProductCardCaracteristics = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 
   svg {
     fill: ${PURPLE2};
@@ -270,6 +303,12 @@ export const ProductCardDescription = styled.div`
     font-weight: 500;
     font-size: 14px;
 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     span {
       color: ${PRIMARY_COLOR};
       cursor: pointer;
@@ -283,7 +322,7 @@ export const ProductCardDescription = styled.div`
 `;
 
 export const BtnDetails = styled.button`
-  margin-top: 15px;
+  margin-top: 20px;
   background-color: ${PRIMARY_COLOR};
   border: none;
   width: 100%;

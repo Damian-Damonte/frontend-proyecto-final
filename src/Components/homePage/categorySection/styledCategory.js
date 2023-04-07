@@ -15,7 +15,7 @@ export const CategoryContainerStyled = styled.section`
   background-color: #fff;
   min-height: 300px;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1200px;
 
   h2 {
     font-size: 24px;
@@ -85,7 +85,7 @@ export const CategoryCardStyled = styled.div`
   img {
     width: 100%;
     object-fit: cover;
-    max-height: 170px;
+    max-height: 140px;
     object-position: center;
   }
 

@@ -4,7 +4,9 @@ import {
   BtnDetails,
   CardRating,
   CardTitleStars,
+  CategoryRatingContainer,
   CategoryStarsContainer,
+  DirectionContainer,
   IconContainer,
   ProductCardCaracteristics,
   ProductCardDescription,
@@ -13,7 +15,9 @@ import {
   ProductCardStyled,
   ProductCardTitleRatingContainer,
   ProductImgContainer,
+  RatingContainer,
   StarsContainer,
+  TitleContainer,
 } from "./styledProductSection";
 import { ReactComponent as Fav } from "../../../img/icon-fav-empty.svg";
 import { ReactComponent as FavFull } from "../../../img/icon-fav-full.svg";
@@ -80,7 +84,7 @@ export default function ProductCard({ product, isFav }) {
   const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
 
   return (
-    <ProductCardStyled>
+    <ProductCardStyled >
       <ProductImgContainer
         $imgUrl={imagenes[0].url}
         $isFav={isFav}
@@ -103,37 +107,32 @@ export default function ProductCard({ product, isFav }) {
       </ProductImgContainer>
 
       <ProductCardDescriptionContainer>
-        <ProductCardTitleRatingContainer>
-          <CardTitleStars>
-            <CategoryStarsContainer>
-              <p>{tituloCat}</p>
-              <StarsContainer>
-                <StarFull />
-                <StarFull />
-                <StarFull />
-                <StarFull />
-                <StarFull />
-              </StarsContainer>
-            </CategoryStarsContainer>
-            <h3>{titulo}</h3>
-          </CardTitleStars>
+        <div>
 
-          <CardRating>
+        <CategoryRatingContainer>
+          <CategoryStarsContainer>
+            <p>{tituloCat}</p>
+          </CategoryStarsContainer>
+          <RatingContainer>
             <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
             <p>{getRaitingScale(promedioPuntuacion)}</p>
-          </CardRating>
-        </ProductCardTitleRatingContainer>
+          </RatingContainer>
+        </CategoryRatingContainer>
+
+        <TitleContainer>
+          <h3>{titulo}</h3>
+        </TitleContainer>
 
         <ProductCardLocationContainer>
           <IconContainer>
             <Location />
           </IconContainer>
-          <p>
-            {direccion}&nbsp;&nbsp;
+          <DirectionContainer>
+            <p>{direccion}</p>
             <a target="_blank" href={urlMap} rel="noopener noreferrer">
               MOSTRAR EN EL MAPA
             </a>
-          </p>
+          </DirectionContainer>
         </ProductCardLocationContainer>
 
         <ProductCardCaracteristics>
@@ -142,7 +141,8 @@ export default function ProductCard({ product, isFav }) {
           ))}
         </ProductCardCaracteristics>
 
-        <ProductCardDescription>{descriptionReduced}</ProductCardDescription>
+        <ProductCardDescription><p>{descripcion}</p></ProductCardDescription>
+        </div>
 
         <BtnDetails onClick={navigateProduct}>Ver detalles</BtnDetails>
       </ProductCardDescriptionContainer>
