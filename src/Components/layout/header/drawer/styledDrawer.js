@@ -77,7 +77,7 @@ export const BottomSectionDrawerOptions = styled.div`
   font-size: 16px;
   font-weight: 700;
 
-  > p {
+  /* > p {
     cursor: pointer;
     color: #383b58;
     transition: all 0.2s ease;
@@ -88,6 +88,20 @@ export const BottomSectionDrawerOptions = styled.div`
     &:hover {
       background-color: #f2f2f2;
     }
+  } */
+`;
+
+export const DrawerLink = styled.p`
+  cursor: pointer;
+  color: #383b58;
+  color: ${({$isCurrentPage}) => $isCurrentPage ? PRIMARY_COLOR: "#383b58"};
+  transition: all 0.2s ease;
+  border-bottom: 1px solid ${PRIMARY_COLOR};
+  width: 100%;
+  text-align: right;
+  padding: 20px 0px 5px 0;
+  &:hover {
+    background-color: #f2f2f2;
   }
 `;
 

@@ -19,18 +19,22 @@ export default function FormUserData({
     setFormData({ ...formData, city: e.target.value });
   };
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <FormUserDataContainer>
       <h3>Completá tus datos</h3>
       <InputsContainer>
         <InputLabelContainer>
           <UserDataLabel>Nombre</UserDataLabel>
-          <UserDataInput value={firstName || ""} disabled />
+          <UserDataInput value={capitalizeFirstLetter(firstName) || ""} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Apellido</UserDataLabel>
-          <UserDataInput value={lastName || ""} disabled />
+          <UserDataInput value={capitalizeFirstLetter(lastName) || ""} disabled />
         </InputLabelContainer>
 
         <InputLabelContainer>

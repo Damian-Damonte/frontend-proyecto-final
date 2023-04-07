@@ -10,6 +10,7 @@ import {
   CloseSessionContainer,
   CloseSissionAndSocial,
   DrawerContainer,
+  DrawerLink,
   DrawerStyled,
   PMenu,
   SocialContainer,
@@ -30,8 +31,8 @@ export default function Drawer({
   toReservas,
 }) {
   const handleActions = (urlPath) => {
-    const login = <p onClick={navigateLogin}>Iniciar sesión</p>;
-    const singin = <p onClick={navigateSingin}>Crear cuenta</p>;
+    const login = <DrawerLink onClick={navigateLogin}>Iniciar sesión</DrawerLink>;
+    const singin = <DrawerLink onClick={navigateSingin}>Crear cuenta</DrawerLink>;
 
     if (urlPath === "/registro" || urlPath === "/iniciar-sesion")
       return urlPath === "/registro" ? login : singin;
@@ -59,11 +60,28 @@ export default function Drawer({
         <BottomSectionDrawer>
           <BottomSectionDrawerOptions>
             {handleActions(urlPath)}
-            {isAdmin && <p onClick={toAdminPage}>Administracion</p>}
+            {isAdmin && (
+              <DrawerLink
+                $isCurrentPage={urlPath === "/administracion"}
+                onClick={toAdminPage}
+              >
+                Administracion
+              </DrawerLink>
+            )}
             {user.token && (
               <>
-                <p onClick={toFavoritos}>Mis favoritos</p>
-                <p onClick={toReservas}>Mis reservas</p>
+                <DrawerLink
+                  $isCurrentPage={urlPath === "/mis-favoritos"}
+                  onClick={toFavoritos}
+                >
+                  Mis favoritos
+                </DrawerLink>
+                <DrawerLink
+                  $isCurrentPage={urlPath === "/mis-reservas"}
+                  onClick={toReservas}
+                >
+                  Mis reservas
+                </DrawerLink>
               </>
             )}
           </BottomSectionDrawerOptions>
