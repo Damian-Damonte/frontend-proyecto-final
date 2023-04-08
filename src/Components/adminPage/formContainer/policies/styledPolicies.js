@@ -5,7 +5,7 @@ const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const PoliciesStyled = styled.div`
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 0 10px;
 
   @media (min-width: 768px) {

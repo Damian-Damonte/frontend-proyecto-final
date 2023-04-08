@@ -325,8 +325,7 @@ export const ProductCardDescription = styled.div`
 
   @media (min-width: 768px) {
     p {
-    -webkit-line-clamp: 3;
-
+      -webkit-line-clamp: 3;
     }
   }
 `;
@@ -458,18 +457,26 @@ export const BtnPrevNextMobile = styled.div`
 `;
 
 export const BtnRefreshRandom = styled.button`
-  background-color: #fff;
+  /* background-color: #fff; */
   border: none;
   height: 50px;
   padding: 0 20px;
   border-radius: 5px;
   font-weight: 500;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
   cursor: pointer;
   font-size: 16px;
 
+  outline: 1px solid ${PRIMARY_COLOR};
+  color: ${PRIMARY_COLOR};
+  /* color: #000; */
+
   &:hover {
-    background-color: #e7e7e7;
+    /* background-color: #e7e7e7; */
+    /* background-color: #fff; */
+    /* box-shadow: none; */
+    color: #00d3c5;
+    outline: 1px solid #00d3c5;
   }
 `;

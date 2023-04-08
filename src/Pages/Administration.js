@@ -17,6 +17,7 @@ import {
 } from "../Components/adminPage/formContainer/styledFormContainer";
 import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
 import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
+import CaracteristicsContainer2 from "../Components/adminPage/formContainer/caracteristics2/CaracteristicsContainer2";
 
 const productInitialForm = {
   nombre: "",
@@ -48,16 +49,16 @@ export default function Administration() {
   } = useContext(UserContext);
 
   const getPayload = () => {
-    let caracteristicas = [];
+    // let caracteristicas = [];
     let politicas = [];
 
-    if (productForm.caracteristicas.length) {
-      caracteristicas = productForm.caracteristicas
-        .filter((caract) => caract.caracteristicSelected !== null)
-        .map((caract) => {
-          return { id: caract.caracteristicSelected.id };
-        });
-    }
+    // if (productForm.caracteristicas.length) {
+    //   caracteristicas = productForm.caracteristicas
+    //     .filter((caract) => caract.caracteristicSelected !== null)
+    //     .map((caract) => {
+    //       return { id: caract.caracteristicSelected.id };
+    //     });
+    // }
 
     politicas.push({
       descripcion: productForm.politicas.normasDeLaCasa,
@@ -86,7 +87,7 @@ export default function Administration() {
       precioPorNoche: productForm.precioPorNoche,
       categoria: productForm.categoria,
       ciudad: productForm.ciudad,
-      caracteristicas,
+      caracteristicas: productForm.caracteristicas,
       imagenes,
       politicas,
       coordenadas: {
@@ -127,7 +128,8 @@ export default function Administration() {
               <FormContainer>
                 <GeneralInfo {...childProps} />
                 <Coordinates {...childProps} />
-                <CaracteristicsContainer {...childProps} />
+                {/* <CaracteristicsContainer {...childProps} /> */}
+                <CaracteristicsContainer2 {...childProps} />
                 <Policies {...childProps} />
                 <ImagesContainer
                   errors={errors}
