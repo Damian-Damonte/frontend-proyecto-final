@@ -227,7 +227,7 @@ export const TitleContainer = styled.div`
 
 export const ProductCardLocationContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   font-weight: 500;
   margin-top: 10px;
   gap: 5px;
@@ -273,11 +273,11 @@ export const DirectionContainer = styled.div`
 `;
 
 export const IconContainer = styled.div`
-  width: 10px;
+  width: 8px;
   svg {
-    width: 100%;
     fill: ${PURPLE2};
     width: 10px;
+    height: 20px;
   }
 `;
 
@@ -292,14 +292,10 @@ export const ProductCardCaracteristics = styled.div`
     fill: ${PURPLE2};
     font-size: 18px;
   }
-
-  /* @media (min-width: 768px) {
-    display: flex;
-  } */
 `;
 
 export const ProductCardDescription = styled.div`
-  margin-top: 15px;
+  margin-top: 10px;
 
   p {
     color: ${PURPLE2};
@@ -311,22 +307,34 @@ export const ProductCardDescription = styled.div`
     -webkit-line-clamp: 5;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    /* span {
-      color: ${PRIMARY_COLOR};
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        color: #15a39a;
-      }
-    } */
   }
 
   @media (min-width: 768px) {
     p {
       -webkit-line-clamp: 3;
     }
+  }
+`;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 15px;
+  border-top: 1px solid #e5ebf0;
+  border-bottom: 1px solid #e5ebf0;
+
+  h3 {
+    color: ${PURPLE2};
+    font-size: 20px;
+    line-height: 22px;
+    padding-bottom: 2px;
+  }
+
+  p {
+    color: ${PURPLE2};
+    font-weight: 500;
+    font-size: 14px;
   }
 `;
 
@@ -483,6 +491,6 @@ export const BtnRefreshRandom = styled.button`
 
     &:hover {
       color: #00d3c5;
-  }
+    }
   }
 `;
