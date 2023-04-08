@@ -20,8 +20,8 @@ export default function FormUserData({
   };
 
   const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+    return string ? string.charAt(0).toUpperCase() + string.slice(1) : "";
+  };
 
   return (
     <FormUserDataContainer>
@@ -29,12 +29,18 @@ export default function FormUserData({
       <InputsContainer>
         <InputLabelContainer>
           <UserDataLabel>Nombre</UserDataLabel>
-          <UserDataInput value={capitalizeFirstLetter(firstName) || ""} disabled />
+          <UserDataInput
+            value={capitalizeFirstLetter(firstName) || ""}
+            disabled
+          />
         </InputLabelContainer>
 
         <InputLabelContainer>
           <UserDataLabel>Apellido</UserDataLabel>
-          <UserDataInput value={capitalizeFirstLetter(lastName) || ""} disabled />
+          <UserDataInput
+            value={capitalizeFirstLetter(lastName) || ""}
+            disabled
+          />
         </InputLabelContainer>
 
         <InputLabelContainer>

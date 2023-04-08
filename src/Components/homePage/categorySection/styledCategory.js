@@ -75,7 +75,7 @@ export const CategoryCardStyled = styled.div`
 
   outline: ${({ $selected }) => $selected ? `3px rgb(87, 92, 160) solid` : "none"};
 
-  div {
+  div:nth-of-type(1) {
     position:absolute;
     height:100%;
     width:100%;
@@ -87,6 +87,7 @@ export const CategoryCardStyled = styled.div`
     object-fit: cover;
     max-height: 140px;
     object-position: center;
+    /* display: ${({$isLoaded}) => $isLoaded ? "block" : "none"} */
   }
 
   h3 {
@@ -108,6 +109,26 @@ export const CategoryCardStyled = styled.div`
     }
   }
 `;
+
+// export const Skeleton = styled.section`
+//   width: 100%;
+//   height: 140px;
+
+//   background: #eee;
+//   background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+//   border-radius: 5px;
+//   background-size: 200% 100%;
+//   animation: 1.2s shine linear infinite;
+
+//   display: ${({$isLoaded}) => $isLoaded ? "none" : "block"};
+  
+
+//   @keyframes shine {
+//   to {
+//     background-position-x: -200%;
+//   }
+// }
+// `
 
 export const ErrorCategory = styled.div`
   margin-top: 60px;
