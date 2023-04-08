@@ -90,3 +90,21 @@ export const BtnPage = styled.button`
     display: none;
   }
 `;
+
+export const ErrorMessage = styled.div`
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(155, 161, 235, 0.3);
+  padding: 10px 10px;
+  border-radius: 5px;
+  max-width: 479px;
+  align-self: center;
+  
+  img {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+  }
+`

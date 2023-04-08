@@ -65,7 +65,7 @@ export const CaracteristicsContainer = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 10px 30px 30px;
     margin-top: 20px;
-    row-gap: 40px;
+    row-gap: 30px;
   }
 `;
 

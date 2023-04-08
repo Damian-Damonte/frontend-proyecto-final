@@ -3,6 +3,7 @@ import {
   BtnPage,
   CaracteristicsContainer,
   CaracteristicsContainerStyled,
+  ErrorMessage,
   PageBtnContainer,
 } from "./styledCaracteristics";
 import Caracteristic2 from "./Caracteristic2";
@@ -79,8 +80,6 @@ export default function CaracteristicsContainer2({
     <CaracteristicsContainerStyled>
       <h3>Agregar atributos</h3>
 
-      
-
       {allCaracteristics && pages.length !== 0 && (
         <>
           <CaracteristicsContainer>
@@ -113,6 +112,15 @@ export default function CaracteristicsContainer2({
           </PageBtnContainer>
         </>
       )}
+
+      {error && (
+        <ErrorMessage>
+          <img src="/assets/icon-warning.svg" alt="question icon" />
+          Ha ocurrido un error al cargar los atributos. Por favor, vuelva a
+          intetar más tarde
+        </ErrorMessage>
+      )}
+
     </CaracteristicsContainerStyled>
   );
 }
