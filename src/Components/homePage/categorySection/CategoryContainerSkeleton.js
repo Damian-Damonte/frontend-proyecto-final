@@ -1,7 +1,7 @@
 import React from "react";
 import { CardContainer, CategoryCardSkeleton } from "./styledCategory";
 
-export default function CategorySkeleton() {
+export default function CategoryContainerSkeleton() {
   return (
     <CardContainer>
       <CategoryCardSkeleton>

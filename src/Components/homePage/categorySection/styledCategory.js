@@ -84,12 +84,22 @@ export const CategoryCardStyled = styled.div`
       $selected ? "rgba(155, 161, 235, 0.3)" : "none"};
   }
 
+  div:nth-of-type(2) {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    /* background-size: 200% 100%;
+    animation: 1.2s shine linear infinite; */
+    display: ${({ $imgLoad }) => ($imgLoad ? "none" : "block")}
+
+  }
+
   img {
     width: 100%;
     object-fit: cover;
     max-height: 140px;
     object-position: center;
-    /* display: ${({ $isLoaded }) => ($isLoaded ? "block" : "none")} */
+    display: ${({ $imgLoad }) => ($imgLoad ? "block" : "none")}
   }
 
   h3 {
@@ -110,6 +120,12 @@ export const CategoryCardStyled = styled.div`
       margin-top: 0;
     }
   }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
 `;
 
 export const CategoryCardSkeleton = styled.div`
@@ -125,8 +141,8 @@ export const CategoryCardSkeleton = styled.div`
 
   div {
     background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
-    background-size: 200% 100%;
-    animation: 1.2s shine linear infinite;
+    /* background-size: 200% 100%;
+    animation: 1.2s shine linear infinite; */
   }
 
   div:nth-of-type(1) {
