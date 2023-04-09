@@ -7,6 +7,7 @@ import {
 } from "./styledCategory";
 import useFetch from "../../../hooks/useFetch";
 import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
+import CategorySkeleton from "./CategorySkeleton";
 
 export default function CategoryContainer({ searchParams, searchProducts }) {
   const { data: categorys, loading, error } = useFetch("/categorias");
@@ -21,7 +22,8 @@ export default function CategoryContainer({ searchParams, searchProducts }) {
     <WidthLimitContainer>
       <CategoryContainerStyled>
         <h2>Busca por tipo de alojamiento</h2>
-        {loading && <LoaderCircles />}
+        {/* {loading && <LoaderCircles />} */}
+        {loading && <CategorySkeleton />}
         {categorys && (
           <CardContainer>
             {categorys?.map((cat) => (
@@ -34,6 +36,7 @@ export default function CategoryContainer({ searchParams, searchProducts }) {
             ))}
           </CardContainer>
         )}
+        {/* <CategorySkeleton /> */}
         {error && (
           <ErrorCategory>
             <img src="/assets/icon-warning.svg" alt="question icon" />
