@@ -34,7 +34,7 @@ export default function ProductoGalleryMobile({
           showIndex={true}
         />
       )}
-      <BtnsContainer>
+      {/* <BtnsContainer>
         <Share onClick={handleShare} />
         {loadingCard ? (
             <LoaderClassicStyled
@@ -48,7 +48,7 @@ export default function ProductoGalleryMobile({
           ) : (
             <Fav onClick={() => handleFav(product)} />
           )}
-      </BtnsContainer>
+      </BtnsContainer> */}
     </GalleryMobileContainer>
   );
 }

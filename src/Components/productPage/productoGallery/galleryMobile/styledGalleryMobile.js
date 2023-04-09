@@ -23,7 +23,7 @@ export const BtnsContainer = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
-  display: flex;
+  display: none;
   gap: 15px;
   background-color: rgba(0,0,0,0.2);
   padding: 5px;

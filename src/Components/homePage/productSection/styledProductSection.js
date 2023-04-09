@@ -48,7 +48,7 @@ export const ProductCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -230,7 +230,7 @@ export const ProductCardLocationContainer = styled.div`
   align-items: flex-start;
   font-weight: 500;
   margin-top: 10px;
-  gap: 5px;
+  gap: 7px;
 
   p {
     color: ${PURPLE2};
@@ -323,6 +323,7 @@ export const PriceContainer = styled.div`
   margin-top: 15px;
   border-top: 1px solid #e5ebf0;
   border-bottom: 1px solid #e5ebf0;
+  padding: 2px 0;
 
   h3 {
     color: ${PURPLE2};

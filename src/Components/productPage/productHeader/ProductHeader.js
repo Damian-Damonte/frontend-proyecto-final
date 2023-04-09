@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import {
   BtnShareFavContainer,
+  BtnsPriceContainer,
   IconContainer,
   LocationContainer,
   OpinionStarsContainer,
+  PriceContainer,
   ProductLocationRatingHeader,
   ProductNameHeader,
   RatingContainer,
@@ -27,7 +29,7 @@ export default function ProductHeader({
   loadingCard,
 }) {
   const navigate = useNavigate();
-  const { categoria, ciudad, titulo, direccion, promedioPuntuacion } = product;
+  const { categoria, ciudad, titulo, direccion, promedioPuntuacion, precioPorNoche } = product;
 
   const goBack = () => {
     navigate(-1);
@@ -73,21 +75,27 @@ export default function ProductHeader({
       </MaxWidthContainer>
 
       <MaxWidthContainer $bgcolor="#fff">
-        <BtnShareFavContainer >
-          <Share onClick={handleShare} />
-          {loadingCard ? (
-            <LoaderClassicStyled
-              $size="20px"
-              $loaderColor="#fff"
-              $bgcColor="#383B58"
-              $borderWidth="2px"
-            />
-          ) : isFav ? (
-            <FavFull onClick={() => handleFav(product)} />
-          ) : (
-            <Fav onClick={() => handleFav(product)} />
-          )}
-        </BtnShareFavContainer>
+        <BtnsPriceContainer>
+          <BtnShareFavContainer>
+            <Share onClick={handleShare} />
+            {loadingCard ? (
+              <LoaderClassicStyled
+                $size="23px"
+                $loaderColor="#fff"
+                $bgcColor="#383B58"
+                $borderWidth="2px"
+              />
+            ) : isFav ? (
+              <FavFull onClick={() => handleFav(product)} />
+            ) : (
+              <Fav onClick={() => handleFav(product)} />
+            )}
+          </BtnShareFavContainer>
+          <PriceContainer>
+            <p>Precio base por noche</p>
+            <h4>{`$ ${precioPorNoche}`}</h4>
+          </PriceContainer>
+        </BtnsPriceContainer>
       </MaxWidthContainer>
     </div>
   );

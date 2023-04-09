@@ -40,6 +40,11 @@ export const ProductNameHeader = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   max-width: 1200px;
   width: 100%;
+  gap: 10px;
+
+  > div {
+    width: calc(100% - 25px);
+  }
 
   p {
     font-size: 14px;
@@ -53,6 +58,7 @@ export const ProductNameHeader = styled.div`
   svg {
     fill: #fff;
     height: 25px;
+    width: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -165,20 +171,41 @@ export const OpinionStarsContainer = styled.div`
   align-items: center;
 `;
 
+export const BtnsPriceContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 5px 10px 10px;
+  max-width: 1200px;
+  width: 100%;
+  /* background-color: red; */
+
+  @media (min-width: 768px) {
+    display: flex;
+    padding: 5px 20px 10px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 10px 30px 10px;
+  }
+`;
+
 export const BtnShareFavContainer = styled.div`
   background-color: #fff;
-  padding: 10px 20px;
-  display: none;
+  /* padding: 10px 20px; */
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  max-width: 1200px;
-  width: 100%;
+  /* max-width: 1200px; */
+  /* width: 100%; */
 
   svg {
     fill: ${PURPLE3};
     cursor: pointer;
     transition: all 0.3s ease;
+    height: 23px;
+    width: 23px;
   }
 
   @media (min-width: 768px) {
@@ -186,6 +213,23 @@ export const BtnShareFavContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
+  }
+`;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  p {
+    color: #383b58;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  h4 {
+    color: #383b58;
+    font-size: 20px;
+    line-height: 22px;
+    padding-bottom: 2px;
   }
 `;

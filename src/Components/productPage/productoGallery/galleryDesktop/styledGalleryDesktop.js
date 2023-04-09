@@ -4,7 +4,7 @@ const PRIMARY_COLOR = "#1DBEB4";
 
 export const GalleryDesktopContainer = styled.div`
   display: none;
-  padding: 10px 30px;
+  padding: 0px 20px;
   background-color: #fff;
   gap: 10px;
   position: relative;
@@ -123,7 +123,7 @@ export const GalleryDesktopContainer = styled.div`
 
   p {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     right: 40px;
     font-weight: 700;
     color: #fff;
@@ -140,6 +140,10 @@ export const GalleryDesktopContainer = styled.div`
 
   @media (min-width: 1000px) {
     display: grid;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0px 30px;
   }
 `;
 
