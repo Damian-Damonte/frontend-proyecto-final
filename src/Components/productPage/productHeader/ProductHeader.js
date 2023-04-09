@@ -93,7 +93,7 @@ export default function ProductHeader({
           </BtnShareFavContainer>
           <PriceContainer>
             <p>Precio base por noche</p>
-            <h4>{`$ ${precioPorNoche}`}</h4>
+            <h4>{`$ ${precioPorNoche.toLocaleString()}`}</h4>
           </PriceContainer>
         </BtnsPriceContainer>
       </MaxWidthContainer>

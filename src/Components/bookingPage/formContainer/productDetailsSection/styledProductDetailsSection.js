@@ -79,7 +79,7 @@ export const ImgContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 300px;
+    height: 260px;
   }
 `;
 
@@ -98,8 +98,8 @@ export const DetailsContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    margin-top: 25px;
-    height: calc(100% - 325px);
+    margin-top: 20px;
+    height: calc(100% - 280px);
   }
 `;
 
@@ -114,8 +114,14 @@ export const ProductDetailsContainer = styled.div`
 
   h4 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     color: ${PURPLE2};
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 
@@ -134,6 +140,14 @@ export const LocationContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-top: 15px;
+
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -149,7 +163,7 @@ export const IconContainer = styled.div`
 `;
 
 export const CheckInCheckOutContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 0 10px;
 
   div:last-child {
@@ -162,7 +176,8 @@ export const CheckInCheckOut = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 0;
+  padding: 10px 0;
+  gap: 5px;
 
   p:first-child {
     font-weight: 700;
@@ -174,15 +189,20 @@ export const CheckInCheckOut = styled.div`
     color: ${PURPLE3};
     font-size: 14px;
     font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    padding: 5px 10px;
   }
 
   @media (min-width: 1024px) {
-    padding: 22px 10px;
+    padding: 12px 10px;
   }
 `;
 
 export const BtnValidationContainer = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;

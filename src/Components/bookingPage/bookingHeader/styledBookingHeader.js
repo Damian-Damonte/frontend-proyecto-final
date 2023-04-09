@@ -14,6 +14,11 @@ export const ProductNameHeader = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 1200px;
+  gap: 5px;
+
+  > div {
+    width: calc(100% - 25px);
+  }
 
   p {
     font-size: 14px;

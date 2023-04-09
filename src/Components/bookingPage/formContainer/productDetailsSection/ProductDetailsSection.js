@@ -36,7 +36,25 @@ export default function ProductDetailsSection({
       nombre: cityName,
       pais: { nombre: countryName },
     },
+    precioPorNoche,
   } = product;
+
+  const getTotal = () => {
+    if (!checkIn || !checkOut) {
+      return "-----";
+    } else if (checkIn.getTime() === checkOut.getTime()) {
+      return `$ ${precioPorNoche.toLocaleString()}`;
+    } else {
+      const unDiaEnMilisegundos = 86400000;
+      const diferenciaEnMilisegundos = Math.abs(checkIn - checkOut);
+      const diferenciaEnDias = Math.ceil(
+        diferenciaEnMilisegundos / unDiaEnMilisegundos
+      );
+      return `$ ${(diferenciaEnDias * precioPorNoche).toLocaleString()}`;
+    }
+  };
+
+
   return (
     <ProductDetailsSectionStyled>
       <DetailSectionTitleCardContainer>
@@ -49,13 +67,15 @@ export default function ProductDetailsSection({
             <ProductDetailsContainer>
               <p>{categoryTitle.toUpperCase()}</p>
               <h4>{productTitle}</h4>
-              <StarsContainer>
+
+              {/* <StarsContainer>
                 <StarFull />
                 <StarFull />
                 <StarFull />
                 <StarFull />
                 <StarFull />
-              </StarsContainer>
+              </StarsContainer> */}
+
               <LocationContainer>
                 <IconContainer>
                   <Location />
@@ -65,6 +85,10 @@ export default function ProductDetailsSection({
             </ProductDetailsContainer>
             <CheckInCheckOutContainer>
               <CheckInCheckOut>
+                <p>Precio base por noche</p>
+                <p>{`$ ${precioPorNoche.toLocaleString()}`}</p>
+              </CheckInCheckOut>
+              <CheckInCheckOut>
                 <p>Check in</p>
                 <p>{checkIn ? dateToUserDate(checkIn) : "___ /___ /___"}</p>
               </CheckInCheckOut>
@@ -72,8 +96,11 @@ export default function ProductDetailsSection({
                 <p>Check out</p>
                 <p>{checkOut ? dateToUserDate(checkOut) : "___ /___ /___"}</p>
               </CheckInCheckOut>
+              <CheckInCheckOut>
+                <p>Total</p>
+                <p>{getTotal()}</p>
+              </CheckInCheckOut>
             </CheckInCheckOutContainer>
-
             <BtnValidationContainer
               $error={Object.keys(formErrors).length || bookingState.error}
             >

@@ -122,7 +122,7 @@ export default function ProductCard({ product, isFav }) {
 
         <PriceContainer>
           <p>Precio base por noche</p>
-          <h3>$ {precioPorNoche}</h3>
+          <h3>$ {precioPorNoche.toLocaleString()}</h3>
         </PriceContainer>
 
         <BtnDetails onClick={navigateProduct}>Ver detalles</BtnDetails>
