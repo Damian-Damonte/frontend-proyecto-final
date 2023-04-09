@@ -21,65 +21,65 @@ export const GalleryDesktopContainer = styled.div`
     switch ($countImg) {
       case 5:
         return css`
-          img:nth-child(1) {
+          div:nth-child(1) {
             grid-row: 1/3;
             grid-column: 1/3;
           }
 
-          img:nth-child(2) {
+          div:nth-child(2) {
             grid-row: 1/2;
             grid-column: 3/4;
           }
 
-          img:nth-child(3) {
+          div:nth-child(3) {
             grid-row: 1/2;
             grid-column: 4/5;
           }
 
-          img:nth-child(4) {
+          div:nth-child(4) {
             grid-row: 2/3;
             grid-column: 3/4;
           }
-          img:nth-child(5) {
+          div:nth-child(5) {
             grid-row: 2/3;
             grid-column: 4/5;
           }
         `;
       case 4:
         return css`
-          img:nth-child(1) {
+          div:nth-child(1) {
             grid-row: 1/3;
             grid-column: 1/3;
           }
 
-          img:nth-child(2) {
+          div:nth-child(2) {
             grid-row: 1/2;
             grid-column: 3/4;
           }
 
-          img:nth-child(3) {
+          div:nth-child(3) {
             grid-row: 1/2;
             grid-column: 4/5;
           }
 
-          img:nth-child(4) {
+          div:nth-child(4) {
             grid-row: 2/3;
             grid-column: 3/5;
           }
         `;
       case 3:
         return css`
-          img:nth-child(1) {
+          div:nth-child(1) {
             grid-row: 1/3;
             grid-column: 1/3;
           }
 
-          img:nth-child(2) {
+          div:nth-child(2) {
             grid-row: 1/2;
             grid-column: 3/5;
           }
 
-          img:nth-child(3) {
+          div:nth-child(3) {
             grid-row: 2/3;
             grid-column: 3/5;
           }
@@ -87,19 +87,19 @@ export const GalleryDesktopContainer = styled.div`
 
       case 2:
         return css`
-          img:nth-child(1) {
+          div:nth-child(1) {
             grid-row: 1/3;
             grid-column: 1/3;
           }
 
-          img:nth-child(2) {
+          div:nth-child(2) {
             grid-row: 1/3;
             grid-column: 3/5;
           }
         `;
       case 1:
         return css`
-          img:nth-child(1) {
+          div:nth-child(1) {
             grid-row: 1/3;
             grid-column: 1/5;
           }
@@ -109,17 +109,6 @@ export const GalleryDesktopContainer = styled.div`
         return null;
     }
   }}
-
-  .main-container {
-    background-color: red;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover;
-  }
 
   p {
     position: absolute;
@@ -144,6 +133,34 @@ export const GalleryDesktopContainer = styled.div`
 
   @media (min-width: 1024px) {
     padding: 0px 30px;
+  }
+`;
+
+export const ImgWithSkeletonStyled = styled.div`
+  width: 100%;
+  height: 100%;
+
+  div {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    background-size: 200% 100%;
+    animation: 1.2s shine linear infinite;
+  }
+
+  img {
+    display: ${({ $imgLoaded }) => ($imgLoaded ? "block" : "none")};
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
   }
 `;
 

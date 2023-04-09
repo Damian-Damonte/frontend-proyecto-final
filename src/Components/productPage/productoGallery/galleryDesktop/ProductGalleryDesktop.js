@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GalleryDesktop from "./GalleryDesktop";
 import { GalleryDesktopContainer } from "./styledGalleryDesktop";
 import { MaxWidthContainer } from "../../../common/maxWidthContainer/styledMaxWidthContainer";
+import ImgWithSkeleton from "./ImgWithSkeleton";
 
 export default function ProductGalleryDesktop({ images }) {
   const [showGallery, setShowGallery] = useState(false);
@@ -25,7 +26,7 @@ export default function ProductGalleryDesktop({ images }) {
         <MaxWidthContainer $bgcolor="#fff">
           <GalleryDesktopContainer $countImg={imgGrid.length}>
             {imgGrid.map((img) => (
-              <img src={img.url} key={img.id} alt={img.titulo} />
+              <ImgWithSkeleton url={img.url} alt={img.titulo} key={img.id} />
             ))}
 
             <p onClick={handleShowGallery}>Ver más</p>
