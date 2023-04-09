@@ -114,5 +114,5 @@ export default function ProductoPages({
     );
   };
 
-  return <Pager>{renderPageBtns()}</Pager>;
+  return renderPageBtns();
 }

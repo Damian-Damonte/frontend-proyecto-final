@@ -366,7 +366,7 @@ export const LoaderContainer = styled.div`
 // pager
 
 export const Pager = styled.div`
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -378,9 +378,7 @@ export const Pager = styled.div`
   }
   @media (min-width: 768px) {
     max-width: 650px;
-  }
-  @media (min-width: 768px) {
-    margin-top: 20px;
+    margin: 40px 0px 5px;
   }
 `;
 
@@ -404,12 +402,12 @@ export const BtnPageNumber = styled.button`
 
   &:hover {
     background-color: ${({ $selected }) =>
-      $selected ? PRIMARY_COLOR : "#e7e7e7"};
+      $selected ? PRIMARY_COLOR : "#f7f7f7"};
   }
 
   @media (min-width: 768px) {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     font-size: 16px;
   }
 `;
@@ -426,7 +424,9 @@ export const BtnNextPrev = styled.button`
 
   &:hover {
     background-color: #e7e7e7;
+    background-color: #f7f7f7;
   }
+
   &:disabled {
     cursor: auto;
   }
@@ -447,7 +447,7 @@ export const BtnNextPrev = styled.button`
     display: none;
   }
   @media (min-width: 768px) {
-    height: 50px;
+    height: 40px;
     padding: 0 20px;
     font-size: 16px;
   }
@@ -486,12 +486,15 @@ export const BtnRefreshRandom = styled.button`
   } */
 
   @media (min-width: 768px) {
-    background-color: transparent;
-    outline: 1px solid ${PRIMARY_COLOR};
+    background-color: #fff;
+    /* outline: 1px solid ${PRIMARY_COLOR}; */
     color: ${PRIMARY_COLOR};
+    color: #000;
+    transition: all 0.3s ease;
 
     &:hover {
-      color: #00d3c5;
+      /* color: #00d3c5; */
+      background-color: #eee;
     }
   }
 `;
