@@ -46,7 +46,7 @@ export default function HeaderOptionsDesk({
           >
             <p>Administración</p>
           </AdminContainer>
-          <LineaDivisoria></LineaDivisoria>
+          <LineaDivisoria />
         </>
       )}
       {headerOptions(urlPath, user)}

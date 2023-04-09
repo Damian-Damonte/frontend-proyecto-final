@@ -202,6 +202,7 @@ export const AdminContainer = styled.div`
 
 export const LineaDivisoria = styled.div`
   width: 2px;
-  height: 55px;
+  height: 45px;
   background-color: ${PRIMARY_COLOR};
+  align-self: center;
 `;

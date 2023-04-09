@@ -5,7 +5,9 @@ import {
   DropDownStyled,
   MaxWidthContainer,
 } from "./styledDropDown";
-import { BsCheckCircle as Check } from "react-icons/bs";
+// import { BsCalendarCheck as Calendar } from "react-icons/bs";
+import { RiCalendarCheckFill as Calendar } from "react-icons/ri";
+
 import { MdFavoriteBorder as Favs } from "react-icons/md";
 import { MdLogout as Logout } from "react-icons/md";
 
@@ -28,7 +30,7 @@ export default function DropDown({
             <p>Mis favoritos</p>
           </DropDownOption>
           <DropDownOption onClick={toReservas}>
-            <Check />
+            <Calendar />
             <p>Mis reservas</p>
           </DropDownOption>
           <DropDownOption onClick={handleCerrarSesion}>
