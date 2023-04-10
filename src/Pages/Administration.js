@@ -18,6 +18,7 @@ import {
 import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
 import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
 import CaracteristicsContainer2 from "../Components/adminPage/formContainer/caracteristics2/CaracteristicsContainer2";
+import ImgContainer from "../Components/adminPage/formContainer/productImages2/ImgContainer";
 
 const productInitialForm = {
   nombre: "",
@@ -131,11 +132,12 @@ export default function Administration() {
                 {/* <CaracteristicsContainer {...childProps} /> */}
                 <CaracteristicsContainer2 {...childProps} />
                 <Policies {...childProps} />
-                <ImagesContainer
+                {/* <ImagesContainer
                   errors={errors}
                   images={images}
                   setImages={setImages}
-                />
+                /> */}
+                <ImgContainer />
 
                 <SubmitContainer
                   $error={Object.keys(errors).length || productState.error}
