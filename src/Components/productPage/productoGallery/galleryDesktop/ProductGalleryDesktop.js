@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GalleryDesktop from "./GalleryDesktop";
 import { GalleryDesktopContainer } from "./styledGalleryDesktop";
 import { MaxWidthContainer } from "../../../common/maxWidthContainer/styledMaxWidthContainer";
@@ -19,6 +19,12 @@ export default function ProductGalleryDesktop({ images }) {
     original: img.url,
     thumbnail: img.url,
   }));
+
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("disableScroll");
+    };
+  }, []);
 
   return (
     <>
