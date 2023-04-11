@@ -48,6 +48,10 @@ export default function Drawer({
     }
   };
 
+  const toSocialMedia = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <DrawerContainer $showDrawer={showDrawer}>
       <div onClick={handleBtnDrawer}></div>
@@ -92,10 +96,10 @@ export default function Drawer({
               </CloseSessionContainer>
             )}
             <SocialContainer>
-              <Facebook />
-              <Linkedin />
-              <Twitter />
-              <Instagram />
+              <Facebook onClick={() => toSocialMedia("https://www.facebook.com/")} />
+              <Linkedin onClick={() => toSocialMedia("https://www.linkedin.com/")} />
+              <Twitter onClick={() => toSocialMedia("https://twitter.com/")} />
+              <Instagram onClick={() => toSocialMedia("https://www.instagram.com/")} />
             </SocialContainer>
           </CloseSissionAndSocial>
         </BottomSectionDrawer>
