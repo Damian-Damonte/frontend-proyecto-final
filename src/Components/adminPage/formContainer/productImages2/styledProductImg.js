@@ -1,21 +1,11 @@
 import styled from "styled-components";
 
 const PRIMARY_COLOR = "#1DBEB4";
-const PURPLE2 = "#383B58";
 const PURPLE3 = "#545776";
 
 export const ImgContainerStyled = styled.div`
   margin-top: 10px;
   padding: 0 10px;
-
-  /* > p:last-child {
-    color: #ff0000;
-    font-weight: 500;
-    font-size: 12px;
-    min-width: 10px;
-    min-height: 17px;
-    text-align: right;
-  } */
 
   @media (min-width: 768px) {
     margin-top: 30px;
@@ -87,23 +77,24 @@ export const InputBtnContainer = styled.div`
 export const AddImage = styled.div`
   height: 40px;
   width: 40px;
-  cursor: pointer;
-  align-self: flex-start;
+  cursor: ${({ $loading }) => ($loading ? "default" : "pointer")};
+  align-self: center;
   border: none;
   background-color: #fff;
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${PRIMARY_COLOR};
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${({ $loading }) => ($loading ? PRIMARY_COLOR : "#15a39a")};
+  }
 
   svg {
-    font-size: 20px;
-    fill: ${PRIMARY_COLOR};
-    transition: all 0.3s ease;
-
-    &:hover {
-      fill: #15a39a;
-    }
+    font-size: 35px;
+    fill: #fff;
   }
 `;
 
@@ -115,6 +106,9 @@ export const AddedImgContainer = styled.div`
   display: flex;
   overflow-x: scroll;
   border-radius: 5px;
+
+  justify-content: ${({$empty}) => $empty ? "center" : "flex-start"};
+  align-items: ${({$empty}) => $empty ? "center" : "flex-start"};
 `;
 
 export const ImgItemStyled = styled.div`
@@ -175,3 +169,12 @@ export const PrincipalImg = styled.div`
     line-height: 12px;
   }
 `;
+
+export const EmptyImages = styled.div`
+  p {
+    font-size: 20px;
+    color: #ccc;
+    font-weight: 500;
+    text-align: center;
+  }
+`

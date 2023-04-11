@@ -2,7 +2,6 @@ import React from "react";
 import { BtnContainer, ImgItemStyled, PrincipalImg } from "./styledProductImg";
 import { BsTrash3Fill as  Remove} from "react-icons/bs";
 
-
 const ImgItem = React.forwardRef((props, ref) => {
   const { img, removeImg, isPrincipal, ...rest } = props;
 

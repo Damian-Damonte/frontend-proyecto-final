@@ -1,4 +1,4 @@
-export const createProductValidations = (data, images) => {
+export const createProductValidations = (data) => {
   let errors = [];
   const isPriceNegative = Number(data.precioPorNoche) < 0;
   const isLatitudeValid =
@@ -6,7 +6,6 @@ export const createProductValidations = (data, images) => {
   const isLongitudeValid =
     Number(data.longitud) < -180 || Number(data.latitud) > 180;
   const caracteristics = data.caracteristicas;
-  const currentImages = Object.values(images);
 
   if (!data.nombre) errors.nombre = "Debe colocarle un nombre";
   else if (data.nombre.length < 6)
@@ -35,7 +34,6 @@ export const createProductValidations = (data, images) => {
   else if (data.precioPorNoche === 0)
     errors.precioPorNoche = "El precio por noche debe ser mayor a 0";
 
-
   if (!data.latitud) errors.latitud = "Debe colocar la latitud";
   else if (isLatitudeValid)
     errors.latitud = "La latitud no debe ser menor a -90 ni mayor a 90";
@@ -62,26 +60,9 @@ export const createProductValidations = (data, images) => {
   if (!data.politicas.politicaDeCancelacion)
     errors.politicaDeCancelacion = "Debe agregar políticas de cancelación";
 
-  if (!currentImages.length)
+
+  if (!data.imagenes.length)
     errors.imagenes = "El producto debe contener una imagen";
-  else {
-    const invalidUrl = imagesValidation(currentImages);
-    if (Object.keys(invalidUrl).length) errors.urlImagenes = invalidUrl;
-  }
 
   return errors;
-};
-
-const imagesValidation = (currentImages) => {
-  const httpRegex = /^http:\/\//i;
-  const httpsRegex = /^https:\/\//i;
-  let imagesErrors = {};
-
-  currentImages.forEach((img) => {
-    if (!httpRegex.test(img.url) && !httpsRegex.test(img.url)) {
-      imagesErrors[img.id] = "La url debe comenzar con http:// o https://";
-    }
-  });
-
-  return imagesErrors;
 };

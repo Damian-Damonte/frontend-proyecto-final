@@ -36,30 +36,21 @@ const productInitialForm = {
     saludYSeguridad: "",
     politicaDeCancelacion: "",
   },
-  imagenes: {},
+  imagenes: [],
 };
 
 export default function Administration() {
   const [productState, setProductState] = useState({});
   const [productForm, setProductForm] = useState(productInitialForm);
   const [errors, setErrors] = useState({});
-  const [images, setImages] = useState({});
+  const [images, setImages] = useState([]);
 
   const {
     user: { token },
   } = useContext(UserContext);
 
   const getPayload = () => {
-    // let caracteristicas = [];
     let politicas = [];
-
-    // if (productForm.caracteristicas.length) {
-    //   caracteristicas = productForm.caracteristicas
-    //     .filter((caract) => caract.caracteristicSelected !== null)
-    //     .map((caract) => {
-    //       return { id: caract.caracteristicSelected.id };
-    //     });
-    // }
 
     politicas.push({
       descripcion: productForm.politicas.normasDeLaCasa,
@@ -74,11 +65,9 @@ export default function Administration() {
       tipoPolitica: { id: 3 },
     });
 
-    const imagenes = Object.values(images)
-      .filter((img) => img.url !== "")
-      .map((img) => {
-        return { titulo: `Imagen ${img.id}`, url: img.url };
-      });
+    const imagenes = productForm.imagenes.map((img, index) => {
+      return { titulo: `imagen ${index}`, url: img.url, orden: index };
+    });
 
     const payload = {
       titulo: productForm.nombre,
@@ -89,7 +78,7 @@ export default function Administration() {
       categoria: productForm.categoria,
       ciudad: productForm.ciudad,
       caracteristicas: productForm.caracteristicas,
-      imagenes,
+      imagenes: imagenes,
       politicas,
       coordenadas: {
         latitud: productForm.latitud,
@@ -97,12 +86,15 @@ export default function Administration() {
       },
     };
 
+    console.log(payload);
+
     return payload;
   };
 
   const handleSubmit = () => {
     if (!productState.loading) {
-      const errors = createProductValidations(productForm, images);
+      const errors = createProductValidations(productForm);
+      console.log(errors);
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);
@@ -137,7 +129,7 @@ export default function Administration() {
                   images={images}
                   setImages={setImages}
                 /> */}
-                <ImgContainer />
+                <ImgContainer images={images} setImages={setImages} {...childProps} />
 
                 <SubmitContainer
                   $error={Object.keys(errors).length || productState.error}
