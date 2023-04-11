@@ -27,7 +27,6 @@ export default function BookingCard({ booking }) {
       categoria: { titulo: categoria },
       ciudad: {
         nombre: ciudad,
-        pais: { nombre: nombrePais },
       },
       imagenes,
     },

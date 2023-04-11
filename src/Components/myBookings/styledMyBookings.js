@@ -209,10 +209,7 @@ export const BookingCardsContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    /* display: grid; */
     grid-template-columns: repeat(auto-fit, minmax(266px, 266px));
-    /* column-gap: 25px;
-    row-gap: 30px; */
     justify-content: start;
     justify-items: center;
   }
@@ -304,8 +301,6 @@ export const IconContainer = styled.div`
   svg {
     fill: ${PURPLE2};
     width: 10px;
-    /* height: 10px; */
-    /* font-size: 30px; */
   }
 `;
 
