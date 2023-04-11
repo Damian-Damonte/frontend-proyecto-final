@@ -61,21 +61,32 @@ export default function ImgContainer({ productForm, setProductForm, errors  }) {
 
   const addImage = () => {
     if (!loading && currentUrl) {
-      setloading(true);
-      isValidImageUrl(currentUrl).then((isValid) => {
-        if (isValid) {
-          setError("");
-          setProductForm({...productForm, imagenes:[...imagenes, { id: uuid(), url: currentUrl }]})
-          setCurrentUrl("");
-        } else {
-          setError("La url ingresada no corresponde a una imagen accesible");
-        }
-        setloading(false);
-      });
+      
+      if(!repeatedImg(currentUrl)) {
+        setloading(true);
+
+        isValidImageUrl(currentUrl).then((isValid) => {
+          if (isValid) {
+            setError("");
+            setProductForm({...productForm, imagenes:[...imagenes, { id: uuid(), url: currentUrl }]})
+            setCurrentUrl("");
+          } else {
+            setError("La url ingresada no corresponde a una imagen accesible");
+          }
+          setloading(false);
+        });
+
+      } else {
+        setError("La url ingresada corresponde a una imagen que ya se encuentra cargada")
+      }
     } else if (!loading) {
       setError("Ingrese la url de la imagen");
     }
   };
+
+  const repeatedImg = (url) => {
+    return imagenes.some(img => img.url === url);
+  }
 
   return (
     <ImgContainerStyled>
