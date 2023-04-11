@@ -1,7 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import {
   BookingCardContainer,
-  DatesContainer,
+  BookingCardsContainer,
+  // BookingCardContainer,
+  // BookingCardsContainer,
+  // DatesContainer,
   ErrorMessageContainer,
   MyBookingsHeader,
   MyBookingsStyled,
@@ -18,6 +21,7 @@ import { apiDateToUserDate } from "../utils/dateFormater";
 import LoaderCircles from "../Components/common/loaderCircles/LoaderCircles";
 import { ReactComponent as Back } from "../img/icon-product-back.svg";
 import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
+import BookingCard from "../Components/myBookings/BookingCard";
 
 export default function MyBookings() {
   const [bookingsState, setBookingsState] = useState({});
@@ -68,7 +72,8 @@ export default function MyBookings() {
                   </NoBookingsContainer>
                 </NoBookings>
               ) : (
-                <ProductCardContainer>
+
+                /* <ProductCardContainer>
                   {bookingsState.bookings?.map((booking) => (
                     <BookingCardContainer key={booking.id}>
                       <DatesContainer>
@@ -85,7 +90,20 @@ export default function MyBookings() {
                       />
                     </BookingCardContainer>
                   ))}
-                </ProductCardContainer>
+                </ProductCardContainer> */
+                
+                 /* <BookingCardsContainer>
+                  <BookingCard />
+                </BookingCardsContainer>  */
+
+                <BookingCardsContainer>
+                  {bookingsState.bookings?.map(booking => (
+                    <BookingCard key={booking.id} booking={booking}/>
+                  ))}
+                </BookingCardsContainer>
+
+                
+
               )}
             </MyBookingsStyled>
           </MaxWidthContainer>

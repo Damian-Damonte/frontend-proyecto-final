@@ -192,3 +192,201 @@ export const ErrorMessageContainer = styled.div`
     margin-right: 5px;
   }
 `;
+
+export const BookingCardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    column-gap: 25px;
+    row-gap: 30px;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 1200px) {
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(266px, 266px));
+    /* column-gap: 25px;
+    row-gap: 30px; */
+    justify-content: start;
+    justify-items: center;
+  }
+`;
+
+export const BookingCardStyled = styled.div`
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  max-width: 350px;
+`;
+
+export const ImgContainer = styled.div`
+  height: 200px;
+  width: 100%;
+  height: 150px;
+  background-image: url(${({ $imgUrl }) => $imgUrl});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const BookingInfoContainer = styled.div`
+  width: 100%;
+  padding: 10px;
+
+  > p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    color: ${PURPLE2};
+    opacity: 0.5;
+  }
+
+  h3 {
+    color: ${PURPLE2};
+    font-weight: 700;
+    font-size: 20px;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  height: 54px;
+  display: flex;
+  align-items: center;
+
+  h3 {
+    color: ${PURPLE2};
+    font-weight: 700;
+    font-size: 20px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`
+
+export const LocationContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  height: 34px;
+
+  p {
+    font-weight: 500;
+    color: ${PURPLE2};
+    font-size: 13px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`;
+
+export const IconContainer = styled.div`
+  width: 10px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    fill: ${PURPLE2};
+    width: 10px;
+    /* height: 10px; */
+    /* font-size: 30px; */
+  }
+`;
+
+export const BookingDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 5px;
+
+  > div:nth-of-type(2) {
+
+    border-top: 1px solid rgba(56, 59, 88, 0.3);
+  }
+
+  > div:nth-of-type(3) {
+    border-top: 1px solid rgba(56, 59, 88, 0.3);
+    /* padding: 0 5px; */
+
+    p:first-child {
+      font-weight: 700;
+      color: ${PURPLE3};
+      font-size: 20px;
+    }
+
+    p:last-child {
+      color: ${PURPLE3};
+      font-size: 18px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+`;
+
+export const BookingDetail = styled.div`
+  /* border-top: 1px solid rgba(56, 59, 88, 0.3); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+
+  p:first-child {
+    font-weight: 700;
+    color: ${PURPLE3};
+    font-size: 16px;
+  }
+
+  p:last-child {
+    color: ${PURPLE3};
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    /* padding: 5px 10px; */
+  }
+
+  @media (min-width: 1024px) {
+    /* padding: 5px 5px; */
+  }
+`;
+
+export const BtnDetails = styled.button`
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: ${PRIMARY_COLOR};
+  color: #fff;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #15a39a;
+  }
+`;
