@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AdminHeader from "../Components/adminPage/adminHeader/AdminHeader";
 import CaracteristicsContainer from "../Components/adminPage/formContainer/caracteristics/CaracteristicsContainer";
 import Coordinates from "../Components/adminPage/formContainer/coordinates/Coordinates";
@@ -10,7 +10,6 @@ import { postProduct } from "../service/productos";
 import UserContext from "../context/user.context";
 import { LoaderClassicStyled } from "../Components/common/loaderClassic/styledLoaderClassic";
 import Policies from "../Components/adminPage/formContainer/policies/Policies";
-import ImagesContainer from "../Components/adminPage/formContainer/productImages/ImagesContainer";
 import {
   BtnSubmit,
   SubmitContainer,
@@ -18,7 +17,7 @@ import {
 import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
 import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
 import CaracteristicsContainer2 from "../Components/adminPage/formContainer/caracteristics2/CaracteristicsContainer2";
-import ImgContainer from "../Components/adminPage/formContainer/productImages2/ImgContainer";
+import ImgContainer from "../Components/adminPage/formContainer/productImages/ImgContainer";
 
 const productInitialForm = {
   nombre: "",
@@ -44,6 +43,10 @@ export default function Administration() {
   const [productForm, setProductForm] = useState(productInitialForm);
   const [errors, setErrors] = useState({});
   const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const {
     user: { token },
@@ -124,11 +127,6 @@ export default function Administration() {
                 {/* <CaracteristicsContainer {...childProps} /> */}
                 <CaracteristicsContainer2 {...childProps} />
                 <Policies {...childProps} />
-                {/* <ImagesContainer
-                  errors={errors}
-                  images={images}
-                  setImages={setImages}
-                /> */}
                 <ImgContainer images={images} setImages={setImages} {...childProps} />
 
                 <SubmitContainer
