@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as ShowPassword } from "../../img/show-password.svg";
 import { FormFieldStyled, InputPasswordContainer } from "./styledForms";
+import { BsEye as  Show} from "react-icons/bs";
 
 export default function FormPasswordField({
   fieldName,
@@ -31,7 +31,7 @@ export default function FormPasswordField({
           type="button"
           onClick={handleShowPassword}
         >
-          <ShowPassword />
+          <Show />
         </button>}
       </InputPasswordContainer>
     </FormFieldStyled>

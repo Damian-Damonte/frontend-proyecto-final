@@ -134,6 +134,7 @@ export const InputPasswordContainer = styled.div`
     svg {
       fill: ${({ $showPassword }) =>
         $showPassword ? PRIMARY_COLOR : "#607D8B"};
+      font-size: 22px;
     }
   }
 `;

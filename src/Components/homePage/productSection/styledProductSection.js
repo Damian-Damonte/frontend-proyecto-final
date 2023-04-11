@@ -466,35 +466,29 @@ export const BtnPrevNextMobile = styled.div`
 `;
 
 export const BtnRefreshRandom = styled.button`
-  background-color: #fff;
+  background-color: transparent;
   border: none;
-  height: 50px;
+  height: 43px;
   padding: 0 20px;
   border-radius: 5px;
   font-weight: 500;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); */
   transition: all 0.3s ease;
   cursor: pointer;
   font-size: 16px;
+  outline: 1px solid #fff;
+  color: #fff;
 
-  /* outline: 1px solid ${PRIMARY_COLOR};
-  color: ${PRIMARY_COLOR}; */
-  /* color: #000; */
-
-  /* &:hover {
-    color: #000;
-  } */
 
   @media (min-width: 768px) {
-    background-color: #fff;
-    /* outline: 1px solid ${PRIMARY_COLOR}; */
-    color: ${PRIMARY_COLOR};
-    color: #000;
-    transition: all 0.3s ease;
+    outline: 1px solid ${PURPLE2};
+    color: ${PURPLE2};
 
     &:hover {
-      /* color: #00d3c5; */
-      background-color: #eee;
+      /* background-color: #f7f7ff; */
+      background-color: #efeff7;
+      /* background-color: #eaeaf2; */
+      /* background-color: #f9f9f9; */
     }
   }
 `;
