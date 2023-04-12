@@ -89,15 +89,12 @@ export default function Administration() {
       },
     };
 
-    console.log(payload);
-
     return payload;
   };
 
   const handleSubmit = () => {
     if (!productState.loading) {
       const errors = createProductValidations(productForm);
-      console.log(errors);
       if (Object.keys(errors).length === 0) {
         setErrors({});
         postProduct(getPayload(), token, setProductState);

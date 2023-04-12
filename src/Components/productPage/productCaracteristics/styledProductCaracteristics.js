@@ -59,6 +59,8 @@ export const CaracteristicsContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: 10px 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+
   }
 
   @media (min-width: 1024px) {

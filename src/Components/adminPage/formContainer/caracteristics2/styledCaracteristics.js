@@ -20,8 +20,9 @@ export const CaracteristicsContainer = styled.div`
   row-gap: 15px;
   justify-content: space-between;
 
-  @media (min-width: 400px) {
+  @media (min-width: 420px) {
     display: grid;
+    column-gap: 10px;
   }
 `;
 
@@ -34,7 +35,7 @@ export const CaracteristicsPageContainer = styled.div`
   row-gap: 15px;
   justify-content: space-between;
 
-  @media (min-width: 400px) {
+  @media (min-width: 420px) {
     display: none;
   }
 `;
@@ -86,7 +87,7 @@ export const BtnPage = styled.button`
     color: red;
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 420px) {
     display: none;
   }
 `;
