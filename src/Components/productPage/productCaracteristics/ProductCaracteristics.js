@@ -6,7 +6,6 @@ import {
   ProductCaracteristicsStyled,
 } from "./styledProductCaracteristics";
 import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
-import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function ProductCaracteristics({ caracteristics }) {
   return (

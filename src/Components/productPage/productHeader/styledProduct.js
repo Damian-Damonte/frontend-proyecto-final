@@ -85,8 +85,8 @@ export const ProductLocationRatingHeader = styled.div`
   width: 100%;
 
   @media (max-width: 320px) {
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column;
+    align-items: center; */
     gap: 10px;
   }
 
@@ -103,13 +103,15 @@ export const LocationContainer = styled.div`
   max-width: 57%;
   align-items: center;
   gap: 5px;
+  /* width: calc(100% - 121px); */
+  width: fit-content;
 
-  @media (max-width: 320px) {
+  /* @media (max-width: 320px) {
     max-width: 100%;
   }
   @media (min-width: 768px) {
     max-width: 100%;
-  }
+  } */
 `;
 
 export const TextLocationContainer = styled.div`
@@ -144,8 +146,12 @@ export const IconContainer = styled.div`
 
 export const RatingContainer = styled.div`
   display: flex;
+  column-gap: 10px;
+  width: fit-content;
+  flex-wrap: wrap-reverse;
   align-items: center;
-  gap: 10px;
+  justify-content: flex-end;
+
 
   > p {
     color: #fff;
@@ -161,6 +167,7 @@ export const RatingContainer = styled.div`
     font-weight: 700;
   }
 `;
+
 export const OpinionStarsContainer = styled.div`
   color: ${PURPLE3};
   font-size: 14px;

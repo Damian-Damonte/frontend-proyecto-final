@@ -49,6 +49,7 @@ export default function ProductHeader({
 
       <MaxWidthContainer>
         <ProductLocationRatingHeader>
+        
           <LocationContainer>
             <IconContainer>
               <Location />
@@ -58,19 +59,22 @@ export default function ProductHeader({
               <p>{direccion}</p>
             </TextLocationContainer>
           </LocationContainer>
+
           <RatingContainer>
             <OpinionStarsContainer>
               <p>{getRaitingScale(promedioPuntuacion)}</p>
-              <div>
+              {/* <div>
                 <StarFull />
                 <StarFull />
                 <StarFull />
                 <StarFull />
                 <StarFull />
-              </div>
+              </div> */}
             </OpinionStarsContainer>
             <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
           </RatingContainer>
+
+
         </ProductLocationRatingHeader>
       </MaxWidthContainer>
 
