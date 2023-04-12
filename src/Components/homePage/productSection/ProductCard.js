@@ -22,8 +22,6 @@ import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper
 import { getRaitingScale } from "../../../utils/raitingScaleMapper";
 import { LoaderClassicStyled } from "../../common/loaderClassic/styledLoaderClassic";
 import { useProductFav } from "../../../hooks/useProductFav";
-import { HiOutlineEllipsisHorizontal as  Ellipsis} from "react-icons/hi2";
-
 
 export default function ProductCard({ product, isFav }) {
   const { loadingCard, handleFav, loadingContext } = useProductFav();
@@ -39,7 +37,7 @@ export default function ProductCard({ product, isFav }) {
     promedioPuntuacion,
     direccion,
     coordenadas: { latitud, longitud },
-    precioPorNoche
+    precioPorNoche,
   } = product;
 
   const navigateProduct = () => {
@@ -47,15 +45,10 @@ export default function ProductCard({ product, isFav }) {
   };
 
   const getCaracteristics = () => {
-    const caracteristics = caracteristicas.map((caract) => (
+    const caracteristics = caracteristicas.slice(0, 9);
+    return caracteristics.map((caract) => (
       <div key={caract.id}>{caracteristicIconMapper(caract.nombre)}</div>
     ));
-
-    if (caracteristics.length > 9) {
-      caracteristics.pop();
-      caracteristics.push(<div><Ellipsis /></div>);
-    }
-    return caracteristics;
   };
 
   const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
