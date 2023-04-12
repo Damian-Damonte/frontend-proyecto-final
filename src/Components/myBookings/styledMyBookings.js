@@ -307,8 +307,8 @@ export const IconContainer = styled.div`
 export const BookingDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  gap: 5px;
+  margin-top: 10px;
+  /* gap: 5px; */
 
   > div:nth-of-type(2) {
 
@@ -316,7 +316,7 @@ export const BookingDetailsContainer = styled.div`
   }
 
   > div:nth-of-type(3) {
-    border-top: 1px solid rgba(56, 59, 88, 0.3);
+    /* border-top: 1px solid rgba(56, 59, 88, 0.3); */
     /* padding: 0 5px; */
 
     p:first-child {
@@ -339,7 +339,7 @@ export const BookingDetail = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 6px;
   gap: 5px;
 
   p:first-child {

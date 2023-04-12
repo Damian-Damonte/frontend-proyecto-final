@@ -321,9 +321,9 @@ export const PriceContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-top: 15px;
-  border-top: 1px solid #e5ebf0;
+  /* border-top: 1px solid #e5ebf0;
   border-bottom: 1px solid #e5ebf0;
-  padding: 2px 0;
+  padding: 2px 0; */
 
   h3 {
     color: ${PURPLE2};
@@ -370,9 +370,11 @@ export const Pager = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: ${({ $random }) => ($random ? "center" : "space-between")};
+  justify-content: center;
   max-width: 450px;
-  @media (max-width: 370px) {
+  gap: 40px;
+
+  @media (max-width: 500px) {
     flex-direction: column;
     gap: 10px;
   }
@@ -394,62 +396,104 @@ export const BtnPageNumber = styled.button`
   border: none;
   height: 30px;
   width: 30px;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: ${({ $selected }) => ($selected ? "auto" : "pointer")};
-  background-color: ${({ $selected }) => ($selected ? PRIMARY_COLOR : "#fff")};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${({ $selected }) => ($selected ? "#fff" : "transparent")};
   font-weight: 700;
-
-  &:hover {
-    background-color: ${({ $selected }) =>
-      $selected ? PRIMARY_COLOR : "#f7f7f7"};
-  }
+  color: ${({ $selected }) => ($selected ? "#000" : "#fff" )};
 
   @media (min-width: 768px) {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     font-size: 16px;
+    background-color: ${({ $selected }) =>
+      $selected ? PURPLE2 : "transparent"};
+    color: ${({ $selected }) => ($selected ? "#fff" : "#000" )};
+
+    &:hover {
+      background-color: ${({ $selected }) =>
+        $selected ? PRIMARY_COLOR : "#f7f7f7"};
+    }
   }
 `;
 
 export const BtnNextPrev = styled.button`
-  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
   border: none;
   height: 30px;
   padding: 0 5px;
   border-radius: 5px;
-  font-weight: 500;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-
-  &:hover {
-    background-color: #e7e7e7;
-    background-color: #f7f7f7;
-  }
 
   &:disabled {
     cursor: auto;
   }
 
+  svg {
+    font-size: 28px;
+    fill: #fff;
+  }
+
+  p {
+    font-weight: 500;
+    line-height: 8px;
+    color: #fff;
+  }
+
   ${({ $disabled }) => {
     if ($disabled) {
       return css`
-        color: #ccc;
-        cursor: auto;
-        &:hover {
-          background-color: #fff;
+        p {
+          color: #888;
+        }
+
+        svg {
+          fill: #888;
         }
       `;
     }
   }};
 
-  @media (max-width: 370px) {
+  @media (max-width: 500px) {
     display: none;
   }
   @media (min-width: 768px) {
     height: 40px;
     padding: 0 20px;
     font-size: 16px;
+
+    &:hover {
+      background-color: #e7e7e7;
+      background-color: #f7f7f7;
+    }
+
+    p {
+      color: #000;
+    }
+
+    svg {
+      fill: #000;
+    }
+
+    ${({ $disabled }) => {
+    if ($disabled) {
+      return css`
+        cursor: auto;
+        p {
+          color: #aaa;
+        }
+        svg {
+          fill: #aaa;
+        }
+        &:hover {
+          background-color: transparent;
+        }
+      `;
+    }
+  }};
   }
 `;
 
@@ -458,10 +502,12 @@ export const BtnPrevNextMobile = styled.div`
 
   button {
     display: inline-block;
+    color: #fff;
   }
-  @media (max-width: 370px) {
+
+  @media (max-width: 500px) {
     display: flex;
-    gap: 10px;
+    gap: 20px;
   }
 `;
 
@@ -472,23 +518,18 @@ export const BtnRefreshRandom = styled.button`
   padding: 0 20px;
   border-radius: 5px;
   font-weight: 500;
-  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25); */
   transition: all 0.3s ease;
   cursor: pointer;
   font-size: 16px;
   outline: 1px solid #fff;
   color: #fff;
 
-
   @media (min-width: 768px) {
     outline: 1px solid ${PURPLE2};
     color: ${PURPLE2};
 
     &:hover {
-      /* background-color: #f7f7ff; */
       background-color: #efeff7;
-      /* background-color: #eaeaf2; */
-      /* background-color: #f9f9f9; */
     }
   }
 `;

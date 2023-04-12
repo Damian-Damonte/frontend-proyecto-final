@@ -7,6 +7,8 @@ import {
   PageNumberContainer,
   Pager,
 } from "./styledProductSection";
+import { MdNavigateBefore as Prev } from "react-icons/md";
+import { MdNavigateNext as Next } from "react-icons/md";
 
 export default function ProductoPages({
   pageData,
@@ -88,15 +90,20 @@ export default function ProductoPages({
         ) : (
           <>
             <BtnNextPrev onClick={prevPage} $disabled={currentPage <= 0}>
-              Anterior
+            <Prev />
+            <p>Anterior</p>
+              
             </BtnNextPrev>
             <PageNumberContainer>{getPageNumbers()}</PageNumberContainer>
             <BtnNextPrev
               onClick={nextPage}
               $disabled={currentPage >= totalPages - 1}
             >
-              Siguiente
+            <p>Siguiente</p>
+              
+              <Next />
             </BtnNextPrev>
+
             <BtnPrevNextMobile>
               <BtnNextPrev onClick={prevPage} $disabled={currentPage <= 0}>
                 Anterior

@@ -63,7 +63,7 @@ export default function BookingCard({ booking }) {
             <p>{apiDateToUserDate(checkOut)}</p>
           </BookingDetail>
           <BookingDetail>
-            <p>Total</p>
+            <p></p>
             <p>{`$ ${total.toLocaleString()}`}</p>
           </BookingDetail>
         </BookingDetailsContainer>
