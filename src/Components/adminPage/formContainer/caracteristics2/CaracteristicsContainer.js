@@ -6,13 +6,13 @@ import {
   ErrorMessage,
   PageBtnContainer,
 } from "./styledCaracteristics";
-import Caracteristic2 from "./Caracteristic2";
+import Caracteristic from "./Caracteristic";
 import useFetch from "../../../../hooks/useFetch";
 import CaracteristicsPage from "./CaracteristicsPage";
 import { MdNavigateBefore as Prev } from "react-icons/md";
 import { MdNavigateNext as Next } from "react-icons/md";
 
-export default function CaracteristicsContainer2({
+export default function CaracteristicContainer({
   productForm,
   setProductForm,
   errors,
@@ -84,7 +84,7 @@ export default function CaracteristicsContainer2({
         <>
           <CaracteristicsContainer>
             {allCaracteristics.map((caract) => (
-              <Caracteristic2
+              <Caracteristic
                 key={caract.id}
                 caracteristica={caract}
                 isChecked={isChecked(caract)}

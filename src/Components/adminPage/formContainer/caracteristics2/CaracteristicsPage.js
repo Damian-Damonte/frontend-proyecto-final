@@ -1,12 +1,12 @@
 import React from 'react'
-import Caracteristic2 from './Caracteristic2'
+import Caracteristic from './Caracteristic'
 import { CaracteristicsPageContainer } from './styledCaracteristics';
 
 export default function CaracteristicsPage({ page, isChecked, handleCheck }) {
   return (
     <CaracteristicsPageContainer>
       {page.map((caract) => (
-            <Caracteristic2
+            <Caracteristic
               key={caract.id}
               caracteristica={caract}
               isChecked={isChecked(caract)}

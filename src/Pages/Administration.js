@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import AdminHeader from "../Components/adminPage/adminHeader/AdminHeader";
-import CaracteristicsContainer from "../Components/adminPage/formContainer/caracteristics/CaracteristicsContainer";
 import Coordinates from "../Components/adminPage/formContainer/coordinates/Coordinates";
 import FormContainer from "../Components/adminPage/formContainer/FormContainer";
 import GeneralInfo from "../Components/adminPage/formContainer/formGeneralInfo/GeneralInfo";
@@ -16,7 +15,7 @@ import {
 } from "../Components/adminPage/formContainer/styledFormContainer";
 import CreatedSuccessfully from "../Components/adminPage/createdSuccessfully/CreatedSuccessfully";
 import { MaxWidthContainer } from "../Components/common/maxWidthContainer/styledMaxWidthContainer";
-import CaracteristicsContainer2 from "../Components/adminPage/formContainer/caracteristics2/CaracteristicsContainer2";
+import CaracteristicContainer from "../Components/adminPage/formContainer/caracteristics2/CaracteristicsContainer";
 import ImgContainer from "../Components/adminPage/formContainer/productImages/ImgContainer";
 
 const productInitialForm = {
@@ -121,8 +120,7 @@ export default function Administration() {
               <FormContainer>
                 <GeneralInfo {...childProps} />
                 <Coordinates {...childProps} />
-                {/* <CaracteristicsContainer {...childProps} /> */}
-                <CaracteristicsContainer2 {...childProps} />
+                <CaracteristicContainer {...childProps} />
                 <Policies {...childProps} />
                 <ImgContainer images={images} setImages={setImages} {...childProps} />
 
