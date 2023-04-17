@@ -11,6 +11,7 @@ import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 import { dateToUserDate } from "../../../utils/dateFormater";
 import ProductoPages from "./ProductoPages";
 import UserContext from "../../../context/user.context";
+import ProductSectionSkeleton from "./skeleton/ProductSectionSkeleton";
 
 export default function ProductContainer({
   lastSearchParams,
@@ -49,9 +50,7 @@ export default function ProductContainer({
     <WidthLimitContainer>
       <ProductContainerStyled>
         {loading && (
-          <LoaderContainer>
-            <LoaderCircles />
-          </LoaderContainer>
+          <ProductSectionSkeleton />
         )}
 
         {products &&

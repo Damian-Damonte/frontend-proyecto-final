@@ -321,9 +321,6 @@ export const PriceContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-top: 15px;
-  /* border-top: 1px solid #e5ebf0;
-  border-bottom: 1px solid #e5ebf0;
-  padding: 2px 0; */
 
   h3 {
     color: ${PURPLE2};
