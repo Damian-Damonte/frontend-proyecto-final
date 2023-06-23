@@ -5,7 +5,7 @@ import FormUserData from "./formUserData/FormUserData";
 import { FormSectionStyled } from "./styledFormSection";
 
 export default function FormSection({
-  reservas,
+  bookings,
   formData,
   setFormData,
   formErrors,
@@ -20,7 +20,7 @@ export default function FormSection({
         user={user}
       />
       <FormDatePicker
-        reservas={reservas}
+        bookings={bookings}
         formData={formData}
         setFormData={setFormData}
         formErrors={formErrors}

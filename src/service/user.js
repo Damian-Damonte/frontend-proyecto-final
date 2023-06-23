@@ -10,5 +10,5 @@ export const getUserBookings = async (userId, token, setBookingsState) => {
 
   response.error
     ? setBookingsState({ bookings: null, loading: false, error: response.error })
-    : setBookingsState({ bookings: response.data.reservas, loading: false, error: null });
+    : setBookingsState({ bookings: response.data.bookings, loading: false, error: null });
 };

@@ -5,7 +5,7 @@ const authLogin = async (payload) => {
 };
 
 const authSingUp = async (payload) => {
-  return await post("/auth/registro", payload);
+  return await post("/auth/register", payload);
 };
 
 export { authLogin, authSingUp };

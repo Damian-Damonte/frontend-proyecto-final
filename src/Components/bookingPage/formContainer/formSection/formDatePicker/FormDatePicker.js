@@ -3,7 +3,7 @@ import DatepickerBooking from "./datePicker/DatePickerBooking";
 import { FormDatePickerContainer } from "./StyledFormDatePicker";
 
 export default function FormDatePicker({
-  reservas,
+  bookings,
   formData,
   setFormData,
   formErrors
@@ -12,7 +12,7 @@ export default function FormDatePicker({
     <FormDatePickerContainer>
       <h3>Seleccioná tu fecha de reserva</h3>
       <DatepickerBooking
-        reservas={reservas}
+        bookings={bookings}
         formData={formData}
         setFormData={setFormData}
         formErrors={formErrors}

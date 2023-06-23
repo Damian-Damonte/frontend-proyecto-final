@@ -36,23 +36,20 @@ export default function Booking() {
     data: product,
     loading: loadingProducto,
     error: errorProducto,
-  } = useFetch(`/productos/${id}`);
+  } = useFetch(`/products/${id}`);
   const { booking, loading: loadingBooking } = bookingState;
 
   const getRequestPayload = () => {
     return {
       checkIn: dateToApiDate(formData.checkIn),
       checkOut: dateToApiDate(formData.checkOut),
-      horaLlegada: formData.arribalTime,
-      ciudadUsuario: formData.city,
-      datosExtra: formData.addInfo,
-      vacunaCovid: formData.covidVaccine,
-      producto: {
+      arrivalTime: formData.arribalTime,
+      userCity: formData.city,
+      additionalNote: formData.addInfo,
+      covidVaccine: formData.covidVaccine,
+      product: {
         id: id,
-      },
-      usuario: {
-        id: user.id,
-      },
+      }
     };
   };
 
@@ -90,7 +87,7 @@ export default function Booking() {
               user={user}
             />
             <AddInfoCovid formData={formData} setFormData={setFormData} />
-            <BookingProductPolicies policies={product.politicas} />
+            <BookingProductPolicies policies={product.policies} />
           </>
         )}
         {errorProducto && (

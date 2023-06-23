@@ -28,29 +28,29 @@ export default function ProductDetailsSection({
 }) {
   const { checkIn, checkOut } = formData;
   const {
-    imagenes,
-    categoria: { titulo: categoryTitle },
-    titulo: productTitle,
-    direccion,
-    ciudad: {
-      nombre: cityName,
-      pais: { nombre: countryName },
+    images,
+    category: { name: categoryName },
+    title: productTitle,
+    address,
+    city: {
+      name: cityName,
+      country: { name: countryName },
     },
-    precioPorNoche,
+    pricePerNight,
   } = product;
 
   const getTotal = () => {
     if (!checkIn || !checkOut) {
       return "-----";
     } else if (checkIn.getTime() === checkOut.getTime()) {
-      return `$ ${precioPorNoche.toLocaleString()}`;
+      return `$ ${pricePerNight.toLocaleString()}`;
     } else {
       const unDiaEnMilisegundos = 86400000;
       const diferenciaEnMilisegundos = Math.abs(checkIn - checkOut);
       const diferenciaEnDias = Math.ceil(
         diferenciaEnMilisegundos / unDiaEnMilisegundos
       );
-      return `$ ${(diferenciaEnDias * precioPorNoche).toLocaleString()}`;
+      return `$ ${(diferenciaEnDias * pricePerNight).toLocaleString()}`;
     }
   };
 
@@ -61,11 +61,11 @@ export default function ProductDetailsSection({
         <h3>Detalle de la reserva</h3>
 
         <DetailsImgContainer>
-          <ImgContainer $imgUrl={imagenes[0].url} />
+          <ImgContainer $imgUrl={images[0].url} />
 
           <DetailsContainer>
             <ProductDetailsContainer>
-              <p>{categoryTitle.toUpperCase()}</p>
+              <p>{categoryName.toUpperCase()}</p>
               <h4>{productTitle}</h4>
 
               {/* <StarsContainer>
@@ -80,13 +80,13 @@ export default function ProductDetailsSection({
                 <IconContainer>
                   <Location />
                 </IconContainer>
-                <p>{`${direccion}, ${cityName}, ${countryName}`}</p>
+                <p>{`${address}, ${cityName}, ${countryName}`}</p>
               </LocationContainer>
             </ProductDetailsContainer>
             <CheckInCheckOutContainer>
               <CheckInCheckOut>
                 <p>Precio base por noche</p>
-                <p>{`$ ${precioPorNoche.toLocaleString()}`}</p>
+                <p>{`$ ${pricePerNight.toLocaleString()}`}</p>
               </CheckInCheckOut>
               <CheckInCheckOut>
                 <p>Check in</p>

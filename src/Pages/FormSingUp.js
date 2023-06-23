@@ -50,8 +50,8 @@ export default function FormSingIn() {
     setLoading(true);
 
     const payload = {
-      nombre: formData.firstName,
-      apellido: formData.lastName,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
       password: formData.password,
     };

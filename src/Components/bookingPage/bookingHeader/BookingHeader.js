@@ -5,7 +5,7 @@ import { ReactComponent as Back } from "../../../img/icon-product-back.svg";
 import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
 export default function BookingHeader({ product }) {
-  const { categoria, titulo } = product;
+  const { category, title } = product;
 
   const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ export default function BookingHeader({ product }) {
       <MaxWidthContainer $bgcolor="#545776">
         <ProductNameHeader>
           <div>
-            <p>{categoria?.titulo.toUpperCase()}</p>
-            <h3>{titulo}</h3>
+            <p>{category?.name.toUpperCase()}</p>
+            <h3>{title}</h3>
           </div>
           <Back onClick={goBack} />
         </ProductNameHeader>

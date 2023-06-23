@@ -13,7 +13,6 @@ export const useUserDataStorage = () => {
     setUser(userData);
 
     getUserData(userData.id, userData.token).then((res) => {
-      console.log(res);
       res.error 
         ? renderToast("error", "Error al cargar los favoritos. Por favor, intente más tarde")
         : setFavs(res.data.favorites);

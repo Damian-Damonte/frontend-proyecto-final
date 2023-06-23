@@ -17,7 +17,7 @@ export default function FormBookingContainer({
     <MaxWidthContainer>
       <FormBookingContainerStyled>
         <FormSection
-          reservas={product.reservas}
+          bookings={product.bookings}
           formData={formData}
           setFormData={setFormData}
           formErrors={formErrors}
