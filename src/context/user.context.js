@@ -23,7 +23,7 @@ export function UserProvider({ children }) {
         getUserData(userData.id, userData.token).then((res) => {
           res.error
             ? renderToast("error", "Error al cargar los favoritos. Por favor, intente más tarde")
-            : setFavs(res.data.favoritos);
+            : setFavs(res.data.favorites);
         });
       }
     }

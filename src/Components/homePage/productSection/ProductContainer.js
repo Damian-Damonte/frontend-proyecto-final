@@ -26,6 +26,7 @@ export default function ProductContainer({
   const { favs } = useContext(UserContext);
 
   const isProductFav = (id) => {
+    console.log(favs);
     return favs.some((fav) => id === fav.id);
   };
 

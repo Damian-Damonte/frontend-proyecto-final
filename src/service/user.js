@@ -1,7 +1,7 @@
 import { get } from "./api";
 
 export const getUserData = async (userId, token) => {
-  return await get(`/usuarios/${userId}`, token);
+  return await get(`/users/${userId}`, token);
 };
 
 export const getUserBookings = async (userId, token, setBookingsState) => {
