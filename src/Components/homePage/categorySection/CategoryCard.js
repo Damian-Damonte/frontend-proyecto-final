@@ -8,7 +8,7 @@ export default function CategoryCard({
 }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const { id, titulo, urlImagen, cantProductos } = categoria;
+  const { id, name, imageUrl, productsCount } = categoria;
 
   const handleImageLoad = () => {
     setImageLoaded(true);
@@ -21,11 +21,11 @@ export default function CategoryCard({
       $imgLoad={imageLoaded}
     >
       <div></div>
-      <img src={urlImagen} alt={titulo} onLoad={handleImageLoad} />
+      <img src={imageUrl} alt={name} onLoad={handleImageLoad} />
       <div></div>
-      <h3>{titulo}</h3>
+      <h3>{name}</h3>
       <p>
-        {cantProductos} {titulo}
+        {productsCount} {name}
       </p>
     </CategoryCardStyled>
   );

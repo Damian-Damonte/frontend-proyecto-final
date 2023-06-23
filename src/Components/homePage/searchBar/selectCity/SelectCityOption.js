@@ -6,13 +6,13 @@ import {
 import { ReactComponent as IconOptionCity } from "../../../../img/icon-option-city.svg";
 
 export default function SelectCityOption({ city, handleSelectCity }) {
-  const {id, nombre, pais:{nombre:paisNombre}} = city;
+  const { name, country:{name:countryName}} = city;
   return (
     <SelectCityOptionStyled onClick={() => handleSelectCity(city)}>
       <IconOptionCity />
       <SelectCityOptionNames>
-        <p>{nombre}</p>
-        <p>{paisNombre}</p>
+        <p>{name}</p>
+        <p>{countryName}</p>
       </SelectCityOptionNames>
     </SelectCityOptionStyled>
   );

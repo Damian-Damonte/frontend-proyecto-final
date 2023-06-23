@@ -6,11 +6,10 @@ import {
   WidthLimitContainer,
 } from "./styledCategory";
 import useFetch from "../../../hooks/useFetch";
-import LoaderCircles from "../../common/loaderCircles/LoaderCircles";
 import CategoryContainerSkeleton from "./CategoryContainerSkeleton";
 
 export default function CategoryContainer({ searchParams, searchProducts }) {
-  const { data: categorys, loading, error } = useFetch("/categorias");
+  const { data: categorys, loading, error } = useFetch("/categories");
 
   const selectCategory = (category) => {
     searchParams.category?.id === category.id
@@ -22,7 +21,6 @@ export default function CategoryContainer({ searchParams, searchProducts }) {
     <WidthLimitContainer>
       <CategoryContainerStyled>
         <h2>Busca por tipo de alojamiento</h2>
-        {/* {loading && <LoaderCircles />} */}
         {loading && <CategoryContainerSkeleton />}
         {categorys && (
           <CardContainer>
@@ -36,7 +34,7 @@ export default function CategoryContainer({ searchParams, searchProducts }) {
             ))}
           </CardContainer>
         )}
-        {/* <CategorySkeleton /> */}
+      
         {error && (
           <ErrorCategory>
             <img src="/assets/icon-warning.svg" alt="question icon" />

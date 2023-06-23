@@ -20,19 +20,19 @@ export default function SelectCityContainer({
 }) {
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
-  const { data: citys, loading, error } = useFetch("/ciudades");
+  const { data: citys, loading, error } = useFetch("/cities");
 
   const matchCity = (city) => {
     const cityAndContry =
-      city.nombre.toLocaleLowerCase() +
+      city.name.toLocaleLowerCase() +
       ", " +
-      city.pais.nombre.toLocaleLowerCase();
+      city.country.name.toLocaleLowerCase();
     return cityAndContry.includes(citySearchText.toLocaleLowerCase());
   };
 
   const handleSelectCity = (city) => {
     setSearchParams({ ...searchParams, city: city });
-    setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
+    setCitySearchText(`${city.name}, ${city.country.name}`);
   };
 
   const handleChangeCityText = (e) => {

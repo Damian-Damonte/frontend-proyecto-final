@@ -29,15 +29,16 @@ export default function ProductCard({ product, isFav }) {
 
   const {
     id,
-    titulo,
-    descripcion,
-    imagenes,
-    categoria: { titulo: tituloCat },
-    caracteristicas,
-    promedioPuntuacion,
-    direccion,
-    coordenadas: { latitud, longitud },
-    precioPorNoche,
+    title,
+    description,
+    images,
+    category: { name: categoryName },
+    amenities,
+    averageRating,
+    address,
+    latitude, 
+    longitude,
+    pricePerNight,
   } = product;
 
   const navigateProduct = () => {
@@ -45,18 +46,18 @@ export default function ProductCard({ product, isFav }) {
   };
 
   const getCaracteristics = () => {
-    const caracteristics = caracteristicas.slice(0, 9);
+    const caracteristics = amenities.slice(0, 9);
     return caracteristics.map((caract) => (
       <div key={caract.id}>{caracteristicIconMapper(caract.nombre)}</div>
     ));
   };
 
-  const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitud},${longitud}`;
+  const urlMap = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
 
   return (
     <ProductCardStyled>
       <ProductImgContainer
-        $imgUrl={imagenes[0].url}
+        $imgUrl={images[0].url}
         $isFav={isFav}
         $loadingContext={loadingContext}
       >
@@ -80,16 +81,16 @@ export default function ProductCard({ product, isFav }) {
         <div>
           <CategoryRatingContainer>
             <CategoryStarsContainer>
-              <p>{tituloCat}</p>
+              <p>{categoryName}</p>
             </CategoryStarsContainer>
             <RatingContainer>
-              <p>{promedioPuntuacion ? promedioPuntuacion : "-"} </p>
-              <p>{getRaitingScale(promedioPuntuacion)}</p>
+              <p>{averageRating ? averageRating : "-"} </p>
+              <p>{getRaitingScale(averageRating)}</p>
             </RatingContainer>
           </CategoryRatingContainer>
 
           <TitleContainer>
-            <h3>{titulo}</h3>
+            <h3>{title}</h3>
           </TitleContainer>
 
           <ProductCardLocationContainer>
@@ -97,7 +98,7 @@ export default function ProductCard({ product, isFav }) {
               <Location />
             </IconContainer>
             <DirectionContainer>
-              <p>{direccion}</p>
+              <p>{address}</p>
               <a target="_blank" href={urlMap} rel="noopener noreferrer">
                 MOSTRAR EN EL MAPA
               </a>
@@ -109,13 +110,13 @@ export default function ProductCard({ product, isFav }) {
           </ProductCardCaracteristics>
 
           <ProductCardDescription>
-            <p>{descripcion}</p>
+            <p>{description}</p>
           </ProductCardDescription>
         </div>
 
         <PriceContainer>
           <p>Precio base por noche</p>
-          <h3>$ {precioPorNoche.toLocaleString()}</h3>
+          <h3>$ {pricePerNight.toLocaleString()}</h3>
         </PriceContainer>
 
         <BtnDetails onClick={navigateProduct}>Ver detalles</BtnDetails>

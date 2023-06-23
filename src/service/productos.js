@@ -49,7 +49,7 @@ const getFilteredProducts = async (
 const getRandomProducts = async (setProductState, setShowPager) => {
   setProductState({ products: null, loading: true, error: null });
 
-  const response = await get("/productos/random");
+  const response = await get("/products/random");
   if (response.error) {
     setProductState({ products: null, loading: false, error: response.error });
   } else {
