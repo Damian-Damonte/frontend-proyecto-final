@@ -7,13 +7,13 @@ import { apiDateToDate } from "../../../../utils/dateFormater";
 
 registerLocale("es", es);
 
-export default function DatepickerBooking({ reservas }) {
+export default function DatepickerBooking({ bookings }) {
   const { width } = useWindowSize(300);
 
-  const excludeDates = reservas.map((rev) => {
+  const excludeDates = bookings.map((booking) => {
     return {
-      start: apiDateToDate(rev.checkIn),
-      end: apiDateToDate(rev.checkOut),
+      start: apiDateToDate(booking.checkIn),
+      end: apiDateToDate(booking.checkOut),
     };
   });
 

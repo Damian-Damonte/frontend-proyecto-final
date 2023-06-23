@@ -10,7 +10,7 @@ import { routes } from "../../../Routes";
 import { useContext } from "react";
 import { MaxWidthContainer } from "../../common/maxWidthContainer/styledMaxWidthContainer";
 
-export default function ProductBooking({ reservas }) {
+export default function ProductBooking({ bookings }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
@@ -29,7 +29,7 @@ export default function ProductBooking({ reservas }) {
       <ProductBookingContainer>
         <h3>Fechas disponibles</h3>
         <BookingSection>
-          <DatepickerBooking reservas={reservas} />
+          <DatepickerBooking bookings={bookings} />
           <BtnBookingContainer>
             <p>Agregá tus fechas de viaje para obtener precios exactos</p>
             <button onClick={toBookingPage}>Iniciar reserva</button>

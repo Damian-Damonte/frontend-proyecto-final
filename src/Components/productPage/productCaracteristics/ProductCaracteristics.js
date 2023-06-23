@@ -7,16 +7,16 @@ import {
 } from "./styledProductCaracteristics";
 import { caracteristicIconMapper } from "../../../utils/catacteristicsIconMapper";
 
-export default function ProductCaracteristics({ caracteristics }) {
+export default function ProductCaracteristics({ amenities }) {
   return (
       <ProductCaracteristicsStyled>
         <h3>¿Qué ofrece este lugar?</h3>
         <LineaDivisoria></LineaDivisoria>
         <CaracteristicsContainer>
-          {caracteristics.map((caract) => (
-            <Caracteristic key={caract.id}>
-              {caracteristicIconMapper(caract.nombre)}
-              <p>{caract.nombre}</p>
+          {amenities.map((amenity) => (
+            <Caracteristic key={amenity.id}>
+              {caracteristicIconMapper(amenity.name)}
+              <p>{amenity.name}</p>
             </Caracteristic>
           ))}
         </CaracteristicsContainer>

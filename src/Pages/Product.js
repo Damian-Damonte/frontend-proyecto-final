@@ -19,7 +19,7 @@ export default function Product() {
   const { favs } = useContext(UserContext);
   const { loadingCard, handleFav } = useProductFav();
 
-  const { data: product, loading, error } = useFetch(`/productos/${id}`);
+  const { data: product, loading, error } = useFetch(`/products/${id}`);
   const isFav = favs.some((fav) => fav.id === Number(id));
 
   const handleShare = () => {
@@ -44,26 +44,28 @@ export default function Product() {
             loadingCard={loadingCard}
           />
           <ProductoGalleryMobile
-            images={product?.imagenes}
+            images={product?.images}
             handleFav={handleFav}
             handleShare={handleShare}
             product={product}
             isFav={isFav}
             loadingCard={loadingCard}
           />
-          <ProductGalleryDesktop images={product.imagenes} />
+          <ProductGalleryDesktop images={product.images} />
           <ProductDescription
-            title={product.tituloDescripcion}
-            description={product.descripcion}
+            title={product.titleDescription}
+            description={product.description}
           />
-          <ProductCaracteristics caracteristics={product.caracteristicas} />
-          <ProductBooking reservas={product.reservas} />
+          <ProductCaracteristics amenities={product.amenities} />
+          <ProductBooking bookings={product.bookings} />
           <ProductLocation
-            coordinates={product.coordenadas}
-            city={product.ciudad}
+            // coordinates={product.coordenadas}
+            latitude={product.latitude}
+            longitude={product.longitude}
+            city={product.city}
           />
-          {product.politicas.length !== 0 && (
-            <ProductPolicies policies={product.politicas} />
+          {product.policies.length !== 0 && (
+            <ProductPolicies policies={product.policies} />
           )}
         </>
       )}

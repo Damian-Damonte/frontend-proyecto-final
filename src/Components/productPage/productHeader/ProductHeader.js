@@ -29,7 +29,7 @@ export default function ProductHeader({
   loadingCard,
 }) {
   const navigate = useNavigate();
-  const { categoria, ciudad, titulo, direccion, promedioPuntuacion, precioPorNoche } = product;
+  const { category, city, title, address, averageRating, pricePerNight } = product;
 
   const goBack = () => {
     navigate(-1);
@@ -40,8 +40,8 @@ export default function ProductHeader({
       <MaxWidthContainer $bgcolor="#545776">
         <ProductNameHeader>
           <div>
-            <p>{categoria.titulo.toUpperCase()}</p>
-            <h3>{titulo}</h3>
+            <p>{category.name.toUpperCase()}</p>
+            <h3>{title}</h3>
           </div>
           <Back onClick={goBack} />
         </ProductNameHeader>
@@ -55,14 +55,14 @@ export default function ProductHeader({
               <Location />
             </IconContainer>
             <TextLocationContainer>
-              <p>{`${ciudad.nombre}, ${ciudad.pais.nombre}`}</p>
-              <p>{direccion}</p>
+              <p>{`${city.name}, ${city.country.name}`}</p>
+              <p>{address}</p>
             </TextLocationContainer>
           </LocationContainer>
 
           <RatingContainer>
             <OpinionStarsContainer>
-              <p>{getRaitingScale(promedioPuntuacion)}</p>
+              <p>{getRaitingScale(averageRating)}</p>
               {/* <div>
                 <StarFull />
                 <StarFull />
@@ -71,7 +71,7 @@ export default function ProductHeader({
                 <StarFull />
               </div> */}
             </OpinionStarsContainer>
-            <p>{promedioPuntuacion ? promedioPuntuacion : "-"}</p>
+            <p>{averageRating ? averageRating : "-"}</p>
           </RatingContainer>
 
 
@@ -97,7 +97,7 @@ export default function ProductHeader({
           </BtnShareFavContainer>
           <PriceContainer>
             <p>Precio base por noche</p>
-            <h4>{`$ ${precioPorNoche.toLocaleString()}`}</h4>
+            <h4>{`$ ${pricePerNight.toLocaleString()}`}</h4>
           </PriceContainer>
         </BtnsPriceContainer>
       </MaxWidthContainer>

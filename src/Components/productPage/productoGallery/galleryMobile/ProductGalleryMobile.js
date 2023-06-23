@@ -17,7 +17,7 @@ export default function ProductoGalleryMobile({
 }) {
   const galleryItems = images?.map((img) => ({
     original: img.url,
-    thumbnail: img.url,
+    thumbnail: img.title,
   }));
 
   return (

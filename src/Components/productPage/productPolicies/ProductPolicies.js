@@ -8,11 +8,11 @@ import { v4 as uuid } from "uuid";
 
 
 export default function ProductPolicies({ policies }) {
-  const policiesByType = policies.reduce((acc, politica) => {
-    if (!acc[politica.tipoPolitica.nombre]) {
-      acc[politica.tipoPolitica.nombre] = [];
+  const policiesByType = policies.reduce((acc, policy) => {
+    if (!acc[policy.policyType.name]) {
+      acc[policy.policyType.name] = [];
     }
-    acc[politica.tipoPolitica.nombre].push(politica);
+    acc[policy.policyType.name].push(policy);
     return acc;
   }, {});
 
@@ -32,7 +32,7 @@ export default function ProductPolicies({ policies }) {
             <h4>{type}</h4>
             <div>
               {policiesByType[type].map((policy) => (
-                paragraphToPolicy(policy.descripcion)
+                paragraphToPolicy(policy.description)
               ))}
             </div>
           </div>

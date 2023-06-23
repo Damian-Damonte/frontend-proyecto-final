@@ -32,7 +32,7 @@ export default function ProductGalleryDesktop({ images }) {
         <MaxWidthContainer $bgcolor="#fff">
           <GalleryDesktopContainer $countImg={imgGrid.length}>
             {imgGrid.map((img) => (
-              <ImgWithSkeleton url={img.url} alt={img.titulo} key={img.id} />
+              <ImgWithSkeleton url={img.url} alt={img.title} key={img.id} />
             ))}
 
             <p onClick={handleShowGallery}>Ver más</p>
