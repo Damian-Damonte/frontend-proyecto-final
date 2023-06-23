@@ -2,11 +2,11 @@ import { get, post } from "./api";
 import { dateToApiDate } from "../utils/dateFormater";
 
 const getFilterQueryParams = (page, searchParams) => {
-  let finalPath = `/productos/filters?page=${page}`;
+  let finalPath = `/products/filters?page=${page}`;
   let queryParams = [];
   const objectParams = {
-    ciudadId: searchParams.city?.id,
-    categoriaId: searchParams.category?.id,
+    cityId: searchParams.city?.id,
+    categoryId: searchParams.category?.id,
     checkIn: searchParams?.startDate && dateToApiDate(searchParams?.startDate),
     checkOut: searchParams?.endDate && dateToApiDate(searchParams?.endDate),
   };

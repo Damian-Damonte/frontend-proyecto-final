@@ -26,7 +26,6 @@ export default function ProductContainer({
   const { favs } = useContext(UserContext);
 
   const isProductFav = (id) => {
-    console.log(favs);
     return favs.some((fav) => id === fav.id);
   };
 
@@ -38,8 +37,8 @@ export default function ProductContainer({
     if (allSearchParamsNull) return title;
     else title = customText;
 
-    if (city) title += ` en ${city.nombre}, ${city.pais.nombre}`;
-    if (category) title += ` de tipo ${category.titulo}`;
+    if (city) title += ` en ${city.name}, ${city.country.name}`;
+    if (category) title += ` de tipo ${category.name}`;
     if (startDate && endDate)
       title += ` entre ${dateToUserDate(startDate)} y ${dateToUserDate(
         endDate
