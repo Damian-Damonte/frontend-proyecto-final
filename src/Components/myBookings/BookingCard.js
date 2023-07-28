@@ -20,15 +20,15 @@ export default function BookingCard({ booking }) {
   const {
     checkIn,
     checkOut,
-    producto: {
+    product: {
       id: productoId,
-      direccion,
-      titulo: nombreProducto,
-      categoria: { titulo: categoria },
-      ciudad: {
-        nombre: ciudad,
+      address,
+      title: productTitle,
+      category: { name: category },
+      city: {
+        name: cityName,
       },
-      imagenes,
+      images,
     },
     total,
   } = booking;
@@ -39,18 +39,18 @@ export default function BookingCard({ booking }) {
 
   return (
     <BookingCardStyled>
-      <ImgContainer $imgUrl={imagenes[0].url}></ImgContainer>
+      <ImgContainer $imgUrl={images[0].url}></ImgContainer>
       <BookingInfoContainer>
-        <p>{categoria}</p>
+        <p>{category}</p>
         <TitleContainer>
-          <h3>{nombreProducto}</h3>
+          <h3>{productTitle}</h3>
         </TitleContainer>
 
         <LocationContainer>
           <IconContainer>
             <Location />
           </IconContainer>
-          <p>{`${direccion}, ${ciudad}`}</p>
+          <p>{`${address}, ${cityName}`}</p>
         </LocationContainer>
 
         <BookingDetailsContainer>

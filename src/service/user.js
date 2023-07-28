@@ -6,9 +6,9 @@ export const getUserData = async (userId, token) => {
 
 export const getUserBookings = async (userId, token, setBookingsState) => {
   setBookingsState({ bookings: null, loading: true, error: null });
-  const response = await get(`/usuarios/${userId}`, token);
+  const response = await get(`/bookings/user/${userId}`, token);
 
   response.error
     ? setBookingsState({ bookings: null, loading: false, error: response.error })
-    : setBookingsState({ bookings: response.data.bookings, loading: false, error: null });
+    : setBookingsState({ bookings: response.data, loading: false, error: null });
 };
