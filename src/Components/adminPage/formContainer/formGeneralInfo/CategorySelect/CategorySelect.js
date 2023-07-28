@@ -8,7 +8,7 @@ import { ReactComponent as InputArrow } from "../../../../../img/icon-bottom-arr
 import useFetch from "../../../../../hooks/useFetch";
 
 export default function CategorySelect({ productForm, setProductForm }) {
-  const { data: categorys, loading, error } = useFetch("/categorias");
+  const { data: categorys, loading, error } = useFetch("/categories");
   const [showSelect, setShowSelect] = useState(false);
 
   const handleShowSelect = () => {
@@ -20,8 +20,8 @@ export default function CategorySelect({ productForm, setProductForm }) {
   };
 
   return (
-    <CategorySelectStyled onClick={handleShowSelect} $empty={productForm.categoria?.titulo}>
-      <p>{productForm.categoria?.titulo || "Seleccione una categoría"}</p>
+    <CategorySelectStyled onClick={handleShowSelect} $empty={productForm.categoria?.name}>
+      <p>{productForm.categoria?.name || "Seleccione una categoría"}</p>
 
       <CategoryOptionContainer
         $show={showSelect}
@@ -39,7 +39,7 @@ export default function CategorySelect({ productForm, setProductForm }) {
               key={cat.id}
               onClick={() => handleSelectCategory(cat)}
             >
-              <p>{cat.titulo}</p>
+              <p>{cat.name}</p>
             </CategoryOption>
           ))}
 

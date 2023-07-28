@@ -10,13 +10,13 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
   const [showSelect, setShowSelect] = useState(false);
   const [citySearchText, setCitySearchText] = useState("");
   const [citysFilter, setCitysFilter] = useState([]);
-  const { data: citys, loading, error } = useFetch("/ciudades");
+  const { data: citys, loading, error } = useFetch("/cities");
 
   const matchCity = (city) => {
     const cityAndContry =
-      city.nombre.toLocaleLowerCase() +
+      city.name.toLocaleLowerCase() +
       ", " +
-      city.pais.nombre.toLocaleLowerCase();
+      city.country.name.toLocaleLowerCase();
     return cityAndContry.includes(citySearchText.toLocaleLowerCase());
   };
 
@@ -38,7 +38,7 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
 
   const handleSelectCity = (city) => {
     setProductForm({ ...productForm, ciudad: city });
-    setCitySearchText(`${city.nombre}, ${city.pais.nombre}`);
+    setCitySearchText(`${city.name}, ${city.country.name}`);
   };
 
   const handleShowSelect = () => {
@@ -80,7 +80,7 @@ export default function CitySelectContainer({ productForm, setProductForm }) {
           (citysFilter.length > 0 ? (
             citysFilter.map((city) => (
               <CityOption key={city.id} onClick={() => handleSelectCity(city)}>
-                <p>{`${city.nombre}, ${city.pais.nombre}`}</p>
+                <p>{`${city.name}, ${city.country.name}`}</p>
               </CityOption>
             ))
           ) : (

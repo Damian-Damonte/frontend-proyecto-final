@@ -21,7 +21,7 @@ export default function CaracteristicContainer({
     data: allCaracteristics,
     loading,
     error,
-  } = useFetch("/caracteristicas");
+  } = useFetch("/amenities");
 
   const [pages, setPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);

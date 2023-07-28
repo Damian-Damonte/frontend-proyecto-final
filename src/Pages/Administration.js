@@ -52,40 +52,42 @@ export default function Administration() {
   } = useContext(UserContext);
 
   const getPayload = () => {
-    let politicas = [];
+    let policies = [];
 
-    politicas.push({
-      descripcion: productForm.politicas.normasDeLaCasa,
-      tipoPolitica: { id: 1 },
+    policies.push({
+      description: productForm.politicas.normasDeLaCasa,
+      policyType: { id: 1 },
     });
-    politicas.push({
-      descripcion: productForm.politicas.politicaDeCancelacion,
-      tipoPolitica: { id: 2 },
+    policies.push({
+      description: productForm.politicas.politicaDeCancelacion,
+      policyType: { id: 2 },
     });
-    politicas.push({
-      descripcion: productForm.politicas.saludYSeguridad,
-      tipoPolitica: { id: 3 },
+    policies.push({
+      description: productForm.politicas.saludYSeguridad,
+      policyType: { id: 3 },
     });
 
     const imagenes = productForm.imagenes.map((img, index) => {
-      return { titulo: `imagen ${index}`, url: img.url, orden: index };
+      return { title: `image ${index}`, url: img.url, order: index };
     });
 
     const payload = {
-      titulo: productForm.nombre,
-      tituloDescripcion: productForm.titulo,
-      descripcion: productForm.descripcion,
-      direccion: productForm.direccion,
-      precioPorNoche: productForm.precioPorNoche,
-      categoria: productForm.categoria,
-      ciudad: productForm.ciudad,
-      caracteristicas: productForm.caracteristicas,
-      imagenes: imagenes,
-      politicas,
-      coordenadas: {
-        latitud: productForm.latitud,
-        longitud: productForm.longitud,
-      },
+      title: productForm.nombre,
+      titleDescription: productForm.titulo,
+      description: productForm.descripcion,
+      address: productForm.direccion,
+      pricePerNight: productForm.precioPorNoche,
+      category: productForm.categoria,
+      city: productForm.ciudad,
+      amenities: productForm.caracteristicas,
+      images: imagenes,
+      policies,
+      latitude: productForm.latitud,
+      longitude: productForm.longitud
+      // coordenadas: {
+      //   latitud: productForm.latitud,
+      //   longitud: productForm.longitud,
+      // },
     };
 
     return payload;

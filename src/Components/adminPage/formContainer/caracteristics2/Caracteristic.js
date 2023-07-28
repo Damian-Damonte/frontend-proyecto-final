@@ -9,7 +9,7 @@ export default function Caracteristic({ caracteristica, isChecked, handleCheck }
         ? <Check />
         : <IconContainer $check={isChecked}></IconContainer>
       }
-      <p onClick={handleCheck}>{caracteristica.nombre}</p>
+      <p onClick={handleCheck}>{caracteristica.name}</p>
     </CaracteristicStyled>
   );
 }

@@ -65,7 +65,7 @@ const productFav = async (productId, token) => {
 const postProduct = async (payload, token, setProductState) => {
   setProductState({ product: null, loading: true, error: null });
 
-  const response = await post("/productos", payload, token);
+  const response = await post("/products", payload, token);
 
   response.error
     ? setProductState({ product: null, loading: false, error: response.error })
