@@ -58,8 +58,8 @@ const getRandomProducts = async (setProductState, setShowPager) => {
   }
 };
 
-const productFav = async (payload, token) => {
-  return post("/usuarios/favoritos", payload, token);
+const productFav = async (productId, token) => {
+  return post(`/users/favorites/${productId}`, {}, token);
 };
 
 const postProduct = async (payload, token, setProductState) => {

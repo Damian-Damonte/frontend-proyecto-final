@@ -14,16 +14,16 @@ export const useProductFav = () => {
   } = useContext(UserContext);
 
   const handleFav = (producto) => {
-    const payload = {
-      usuarioId: user.id,
-      productoId: producto.id,
-    };
+    // const payload = {
+    //   usuarioId: user.id,
+    //   productoId: producto.id,
+    // };
 
     if (!loadingContext && user.token) {
       setLoadingCard(true);
       setLoadingContext(true);
-
-      productFav(payload, user.token).then((res) => {
+      
+      productFav(producto.id, user.token).then((res) => {
         !res.error
           ? handleFavContext(producto)
           : renderToast("error", "Se ha producido un error al guardar el producto en favoritos. Por favor, intente de nuevo más tarde")
